@@ -1,0 +1,695 @@
+:root {
+    /* 서비스 특성에 맞게 변경해서 사용*/
+    /* 
+        The point color
+        * brand(accent) color
+            * primary color : main brand color - usable 60% ~ 70%;
+            * action color : interaction element - Usually, It is complementary to the main brand color.
+        * text color
+            * text black : main text, title
+            * text body : description, paragraph, sub text
+        * background color
+        * action color : touchable element
+        * border : bordering element
+        * disabled : disabled element
+    */
+
+    /* 
+        이거 가져다 쓰세요.
+        --color-primary: inherit;
+        --color-primary__dark: inherit;
+        --color-primary__light: inherit;
+        --color-primary__sub: inherit;
+        --color-action: inherit;
+        --color-complementary: inherit;
+        --color-text__title: inherit;
+        --color-text__paragraph: inherit;
+        --color-text__placeholder: inherit;
+        --color-text__disabled: inherit;
+        --color-background__gray: inherit;
+        --color-background__primary: inherit;
+        --color-background__action: inherit;
+        --color-background__disabled: inherit;
+        --color-border: inherit; 
+    */
+
+
+    /* 여기서 부터 가급적 변경 금지 */
+
+    /* 
+        ================================================================
+            1. 사이즈 
+        ================================================================  
+    */
+
+    /* 
+        Mobile 1: 360 x 640.
+        Mobile 2: 375 x 667.
+        Mobile 3: 360 x 720.
+        iPhone X: 375 x 812.
+        Pixel 2: 411 x 731.
+        Tablet: 768 x 1024.
+        Laptop: 1366 x 768.
+        desktop 1: 1024 x 768.
+        desktop 2: 1200 x 800.
+        desktop 3: 1440 x 1080.
+        desktop 4: 1600 x 1080.
+        High-res laptop or desktop: 1920 x 1080.
+    */
+
+    /* Break point */
+    --breakpoint__xs: 320px;
+    --breakpoint__sm: 360px;
+    --breakpoint__md: 768px;
+    --breakpoint__lg: 1024px;
+    --breakpoint__xl: 1440px;
+    --breakpoint__xxl: 1600px;
+    --breakpoint__xxxl: 1920px;
+
+    /* max width */
+    /* 0 ~ 319 */
+    --max-width__xs: calc(var(--breakpoint__xs) - 1rem);
+    /* 360 => 320 */
+    --max-width__sm: calc(var(--breakpoint__sm) - 2.5rem);
+    /* 768 => 680 */
+    --max-width__md: calc(var(--breakpoint__md) - 5.5rem);
+    /* 1024 => 960 */
+    --max-width__lg: calc(var(--breakpoint__lg) - 4rem);
+    /* 1440 => 1328 */
+    --max-width__xl: calc(var(--breakpoint__xl) - 7rem);
+    --max-width__xxl: calc(var(--breakpoint__xxl) - 10rem);
+    --max-width__xxxl: var(--breakpoint__xxl);
+
+    /*  
+        ================================================================
+            2. 컬러 
+        ================================================================  
+    */
+
+    /* 
+        The achromatic color
+        * black
+        * white
+        * gray
+    */
+    --color-black: black;
+    --color-white: white;
+    --color-black__off: rgba(13, 13, 13, 1);
+    --color-white__off: rgba(245, 245, 245, 1);
+    --color-beige__100: #F5F3F1;
+    --color-beige__200: #DFD8D3;
+    --color-beige__300: #C3B6AC;
+    --color-beige__400: #AE9C8E;
+    --color-beige__500: #998271;
+    --color-beige__600: #7D695A;
+    --color-beige__700: #5F5044;
+    --color-beige__800: #41372F;
+    --color-beige__900: #241E1A;
+    --color-grey__100: #F5F6F8;
+    --color-grey__200: #D8DCE4;
+    --color-grey__300: #BAC1CF;
+    --color-grey__400: #9CA6BA;
+    --color-grey__500: #7E8BA5;
+    --color-grey__600: #63718D;
+    --color-grey__700: #4E596F;
+    --color-grey__800: #394151;
+    --color-grey__900: #242933;
+    --color-gray__100: #FAFAFA;
+    --color-gray__200: #E0E0E0;
+    --color-gray__300: #C7C7C7;
+    --color-gray__400: #ADADAD;
+    --color-gray__500: #949494;
+    --color-gray__600: #7A7A7A;
+    --color-gray__700: #616161;
+    --color-gray__800: #474747;
+    --color-gray__900: #2E2E2E;
+
+    /* 
+        three primary colors - 색의 3원색
+        * red
+        * green
+        * blue
+    */
+    --color-red__100: #FFE5EA;
+    --color-red__200: #FFB3C0;
+    --color-red__300: #FF8096;
+    --color-red__400: #FF4C6D;
+    --color-red__500: #FF1A43;
+    --color-red__600: #E50029;
+    --color-red__700: #B20020;
+    --color-red__800: #800017;
+    --color-red__900: #4D000E;
+    --color-green__100: #F6FDF8;
+    --color-green__200: #EDFAF1;
+    --color-green__300: #CAEFD4;
+    --color-green__400: #A6E5B8;
+    --color-green__500: #83DB9C;
+    --color-green__600: #4ECB71;
+    --color-green__700: #3AAF5B;
+    --color-green__800: #269645;
+    --color-green__900: #115825;
+    --color-blue__100: #DADBFB;
+    --color-blue__200: #ACAFF6;
+    --color-blue__300: #7E82F1;
+    --color-blue__400: #5056ED;
+    --color-blue__500: #232BE8;
+    --color-blue__600: #141BC2;
+    --color-blue__700: #0F1594;
+    --color-blue__800: #0B0E66;
+    --color-blue__900: #060837;
+
+    /* 
+        three mixed colors - 3원색 혼합
+        * yellow
+        * purple
+        * cyan
+    */
+    --color-yellow__100: #FFFDE7;
+    --color-yellow__200: #FFFDB3;
+    --color-yellow__300: #FFFB80;
+    --color-yellow__400: #FFFA4C;
+    --color-yellow__500: #FFF81A;
+    --color-yellow__600: #E5DE00;
+    --color-yellow__700: #B2AD00;
+    --color-yellow__800: #807C00;
+    --color-yellow__900: #4D4A00;
+    --color-purple__100: #FEF6FE;
+    --color-purple__200: #F8C8F9;
+    --color-purple__300: #F399F5;
+    --color-purple__400: #ED6BF0;
+    --color-purple__500: #E73DEB;
+    --color-purple__600: #DA17DE;
+    --color-purple__700: #AD12B0;
+    --color-purple__800: #7F0D81;
+    --color-purple__900: #520953;
+    --color-cyan__100: #D0F3FB;
+    --color-cyan__200: #A0E7F8;
+    --color-cyan__300: #70DBF5;
+    --color-cyan__400: #40CFF2;
+    --color-cyan__500: #11C3EE;
+    --color-cyan__600: #0D9CBF;
+    --color-cyan__700: #0A758F;
+    --color-cyan__800: #074E5F;
+    --color-cyan__900: #032730;
+
+    /* 
+        additional colors - 확장색
+        * skyblue
+
+    */
+    --color-skyblue__100: #e2f1fd;
+    --color-skyblue__200: #b1dafb;
+    --color-skyblue__300: #81c3f8;
+    --color-skyblue__400: #51abf6;
+    --color-skyblue__500: #2094f3;
+    --color-skyblue__600: #0b7ad5;
+    --color-skyblue__700: #095fa5;
+    --color-skyblue__800: #064374;
+    --color-skyblue__900: #042744;
+
+    /*
+        The four basic web colors - 의미있는 컬러
+        * 'danger' gives users an 'alert' - 위험
+        * 'warning' is a light warning. The user may ignore this color. - 주의
+        * 'info' is used for the purpose of providing information. It stands out. - 안내
+        * 'disabled' : 'disabled' sign color - 비활성
+    */
+    --color-danger: var(--color-red__500);
+    --color-success: var(--color-green__500);
+    --color-warning: var(--color-yellow__500);
+    --color-info: var(--color-skyblue__500);
+    --color-disabled: var(--color-grey__500);
+
+    /*  
+        ================================================================
+            2. 컬러 
+        ================================================================  
+    */
+
+    /* font size */
+    --font-size__xxxs: 10px;
+    --font-size__xxs: 12px;
+    --font-size__xs: 14px;
+    --font-size__sm: 15px;
+    --font-size__md: 16px;
+    --font-size__lg: 18px;
+    --font-size__xl: 20px;
+    --font-size__xxl: 24px;
+    --font-size__xxxl: 32px;
+
+    /* font weight */
+    --font-weight__100: 100;
+    --font-weight__200: 200;
+    --font-weight__300: 300;
+    --font-weight__400: 400;
+    --font-weight__500: 500;
+    --font-weight__600: 600;
+    --font-weight__700: 700;
+    --font-weight__800: 800;
+    --font-weight__900: 900;
+    --font-weight__bolder: bolder;
+    --font-weight__lighter: lighter;
+
+    --font-weight__light: var(--font-weight__200);
+    --font-weight__regular: var(--font-weight__400);
+    --font-weight__medium: var(--font-weight__500);
+    --font-weight__bold: var(--font-weight__600);
+    --font-weight__black: var(--font-weight__900);
+
+    /* line height */
+    --line-height__xxs: 1;
+    --line-height__xs: 1.25;
+    --line-height__sm: 1.35;
+    --line-height__md: 1.5;
+    --line-height__lg: 1.6;
+    --line-height__xl: 1.75;
+    --line-height__xxl: 1.8;
+    --line-height__xxxl: 2;
+
+    /* letter spacing */
+    --letter-spacing__xxs: -0.125;
+    --letter-spacing__xs: -0.25;
+    --letter-spacing__sm: -0.375;
+    --letter-spacing__md: -0.5;
+    --letter-spacing__lg: -0.675;
+    --letter-spacing__xl: -0.75;
+    --letter-spacing__xxl: -0.875;
+    --letter-spacing__xxxl: -1;
+
+    --font-size__head-1: 30px;
+    --font-weight__bolder: bolder;
+    --line-height__head-1: 1.4;
+    --letter-spacing__head-1: -0.25;
+    --font-size__head_2: 26px;
+    --font-weight__bolder: bolder;
+    --line-height__head-2: 1.4;
+    --letter-spacing__head-2: -0.25;
+    --font-size__title-1: 24px;
+    --font-weight__bolder: bolder;
+    --line-height__title-1: 1.4;
+    --letter-spacing__title-1: -0.25;
+    --font-size__title-2: 22px;
+    --font-weight__bolder: bolder;
+    --line-height__title-2: 1.5;
+    --letter-spacing__title-2: -0.25;
+    --font-size__subtitle-1: 20px;
+    --font-weight__bolder: bolder;
+    --line-height__subtitle-1: 1.5;
+    --letter-spacing__subtitle-1: -0.25;
+    --font-size__subtitle-2: 18px;
+    --font-weight__bolder: bolder;
+    --line-height__subtitle-2: 1.5;
+    --letter-spacing__subtitle-2: -0.25;
+    --font-size__subtitle-3: 16px;
+    --font-weight__bolder: bolder;
+    --line-height__subtitle-3: 1.5;
+    --letter-spacing__subtitle-3: -0.25;
+    --font-size__subtitle-4: 14px;
+    --font-weight__bolder: bolder;
+    --line-height__subtitle-4: 1.5;
+    --letter-spacing__subtitle-4: -0.25;
+    --font-size__body-1: 16px;
+    --font-weight__bolder: medium;
+    --line-height__body-1: 1.8;
+    --letter-spacing__body-1: -0.25;
+    --font-size__body-2: 14px;
+    --font-weight__bolder: medium;
+    --line-height__body-2: 1.5;
+    --letter-spacing__body-2: -0.25;
+    --font-size__body-3: 13px;
+    --font-weight__bolder: medium;
+    --line-height__body-3: 1.5;
+    --letter-spacing__body-3: -0.25;
+    --font-size__detail: 12px;
+    --font-weight__bolder: bolder;
+    --line-height__detail: 1.5;
+    --letter-spacing__detail: -0.25;
+    --font-size__button: 16px;
+    --font-weight__bolder: bolder;
+    --line-height__button: 1.5;
+    --letter-spacing__button: -0.25;
+
+    /* component & asset 1rem = 16px; */
+
+    /* 
+        1 : 1rem
+        2 : 2rem
+        3 : 3rem
+        4 : 4rem
+        5 : 5rem
+        10 : 10px
+        15 : 15px
+        20 : 20px
+        25 : 25px
+        30 : 30px
+        35 : 35px
+        40 : 40px
+        45 : 45px
+        50 : 50px
+        60 : 60px
+        70 : 70px
+        80 : 80px
+        90 : 90px
+        100 : 100px
+
+        xs : 0.5rem
+        sm : 0.75rem
+        md : 1rem
+        lg : 1.25rem
+        xl : 1.5rem
+    */
+    --rem_md: 0rem;
+    /* -8px */
+    --rem_xs: -0.5rem;
+    /* -4px */
+    --rem_sm: -0.25rem;
+    /* +4px */
+    --rem_lg: +0.25rem;
+    /* +8px */
+    --rem_xl: +0.5rem;
+
+    /* border */
+    --border-gray__1: 1px solid var(--color-gray__300);
+    --border-gray__2: 2px solid var(--color-gray__300);
+    --border-gray__3: 3px solid var(--color-gray__300);
+    --border-lightgray__1: 1px solid var(--color-gray__200);
+    --border-lightgray__2: 2px solid var(--color-gray__200);
+    --border-lightgray__3: 3px solid var(--color-gray__200);
+    --border-black__1: 1px solid var(--color-black__off);
+    --border-black__2: 2px solid var(--color-black__off);
+    --border-black__3: 3px solid var(--color-black__off);
+    --border-white__1: 1px solid var(--color-white__off);
+    --border-white__2: 2px solid var(--color-white__off);
+    --border-white__3: 3px solid var(--color-white__off);
+    --border-danger__1: 1px solid var(--color-danger);
+    --border-danger__2: 2px solid var(--color-danger);
+    --border-danger__3: 3px solid var(--color-danger);
+    --border-success__1: 1px solid var(--color-success);
+    --border-success__2: 2px solid var(--color-success);
+    --border-success__3: 3px solid var(--color-success);
+    --border-warning__1: 1px solid var(--color-warning);
+    --border-warning__2: 2px solid var(--color-warning);
+    --border-warning__3: 3px solid var(--color-warning);
+
+    /* border radius */
+    --curved: 5px;
+    --rounded: 25px;
+    --circle: 50%;
+
+    --shadow: 0 3px 6px rgba(13, 13, 13, 0.16);
+}
+
+/* old mobile and wearable  */
+@media all and (min-width: 280px) and (max-width: 359px) {
+    :root {}
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width:576px) {
+    :root {
+        --font-size__head-1: 30px;
+        --font-weight__bolder: bolder;
+        --line-height__head-1: 1.4;
+        --letter-spacing__head-1: -0.25;
+        --font-size__head_2: 26px;
+        --font-weight__bolder: bolder;
+        --line-height__head-2: 1.4;
+        --letter-spacing__head-2: -0.25;
+        --font-size__title-1: 24px;
+        --font-weight__bolder: bolder;
+        --line-height__title-1: 1.4;
+        --letter-spacing__title-1: -0.25;
+        --font-size__title-2: 22px;
+        --font-weight__bolder: bolder;
+        --line-height__title-2: 1.5;
+        --letter-spacing__title-2: -0.25;
+        --font-size__subtitle-1: 20px;
+        --font-weight__bolder: bolder;
+        --line-height__subtitle-1: 1.5;
+        --letter-spacing__subtitle-1: -0.25;
+        --font-size__subtitle-2: 18px;
+        --font-weight__bolder: bolder;
+        --line-height__subtitle-2: 1.5;
+        --letter-spacing__subtitle-2: -0.25;
+        --font-size__subtitle-3: 16px;
+        --font-weight__bolder: bolder;
+        --line-height__subtitle-3: 1.5;
+        --letter-spacing__subtitle-3: -0.25;
+        --font-size__subtitle-4: 14px;
+        --font-weight__bolder: bolder;
+        --line-height__subtitle-4: 1.5;
+        --letter-spacing__subtitle-4: -0.25;
+        --font-size__body-1: 16px;
+        --font-weight__bolder: medium;
+        --line-height__body-1: 1.8;
+        --letter-spacing__body-1: -0.25;
+        --font-size__body-2: 14px;
+        --font-weight__bolder: medium;
+        --line-height__body-2: 1.5;
+        --letter-spacing__body-2: -0.25;
+        --font-size__body-3: 13px;
+        --font-weight__bolder: medium;
+        --line-height__body-3: 1.5;
+        --letter-spacing__body-3: -0.25;
+        --font-size__detail: 12px;
+        --font-weight__bolder: bolder;
+        --line-height__detail: 1.5;
+        --letter-spacing__detail: -0.25;
+        --font-size__button: 16px;
+        --font-weight__bolder: bolder;
+        --line-height__button: 1.5;
+        --letter-spacing__button: -0.25;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width:768px) {
+    :root {
+        --font-size__head-1: 30px;
+        --font-weight__bolder: bolder;
+        --line-height__head-1: 1.4;
+        --letter-spacing__head-1: -0.25;
+        --font-size__head_2: 26px;
+        --font-weight__bolder: bolder;
+        --line-height__head-2: 1.4;
+        --letter-spacing__head-2: -0.25;
+        --font-size__title-1: 24px;
+        --font-weight__bolder: bolder;
+        --line-height__title-1: 1.4;
+        --letter-spacing__title-1: -0.25;
+        --font-size__title-2: 22px;
+        --font-weight__bolder: bolder;
+        --line-height__title-2: 1.5;
+        --letter-spacing__title-2: -0.25;
+        --font-size__subtitle-1: 20px;
+        --font-weight__bolder: bolder;
+        --line-height__subtitle-1: 1.5;
+        --letter-spacing__subtitle-1: -0.25;
+        --font-size__subtitle-2: 18px;
+        --font-weight__bolder: bolder;
+        --line-height__subtitle-2: 1.5;
+        --letter-spacing__subtitle-2: -0.25;
+        --font-size__subtitle-3: 16px;
+        --font-weight__bolder: bolder;
+        --line-height__subtitle-3: 1.5;
+        --letter-spacing__subtitle-3: -0.25;
+        --font-size__subtitle-4: 14px;
+        --font-weight__bolder: bolder;
+        --line-height__subtitle-4: 1.5;
+        --letter-spacing__subtitle-4: -0.25;
+        --font-size__body-1: 16px;
+        --font-weight__bolder: medium;
+        --line-height__body-1: 1.8;
+        --letter-spacing__body-1: -0.25;
+        --font-size__body-2: 14px;
+        --font-weight__bolder: medium;
+        --line-height__body-2: 1.5;
+        --letter-spacing__body-2: -0.25;
+        --font-size__body-3: 13px;
+        --font-weight__bolder: medium;
+        --line-height__body-3: 1.5;
+        --letter-spacing__body-3: -0.25;
+        --font-size__detail: 12px;
+        --font-weight__bolder: bolder;
+        --line-height__detail: 1.5;
+        --letter-spacing__detail: -0.25;
+        --font-size__button: 16px;
+        --font-weight__bolder: bolder;
+        --line-height__button: 1.5;
+        --letter-spacing__button: -0.25;
+    }
+}
+
+/* Large devices (small desktops and laptop, 992px and up) */
+@media screen and (min-width:992px) {
+    :root {
+        --font-size__head-1: 30px;
+        --font-weight__bolder: bolder;
+        --line-height__head-1: 1.4;
+        --letter-spacing__head-1: -0.25;
+        --font-size__head_2: 26px;
+        --font-weight__bolder: bolder;
+        --line-height__head-2: 1.4;
+        --letter-spacing__head-2: -0.25;
+        --font-size__title-1: 24px;
+        --font-weight__bolder: bolder;
+        --line-height__title-1: 1.4;
+        --letter-spacing__title-1: -0.25;
+        --font-size__title-2: 22px;
+        --font-weight__bolder: bolder;
+        --line-height__title-2: 1.5;
+        --letter-spacing__title-2: -0.25;
+        --font-size__subtitle-1: 20px;
+        --font-weight__bolder: bolder;
+        --line-height__subtitle-1: 1.5;
+        --letter-spacing__subtitle-1: -0.25;
+        --font-size__subtitle-2: 18px;
+        --font-weight__bolder: bolder;
+        --line-height__subtitle-2: 1.5;
+        --letter-spacing__subtitle-2: -0.25;
+        --font-size__subtitle-3: 16px;
+        --font-weight__bolder: bolder;
+        --line-height__subtitle-3: 1.5;
+        --letter-spacing__subtitle-3: -0.25;
+        --font-size__subtitle-4: 14px;
+        --font-weight__bolder: bolder;
+        --line-height__subtitle-4: 1.5;
+        --letter-spacing__subtitle-4: -0.25;
+        --font-size__body-1: 16px;
+        --font-weight__bolder: medium;
+        --line-height__body-1: 1.8;
+        --letter-spacing__body-1: -0.25;
+        --font-size__body-2: 14px;
+        --font-weight__bolder: medium;
+        --line-height__body-2: 1.5;
+        --letter-spacing__body-2: -0.25;
+        --font-size__body-3: 13px;
+        --font-weight__bolder: medium;
+        --line-height__body-3: 1.5;
+        --letter-spacing__body-3: -0.25;
+        --font-size__detail: 12px;
+        --font-weight__bolder: bolder;
+        --line-height__detail: 1.5;
+        --letter-spacing__detail: -0.25;
+        --font-size__button: 16px;
+        --font-weight__bolder: bolder;
+        --line-height__button: 1.5;
+        --letter-spacing__button: -0.25;
+    }
+}
+
+/* Large devices (desktops and large laptop, 1200px and up) */
+@media screen and (min-width:1200px) {
+    :root {
+        --font-size__head-1: 30px;
+        --font-weight__bolder: bolder;
+        --line-height__head-1: 1.4;
+        --letter-spacing__head-1: -0.25;
+        --font-size__head_2: 26px;
+        --font-weight__bolder: bolder;
+        --line-height__head-2: 1.4;
+        --letter-spacing__head-2: -0.25;
+        --font-size__title-1: 24px;
+        --font-weight__bolder: bolder;
+        --line-height__title-1: 1.4;
+        --letter-spacing__title-1: -0.25;
+        --font-size__title-2: 22px;
+        --font-weight__bolder: bolder;
+        --line-height__title-2: 1.5;
+        --letter-spacing__title-2: -0.25;
+        --font-size__subtitle-1: 20px;
+        --font-weight__bolder: bolder;
+        --line-height__subtitle-1: 1.5;
+        --letter-spacing__subtitle-1: -0.25;
+        --font-size__subtitle-2: 18px;
+        --font-weight__bolder: bolder;
+        --line-height__subtitle-2: 1.5;
+        --letter-spacing__subtitle-2: -0.25;
+        --font-size__subtitle-3: 16px;
+        --font-weight__bolder: bolder;
+        --line-height__subtitle-3: 1.5;
+        --letter-spacing__subtitle-3: -0.25;
+        --font-size__subtitle-4: 14px;
+        --font-weight__bolder: bolder;
+        --line-height__subtitle-4: 1.5;
+        --letter-spacing__subtitle-4: -0.25;
+        --font-size__body-1: 16px;
+        --font-weight__bolder: medium;
+        --line-height__body-1: 1.8;
+        --letter-spacing__body-1: -0.25;
+        --font-size__body-2: 14px;
+        --font-weight__bolder: medium;
+        --line-height__body-2: 1.5;
+        --letter-spacing__body-2: -0.25;
+        --font-size__body-3: 13px;
+        --font-weight__bolder: medium;
+        --line-height__body-3: 1.5;
+        --letter-spacing__body-3: -0.25;
+        --font-size__detail: 12px;
+        --font-weight__bolder: bolder;
+        --line-height__detail: 1.5;
+        --letter-spacing__detail: -0.25;
+        --font-size__button: 16px;
+        --font-weight__bolder: bolder;
+        --line-height__button: 1.5;
+        --letter-spacing__button: -0.25;
+    }
+}
+
+/* Extra Extra large devices (large desktops, 1440px and up) */
+@media screen and (min-width:1440px) {
+    :root {
+        --font-size__head-1: 30px;
+        --font-weight__bolder: bolder;
+        --line-height__head-1: 1.4;
+        --letter-spacing__head-1: -0.25;
+        --font-size__head_2: 26px;
+        --font-weight__bolder: bolder;
+        --line-height__head-2: 1.4;
+        --letter-spacing__head-2: -0.25;
+        --font-size__title-1: 24px;
+        --font-weight__bolder: bolder;
+        --line-height__title-1: 1.4;
+        --letter-spacing__title-1: -0.25;
+        --font-size__title-2: 22px;
+        --font-weight__bolder: bolder;
+        --line-height__title-2: 1.5;
+        --letter-spacing__title-2: -0.25;
+        --font-size__subtitle-1: 20px;
+        --font-weight__bolder: bolder;
+        --line-height__subtitle-1: 1.5;
+        --letter-spacing__subtitle-1: -0.25;
+        --font-size__subtitle-2: 18px;
+        --font-weight__bolder: bolder;
+        --line-height__subtitle-2: 1.5;
+        --letter-spacing__subtitle-2: -0.25;
+        --font-size__subtitle-3: 16px;
+        --font-weight__bolder: bolder;
+        --line-height__subtitle-3: 1.5;
+        --letter-spacing__subtitle-3: -0.25;
+        --font-size__subtitle-4: 14px;
+        --font-weight__bolder: bolder;
+        --line-height__subtitle-4: 1.5;
+        --letter-spacing__subtitle-4: -0.25;
+        --font-size__body-1: 16px;
+        --font-weight__bolder: medium;
+        --line-height__body-1: 1.8;
+        --letter-spacing__body-1: -0.25;
+        --font-size__body-2: 14px;
+        --font-weight__bolder: medium;
+        --line-height__body-2: 1.5;
+        --letter-spacing__body-2: -0.25;
+        --font-size__body-3: 13px;
+        --font-weight__bolder: medium;
+        --line-height__body-3: 1.5;
+        --letter-spacing__body-3: -0.25;
+        --font-size__detail: 12px;
+        --font-weight__bolder: bolder;
+        --line-height__detail: 1.5;
+        --letter-spacing__detail: -0.25;
+        --font-size__button: 16px;
+        --font-weight__bolder: bolder;
+        --line-height__button: 1.5;
+        --letter-spacing__button: -0.25;
+    }
+}

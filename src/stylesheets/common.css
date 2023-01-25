@@ -1,0 +1,228 @@
+@import url("./root.css");
+@import url("./typography.css");
+@import url("./atomic.css");
+
+*:not(head, script) {
+    box-sizing: border-box;
+    min-width: fit-content;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: 1.35;
+    letter-spacing: -0.2px;
+    font: inherit;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-text-size-adjust: none;
+}
+
+/* parallax design */
+body.parallax {
+    overflow-y: none;
+}
+
+body.parallax main {
+    height: 100%;
+    overflow-y: auto;
+}
+
+body.parallax main::-webkit-scrollbar {
+    display: none;
+}
+
+/* scrollable body */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollable::-webkit-scrollbar {
+    display: initial;
+}
+
+.scrollable {
+    scroll-behavior: smooth;
+}
+
+.scroll-none {
+    height: 100%;
+    overflow: hidden !important;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.scroll-none::-webkit-scrollbar {
+    display: none;
+}
+
+main {
+    display: block;
+    flex: 1;
+    /* overflow-y: auto; */
+}
+
+main.container-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+main.scrollable {
+    overflow-y: auto;
+}
+
+th,
+td,
+input,
+select,
+textarea,
+button,
+a {
+    line-height: 1.5;
+    border: 0;
+    outline: 0;
+}
+
+button,
+a {
+    cursor: pointer;
+}
+
+a:active,
+a:hover {
+    color: inherit;
+}
+
+button[type=disabled],
+.disabled {
+    cursor: not-allowed;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+input[type=datetime],
+input[type=email],
+input[type=number],
+input[type=search],
+input[type=password],
+input[type=tel],
+input[type=text],
+input[type=url] {
+    -webkit-appearance: none;
+    cursor: text;
+    line-height: inherit;
+}
+
+input[type=button],
+input[type=checkbox],
+input[type=color],
+input[type=date],
+input[type=datetime-local],
+input[type=file],
+input[type=month],
+input[type=radio],
+input[type=range],
+input[type=reset],
+input[type=submit],
+input[type=time],
+input[type=week] {
+    cursor: pointer;
+    -webkit-appearance: button;
+}
+
+/* 넘버 화살표 없애기 */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+/* 검색어 초기화기능 - 요고 언젠간 쓸모 있을듯 */
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
+    display: none;
+}
+
+img,
+video,
+audio {
+    display: inline-block;
+    object-fit: contain;
+    font-size: 0;
+}
+
+img.covered,
+video.covered,
+audio.covered {
+    object-fit: cover !important;
+}
+
+h1 {
+    display: block;
+    line-height: 1.4;
+    font-weight: bolder;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    display: inline-block;
+    line-height: 1.5;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+hr {
+    border: 0;
+}
+
+/* old mobile and wearable  */
+@media all and (min-width: 280px) and (max-width: 359px) {}
+
+/* mobile devices */
+@media all and (min-width: 320px) {}
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width:576px) {}
+
+/* Medium devices (tablets, 768px and up) */
+@media all and (min-width: 768px) {}
+
+/* Large devices (small desktops and laptop, 992px and up) */
+@media all and (min-width: 992px) {}
+
+/* Extra large devices (desktops and large laptop, 1200px and up) */
+@media screen and (min-width:1200px) {}
+
+/* Extra Extra large devices (large desktops, 1440px and up) */
+@media all and (min-width: 1440px) {}
