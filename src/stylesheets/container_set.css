@@ -30,6 +30,8 @@
     --max-width__contents: var(--max-width__mobile);
 }
 
+
+
 .max-width__mobile {
     max-width: var(--max-width__mobile) !important;
     width: 100% !important;
