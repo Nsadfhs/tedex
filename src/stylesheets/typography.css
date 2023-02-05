@@ -329,62 +329,6 @@ p.primary {
     line-height: var(--line-height__sm);
 }
 
-/* text align */
-
-.text-align__center {
-    text-align: center !important;
-}
-
-.text-align__left {
-    text-align: left !important;
-}
-
-.text-align__right {
-    text-align: right !important;
-}
-
-.text-align__stretch {
-    text-align: justify !important;
-}
-
-/* text decoration */
-
-.text-decoration__upper {
-    text-transform: uppercase !important;
-}
-
-.text-transform__lower {
-    text-transform: lowercase !important;
-}
-
-.text-transform__capital {
-    text-transform: capitalize !important;
-}
-
-.word-break__keep {
-    word-break: keep-all !important;
-}
-
-.word-break__all {
-    word-break: break-all !important;
-}
-
-.word-break__nowrap {
-    word-break: unset !important;
-    white-space: nowrap !important;
-}
-
-/* ellipsis */
-
-.text-overflow__ellipsis,
-.ellipsis {
-    display: block;
-    width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
 /* old mobile and wearable  */
 @media all and (min-width: 280px) and (max-width: 359px) {}
 
