@@ -214,11 +214,11 @@
         * 'info' is used for the purpose of providing information. It stands out. - 안내
         * 'disabled' : 'disabled' sign color - 비활성
     */
-    --color-danger: var(--color-red__500);
-    --color-success: var(--color-green__500);
-    --color-warning: var(--color-yellow__500);
-    --color-info: var(--color-skyblue__500);
-    --color-disabled: var(--color-grey__500);
+    --color-danger: var(--color-red__600);
+    --color-success: var(--color-green__600);
+    --color-warning: var(--color-yellow__600);
+    --color-info: var(--color-skyblue__600);
+    --color-disabled: var(--color-grey__600);
 
     /*  
         ================================================================

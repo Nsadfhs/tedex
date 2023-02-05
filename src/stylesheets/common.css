@@ -4,13 +4,13 @@
 
 *:not(head, script) {
     box-sizing: border-box;
-    min-width: fit-content;
-    color: inherit;
-    font-size: inherit;
-    font-weight: inherit;
+    /* min-width: fit-content; */
+    /* color: inherit; */
+    /* font-size: inherit; */
+    /* font-weight: inherit; */
     line-height: 1.35;
     letter-spacing: -0.2px;
-    font: inherit;
+    /* font: inherit; */
     background-color: transparent;
     padding: 0;
     margin: 0;
