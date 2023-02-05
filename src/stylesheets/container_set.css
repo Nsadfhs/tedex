@@ -1,3 +1,57 @@
 @import url("./containers/flex.css");
 @import url("./containers/grid.css");
 @import url("./containers/slide.css");
+
+:root {
+
+    /* max width */
+    /* 0 ~ 319 */
+    --max-width__xs: calc(var(--breakpoint__xs) - 1rem);
+    /* 360 => 320 */
+    --max-width__sm: calc(var(--breakpoint__sm) - 2.5rem);
+    /* 768 => 680 */
+    --max-width__md: calc(var(--breakpoint__md) - 5.5rem);
+    /* 1024 => 960 */
+    --max-width__lg: calc(var(--breakpoint__lg) - 4rem);
+    /* 1440 => 1328 */
+    --max-width__xl: calc(var(--breakpoint__xl) - 7rem);
+    --max-width__xxl: calc(var(--breakpoint__xxl) - 10rem);
+    --max-width__xxxl: var(--breakpoint__xxl);
+
+    /* device width */
+    --max-width__mobile: 320px;
+    --max-width__tablet: 768px;
+    --max-width__laptop: 1024px;
+    --max-width__desktop: 1200px;
+    --max-width__wide: 1440px;
+}
+
+/* old mobile and wearable  */
+@media all and (min-width: 280px) and (max-width: 359px) {
+    :root {}
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width:576px) {
+    :root {}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width:768px) {
+    :root {}
+}
+
+/* Large devices (small desktops and laptop, 992px and up) */
+@media screen and (min-width:992px) {
+    :root {}
+}
+
+/* Large devices (desktops and large laptop, 1200px and up) */
+@media screen and (min-width:1200px) {
+    :root {}
+}
+
+/* Extra Extra large devices (large desktops, 1440px and up) */
+@media screen and (min-width:1440px) {
+    :root {}
+}
