@@ -26,6 +26,31 @@
     --max-width__wide: 1440px;
 }
 
+.max-width__mobile {
+    max-width: var(--max-width__mobile) !important;
+    width: 100% !important;
+}
+
+.max-width__tablet {
+    max-width: var(--max-width__tablet) !important;
+    width: 100% !important;
+}
+
+.max-width__laptop {
+    max-width: var(--max-width__laptop) !important;
+    width: 100% !important;
+}
+
+.max-width__desktop {
+    max-width: var(--max-width__desktop) !important;
+    width: 100% !important;
+}
+
+.--max-width__wide {
+    max-width: var(--max-width__wide) !important;
+    width: 100% !important;
+}
+
 /* old mobile and wearable  */
 @media all and (min-width: 280px) and (max-width: 359px) {
     :root {}
