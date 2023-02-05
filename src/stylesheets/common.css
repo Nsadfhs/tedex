@@ -206,6 +206,11 @@ hr {
     border: 0;
 }
 
+hr.separator {
+    height: 1px;
+    background-color: var(--color-grey__300);
+}
+
 /* old mobile and wearable  */
 @media all and (min-width: 280px) and (max-width: 359px) {}
 

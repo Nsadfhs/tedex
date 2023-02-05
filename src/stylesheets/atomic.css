@@ -1,3 +1,140 @@
+:root {
+
+    /* breakpoint */
+    --breakpoint_xs: 260px;
+    --breakpoint_sm: 320px;
+    --breakpoint_md: 768px;
+    --breakpoint_lg: 1024px;
+    --breakpoint_xl: 1440px;
+    --breakpoint_xxl: 1920px;
+    --breakpoint_xxxl: 2560px;
+
+    --breakpoint_mobile_min: 360px;
+    --breakpoint_mobile_max: 767px;
+    --breakpoint_tablet_min: 768px;
+    --breakpoint_tablet_max: 1439px;
+    --breakpoint_laptop_min: 768px;
+    --breakpoint_laptop_max: 1365px;
+    --breakpoint_desktop_min: 1440px;
+    --breakpoint_desktop_max: 1920px;
+
+    /* component & asset 1rem = 16px; */
+
+    /* 
+        10 : 10px
+        15 : 15px
+        20 : 20px
+        25 : 25px
+        30 : 30px
+        35 : 35px
+        40 : 40px
+        45 : 45px
+        50 : 50px
+        60 : 60px
+        70 : 70px
+        80 : 80px
+        90 : 90px
+        100 : 100px
+        1 : 1rem
+        2 : 2rem
+        3 : 3rem
+        xs : 0.5rem
+        sm : 0.75rem
+        md : 1rem
+        lg : 1.25rem
+        xl : 1.5rem
+    */
+
+    --pixel_1: 1px;
+    --pixel_2: 2px;
+    --pixel_3: 3px;
+    --pixel_4: 4px;
+    --pixel_5: 5px;
+    --pixel_8: 8px;
+    --pixel_10: 10px;
+    --pixel_15: 15px;
+    --pixel_20: 20px;
+    --pixel_25: 25px;
+    --pixel_30: 30px;
+    --pixel_35: 35px;
+    --pixel_40: 40px;
+    --pixel_45: 45px;
+    --pixel_50: 50px;
+    --pixel_60: 60px;
+    --pixel_70: 70px;
+    --pixel_80: 80px;
+    --pixel_90: 90px;
+    --pixel_100: 100px;
+
+    --rem_1: 1rem;
+    --rem_2: 2rem;
+    --rem_3: 3rem;
+    --rem_4: 4rem;
+    --rem_5: 5rem;
+
+    --rem_md: 0rem;
+    /* -8px */
+    --rem_xs: -0.5rem;
+    /* -4px */
+    --rem_sm: -0.25rem;
+    /* +4px */
+    --rem_lg: +0.25rem;
+    /* +8px */
+    --rem_xl: +0.5rem;
+
+    --font_bolder: bolder;
+    --font_lighter: lighter;
+    --font_light: 200;
+    --font_regular: 400;
+    --font_medium: 500;
+    --font_bold: 600;
+    --font_black: 900;
+
+    --font_weight_100: 100;
+    --font_weight_200: 200;
+    --font_weight_300: 300;
+    --font_weight_400: 400;
+    --font_weight_500: 500;
+    --font_weight_600: 600;
+    --font_weight_700: 700;
+    --font_weight_800: 800;
+    --font_weight_900: 900;
+
+    --font_size_head_1: 34px;
+    --font_size_head_2: 30px;
+    --font_size_title_1: 26px;
+    --font_size_title_2: 24px;
+    --font_size_subtitle_1: 20px;
+    --font_size_subtitle_2: 18px;
+    --font_size_subtitle_3: 16px;
+    --font_size_subtitle_4: 14px;
+    --font_size_body_1: 16px;
+    --font_size_body_2: 14px;
+    --font_size_body_3: 13px;
+
+    --font_size_detail: 12px;
+    --font-size_button: 16px;
+
+    --line_height_head: 1.4;
+    --line_height_head_1: 1.4;
+    --line_height_head_2: 1.4;
+    --line_height_title_1: 1.4;
+    --line_height_title_2: 1.5;
+    --line_height_subtitle: 1.5;
+    --line_height_subtitle_1: 1.5;
+    --line_height_subtitle_2: 1.5;
+    --line_height_subtitle_3: 1.5;
+    --line_height_subtitle_4: 1.5;
+    --line_height_body_1: 1.8;
+    --line_height_body_2: 1.5;
+    --line_height_body_3: 1.5;
+
+    --line_height_detail: 1.5;
+    --line_height_button: 1.5;
+
+    --letter_spacing_body_1: -0.25;
+}
+
 /* Display */
 
 .show {
