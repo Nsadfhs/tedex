@@ -1,10 +1,17 @@
 :root {
-    --button-height_xs: 32px;
-    --button-height_sm: 40px;
-    --button-height_md: 50px;
+    --button-height__xs: 32px;
+    --button-height__sm: 40px;
+    --button-height__md: 50px;
 
-    --font-size_button_xs: 13px;
-    --font-size_button_sm: 14px;
+    --button-font-size__xs: 13px;
+    --button-font-size__sm: 14px;
+    --button-font-size__md: 16px;
+
+    --button-line-height__md: 1.5;
+
+    --button-font-weight__lighter: var(--font-weight__300);
+    --button-font-weight__medium: var(--font-weight__500);
+    --button-font-weight__bolder: var(--font-weight__700);
 }
 
 /* 버튼 컨테이너 */
@@ -19,76 +26,108 @@
     width: 100%;
 }
 
-.button-container.h-left {
+.button-container.vertical {
+    flex-direction: column;
+}
+
+.button-container.wrap {
+    flex-wrap: wrap !important;
+}
+
+.button-container.full {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+.button-container.padding {
+    padding: 1rem;
+}
+
+/* 버튼 컨테이너 Position */
+
+.button-container.h-left,
+.button-container.vertical.v-top {
     justify-content: flex-start;
 }
 
-.button-container.h-center {
+.button-container.h-center,
+.button-container.vertical.v-center {
     justify-content: center;
 }
 
-.button-container.h-right {
+.button-container.h-right,
+.button-container.vertical.v-bottom {
     justify-content: flex-end;
+}
+
+.button-container.v-top,
+.button-container.vertical.h-left {
+    align-items: flex-start;
+}
+
+.button-container.v-center,
+.button-container.vertical.h-center {
+    align-items: center;
+}
+
+.button-container.v-bottom,
+.button-container.vertical.h-right {
+    align-items: flex-end;
 }
 
 .button-container.h-between {
     justify-content: space-between;
 }
 
-.button-container.v-top {
-    align-items: flex-start;
+.button-container.h-around {
+    justify-content: space-around;
 }
 
-.button-container.v-center {
-    align-items: center;
+.button-container.h-evenly {
+    justify-content: space-evenly;
 }
 
-.button-container.v-bottom {
-    align-items: flex-end;
+.button-container.vertical.v-stretch {
+    align-items: stretch;
 }
 
-.button-container.vertical {
-    flex-direction: column;
-}
+/* 
 
-.button-container.vertical.h-left {
-    align-items: flex-start;
-}
+container etc...
 
-.button-container.vertical.h-center {
-    align-items: center;
-}
+*/
 
-.button-container.vertical.h-right {
-    align-items: flex-end;
-}
-
-.button-container.vertical.v-top {
-    justify-content: flex-start;
-}
-
-.button-container.vertical.v-center {
-    justify-content: center;
-}
-
-.button-container.vertical.v-bottom {
-    justify-content: flex-end;
-}
-
-
-.button-container.padding {
-    padding: 1rem;
-}
-
-.button-container.white {
+.button-container.light {
     background-color: var(--color_white);
 }
 
-.button-container.black {
+.button-container.dark {
     background-color: var(--color_black);
 }
 
-/* 버튼 */
+/* 버튼 아이템 */
+/* 
+
+버튼의 종류
+1. 텍스트만 있는 버튼 - flat
+2. 언더라인이 있는 텍스트 버튼 - anchor
+3. 패딩을 가진 버튼 - transparent
+4. 테두리만 있는 버튼 - bordered
+5. 배경색을 가진 버튼 - default
+6. rounding이 있는 버튼 - rounded
+7. 그림자를 가진 버튼 - activity(normal -> pressed -> disabled) 
+8. 비활성화 버튼 - disabled
+9. 
+*/
+
+/* 
+atomic
+
+1. size 
+2. color
+
+
+*/
 
 button,
 a {
@@ -99,9 +138,15 @@ a {
     align-items: center;
     column-gap: 0.5rem;
     width: auto;
+    min-width: fit-content;
     height: auto;
     border-radius: var(--curved);
     cursor: pointer;
+}
+
+button.expand,
+a.expand {
+    width: 100%;
 }
 
 a:hover {
@@ -117,8 +162,6 @@ a.disabled {
 }
 
 .text-anchor {
-    display: block;
-    min-width: fit-content;
     color: var(--color_text_1);
     font-size: var(--font-size_body_2);
     font-weight: var(--font_weight_400);
@@ -138,11 +181,17 @@ a.disabled {
     overflow: hidden;
 }
 
+button.small {}
+
+.flat-button {
+    height: var(--button-height_md);
+}
+
 /* default */
 .button__a {
     /* max-width: fit-content; */
-    min-width: fit-content;
-    width: auto;
+    /* min-width: fit-content;
+    width: auto; */
     height: var(--button-height_md);
     padding-left: 1rem;
     padding-right: 1rem;

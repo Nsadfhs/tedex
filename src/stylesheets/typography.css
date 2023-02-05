@@ -79,139 +79,6 @@
     --letter-spacing__button: -0.25;
 }
 
-.font-size__34 {
-    font-size: 34px !important;
-}
-
-.font-size__32 {
-    font-size: 32px !important;
-}
-
-.font-size__30 {
-    font-size: 30px !important;
-}
-
-.font-size__28 {
-    font-size: 28px !important;
-}
-
-.font-size__26 {
-    font-size: 26px !important;
-}
-
-.font-size__24 {
-    font-size: 24px !important;
-}
-
-.font-size__22 {
-    font-size: 22px !important;
-}
-
-.font-size__20 {
-    font-size: 20px !important;
-}
-
-.font-size__18 {
-    font-size: 18px !important;
-}
-
-.font-size__16 {
-    font-size: 16px !important;
-}
-
-.font-size__15 {
-    font-size: 15px !important;
-}
-
-.font-size__14 {
-    font-size: 14px !important;
-}
-
-.font-size__13 {
-    font-size: 13px !important;
-}
-
-.font-size__12 {
-    font-size: 12px !important;
-}
-
-/* 폰트 굵기 */
-
-.font-weight__200,
-.font-weight__light {
-    font-weight: 200;
-}
-
-.font-weight__300 {
-    font-weight: 300;
-}
-
-.font-weight__400,
-.font-weight__regular {
-    font-weight: 400;
-}
-
-.font-weight__500,
-.font-weight__medium {
-    font-weight: 500;
-}
-
-.font-weight__600 {
-    font-weight: 600;
-}
-
-.font-weight__700 {
-    font-weight: 700;
-}
-
-.font-weight__800 {
-    font-weight: 800;
-}
-
-.font-weight__900,
-.font-weight__black {
-    font-weight: 900;
-}
-
-.font-weight__normal {
-    font-weight: normal;
-}
-
-.font-weight__bold {
-    font-weight: bold;
-}
-
-.font-weight__bolder {
-    font-weight: bolder;
-}
-
-.font-weight__lighter {
-    font-weight: lighter;
-}
-
-
-/* line height 행간 */
-
-.line-height__xs {
-    line-height: 1;
-}
-
-.line-height__sm {
-    line-height: 1.2;
-}
-
-.line-height__md {
-    line-height: 1.35;
-}
-
-.line-height__lg {
-    line-height: 1.5;
-}
-
-.line-height__xl {
-    line-height: 1.8;
-}
-
 /* 타이틀 컨테이너 */
 
 .title-container {
@@ -505,6 +372,17 @@ p.primary {
 .word-break__nowrap {
     word-break: unset !important;
     white-space: nowrap !important;
+}
+
+/* ellipsis */
+
+.text-overflow__ellipsis,
+.ellipsis {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 /* old mobile and wearable  */
