@@ -38,7 +38,7 @@
 
     /* 
         ================================================================
-            1. 사이즈 
+            1. 디바이스 사이즈 
         ================================================================  
     */
 
@@ -65,6 +65,30 @@
     --breakpoint__xl: 1440px;
     --breakpoint__xxl: 1600px;
     --breakpoint__xxxl: 1920px;
+
+    /* max width */
+    /* 0 ~ 319 */
+    --max-width__xs: calc(var(--breakpoint__xs) - 1rem);
+    /* 360 => 320 */
+    --max-width__sm: calc(var(--breakpoint__sm) - 2.5rem);
+    /* 768 => 680 */
+    --max-width__md: calc(var(--breakpoint__md) - 5.5rem);
+    /* 1024 => 960 */
+    --max-width__lg: calc(var(--breakpoint__lg) - 4rem);
+    /* 1440 => 1328 */
+    --max-width__xl: calc(var(--breakpoint__xl) - 7rem);
+    --max-width__xxl: calc(var(--breakpoint__xxl) - 10rem);
+    --max-width__xxxl: var(--breakpoint__xxl);
+
+    /* device width */
+    --max-width__mobile: 320px;
+    --max-width__tablet: 768px;
+    --max-width__laptop: 1024px;
+    --max-width__desktop: 1200px;
+    --max-width__wide: 1440px;
+
+    /* fluid contents */
+    --max-width__contents: var(--max-width__mobile);
 
     /*  
         ================================================================
@@ -208,7 +232,7 @@
 
     /*  
         ================================================================
-            2. 컬러 
+            3. 텍스트
         ================================================================  
     */
 
@@ -262,44 +286,78 @@
     --letter-spacing__xxl: -0.875;
     --letter-spacing__xxxl: -1;
 
-    /* component & asset 1rem = 16px; */
+    /* title components */
 
-    /* 
-        1 : 1rem
-        2 : 2rem
-        3 : 3rem
-        4 : 4rem
-        5 : 5rem
-        10 : 10px
-        15 : 15px
-        20 : 20px
-        25 : 25px
-        30 : 30px
-        35 : 35px
-        40 : 40px
-        45 : 45px
-        50 : 50px
-        60 : 60px
-        70 : 70px
-        80 : 80px
-        90 : 90px
-        100 : 100px
+    --font-size__head-1: 34px;
+    --font-weight__bolder: bolder;
+    --line-height__head-1: 1.4;
+    --letter-spacing__head-1: -0.25;
 
-        xs : 0.5rem
-        sm : 0.75rem
-        md : 1rem
-        lg : 1.25rem
-        xl : 1.5rem
+    --font-size__head-2: 30px;
+    --font-weight__bolder: bolder;
+    --line-height__head-2: 1.4;
+    --letter-spacing__head-2: -0.25;
+
+    --font-size__title-1: 24px;
+    --font-weight__bolder: bolder;
+    --line-height__title-1: 1.4;
+    --letter-spacing__title-1: -0.25;
+
+    --font-size__title-2: 22px;
+    --font-weight__bolder: bolder;
+    --line-height__title-2: 1.5;
+    --letter-spacing__title-2: -0.25;
+
+    --font-size__subtitle-1: 20px;
+    --font-weight__bolder: bolder;
+    --line-height__subtitle-1: 1.5;
+    --letter-spacing__subtitle-1: -0.25;
+
+    --font-size__subtitle-2: 18px;
+    --font-weight__bolder: bolder;
+    --line-height__subtitle-2: 1.5;
+    --letter-spacing__subtitle-2: -0.25;
+
+    --font-size__subtitle-3: 16px;
+    --font-weight__bolder: bolder;
+    --line-height__subtitle-3: 1.5;
+    --letter-spacing__subtitle-3: -0.25;
+
+    --font-size__subtitle-4: 14px;
+    --font-weight__bolder: bolder;
+    --line-height__subtitle-4: 1.5;
+    --letter-spacing__subtitle-4: -0.25;
+
+    --font-size__body-1: 16px;
+    --font-weight__bolder: medium;
+    --line-height__body-1: 1.8;
+    --letter-spacing__body-1: -0.25;
+
+    --font-size__body-2: 14px;
+    --font-weight__bolder: medium;
+    --line-height__body-2: 1.5;
+    --letter-spacing__body-2: -0.25;
+
+    --font-size__body-3: 13px;
+    --font-weight__bolder: medium;
+    --line-height__body-3: 1.5;
+    --letter-spacing__body-3: -0.25;
+
+    --font-size__detail: 12px;
+    --font-weight__bolder: bolder;
+    --line-height__detail: 1.5;
+    --letter-spacing__detail: -0.25;
+
+    --font-size__button: 16px;
+    --font-weight__bolder: bolder;
+    --line-height__button: 1.5;
+    --letter-spacing__button: -0.25;
+
+    /*  
+        ================================================================
+            4. 테두리
+        ================================================================  
     */
-    --rem_md: 0rem;
-    /* -8px */
-    --rem_xs: -0.5rem;
-    /* -4px */
-    --rem_sm: -0.25rem;
-    /* +4px */
-    --rem_lg: +0.25rem;
-    /* +8px */
-    --rem_xl: +0.5rem;
 
     /* border */
     --border-gray__1: 1px solid var(--color-gray__300);
@@ -328,6 +386,54 @@
     --curved: 5px;
     --rounded: 25px;
     --circle: 50%;
+
+    /*  
+        ================================================================
+            5. 그 밖에
+        ================================================================  
+    */
+
+    /* component & asset 1rem = 16px; */
+
+    /* 
+        1 : 1rem
+        2 : 2rem
+        3 : 3rem
+        4 : 4rem
+        5 : 5rem
+
+        10 : 10px
+        15 : 15px
+        20 : 20px
+        25 : 25px
+        30 : 30px
+        35 : 35px
+        40 : 40px
+        45 : 45px
+        50 : 50px
+        60 : 60px
+        70 : 70px
+        80 : 80px
+        90 : 90px
+        100 : 100px
+
+        xs : 0.5rem
+        sm : 0.75rem
+        md : 1rem
+        lg : 1.25rem
+        xl : 1.5rem
+    */
+    --rem__md: 0rem;
+    /* -8px */
+    --rem__xs: -0.5rem;
+    /* -4px */
+    --rem__sm: -0.25rem;
+    /* +4px */
+    --rem__lg: +0.25rem;
+    /* +8px */
+    --rem__xl: +0.5rem;
+
+    /* shadow */
 
     --shadow: 0 3px 6px rgba(13, 13, 13, 0.16);
 }
