@@ -1,3 +1,5 @@
+@import url("../containers/button_container.css");
+
 :root {
     --button-height__xs: 32px;
     --button-height__sm: 40px;
@@ -12,97 +14,6 @@
     --button-font-weight__lighter: var(--font-weight__300);
     --button-font-weight__medium: var(--font-weight__500);
     --button-font-weight__bolder: var(--font-weight__700);
-}
-
-/* 버튼 컨테이너 */
-
-.button-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 1rem;
-    width: 100%;
-}
-
-.button-container.vertical {
-    flex-direction: column;
-}
-
-.button-container.wrap {
-    flex-wrap: wrap !important;
-}
-
-.button-container.full {
-    max-width: 100% !important;
-    width: 100% !important;
-}
-
-.button-container.padding {
-    padding: 1rem;
-}
-
-/* 버튼 컨테이너 Position */
-
-.button-container.h-left,
-.button-container.vertical.v-top {
-    justify-content: flex-start;
-}
-
-.button-container.h-center,
-.button-container.vertical.v-center {
-    justify-content: center;
-}
-
-.button-container.h-right,
-.button-container.vertical.v-bottom {
-    justify-content: flex-end;
-}
-
-.button-container.v-top,
-.button-container.vertical.h-left {
-    align-items: flex-start;
-}
-
-.button-container.v-center,
-.button-container.vertical.h-center {
-    align-items: center;
-}
-
-.button-container.v-bottom,
-.button-container.vertical.h-right {
-    align-items: flex-end;
-}
-
-.button-container.h-between {
-    justify-content: space-between;
-}
-
-.button-container.h-around {
-    justify-content: space-around;
-}
-
-.button-container.h-evenly {
-    justify-content: space-evenly;
-}
-
-.button-container.vertical.v-stretch {
-    align-items: stretch;
-}
-
-/* 
-
-container etc...
-
-*/
-
-.button-container.light {
-    background-color: var(--color_white);
-}
-
-.button-container.dark {
-    background-color: var(--color_black);
 }
 
 /* 버튼 아이템 */
@@ -149,10 +60,9 @@ a.expand {
     width: 100%;
 }
 
-a:hover {
+/* a:hover {
     color: var(--primary_600);
-    font-weight: bolder;
-}
+} */
 
 button.disabled,
 a.disabled {
@@ -192,14 +102,14 @@ button.small {}
     /* max-width: fit-content; */
     /* min-width: fit-content;
     width: auto; */
-    height: var(--button-height_md);
+    height: var(--button-height__md);
     padding-left: 1rem;
     padding-right: 1rem;
-    background-color: var(--gray_600);
-    color: var(--color_white);
-    font-size: var(--font-size_button);
-    font-weight: var(--font-weight_bold);
-    line-height: var(--line-height_md);
+    background-color: var(--color-gray__600);
+    color: var(--color-white);
+    font-size: var(--font-size__button);
+    font-weight: var(--font-weight__bold);
+    line-height: var(--line-height__md);
 }
 
 .button__a.pressed {

@@ -1,0 +1,112 @@
+/* 버튼 컨테이너 */
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.button-container.vertical {
+    flex-direction: column;
+}
+
+.button-container.wrap {
+    flex-wrap: wrap !important;
+}
+
+.button-container.full {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+.button-container.padding {
+    padding: 1rem;
+}
+
+/* 버튼 컨테이너 Position */
+
+.button-container.h-left,
+.button-container.vertical.v-top {
+    justify-content: flex-start;
+}
+
+.button-container.h-center,
+.button-container.vertical.v-center {
+    justify-content: center;
+}
+
+.button-container.h-right,
+.button-container.vertical.v-bottom {
+    justify-content: flex-end;
+}
+
+.button-container.v-top,
+.button-container.vertical.h-left {
+    align-items: flex-start;
+}
+
+.button-container.v-center,
+.button-container.vertical.h-center {
+    align-items: center;
+}
+
+.button-container.v-bottom,
+.button-container.vertical.h-right {
+    align-items: flex-end;
+}
+
+.button-container.h-between {
+    justify-content: space-between;
+}
+
+.button-container.h-around {
+    justify-content: space-around;
+}
+
+.button-container.h-evenly {
+    justify-content: space-evenly;
+}
+
+.button-container.vertical.v-stretch {
+    align-items: stretch;
+}
+
+/* 
+
+container etc...
+
+*/
+
+.button-container.light {
+    background-color: var(--color_white);
+}
+
+.button-container.dark {
+    background-color: var(--color_black);
+}
+
+
+/* old mobile and wearable  */
+@media all and (min-width: 280px) and (max-width: 359px) {}
+
+/* mobile devices */
+@media all and (min-width: 320px) {}
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width:576px) {}
+
+/* Medium devices (tablets, 768px and up) */
+@media all and (min-width: 768px) {}
+
+/* Large devices (small desktops and laptop, 992px and up) */
+@media all and (min-width: 992px) {}
+
+/* Extra large devices (desktops and large laptop, 1200px and up) */
+@media screen and (min-width:1200px) {}
+
+/* Extra Extra large devices (large desktops, 1440px and up) */
+@media all and (min-width: 1440px) {}

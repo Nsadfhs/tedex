@@ -1,5 +1,9 @@
 @import url("./pagination.css");
 
+table {
+    display: grid;
+}
+
 /* old mobile and wearable  */
 @media all and (min-width: 280px) and (max-width: 359px) {}
 

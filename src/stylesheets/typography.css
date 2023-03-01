@@ -117,26 +117,6 @@ title main / sub / sup
 
 */
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: inherit;
-    font-weight: bolder;
-    text-decoration: none;
-}
-
-p,
-a,
-button {
-    color: inherit;
-    font-weight: inherit;
-    line-height: var(--line-height__md);
-    text-decoration: none;
-}
-
 h1.primary,
 h2.primary,
 h3.primary,

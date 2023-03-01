@@ -8,11 +8,6 @@
     letter-spacing: -0.2px;
     /* font: inherit; */
     background-color: transparent;
-    padding: 0;
-    margin: 0;
-    border: none;
-    outline: none;
-    text-decoration: none;
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -26,23 +21,10 @@ body {
     flex-direction: column;
     width: 100%;
     height: 100%;
+    margin: 0;
     overflow-x: hidden;
-    overflow-y: auto;
+    /* overflow-y: auto; */
     -webkit-text-size-adjust: none;
-}
-
-/* parallax design */
-body.parallax {
-    overflow-y: none;
-}
-
-body.parallax main {
-    height: 100%;
-    overflow-y: auto;
-}
-
-body.parallax main::-webkit-scrollbar {
-    display: none;
 }
 
 /* scrollable body */
@@ -50,42 +32,11 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-.scrollable::-webkit-scrollbar {
-    display: initial;
-}
-
-.scrollable {
-    scroll-behavior: smooth;
-}
-
-.scroll-none {
-    height: 100%;
-    overflow: hidden !important;
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
-}
-
-.scroll-none::-webkit-scrollbar {
-    display: none;
-}
-
 main {
     display: block;
     flex: 1;
+    z-index: 1;
     /* overflow-y: auto; */
-}
-
-main.container-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-main.scrollable {
-    overflow-y: auto;
 }
 
 th,
@@ -95,18 +46,25 @@ select,
 textarea,
 button,
 a {
-    line-height: 1.5;
+    padding: 0;
+    margin: 0;
     border: 0;
     outline: 0;
+    line-height: 1.5;
+    text-decoration: none;
 }
 
 button,
 a {
+    color: inherit;
+    font-weight: inherit;
+    line-height: 1.5;
+    text-decoration: none;
     cursor: pointer;
 }
 
 a:active,
-a:hover {
+a:focus {
     color: inherit;
 }
 
@@ -178,18 +136,26 @@ audio.covered {
     object-fit: cover !important;
 }
 
-h1 {
-    display: block;
-    line-height: 1.4;
-    font-weight: bolder;
-}
-
+h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+    font-weight: bolder;
     line-height: 1.5;
+    color: inherit;
+    text-decoration: none;
+    margin: 0;
+}
+
+h1 {
+    display: block;
+    line-height: 1.4;
+}
+
+p {
+    line-height: 1.35;
 }
 
 table {

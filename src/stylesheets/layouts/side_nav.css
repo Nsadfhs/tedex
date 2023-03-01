@@ -1,0 +1,46 @@
+.aside-wrapper {
+    position: fixed;
+    top: 0;
+    left: -200px;
+    display: block;
+    min-width: 200px;
+    min-height: 100vh;
+    background-color: inherit;
+    z-index: 9;
+    transition: all 0.5s ease-out;
+}
+
+.aside-wrapper.reverse {
+    left: unset;
+    right: -200px;
+}
+
+/* old mobile and wearable  */
+@media all and (min-width: 280px) and (max-width: 359px) {
+    :root {}
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width:576px) {
+    :root {}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width:768px) {
+    :root {}
+}
+
+/* Large devices (small desktops and laptop, 992px and up) */
+@media screen and (min-width:992px) {
+    :root {}
+}
+
+/* Large devices (desktops and large laptop, 1200px and up) */
+@media screen and (min-width:1200px) {
+    :root {}
+}
+
+/* Extra Extra large devices (large desktops, 1440px and up) */
+@media screen and (min-width:1440px) {
+    :root {}
+}

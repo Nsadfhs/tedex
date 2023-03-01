@@ -1,3 +1,32 @@
+.card__a,
+.text-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1rem;
+}
+
+.card__a.h-between {
+    justify-content: space-between;
+}
+
+.card__b {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.card__b.v-bottom {
+    justify-content: flex-end;
+}
+
+
+
 /* old mobile and wearable  */
 @media all and (min-width: 280px) and (max-width: 359px) {}
 
