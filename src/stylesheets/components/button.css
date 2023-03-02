@@ -47,12 +47,10 @@ a {
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    column-gap: 0.5rem;
     width: auto;
     min-width: fit-content;
     height: auto;
     border-radius: var(--curved);
-    cursor: pointer;
 }
 
 button.expand,
@@ -80,18 +78,11 @@ a.disabled {
 }
 
 .icon-button {
-    display: flex;
-    flex-direction: column;
-    /* flex-wrap: nowrap; */
-    justify-content: center;
-    align-items: center;
     font-size: 0;
     aspect-ratio: 1/1;
     vertical-align: middle;
     overflow: hidden;
 }
-
-button.small {}
 
 .flat-button {
     height: var(--button-height_md);

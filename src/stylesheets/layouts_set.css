@@ -3,53 +3,19 @@
 @import url("./layouts/footer.css");
 @import url("./containers/flex_container.css");
 
-header {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    width: 100%;
-    height: auto;
-    margin-bottom: 1rem;
-}
-
-aside {
-    position: fixed;
-    top: 0;
-    left: -200px;
-    display: block;
-    width: auto;
-    height: 100%;
-}
-
-main {
+.main-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    z-index: 1;
-}
-
-.main-wrapper {
-    height: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    width: 100%;
     margin-bottom: 7.5rem;
 }
 
-.container-main {
-    flex: 1;
-}
-
-footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    z-index: 1;
+.main-wrapper.column__2 {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 1rem;
 }
 
 .scrollable {

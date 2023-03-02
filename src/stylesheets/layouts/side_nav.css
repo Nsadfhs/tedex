@@ -1,8 +1,9 @@
 .aside-wrapper {
     position: fixed;
     top: 0;
-    left: -200px;
+    left: -100vw;
     display: block;
+    width: 100%;
     min-width: 200px;
     min-height: 100vh;
     background-color: inherit;
@@ -12,7 +13,11 @@
 
 .aside-wrapper.reverse {
     left: unset;
-    right: -200px;
+    right: -100vw;
+}
+
+.aside-wrapper.on {
+    left: 0;
 }
 
 /* old mobile and wearable  */
@@ -23,6 +28,10 @@
 /* Small devices (landscape phones, 576px and up) */
 @media screen and (min-width:576px) {
     :root {}
+
+    .aside-wrapper {
+        width: auto;
+    }
 }
 
 /* Medium devices (tablets, 768px and up) */
