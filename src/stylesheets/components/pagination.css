@@ -1,3 +1,123 @@
+/* 
+
+pagination.js와 함께 쓰세요.
+
+*/
+
+.pagination-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.paging-jump__first {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    padding: 0.25rem;
+    background-image: url("/public/images/icon/ic_arrow_left_double.svg");
+    background-repeat: no-repeat;
+    background-size: 22px;
+    background-position: center;
+    border: var(--border__lightgray-2);
+    border-radius: var(--curved);
+    visibility: hidden;
+}
+
+.paging-jump__prev {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    padding: 0.25rem;
+    background-image: url("/public/images/icon/ic_arrow_left.svg");
+    background-repeat: no-repeat;
+    background-size: 22px;
+    background-position: center;
+    border: var(--border__lightgray-2);
+    border-radius: var(--curved);
+    visibility: hidden;
+}
+
+.paging-jump__next {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    padding: 0.25rem;
+    background-image: url("/public/images/icon/ic_arrow_right.svg");
+    background-repeat: no-repeat;
+    background-size: 22px;
+    background-position: center;
+    border: var(--border__lightgray-2);
+    border-radius: var(--curved);
+    visibility: hidden;
+}
+
+.paging-jump__last {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    padding: 0.25rem;
+    background-image: url("/public/images/icon/ic_arrow_right_double.svg");
+    background-repeat: no-repeat;
+    background-size: 22px;
+    background-position: center;
+    border: var(--border__lightgray-2);
+    border-radius: var(--curved);
+    visibility: hidden;
+}
+
+.paging-jump__first.visible,
+.paging-jump__prev.visible,
+.paging-jump__next.visible,
+.paging-jump__last.visible {
+    visibility: visible;
+}
+
+.paging-index-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 6px;
+}
+
+.paging-index-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-width: 30px;
+    width: auto;
+    height: 30px;
+    color: var(--gray_400);
+    font-weight: var(--font_weight_600);
+    line-height: 29px;
+    border: var(--border__lightgray-2);
+    border-radius: var(--curved);
+    cursor: pointer;
+}
+
+.paging-index-item.active {
+    color: var(--primary_600);
+    border-color: var(--primary_600);
+}
+
 /* old mobile and wearable  */
 @media all and (min-width: 280px) and (max-width: 359px) {}
 

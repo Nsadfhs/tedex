@@ -1,3 +1,5 @@
+@import url("./bottom_navigation_bar.css");
+
 footer {
     display: flex;
     flex-direction: column;
@@ -27,6 +29,12 @@ footer {
     font-size: var(--font-size__detail);
     line-height: 1.5;
 }
+
+.fnb-wrapper {}
+
+.fnb-wrapper nav {}
+
+.fnb-wrapper nav a {}
 
 /* old mobile and wearable  */
 @media all and (min-width: 280px) and (max-width: 359px) {

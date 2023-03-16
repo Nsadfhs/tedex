@@ -398,11 +398,38 @@
   */
 
 .flex-1 {
-    flex: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
 }
 
-.flex-grow__1 {
+.flex-2 {
+    flex-grow: 2;
+    flex-shrink: 1;
+    flex-basis: 0%;
+}
+
+.flex-grow {
     flex-grow: 1;
+}
+
+.flex-shrink {
+    flex-shrink: 1;
+}
+
+/* 아이템 크기가 각각의 width와 height 속성에 따라 정해집니다. 플렉스 컨테이너의 크기를 넘지 않기 위해 최소 크기로 줄어들 수는 있지만, 남은 공간을 채우려 늘어나지는 않습니다. */
+.flex-initial {
+    flex: 0 1 auto;
+}
+
+/* 아이템 크기가 각각의 width와 height 속성에 따라 정해집니다. 플렉스 컨테이너의 크기를 넘지 않기 위해 최소 크기로 줄어들 수 있으며, 남은 공간을 채우기 위해 늘어날 수도 있습니다 */
+.flex-auto {
+    flex: 1 1 auto;
+}
+
+/* 아이템 크기가 각각의 width와 height 속성에 따라 정해지며, 컨테이너의 크기에 관계 없이 변하지 않습니다 */
+.flex-none {
+    flex: 0 0 auto;
 }
 
 .flex-auto {
