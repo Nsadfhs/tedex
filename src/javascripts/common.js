@@ -195,11 +195,16 @@ function setDimLayer(zIndex) {
     // // // console.log("켜기")
     let dimLayer = document.createElement("div");
     dimLayer.classList.add("dim-layer");
+    dimLayer.style.position = "fixed";
+    dimLayer.style.top = 0;
+    dimLayer.style.left = 0;
+    dimLayer.style.width = "100%";
+    dimLayer.style.height = "100%";
+    dimLayer.style.backgroundColor = "var(--color-gray__900)";
+    dimLayer.opacity = "0.7";
+    dimLayer.style.zIndex = zIndex;
 
     $bodyElem.append(dimLayer);
-    // dimLayer.style.height = `${window.innerHeight}px`;
-    dimLayer.style.height = `100%`;
-    dimLayer.style.zIndex = zIndex;
 };
 
 // 딤(어둡게) 해제
@@ -367,9 +372,8 @@ function renderImage(_target, _url) {
     }
 };
 
-console.log("", parseURL("prePath"));
+console.log("URL", parseURL("href"));
 
-setDimLayer();
-scrollDisable();
-scrollEnable();
-
+// setDimLayer();
+// scrollDisable();
+// scrollEnable();

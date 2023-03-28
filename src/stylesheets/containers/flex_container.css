@@ -477,39 +477,42 @@
         flex-direction: column;
     }
 
-    .flex-col.mobile {
-        flex-direction: row;
-    }
-}
-
-@media screen and (min-width: 768px) and (max-width:1439px) {
-    .flex-row.tablet {
-        flex-direction: column;
+    .flex-row.mobile.h-left {
+        align-items: flex-start;
     }
 
-    .flex-col.tablet {
-        flex-direction: row;
-    }
-}
-
-@media screen and (min-width: 1024px) and (max-width:1439px) {
-    .flex-row.laptop {
-        flex-direction: column;
+    .flex-row.mobile.h-right {
+        align-items: flex-end;
     }
 
-    .flex-col.laptop {
-        flex-direction: row;
-    }
-}
-
-@media screen and (min-width: 1440px) {
-    .flex-row.desktop {
-        flex-direction: column;
+    .flex-row.mobile.v-top {
+        justify-content: flex-start;
     }
 
-    .flex-col.desktop {
-        flex-direction: row;
+    .flex-row.mobile.v-bottom {
+        justify-content: flex-end;
     }
+
+    .flex-row.mobile.h-center {
+        align-items: center;
+    }
+
+    .flex-row.mobile.v-center {
+        justify-content: center;
+    }
+
+    .flex-row.mobile.v-around {
+        justify-content: space-around;
+    }
+
+    .flex-row.mobile.v-between {
+        justify-content: space-between;
+    }
+
+    .flex-row.mobile.v-evenly {
+        justify-content: space-evenly;
+    }
+
 }
 
 /* wearable */
