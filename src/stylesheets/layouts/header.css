@@ -1,13 +1,10 @@
-header {
+.header-wrapper {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
     width: 100%;
     height: auto;
-}
-
-.header-wrapper {
     min-height: 50px;
     padding: 1rem 2rem;
     background-color: inherit;
