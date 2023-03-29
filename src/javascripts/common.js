@@ -115,16 +115,10 @@ function parseURL(_type) {
     }
 };
 
-// 분기처리, 예외처리 조건을 알려줌
-function getNullType(_str) {
-    console.log("_str", _str);
-    console.log("''", _str == "");
-    console.log("!", !_str);
-    console.log("null", _str == null);
-    console.log("undefined", _str == undefined);
-    console.log("'undefined'", _str == "undefined");
-    console.log("'null'", _str == "null");
-};
+/** null undefined checking에 도움을 주기 위해 태어남 */
+function isNullChecking(val) {
+    return !!val?.trim()
+}
 
 /**
  * 
