@@ -133,6 +133,15 @@
     --color-gray__700: #616161;
     --color-gray__800: #474747;
     --color-gray__900: #2E2E2E;
+    --color-lightgray__100: #FEFEFE;
+    --color-lightgray__200: #FCFCFC;
+    --color-lightgray__300: #FAFAFA;
+    --color-lightgray__400: #F7F7F7;
+    --color-lightgray__500: #F2F2F2;
+    --color-lightgray__600: #E5E5E5;
+    --color-lightgray__700: #D9D9D9;
+    --color-lightgray__800: #CCCCCC;
+    --color-lightgray__900: #BFBFBF;
 
     /* 
         three primary colors - 색의 3원색

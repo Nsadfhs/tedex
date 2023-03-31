@@ -389,17 +389,21 @@ function getCheckboxValue(_target) {
         for (var i = 0; i < $targetElemArr.length; i++) {
             const $targetElem = $targetElemArr[i];
             if ($targetElemArr.length == 1) {
-                if ($targetElem.checked) {
+                if ($targetElem.checked == "on") {
+                    return true;
+                } else if ($targetElem.checked) {
                     return $targetElem.value;
                 } else {
                     return false;
-                }
+                };
             } else {
-                if ($targetElem.checked) {
-                    valueArr.push($targetElem.value);
+                if ($targetElem.checked == "on") {
+                    return valueArr.push($targetElem.id);
+                } else if ($targetElem.checked) {
+                    return valueArr.push($targetElem.value);
                 } else {
                     return false;
-                }
+                };
             }
         };
 
@@ -896,7 +900,7 @@ function setRegularExpression(_params) {
             regExpValue = RegExp(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/);
             break;
         case "password":
-            regExpValue = RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>])(?=.*[^\s]).{8,20}$/);
+            regExpValue = RegExp(/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>])(?=.*[^\s]).{8,20}$/);
             break;
         case "company_name":
             regExpValue = RegExp(/^[가-힣0-9A-Za-z\s\.\-\(\)]{1,50}$/);
@@ -912,7 +916,7 @@ function setRegularExpression(_params) {
             regExpValue = RegExp(/^[A-Za-z\s]{2,20}$/);
             break;
         case "phone":
-            regExpValue = RegExp(/^0[0-9]{9,10}$/);
+            regExpValue = RegExp(/^01[0-9]{8}$/);
             break;
         case "phone_dash":
             regExpValue = RegExp(/^01(0|1|[6-9])-\d{3,4}-\d{4}$/);
@@ -922,6 +926,9 @@ function setRegularExpression(_params) {
             break;
         case "resident_registration_number":
             regExpValue = RegExp(/^[0-9]{6}-[1-4][0-9]{6}$/);
+            break;
+        case "cash_receipt_number":
+            regExpValue = RegExp(/^\d{3}-\d{2}-\d{5}$/);
             break;
         default:
             break;
@@ -935,10 +942,10 @@ function setRegularExpression(_params) {
     placeholder="'-'빼고 10~11자리 입력"> 
  *   
 */
-const $inputTel = document.querySelectorAll("input[type=tel]");
-if ($inputTel) {
-    for (var i = 0; i < $inputTel.length; i++) {
-        $inputTel[i].addEventListener("keyup", formatPhoneNumber);
+const $inputPN = document.querySelectorAll("input[data-format='PN']");
+if ($inputPN) {
+    for (var i = 0; i < $inputPN.length; i++) {
+        $inputPN[i].addEventListener("keyup", formatPhoneNumber);
     };
 
     function formatPhoneNumber() {
@@ -973,13 +980,13 @@ if ($inputTel) {
  * 
  * <input type="text" name="RRN" maxlength="14" placeholder="주민등록번호" />
  */
-const $inputRRN = document.querySelectorAll("input[name='RRN']");
+const $inputRRN = document.querySelectorAll("input[data-format='RRN']");
 if ($inputRRN) {
     for (var i = 0; i < $inputRRN.length; i++) {
-        $inputRRN[i].addEventListener("keyup", formatPhoneNumber);
+        $inputRRN[i].addEventListener("keyup", formatResidentNumber);
     };
 
-    function formatPhoneNumber() {
+    function formatResidentNumber() {
         this.value = this.value.replace(/[^0-9]/g, "");
         let inputNumber = this.value.replace(/[^0-9]/g, "");
         let residentNumber = "";
@@ -994,3 +1001,62 @@ if ($inputRRN) {
         this.value = residentNumber;
     }
 };
+
+/** // // 대한민국 사업자 번호(개인/법인) 양식 만들기
+ * 
+ * 
+ * <input type="text" name="RRN" maxlength="14" placeholder="주민등록번호" />
+ */
+const $inputBN = document.querySelectorAll("input[data-format='BN']");
+if ($inputBN) {
+    for (var i = 0; i < $inputBN.length; i++) {
+        $inputBN[i].addEventListener("keyup", formatBusinessNumber);
+    };
+
+    function formatBusinessNumber() {
+        this.value = this.value.replace(/[^0-9]/g, "");
+        let inputNumber = this.value.replace(/[^0-9]/g, "");
+        let businessNumber = "";
+        if (inputNumber.length < 4) {
+            return inputNumber;
+        } else if (inputNumber.length < 7) {
+            businessNumber += inputNumber.substr(0, 3);
+            businessNumber += '-';
+            businessNumber += inputNumber.substr(3);
+        } else {
+            businessNumber += inputNumber.substr(0, 3);
+            businessNumber += '-';
+            businessNumber += inputNumber.substr(1, 2);
+            businessNumber += '-';
+            businessNumber += inputNumber.substr(5);
+        }
+
+        this.value = businessNumber;
+    }
+};
+
+/** 사업자 번호 검증 10자리의 {3}-{2}-{5}
+ * 
+ * @param {*} number 
+ * @returns 
+ */
+function checkCorporateRegisterNumber(number) {
+    var numberMap = number.replace(/-/gi, '').split('').map(function (d) {
+        return parseInt(d, 10);
+    });
+
+    if (numberMap.length == 10) {
+        var keyArr = [1, 3, 7, 1, 3, 7, 1, 3, 5];
+        var chk = 0;
+
+        keyArr.forEach(function (d, i) {
+            chk += d * numberMap[i];
+        });
+
+        chk += parseInt((keyArr[8] * numberMap[8]) / 10, 10);
+        console.log(chk);
+        return Math.floor(numberMap[9]) === ((10 - (chk % 10)) % 10);
+    }
+
+    return false;
+}

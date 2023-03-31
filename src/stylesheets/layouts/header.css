@@ -5,7 +5,7 @@
     justify-content: space-between;
     width: 100%;
     height: auto;
-    min-height: 50px;
+    /* min-height: 50px; */
     padding: 1rem 2rem;
     background-color: inherit;
     z-index: 8;
@@ -16,7 +16,9 @@
     height: 32px;
 }
 
-.header-logo img {
+.header-logo img,
+.header-logo-image {
+    width: auto;
     height: 100%;
 }
 

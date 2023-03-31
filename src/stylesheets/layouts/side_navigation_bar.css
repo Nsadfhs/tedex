@@ -1,4 +1,4 @@
-.aside-wrapper {
+.sideNav-wrapper {
     position: fixed;
     top: 0;
     left: -100vw;
@@ -6,18 +6,32 @@
     width: 100%;
     min-width: 200px;
     min-height: 100vh;
-    background-color: inherit;
+    background-color: var(--color-grey__100);
     z-index: 9;
     transition: all 0.5s ease-out;
 }
 
-.aside-wrapper.reverse {
+.sideNav-wrapper.reverse {
     left: unset;
     right: -100vw;
 }
 
-.aside-wrapper.on {
+.sideNav-wrapper.on {
     left: 0;
+}
+
+.sideNav-link {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+    column-gap: 0.5rem;
+    width: 100%;
+    height: 3.25rem;
+    padding: 1rem 1.25rem;
+    border-bottom: var(--border_1);
+    cursor: pointer;
 }
 
 /* old mobile and wearable  */
@@ -29,7 +43,7 @@
 @media screen and (min-width:576px) {
     :root {}
 
-    .aside-wrapper {
+    .sideNav-wrapper {
         width: auto;
     }
 }

@@ -780,6 +780,22 @@
     border-color: var(--color-gray__300);
 }
 
+.border__1.lightgray {
+    border-color: var(--color-lightgray__300);
+}
+
+.border__2.lightgray {
+    border-color: var(--color-lightgray__300);
+}
+
+.border__3.lightgray {
+    border-color: var(--color-lightgray__300);
+}
+
+.border__4.lightgray {
+    border-color: var(--color-lightgray__300);
+}
+
 /* top border */
 
 .border-top__1 {

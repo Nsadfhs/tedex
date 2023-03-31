@@ -63,8 +63,17 @@ let apiPath = `${baseURL}/api/${apiVersion}`;
 const $bodyElem = document.querySelector("body");
 const $mainElem = document.querySelector("main");
 const $formElem = document.querySelector("form");
+const mediaQueryMobile = window.matchMedia('(min-width: 576px)');
+const mediaQueryTablet = window.matchMedia('(min-width: 768px)');
+const mediaQueryLaptop = window.matchMedia('(min-width: 992px)');
+const mediaQueryDesktop = window.matchMedia('(min-width: 1200px)');
+const mediaQueryLarge = window.matchMedia('(min-width: 1440px)');
 
-// URL((Uniform Resource Locator))
+/** URL((Uniform Resource Locator)) 파싱
+ * 
+ * @param {String} _type 
+ * @returns 
+ */
 function parseURL(_type) {
     const url = document.location;
 
@@ -115,10 +124,18 @@ function parseURL(_type) {
     }
 };
 
-/** null undefined checking에 도움을 주기 위해 태어남 */
-function isNullChecking(val) {
-    return !!val?.trim()
-}
+/** null undefined checking에 도움을 주기 위해 태어남. Null이면 true, Null 아니면 false를 반환
+ * 
+ * @param {*} _value
+ * @returns 
+ */
+function isNullChecking(_value) {
+    if (typeof _value === "string") {
+        return !!!_value?.trim();
+    } else if (typeof _value === "object") {
+        return _value.length == 0 ? true : false;
+    }
+};
 
 /**
  * 
@@ -181,7 +198,10 @@ function scrollEnable() {
     $bodyElem.removeEventListener("mousewheel", preventDefault, { passive: false });
 };
 
-// 딤(어둡게) 처리
+/** 딤(어둡게) 처리
+ * 
+ * @param {Number} zIndex 
+ */
 function setDimLayer(zIndex) {
     if (!zIndex) {
         zIndex == 9998;
@@ -218,34 +238,56 @@ function hideSpinner() {
 
 };
 
-// 해당 페이지 이동
-function goPage(page) {
-    location.href = page;
+/** 해당 페이지 이동 _route 예시 "/sign/in"
+ * 
+ * @param {String} _route 
+ */
+function goPage(_route) {
+    if (!isNullChecking(_route)) {
+        location.href = _route;
+    } else {
+        console.log(_route, "없음");
+    }
 };
 
-// 페이지 뒤로가기
-function goBack() {
-    history.back();
+/** 페이지 뒤로가기 _route 예시 "/sign/in"
+ * 
+ * @param {String} _route 
+ */
+function goBack(_route) {
+    if (!isNullCheck(_route)) {
+        location.href = `${baseURL}${_route}`;
+    } else {
+        history.back();
+    }
 };
 
-
-// 쿠키정보 만들기
-function setCookie(name, value, days) {
+/** 쿠키정보 만들기
+ * 
+ * @param {String} _name 
+ * @param {*} _value 
+ * @param {Int} _days 
+ */
+function setCookie(_name, _value, _days) {
     let date = new Date();
     let expires = "";
 
-    if (days) {
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    if (_days) {
+        date.setTime(date.getTime() + (_days * 24 * 60 * 60 * 1000));
         expires = "; expires=" + date.toGMTString();
     } else {
         expires = "";
     }
 
-    document.cookie = name + "=" + value + expires + "; path=/";
+    document.cookie = _name + "=" + _value + expires + "; path=/";
 };
 
-// 쿠키정보 가져오기
-function getCookie(cookie_name) {
+/** 쿠키정보 가져오기
+ * 
+ * @param {String} _name 
+ * @returns 
+ */
+function getCookie(_name) {
     let x, y;
     let val = document.cookie.split(';');
     for (let i = 0; i < val.length; i++) {
@@ -253,15 +295,19 @@ function getCookie(cookie_name) {
         y = val[i].substr(val[i].indexOf('=') + 1);
         x = x.replace(/^\s+|\s+$/g, '');
         // 앞과 뒤의 공백 제거하기
-        if (x == cookie_name) {
+        if (x == _name) {
             return unescape(y);
             // unescape로 디코딩 후 값 리턴
         }
     }
 };
 
-// 쿠키 특정 key에 vlaue추가
-function addCookie(_target, value) {
+/** 쿠키 특정 key(cookie_name)에 value추가
+ * 
+ * @param {String} _target 
+ * @param {*} _value 
+ */
+function addCookie(_target, _value) {
     let items = getCookie(_target);
     // 이미 저장된 값을 쿠키에서 가져오기
     let maxItemNum = 5;
@@ -282,18 +328,21 @@ function addCookie(_target, value) {
         }
     } else {
         // 신규 id값 저장하기
-        setCookie(`${_target}`, value, expire);
+        setCookie(`${_target}`, _value, expire);
     }
 };
 
-// 특정 쿠키 삭제
+/** 특정 쿠키(cookie_name) 탐색 후, 삭제
+ * 
+ * @param {String} _name 
+ */
 function deleteCookie(_name) {
     document.cookie = _name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 };
 
-/**
+/** element textContent에 값 넣기
  * 
- * @param {*} _target 
+ * @param {String} _target 
  * @param {*} _text
  */
 function renderText(_target, _text) {
@@ -306,7 +355,7 @@ function renderText(_target, _text) {
             console.log($targetElem.tagName, "적절한 타겟이 아닙니다.(setTextValue를 권장합니다.)");
             return;
         } else {
-            if (_text) {
+            if (!isNullCheck(_text)) {
                 $targetElem.innerText = _text;
             } else {
                 console.log(_target, `${_text}가 이상해요`);
@@ -320,13 +369,13 @@ function renderText(_target, _text) {
     };
 };
 
-/**
+/** element에 자식 넣기 innerHTML
  * 
  * @param {*} _target 
- * @param {*} _template 
+ * @param {String} _template 
  */
 function renderHTML(_target, _template) {
-    // console.log("renderHTML", _target);
+    console.log("renderHTML", _target);
     // // console.log(template);
     const $targetElem = document.getElementById(_target);
     if ($targetElem) {
@@ -337,10 +386,33 @@ function renderHTML(_target, _template) {
     }
 };
 
-/**
+/** 부모(_target : id)를 탐색 후, 부모가 있으면 자식 element append
  * 
- * @param {*} _target 
- * @param {*} _url 
+ * @param {String} _target 
+ * @param {Element} _template 
+ * @returns 
+ */
+function appendHTML(_target, _template) {
+    console.log("HTML_tag", _target);
+    // // console.log(template);
+    const $targetElem = document.getElementById(_target);
+    if ($targetElem) {
+        if (_template) {
+            $targetElem.append(_template);
+        } else {
+            console.log(_template, "append 할 수 있는 템플릿이 없어요");
+            return;
+        }
+    } else {
+        console.log(_target, "타겟이 없어요");
+        return;
+    }
+};
+
+/** img element에 src 넣기 
+ * 
+ * @param {String} _target 
+ * @param {String} _url 
  * @returns 
  */
 function renderImage(_target, _url) {

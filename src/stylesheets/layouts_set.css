@@ -12,6 +12,13 @@
     margin-bottom: 7.5rem;
 }
 
+.main-wrapper.horizontal,
+.main-wrapper.cms {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-bottom: 0;
+}
+
 .main-wrapper.column__2 {
     flex-direction: row;
     flex-wrap: wrap;
