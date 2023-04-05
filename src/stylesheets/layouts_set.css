@@ -108,6 +108,10 @@
     :root {
         --max-width__contents: var(--max-width__tablet);
     }
+
+    .main-wrapper.cms {
+        margin-left: calc(12.5rem + 2rem);
+    }
 }
 
 /* Large devices (small desktops and laptop, 992px and up) */

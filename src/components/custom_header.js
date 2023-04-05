@@ -1,16 +1,8 @@
 "use strict";
-
-"use strict";
 /** null undefined checking에 도움을 주기 위해 태어남 */
 function isNullChecking(val) {
     return !(!!val?.trim());
 };
-
-const mediaQueryMobile = window.matchMedia('(min-width: 576px)');
-const mediaQueryTablet = window.matchMedia('(min-width: 768px)');
-const mediaQueryLaptop = window.matchMedia('(min-width: 992px)');
-const mediaQueryDesktop = window.matchMedia('(min-width: 1200px)');
-const mediaQueryLarge = window.matchMedia('(min-width: 1440px)');
 
 /**
  * 
@@ -24,7 +16,6 @@ class Header extends HTMLElement {
     constructor() {
         super();
     };
-
     // ------- Start Lock --------
     checkAttribute() {
         // Element 태그의 속성 값 JSON 만들기
@@ -37,14 +28,14 @@ class Header extends HTMLElement {
         }
 
         return attributeObject;
-    }
+    };
     connectedCallback() {
         const attrObj = this.checkAttribute();
         // // //console.log(attrObj);
         this.setModule(this.setElement(attrObj), this.setStyle(attrObj));
         this.setEvent(attrObj);
         // updateStyle(this);
-    }
+    };
     setModule(moduleElement, moduleStyle) {
         // // //console.log(moduleElement);
         // // //console.log(moduleStyle);
@@ -57,83 +48,95 @@ class Header extends HTMLElement {
         const $styledElem = document.createElement("style");
         $styledElem.textContent = moduleStyle;
         this.shadowRoot.append($styledElem);
-    }
+    };
     // ------- Finish Lock --------
 
     // Element 처리부
     setElement(_params) {
         // console.log(_params);
 
-        this.classList.add("header-wrapper", "cms", "border-bottom__1");
+        this.classList.add("header-wrapper");
 
         let { type, home, height } = _params;
-        let elemArr = new Array;
 
         // home link가 없을경우 강제로 root의 경로를 작성
         if (isNullChecking(home)) {
             home = "/";
         };
 
+        let elemArr = new Array;
+
+        const $leftWrapper = document.createElement("section");
+        $leftWrapper.classList.add("header-wrapper__left");
+        const $centerWrapper = document.createElement("section");
+        $centerWrapper.classList.add("header-wrapper__center");
+        const $rightWrapper = document.createElement("section");
+        $rightWrapper.classList.add("header-wrapper__right");
+        const $toggleButton = document.createElement("button");
+        $toggleButton.id = "toggle_sidenav";
+        $toggleButton.classList.add("toggle-button");
+        if (mediaQueryLaptop.matches) {
+            $toggleButton.classList.add("on");
+        };
+
+        const $logoutButton = document.createElement("button");
+        $logoutButton.type = "button";
+        $logoutButton.id = "do_logout";
+        $logoutButton.classList.add("header-logout-button");
+        // console.log(mediaQueryMobile.matches);
+        if (!mediaQueryMobile.matches) {
+            $logoutButton.classList.add("icon");
+        } else {
+            $logoutButton.textContent = "로그아웃";
+        };
+
+        const $homeAnchor = document.createElement("a");
+        $homeAnchor.href = home;
+        $homeAnchor.classList.add("header-brand-logo");
+        const $brandLogo = document.createElement("img");
+        $brandLogo.src = "/public/images/logo/logo.svg";
+        // $brandLogo.src = "/public/images/logo/header_logo.png";
+        $brandLogo.alt = `logo image`;
+        $brandLogo.classList.add("header-logo-image");
+        $homeAnchor.append($brandLogo);
+
         switch (type) {
             case "cms":
-                const $leftWrapper = document.createElement("section");
-                $leftWrapper.classList.add("header-wrapper__left");
-                elemArr.push($leftWrapper);
-                const $toggleButton = document.createElement("button");
-                $toggleButton.id = "toggle_sidenav";
-                $toggleButton.classList.add("toggle-button", "ic-sidenav__open");
+                this.classList.add("cms", "border-bottom__1");
 
-                // Check if the media query is true
-                // console.log(mediaQueryLaptop.matches);
-                if (mediaQueryLaptop.matches) {
-                    $toggleButton.classList.add("on");
-                };
+                elemArr.push($leftWrapper);
                 $leftWrapper.append($toggleButton);
 
-                const $centerWrapper = document.createElement("section");
-                $centerWrapper.classList.add("header-wrapper__center");
                 elemArr.push($centerWrapper);
-                const $homeAnchor = document.createElement("a");
-                $homeAnchor.href = home;
-                $homeAnchor.classList.add("header-brand-logo");
-                const $brandLogo = document.createElement("img");
-                // $brandLogo.src = "/public/images/icon/ic_logo.svg";
-                $brandLogo.src = "/public/images/logo/header_logo.png";
-                $brandLogo.alt = `logo image`;
-                $brandLogo.classList.add("header-logo-image");
-                $homeAnchor.append($brandLogo);
                 $centerWrapper.append($homeAnchor);
 
-                const $rightWrapper = document.createElement("section");
-                $rightWrapper.classList.add("header-wrapper__right");
                 elemArr.push($rightWrapper);
-                const $logoutButton = document.createElement("button");
-                $logoutButton.type = "button";
-                $logoutButton.id = "do_logout";
-                $logoutButton.classList.add("header-logout-button");
-                // console.log(mediaQueryMobile.matches);
-                if (!mediaQueryMobile.matches) {
-                    $logoutButton.classList.add("icon");
-                } else {
-                    $logoutButton.textContent = "로그아웃";
-                };
                 $rightWrapper.append($logoutButton);
-
-                // console.log(this.querySelectorAll("a"));
-                // const sideNavLinkArr = this.querySelectorAll("custom-anchor");
-                // const $sideNavBarWrapper = document.createElement("aside");
-                // $sideNavBarWrapper.id = "snb_wrapper";
-                // $sideNavBarWrapper.classList.add("sideNav-wrapper", "cms");
-
-                // sideNavLinkArr.forEach(item => {
-                //     $sideNavBarWrapper.append(item);
-                // });
 
                 const $contentsWrapper = document.createElement("section");
                 $contentsWrapper.classList.add("contents-wrapper", "cms");
-                $contentsWrapper.append(document.querySelector("aside"));
-                $contentsWrapper.append(document.querySelector("main"));
+                const $mainWrapper = document.querySelector("main");
+                if ($mainWrapper) {
+                    $contentsWrapper.append(document.querySelector("main"));
+                } else {
+                    $contentsWrapper.append(document.createElement("main"));
+                };
+                const $sideBarWrapper = document.getElementById("snb_wrapper");
+                if ($sideBarWrapper) {
+                    $contentsWrapper.append(document.getElementById("snb_wrapper"));
+                } else {
+                    $contentsWrapper.append(document.createElement("aside#snb_wrapper"));
+                };
+
                 this.after($contentsWrapper);
+
+                break;
+            case "a":
+                elemArr.push($leftWrapper);
+                $leftWrapper.append($homeAnchor);
+
+                elemArr.push($rightWrapper);
+                $rightWrapper.append($toggleButton);
 
                 break;
             default:
@@ -306,43 +309,51 @@ class Header extends HTMLElement {
             };
 
             const $toggleSidenav = this.shadowRoot.querySelector("#toggle_sidenav");
-            $toggleSidenav.addEventListener("click", function (e) {
-                // console.log("토글");
-                const $sidenav = document.getElementById("snb_wrapper");
-                const $contentsWrapper = document.querySelector("main");
-                console.log(this.classList.contains("on"));
-                // console.log("열려있다");
+            if ($toggleSidenav) {
+                $toggleSidenav.addEventListener("click", function (e) {
+                    // console.log("토글");
+                    const $sidenav = document.getElementById("snb_wrapper");
+                    if ($sidenav) {
+                        const $mainWrapper = document.querySelector("main");
+                        console.log(this.classList.contains("on"));
+                        // console.log("열려있다");
 
-                if (this.classList.contains("on")) {
-                    this.classList.remove("on");
-                    $sidenav.style.left = `calc(-${sideNavWidth}px - ${gap}px)`;
-                    $contentsWrapper.style.marginLeft = "0px";
-                    // console.log("닫았다");
-                } else {
-                    this.classList.add("on");
-                    $sidenav.style.left = "0";
-                    $contentsWrapper.style.marginLeft = `calc(${sideNavWidth}px + ${gap}px)`;
-                    // console.log("열었다");
-                };
-            });
+                        if (this.classList.contains("on")) {
+                            this.classList.remove("on");
+                            $sidenav.style.left = `calc(-${sideNavWidth}px - ${gap}px)`;
+                            $mainWrapper.style.marginLeft = "0px";
+                            // console.log("닫았다");
+                        } else {
+                            this.classList.add("on");
+                            $sidenav.style.left = "0";
+                            $mainWrapper.style.marginLeft = `calc(${sideNavWidth}px + ${gap}px)`;
+                            // console.log("열었다");
+                        };
+                    } else {
+                        console.log("사이드 바 없음");
+                    }
+                });
+            }
         } catch (e) {
             console.log(e);
         }
 
         try {
             const $logoutButton = this.shadowRoot.querySelector("#do_logout");
-            $logoutButton.addEventListener("click", function () {
-                // console.log("로그아웃");
-                deleteCookie("user_type");
-                setCookie('is_logined', false);
-                sessionStorage.setItem('is_logined', false);
+            if ($logoutButton) {
+                $logoutButton.addEventListener("click", function () {
+                    // console.log("로그아웃");
+                    deleteCookie("user_type");
+                    setCookie('is_logined', false);
+                    sessionStorage.setItem('is_logined', false);
 
-                if (!isNullChecking(login)) {
-                    location.href = login;
-                } else {
-                    location.href = "/";
-                };
-            });
+                    if (!isNullChecking(login)) {
+                        location.href = login;
+                    } else {
+                        location.href = "/";
+                    };
+                });
+            }
         } catch (e) {
             console.log(e);
         }
