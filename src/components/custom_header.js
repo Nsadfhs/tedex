@@ -6,10 +6,9 @@ function isNullChecking(val) {
 
 /**
  * 
- * type
- * toggle: str타입으로 true/false 표기
+ * type: str타입으로 header layout 변경
  * home: str타입으로 anchor, home 경로 지정
- * logout: str타입으로 true/false 표기
+ * logo: str타입으로 img 파일이름&확장자, /public/images/logo 경로 default
  * 
  * */
 class Header extends HTMLElement {
@@ -57,7 +56,7 @@ class Header extends HTMLElement {
 
         this.classList.add("header-wrapper");
 
-        let { type, home, height } = _params;
+        let { type, home, logo } = _params;
 
         // home link가 없을경우 강제로 root의 경로를 작성
         if (isNullChecking(home)) {
@@ -94,8 +93,7 @@ class Header extends HTMLElement {
         $homeAnchor.href = home;
         $homeAnchor.classList.add("header-brand-logo");
         const $brandLogo = document.createElement("img");
-        $brandLogo.src = "/public/images/logo/logo.svg";
-        // $brandLogo.src = "/public/images/logo/header_logo.png";
+        $brandLogo.src = `/public/images/logo/${logo}`;
         $brandLogo.alt = `logo image`;
         $brandLogo.classList.add("header-logo-image");
         $homeAnchor.append($brandLogo);

@@ -1,13 +1,17 @@
 "use strict";
 
+// input 데이터를 FormData로 전환
+const inputData = new FormData();
+
 // form쓸때, submit안하고 우리는 formdata에 넣어서 보낼거임
 document.addEventListener("submit", function (e) {
     e.preventDefault();
 });
 
-// input 데이터를 FormData로 전환
-let inputData = new FormData();
-
+/** Enter키 입력시, callback함수 발동
+ * 
+ * @param {*} callback 
+ */
 function enterSubmit(callback) {
     document.addEventListener("keydown", function (e) {
         if (e.key == "Enter") {
