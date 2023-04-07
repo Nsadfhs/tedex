@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    max-width: var(--max-width__wide);
     width: 100%;
     height: 100%;
     margin-left: 0;
@@ -16,8 +17,15 @@
 }
 
 .main-wrapper.cms {
-    padding: 2rem;
+    display: block;
+    height: calc(100vh - 3.75rem);
     padding-top: 4.25rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-right: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     transition: all 0.5s ease-out;
 }
 
@@ -75,4 +83,10 @@
 /* Extra Extra large devices (large desktops, 1440px and up) */
 @media screen and (min-width:1440px) {
     :root {}
+
+    .main-wrapper {
+        max-width: var(--max-width__xxxl);
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

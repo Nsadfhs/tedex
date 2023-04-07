@@ -1,5 +1,5 @@
 .sideNav-wrapper {
-    position: fixed;
+    position: absolute;
     left: -100%;
     width: 100%;
     max-width: 100%;

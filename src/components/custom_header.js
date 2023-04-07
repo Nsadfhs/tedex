@@ -1,10 +1,6 @@
 "use strict";
-/** null undefined checking에 도움을 주기 위해 태어남 */
-function isNullChecking(val) {
-    return !(!!val?.trim());
-};
 
-/**
+/**    <custom-header type="cms" home="/" logo="logo.svg"></custom-header>
  * 
  * type: str타입으로 header layout 변경
  * home: str타입으로 anchor, home 경로 지정
@@ -100,7 +96,7 @@ class Header extends HTMLElement {
 
         switch (type) {
             case "cms":
-                this.classList.add("cms", "border-bottom__1");
+                this.classList.add("cms");
 
                 elemArr.push($leftWrapper);
                 $leftWrapper.append($toggleButton);
