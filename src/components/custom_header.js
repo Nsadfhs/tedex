@@ -115,15 +115,22 @@ class Header extends HTMLElement {
                 $contentsWrapper.classList.add("contents-wrapper", "cms");
                 const $mainWrapper = document.querySelector("main");
                 if ($mainWrapper) {
-                    $contentsWrapper.append(document.querySelector("main"));
+                    $contentsWrapper.append($mainWrapper);
+                    $mainWrapper.classList.add("main-wrapper", "cms");
+
                 } else {
-                    $contentsWrapper.append(document.createElement("main"));
+                    const $createdMainWrapper = document.createElement("main");
+                    $contentsWrapper.append($createdMainWrapper);
+                    $createdMainWrapper.classList.add("main-wrapper", "cms");
                 };
                 const $sideBarWrapper = document.getElementById("snb_wrapper");
                 if ($sideBarWrapper) {
-                    $contentsWrapper.append(document.getElementById("snb_wrapper"));
+                    $contentsWrapper.append($sideBarWrapper);
+                    $sideBarWrapper.classList.add("sideNav-wrapper", "cms");
                 } else {
-                    $contentsWrapper.append(document.createElement("aside#snb_wrapper"));
+                    const $createdSideBarWrapper = document.createElement("aside#snb_wrapper")
+                    $contentsWrapper.append($createdSideBarWrapper);
+                    $createdSideBarWrapper.classList.add("sideNav-wrapper", "cms");
                 };
 
                 this.after($contentsWrapper);
@@ -303,7 +310,7 @@ class Header extends HTMLElement {
             };
 
             if (isNullChecking(gap)) {
-                gap = 32;
+                gap = 0;
             };
 
             const $toggleSidenav = this.shadowRoot.querySelector("#toggle_sidenav");

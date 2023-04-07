@@ -113,15 +113,11 @@ class CustomAnchor extends HTMLElement {
             }
 
             .anchor-text {
-                color: var(--color-gray__700);
-                font-size: 1rem;
+                color: var(--color-black__off);
+                font-size: 0.875rem;
                 font-weight: bold;
-                line-height: 1.35;
+                line-height: 1.25rem;
                 cursor: pointer;
-            }
-
-            .anchor-text:hover {
-                color: var(--color-black);
             }
         `;
 
