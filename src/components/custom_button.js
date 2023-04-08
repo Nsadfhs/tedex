@@ -51,7 +51,7 @@ class CustomButton extends HTMLButtonElement {
     // Element 처리부
     setElement(_params) {
         console.log(_params);
-        let { type, category, text } = _params;
+        let { type, category, text, value, id, name } = _params;
         console.log(type);
         console.log(category);
         let elemArr = new Array;
@@ -64,6 +64,8 @@ class CustomButton extends HTMLButtonElement {
             if (isNullChecking(text)) {
                 text = this.textContent;
             };
+
+            this.textContent = "";
         };
 
         if (isNullChecking(type)) {
@@ -72,6 +74,14 @@ class CustomButton extends HTMLButtonElement {
 
         if (isNullChecking(category)) {
             category = "a";
+        };
+
+        if (isNullChecking(id)) {
+            id = `${type}_${category}_${inputCount}`;
+        };
+
+        if (isNullChecking(name)) {
+            name = `${type}_${category}`;
         };
 
         this.classList.add(`button__${category}`);
@@ -83,17 +93,37 @@ class CustomButton extends HTMLButtonElement {
         const $rightIcon = document.createElement("i");
         $rightIcon.classList.add("right-icon");
 
-        switch (category) {
-            case "a":
+        switch (type) {
+            case "button":
+                switch (category) {
+                    case "a":
 
+                        break;
+                    case "b":
+
+                        break;
+                    default:
+                        console.log("unknown-category");
+                        break;
+                }
                 break;
-            case "b":
+            case "submit":
+                switch (category) {
+                    case "a":
 
+                        break;
+                    case "b":
+
+                        break;
+                    default:
+                        console.log("unknown-category");
+                        break;
+                }
                 break;
             default:
-                console.log("unknown-category");
                 break;
         }
+
 
         return elemArr;
     }
@@ -128,6 +158,13 @@ class CustomButton extends HTMLButtonElement {
         // const $Button = this.shadowRoot.querySelector("button"); // 엘리먼트는 '$'를 붙인다.
         // const _form = this.getAttribute("form"); // 속성은 '_'로 시작한다.
         // $Button.addEventListener("click", () => {});
+
+        let { type, onclick } = _params;
+
+        if (isNullChecking(type)) {
+            type = "button";
+        };
+
     };
 };
 customElements.define('custom-button', CustomButton, { extends: 'button' });

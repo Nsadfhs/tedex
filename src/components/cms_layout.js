@@ -4,6 +4,242 @@ function isNullChecking(val) {
     return !(!!val?.trim());
 };
 
+class CMSLayout extends HTMLBodyElement {
+    constructor() {
+        super();
+    };
+    // ------- Start Lock --------
+    checkAttribute() {
+        // Element 태그의 속성 값 JSON 만들기
+        let attributeObject = new Object;
+        // // //console.log(this.getAttributeNames());
+        for (var i = 0; i < this.getAttributeNames().length; i++) {
+            let attribute = this.getAttributeNames()[i];
+            // // //console.log(attribute);
+            attributeObject[attribute] = this.getAttribute(attribute);
+        }
+
+        return attributeObject;
+    };
+    connectedCallback() {
+        const attrObj = this.checkAttribute();
+        // // //console.log(attrObj);
+        this.setModule(this.setElement(attrObj), this.setStyle(attrObj));
+        this.setEvent(attrObj);
+        // updateStyle(this);
+    };
+    setModule(moduleElement, moduleStyle) {
+        // // //console.log(moduleElement);
+        // // //console.log(moduleStyle);
+        // this.attachShadow({ mode: 'open' });
+        if (moduleElement) {
+            for (var i = 0; i < moduleElement.length; i++) {
+                this.append(moduleElement[i]);
+            }
+        };
+        // const $styledElem = document.createElement("style");
+        // $styledElem.textContent = moduleStyle;
+        // this.shadowRoot.append($styledElem);
+    };
+    // ------- Finish Lock --------
+
+    // Element 처리부
+    setElement(_params) {
+        // console.log(_params);
+
+        let { home, logo } = _params;
+        let elemArr = new Array;
+
+        // home link가 없을경우 강제로 root의 경로를 작성
+        if (isNullChecking(home)) {
+            home = "/";
+        };
+
+        if (isNullChecking(logo)) {
+            logo = "logo.svg";
+        };
+
+        this.classList.add("wrapper", "scroll-none");
+
+        const $headerWrapper = document.querySelector("header");
+        if (!$headerWrapper) {
+            const $createdHeaderWrapper = document.createElement("header");
+            $createdHeaderWrapper.classList.add("header-wrapper", "cms");
+
+            const $leftWrapper = document.createElement("section");
+            $leftWrapper.classList.add("header-contents__left");
+            const $centerWrapper = document.createElement("section");
+            $centerWrapper.classList.add("header-contents__center");
+            const $rightWrapper = document.createElement("section");
+            $rightWrapper.classList.add("header-contents__right");
+
+            const $toggleButton = document.createElement("button");
+            $toggleButton.id = "toggle_sidenav";
+            $toggleButton.classList.add("toggle-button");
+            $leftWrapper.append($toggleButton);
+            if (mediaQueryLaptop.matches) {
+                $toggleButton.classList.add("on");
+            };
+
+            const $homeAnchor = document.createElement("a");
+            $homeAnchor.href = home;
+            $homeAnchor.classList.add("header-brand-logo");
+            const $brandLogo = document.createElement("img");
+            $brandLogo.src = `/public/images/logo/${logo}`;
+            $brandLogo.alt = `logo image`;
+            $brandLogo.classList.add("header-logo-image");
+            $homeAnchor.append($brandLogo);
+            $centerWrapper.append($homeAnchor);
+
+            const $logoutButton = document.createElement("button");
+            $logoutButton.type = "button";
+            $logoutButton.id = "do_logout";
+            $logoutButton.classList.add("header-logout-button");
+            $rightWrapper.append($logoutButton);
+            if (!mediaQueryMobile.matches) {
+                $logoutButton.classList.add("icon");
+            } else {
+                $logoutButton.textContent = "로그아웃";
+            };
+
+            $createdHeaderWrapper.append($leftWrapper);
+            $createdHeaderWrapper.append($centerWrapper);
+            $createdHeaderWrapper.append($rightWrapper);
+        };
+
+        const $contentsWrapper = document.createElement("section");
+        $contentsWrapper.classList.add("contents-wrapper", "cms");
+
+        const $sideBarWrapper = document.getElementById("snb_wrapper");
+        if ($sideBarWrapper) {
+            $contentsWrapper.append($sideBarWrapper);
+            $sideBarWrapper.classList.add("sideNav-wrapper", "cms");
+        } else {
+            const $createdSideBarWrapper = document.createElement("aside");
+            $createdSideBarWrapper.id = "snb_wrapper";
+            $contentsWrapper.append($createdSideBarWrapper);
+            $createdSideBarWrapper.classList.add("sideNav-wrapper", "cms");
+        };
+
+        const $mainWrapper = document.querySelector("main");
+        if ($mainWrapper) {
+            $contentsWrapper.append($mainWrapper);
+            $mainWrapper.classList.add("main-wrapper", "cms");
+
+        } else {
+            const $createdMainWrapper = document.createElement("main");
+            $contentsWrapper.append($createdMainWrapper);
+            $createdMainWrapper.classList.add("main-wrapper", "cms");
+        };
+
+        this.prepend($contentsWrapper);
+        this.prepend($headerWrapper);
+
+        return elemArr;
+    }
+    // Style 처리부
+    setStyle(_params) {
+
+        let { color, bgcolor, size, align, padding, margin, radius, width, height } = _params;
+
+        // 높이 설정 50px보다 작게는 안됨
+        if (!isNullChecking(height)) {
+            this.style.height = height;
+        } else {
+            this.style.height = "auto";
+        };
+
+        const styleString = `
+            * {
+                box-sizing: border-box;
+                color: inherit;
+                font: inherit;
+                background-color: transparent;
+                padding: 0;
+                margin: 0;
+                border: none;
+                outline: 0;
+                text-decoration: 0;
+                list-style: none;
+                cursor: default;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+        `;
+
+        return styleString;
+    }
+    // Event 처리부
+    setEvent(_params) {
+        // 이벤트 트리거는 'this.shadowRoot'밑에서 찾는다.
+        // const $Button = this.shadowRoot.querySelector("button"); // 엘리먼트는 '$'를 붙인다.
+        // const _form = this.getAttribute("form"); // 속성은 '_'로 시작한다.
+        // $Button.addEventListener("click", () => {});
+        let { login, gap, sideNavWidth } = _params;
+
+        try {
+            if (isNullChecking(sideNavWidth)) {
+                sideNavWidth = 200;
+            };
+
+            if (isNullChecking(gap)) {
+                gap = 0;
+            };
+
+            const $toggleSidenav = this.querySelector("#toggle_sidenav");
+            console.log($toggleSidenav);
+            if ($toggleSidenav) {
+                $toggleSidenav.addEventListener("click", function (e) {
+                    // console.log("토글");
+                    const $sidenav = document.getElementById("snb_wrapper");
+                    if ($sidenav) {
+                        const $mainWrapper = document.querySelector("main");
+                        console.log(this.classList.contains("on"));
+                        // console.log("열려있다");
+
+                        if (this.classList.contains("on")) {
+                            this.classList.remove("on");
+                            $sidenav.style.left = `calc(-${sideNavWidth}px - ${gap}px)`;
+                            $mainWrapper.style.marginLeft = "0px";
+                            // console.log("닫았다");
+                        } else {
+                            this.classList.add("on");
+                            $sidenav.style.left = "0";
+                            $mainWrapper.style.marginLeft = `calc(${sideNavWidth}px + ${gap}px)`;
+                            // console.log("열었다");
+                        };
+                    } else {
+                        console.log("사이드 바 없음");
+                    }
+                });
+            }
+        } catch (e) {
+            console.log(e);
+        }
+
+        try {
+            const $logoutButton = this.querySelector("#do_logout");
+            if ($logoutButton) {
+                $logoutButton.addEventListener("click", function () {
+                    // console.log("로그아웃");
+                    deleteCookie("user_type");
+                    setCookie('is_logined', false);
+                    sessionStorage.setItem('is_logined', false);
+
+                    if (!isNullChecking(login)) {
+                        location.href = login;
+                    } else {
+                        location.href = "/";
+                    };
+                });
+            }
+        } catch (e) {
+            console.log(e);
+        }
+    }
+}
+customElements.define('cms-layout', CMSLayout, { extends: "body" });
+
 /**    <custom-header type="cms" home="/" logo="logo.svg"></custom-header>
  * 
  * type: str타입으로 header layout 변경
@@ -377,7 +613,6 @@ class Header extends HTMLElement {
     }
 }
 customElements.define('custom-header', Header);
-
 
 class CustomAnchor extends HTMLElement {
     constructor() {

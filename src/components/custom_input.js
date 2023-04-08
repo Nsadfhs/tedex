@@ -1,5 +1,5 @@
 "use strict";
-
+let inputCount = 0;
 class CustomInput extends HTMLElement {
     constructor() {
         super();
@@ -42,7 +42,7 @@ class CustomInput extends HTMLElement {
     // Element 처리부
     setElement(_params) {
 
-        let { type, category, label, value } = _params;
+        let { type, category, label, value, name, id } = _params;
 
         let elemArr = new Array;
 
@@ -66,14 +66,28 @@ class CustomInput extends HTMLElement {
 
         if (isNullChecking(value)) {
             value = false;
-        } else {
-            value = true;
         };
+
+        if (isNullChecking(id)) {
+            id = `${type}_${category}_${inputCount}`;
+        };
+
+        if (isNullChecking(name)) {
+            name = `${type}_${category}`;
+        } else {
+
+        }
 
         const $labelWrapper = document.createElement("label");
         $labelWrapper.textContent = label;
+        $labelWrapper.setAttribute("for", id);
         const $inputWrapper = document.createElement("input");
         $inputWrapper.type = type;
+        $inputWrapper.name = name;
+        $inputWrapper.id = id;
+
+        this.name = "";
+        this.id = "";
 
         switch (type) {
             case "text":
@@ -82,27 +96,37 @@ class CustomInput extends HTMLElement {
                 $inputWrapper.classList.add(`input__${category}`);
                 switch (category) {
                     case "a":
+                        elemArr.push($inputWrapper);
+                        break;
+                    case "b":
                         this.classList.add("horizontal");
 
                         elemArr.push($labelWrapper);
                         elemArr.push($inputWrapper);
+
                         break;
-                    case "b":
+                    case "c":
+                        // this.classList.add("vertical");
                         this.classList.add("vertical");
 
                         elemArr.push($labelWrapper);
                         elemArr.push($inputWrapper);
-                        break;
-                    case "b":
-                        // this.classList.add("vertical");
 
-                        elemArr.push($inputWrapper);
                         break;
                     default:
                         console.log("unknown-category");
                         break;
                 }
-
+                break;
+            case "password":
+                break;
+            case "checkbox":
+                break;
+            case "radio":
+                break;
+            case "select":
+                break;
+            case "date":
                 break;
             default:
                 console.log("unknown-type");
@@ -166,18 +190,18 @@ class CustomInput extends HTMLElement {
         // const $Button = this.shadowRoot.querySelector("button"); // 엘리먼트는 '$'를 붙인다.
         // const _form = this.getAttribute("form"); // 속성은 '_'로 시작한다.
         // $Button.addEventListener("click", () => {});
-        let { href } = _params;
+        let { value } = _params;
 
-        // home link가 없을경우 강제로 root의 경로를 작성
-        if (isNullChecking(href)) {
-            href = "/";
+        if (isNullChecking(value)) {
+            value = false;
         };
 
-
         try {
-            this.querySelector("input").addEventListener("input", function () {
-                console.log(this.value);
-            })
+            if (this.shadowRoot.querySelector("input")) {
+                this.shadowRoot.querySelector("input").addEventListener("input", function () {
+                    console.log(this.value);
+                })
+            };
         } catch (e) {
             console.log(e);
         }

@@ -1,0 +1,107 @@
+.input-wrapper,
+.input-wrapper.horizontal {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.input-wrapper.wrap {
+    flex-wrap: wrap;
+}
+
+.input-wrapper.wrap-reverse {
+    flex-wrap: wrap-reverse;
+}
+
+.input-wrapper.horizontal.reverse {
+    flex-direction: row-reverse;
+}
+
+/* column */
+.input-wrapper.vertical {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.input-wrapper.vertical.reverse {
+    flex-direction: column-reverse;
+}
+
+/* align */
+.input-wrapper.horizontal.h-left,
+.input-wrapper.vertical.v-top {
+    justify-content: flex-start;
+}
+
+.input-wrapper.horizontal.h-center,
+.input-wrapper.vertical.v-center {
+    justify-content: center;
+}
+
+.input-wrapper.horizontal.h-right,
+.input-wrapper.vertical.v-bottom {
+    justify-content: flex-end;
+}
+
+.input-wrapper.horizontal.h-around,
+.input-wrapper.vertical.v-around {
+    justify-content: space-around;
+}
+
+.input-wrapper.horizontal.h-between,
+.input-wrapper.vertical.v-between {
+    justify-content: space-between;
+}
+
+.input-wrapper.horizontal.h-evenly,
+.input-wrapper.vertical.v-evenly {
+    justify-content: space-evenly;
+}
+
+.input-wrapper.horizontal.v-top,
+.input-wrapper.vertical.h-left {
+    align-items: flex-start;
+}
+
+.input-wrapper.horizontal.v-center,
+.input-wrapper.vertical.h-center {
+    align-items: center;
+}
+
+.input-wrapper.horizontal.v-bottom,
+.input-wrapper.vertical.h-right {
+    align-items: flex-end;
+}
+
+/* old mobile and wearable  */
+@media all and (min-width: 280px) and (max-width: 359px) {
+    :root {}
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width:576px) {
+    :root {}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width:768px) {
+    :root {}
+}
+
+/* Large devices (small desktops and laptop, 992px and up) */
+@media screen and (min-width:992px) {
+    :root {}
+}
+
+/* Large devices (desktops and large laptop, 1200px and up) */
+@media screen and (min-width:1200px) {
+    :root {}
+}
+
+/* Extra Extra large devices (large desktops, 1440px and up) */
+@media screen and (min-width:1440px) {
+    :root {}
+}
