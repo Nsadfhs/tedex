@@ -4,6 +4,9 @@ function isNullChecking(val) {
     return !(!!val?.trim());
 };
 
+/** <body is="cms-layout" home="/" logo="logo.svg">
+ * 
+ */
 class CMSLayout extends HTMLBodyElement {
     constructor() {
         super();
@@ -61,51 +64,11 @@ class CMSLayout extends HTMLBodyElement {
 
         this.classList.add("wrapper", "scroll-none");
 
-        const $headerWrapper = document.querySelector("header");
-        if (!$headerWrapper) {
-            const $createdHeaderWrapper = document.createElement("header");
-            $createdHeaderWrapper.classList.add("header-wrapper", "cms");
-
-            const $leftWrapper = document.createElement("section");
-            $leftWrapper.classList.add("header-contents__left");
-            const $centerWrapper = document.createElement("section");
-            $centerWrapper.classList.add("header-contents__center");
-            const $rightWrapper = document.createElement("section");
-            $rightWrapper.classList.add("header-contents__right");
-
-            const $toggleButton = document.createElement("button");
-            $toggleButton.id = "toggle_sidenav";
-            $toggleButton.classList.add("toggle-button");
-            $leftWrapper.append($toggleButton);
-            if (mediaQueryLaptop.matches) {
-                $toggleButton.classList.add("on");
-            };
-
-            const $homeAnchor = document.createElement("a");
-            $homeAnchor.href = home;
-            $homeAnchor.classList.add("header-brand-logo");
-            const $brandLogo = document.createElement("img");
-            $brandLogo.src = `/public/images/logo/${logo}`;
-            $brandLogo.alt = `logo image`;
-            $brandLogo.classList.add("header-logo-image");
-            $homeAnchor.append($brandLogo);
-            $centerWrapper.append($homeAnchor);
-
-            const $logoutButton = document.createElement("button");
-            $logoutButton.type = "button";
-            $logoutButton.id = "do_logout";
-            $logoutButton.classList.add("header-logout-button");
-            $rightWrapper.append($logoutButton);
-            if (!mediaQueryMobile.matches) {
-                $logoutButton.classList.add("icon");
-            } else {
-                $logoutButton.textContent = "로그아웃";
-            };
-
-            $createdHeaderWrapper.append($leftWrapper);
-            $createdHeaderWrapper.append($centerWrapper);
-            $createdHeaderWrapper.append($rightWrapper);
-        };
+        const $headerWrapper = document.createElement("custom-header");
+        $headerWrapper.setAttribute("type", "cms");
+        $headerWrapper.setAttribute("home", home);
+        $headerWrapper.setAttribute("logo", logo);
+        $headerWrapper.classList.add("header-wrapper", "cms");
 
         const $contentsWrapper = document.createElement("section");
         $contentsWrapper.classList.add("contents-wrapper", "cms");
@@ -175,67 +138,67 @@ class CMSLayout extends HTMLBodyElement {
         // const $Button = this.shadowRoot.querySelector("button"); // 엘리먼트는 '$'를 붙인다.
         // const _form = this.getAttribute("form"); // 속성은 '_'로 시작한다.
         // $Button.addEventListener("click", () => {});
-        let { login, gap, sideNavWidth } = _params;
+        // let { login, gap, sideNavWidth } = _params;
 
-        try {
-            if (isNullChecking(sideNavWidth)) {
-                sideNavWidth = 200;
-            };
+        // try {
+        //     if (isNullChecking(sideNavWidth)) {
+        //         sideNavWidth = 200;
+        //     };
 
-            if (isNullChecking(gap)) {
-                gap = 0;
-            };
+        //     if (isNullChecking(gap)) {
+        //         gap = 0;
+        //     };
 
-            const $toggleSidenav = this.querySelector("#toggle_sidenav");
-            console.log($toggleSidenav);
-            if ($toggleSidenav) {
-                $toggleSidenav.addEventListener("click", function (e) {
-                    // console.log("토글");
-                    const $sidenav = document.getElementById("snb_wrapper");
-                    if ($sidenav) {
-                        const $mainWrapper = document.querySelector("main");
-                        console.log(this.classList.contains("on"));
-                        // console.log("열려있다");
+        //     const $toggleSidenav = this.querySelector("#toggle_sidenav");
+        //     console.log($toggleSidenav);
+        //     if ($toggleSidenav) {
+        //         $toggleSidenav.addEventListener("click", function (e) {
+        //             // console.log("토글");
+        //             const $sidenav = document.getElementById("snb_wrapper");
+        //             if ($sidenav) {
+        //                 const $mainWrapper = document.querySelector("main");
+        //                 console.log(this.classList.contains("on"));
+        //                 // console.log("열려있다");
 
-                        if (this.classList.contains("on")) {
-                            this.classList.remove("on");
-                            $sidenav.style.left = `calc(-${sideNavWidth}px - ${gap}px)`;
-                            $mainWrapper.style.marginLeft = "0px";
-                            // console.log("닫았다");
-                        } else {
-                            this.classList.add("on");
-                            $sidenav.style.left = "0";
-                            $mainWrapper.style.marginLeft = `calc(${sideNavWidth}px + ${gap}px)`;
-                            // console.log("열었다");
-                        };
-                    } else {
-                        console.log("사이드 바 없음");
-                    }
-                });
-            }
-        } catch (e) {
-            console.log(e);
-        }
+        //                 if (this.classList.contains("on")) {
+        //                     this.classList.remove("on");
+        //                     $sidenav.style.left = `calc(-${sideNavWidth}px - ${gap}px)`;
+        //                     $mainWrapper.style.marginLeft = "0px";
+        //                     // console.log("닫았다");
+        //                 } else {
+        //                     this.classList.add("on");
+        //                     $sidenav.style.left = "0";
+        //                     $mainWrapper.style.marginLeft = `calc(${sideNavWidth}px + ${gap}px)`;
+        //                     // console.log("열었다");
+        //                 };
+        //             } else {
+        //                 console.log("사이드 바 없음");
+        //             }
+        //         });
+        //     }
+        // } catch (e) {
+        //     console.log(e);
+        // }
 
-        try {
-            const $logoutButton = this.querySelector("#do_logout");
-            if ($logoutButton) {
-                $logoutButton.addEventListener("click", function () {
-                    // console.log("로그아웃");
-                    deleteCookie("user_type");
-                    setCookie('is_logined', false);
-                    sessionStorage.setItem('is_logined', false);
+        // try {
+        //     const $logoutButton = this.querySelector("#do_logout");
+        //     if ($logoutButton) {
+        //         $logoutButton.addEventListener("click", function () {
+        //             // console.log("로그아웃");
+        //             deleteCookie("user_type");
+        //             setCookie('is_logined', false);
+        //             sessionStorage.setItem('is_logined', false);
 
-                    if (!isNullChecking(login)) {
-                        location.href = login;
-                    } else {
-                        location.href = "/";
-                    };
-                });
-            }
-        } catch (e) {
-            console.log(e);
-        }
+        //             if (!isNullChecking(login)) {
+        //                 location.href = login;
+        //             } else {
+        //                 location.href = "/";
+        //             };
+        //         });
+        //     }
+        // } catch (e) {
+        //     console.log(e);
+        // }
     }
 }
 customElements.define('cms-layout', CMSLayout, { extends: "body" });
@@ -432,7 +395,7 @@ class Header extends HTMLElement {
                 display: flex;
                 flex-direction: row;
                 flex-wrap: nowrap;
-                justify-content: flex-start;
+                justify-content: center;
                 align-items: center;
             }
 
