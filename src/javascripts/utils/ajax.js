@@ -1,5 +1,10 @@
 "use strict";
 
+// api 버전 - 기본 버전 1
+let apiVersion = "v1";
+// api 경로
+let apiPath = `${baseURL}/apis/${apiVersion}`;
+
 function ajaxRequestSync(targetUrl, data, type = "POST") {
     return $.ajax({
         url: targetUrl,
@@ -8,10 +13,10 @@ function ajaxRequestSync(targetUrl, data, type = "POST") {
         data: data,
         async: false,
         beforeSend: () => {
-            $(".wrap-loading").removeClass("silence");
+            showSpinner();
         },
         complete: () => {
-            $(".wrap-loading").addClass("silence");
+            hideSpinner();
         }
     })
         // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨.

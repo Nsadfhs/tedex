@@ -1,8 +1,4 @@
 "use strict";
-/** null undefined checking에 도움을 주기 위해 태어남 */
-function isNullChecking(val) {
-    return !(!!val?.trim());
-};
 
 /** <body is="cms-layout" home="/" logo="logo.svg">
  * 

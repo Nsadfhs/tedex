@@ -24,7 +24,7 @@ document.addEventListener("keydown", function (e) {
 
 // 디버그모드 제어
 // const DebugMode = false;
-const DebugMode = true;
+let DebugMode = true;
 
 let baseURL = ""; // 테스트 모드
 
@@ -55,10 +55,6 @@ if (!DebugMode) {
     console.log = function () { };
 };
 
-// api 버전 - 기본 버전 1
-let apiVersion = "v1";
-// api 경로
-let apiPath = `${baseURL}/api/${apiVersion}`;
 // 주로쓰는 Element
 const $bodyElem = document.querySelector("body");
 const $mainElem = document.querySelector("main");
@@ -204,38 +200,49 @@ function scrollEnable() {
  */
 function setDimLayer(zIndex) {
     if (!zIndex) {
-        zIndex == 9998;
+        zIndex = 9998;
     }
     // // // console.log("켜기")
-    let dimLayer = document.createElement("div");
-    dimLayer.classList.add("dim-layer");
-    dimLayer.style.position = "fixed";
-    dimLayer.style.top = 0;
-    dimLayer.style.left = 0;
-    dimLayer.style.width = "100%";
-    dimLayer.style.height = "100%";
-    dimLayer.style.backgroundColor = "var(--color-gray__900)";
-    dimLayer.opacity = "0.7";
-    dimLayer.style.zIndex = zIndex;
+    const $dimLayer = document.createElement("div");
+    $dimLayer.classList.add("dim-layer");
+    $dimLayer.style.position = "fixed";
+    $dimLayer.style.top = 0;
+    $dimLayer.style.left = 0;
+    $dimLayer.style.width = "100%";
+    $dimLayer.style.height = "100%";
+    $dimLayer.style.backgroundColor = "var(--color-gray__900)";
+    $dimLayer.style.opacity = "0.7";
+    $dimLayer.style.zIndex = zIndex;
 
-    $bodyElem.append(dimLayer);
+    $bodyElem.append($dimLayer);
 };
 
 // 딤(어둡게) 해제
 function offDimLayer() {
-    let dimLayer = document.querySelector(".dim-layer");
+    const $dimLayer = document.querySelector(".dim-layer");
     // // console.log(dimLayer);
-    dimLayer.remove();
+    $dimLayer.remove();
 };
 
 // 로딩 스피너 생성
 function showSpinner() {
+    const $spinner = document.createElement('div');
+    $spinner.classList.add("loading-spinner");
+    $spinner.style.border = '16px solid #f3f3f3';
+    $spinner.style.borderTop = '16px solid #3498db';
+    $spinner.style.borderRadius = '50%';
+    $spinner.style.width = '120px';
+    $spinner.style.height = '120px';
+    $spinner.style.animation = 'spin 2s linear infinite';
 
+    $bodyElem.append($spinner);
 };
 
 // 로딩 스피너 해제
 function hideSpinner() {
-
+    const $spinner = document.querySelector(".loading-spinner");
+    // // console.log(dimLayer);
+    $spinner.remove();
 };
 
 /** 해당 페이지 이동 _route 예시 "/sign/in"
