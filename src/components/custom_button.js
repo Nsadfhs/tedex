@@ -11,10 +11,10 @@ class CustomButton extends HTMLButtonElement {
     checkAttribute() {
         // Element 태그의 속성 값 JSON 만들기
         let attributeObject = new Object;
-        // // //console.log(this.getAttributeNames());
+        // console.log(this.getAttributeNames());
         for (var i = 0; i < this.getAttributeNames().length; i++) {
             let attribute = this.getAttributeNames()[i];
-            // // //console.log(attribute);
+            // console.log(attribute);
             attributeObject[attribute] = this.getAttribute(attribute);
         }
 
@@ -22,7 +22,7 @@ class CustomButton extends HTMLButtonElement {
     };
     connectedCallback() {
         const attrObj = this.checkAttribute();
-        // // //console.log(attrObj);
+        // console.log(attrObj);
         // this.setModule(this.setElement(attrObj), this.setStyle(attrObj));
         const moduleElement = this.setElement(attrObj);
         if (moduleElement) {
@@ -34,8 +34,8 @@ class CustomButton extends HTMLButtonElement {
         // updateStyle(this);
     };
     setModule(moduleElement, moduleStyle) {
-        // // //console.log(moduleElement);
-        // // //console.log(moduleStyle);
+        // console.log(moduleElement);
+        // console.log(moduleStyle);
         this.attachShadow({ mode: 'open' });
         if (moduleElement) {
             for (var i = 0; i < moduleElement.length; i++) {
@@ -50,37 +50,37 @@ class CustomButton extends HTMLButtonElement {
 
     // Element 처리부
     setElement(_params) {
-        console.log(_params);
+        // console.log(_params);
         let { type, category, text, value, id, name } = _params;
-        console.log(type);
-        console.log(category);
+        // console.log(type);
+        // console.log(category);
         let elemArr = new Array;
 
-        if (isNullChecking(this.textContent)) {
-            if (isNullChecking(text)) {
+        if (!isTruthy(this.textContent)) {
+            if (!isTruthy(text)) {
                 text = "Button";
             };
         } else {
-            if (isNullChecking(text)) {
+            if (!isTruthy(text)) {
                 text = this.textContent;
             };
 
             this.textContent = "";
         };
 
-        if (isNullChecking(type)) {
+        if (!isTruthy(type)) {
             type = "button";
         };
 
-        if (isNullChecking(category)) {
+        if (!isTruthy(category)) {
             category = "a";
         };
 
-        if (isNullChecking(id)) {
+        if (!isTruthy(id)) {
             id = `${type}_${category}_${inputCount}`;
         };
 
-        if (isNullChecking(name)) {
+        if (!isTruthy(name)) {
             name = `${type}_${category}`;
         };
 
@@ -103,7 +103,7 @@ class CustomButton extends HTMLButtonElement {
 
                         break;
                     default:
-                        console.log("unknown-category");
+                        // console.log("unknown-category");
                         break;
                 }
                 break;
@@ -116,7 +116,7 @@ class CustomButton extends HTMLButtonElement {
 
                         break;
                     default:
-                        console.log("unknown-category");
+                        // console.log("unknown-category");
                         break;
                 }
                 break;
@@ -153,7 +153,7 @@ class CustomButton extends HTMLButtonElement {
     }
     // Event 처리부
     setEvent(_params) {
-        console.log(_params);
+        // console.log(_params);
         // 이벤트 트리거는 'this.shadowRoot'밑에서 찾는다.
         // const $Button = this.shadowRoot.querySelector("button"); // 엘리먼트는 '$'를 붙인다.
         // const _form = this.getAttribute("form"); // 속성은 '_'로 시작한다.
@@ -161,7 +161,7 @@ class CustomButton extends HTMLButtonElement {
 
         let { type, onclick } = _params;
 
-        if (isNullChecking(type)) {
+        if (!isTruthy(type)) {
             type = "button";
         };
 

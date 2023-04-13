@@ -20,7 +20,7 @@ function toastAlert(_message, _timeout = 5000, callback = false) {
         const $toastAlertElemArr = document.querySelectorAll(".toast-message-wrapper");
         for (var i = 0; i < $toastAlertElemArr.length; i++) {
             const $toastAlertElem = $toastAlertElemArr[i];
-            console.log($toastAlertElem);
+            // console.log($toastAlertElem);
             $toastAlertElem.remove();
 
             if (callback) {

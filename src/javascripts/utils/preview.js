@@ -11,7 +11,7 @@ for (var i = 0; i < $uploadElem.length; i++) {
 
 function handleFiles(e) {
     $albumElem = this.parentElement.parentElement;
-    console.log($albumElem);
+    // console.log($albumElem);
     const fileList = this.files; /* 이제 파일 리스트로 작업할 수 있습니다 */
     const fileCount = fileList.length;
     // console.log("몇장인지", fileCount);

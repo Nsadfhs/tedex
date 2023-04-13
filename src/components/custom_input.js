@@ -8,10 +8,10 @@ class CustomInput extends HTMLElement {
     checkAttribute() {
         // Element 태그의 속성 값 JSON 만들기
         let attributeObject = new Object;
-        // // //console.log(this.getAttributeNames());
+        // console.log(this.getAttributeNames());
         for (var i = 0; i < this.getAttributeNames().length; i++) {
             let attribute = this.getAttributeNames()[i];
-            // // //console.log(attribute);
+            // console.log(attribute);
             attributeObject[attribute] = this.getAttribute(attribute);
         }
 
@@ -19,14 +19,14 @@ class CustomInput extends HTMLElement {
     };
     connectedCallback() {
         const attrObj = this.checkAttribute();
-        // // //console.log(attrObj);
+        // console.log(attrObj);
         this.setModule(this.setElement(attrObj), this.setStyle(attrObj));
         this.setEvent(attrObj);
         // updateStyle(this);
     };
     setModule(moduleElement, moduleStyle) {
-        // // //console.log(moduleElement);
-        // // //console.log(moduleStyle);
+        // console.log(moduleElement);
+        // console.log(moduleStyle);
         this.attachShadow({ mode: 'open' });
         if (moduleElement) {
             for (var i = 0; i < moduleElement.length; i++) {
@@ -46,33 +46,33 @@ class CustomInput extends HTMLElement {
 
         let elemArr = new Array;
 
-        if (isNullChecking(this.textContent)) {
-            if (isNullChecking(label)) {
+        if (!isTruthy(this.textContent)) {
+            if (!isTruthy(label)) {
                 label = "Label";
             }
         } else {
-            if (isNullChecking(label)) {
+            if (!isTruthy(label)) {
                 label = this.textContent;
             }
         };
 
-        if (isNullChecking(type)) {
+        if (!isTruthy(type)) {
             type = "text";
         };
 
-        if (isNullChecking(category)) {
+        if (!isTruthy(category)) {
             category = "a";
         };
 
-        if (isNullChecking(value)) {
+        if (!isTruthy(value)) {
             value = false;
         };
 
-        if (isNullChecking(id)) {
+        if (!isTruthy(id)) {
             id = `${type}_${category}_${inputCount}`;
         };
 
-        if (isNullChecking(name)) {
+        if (!isTruthy(name)) {
             name = `${type}_${category}`;
         } else {
 
@@ -114,7 +114,7 @@ class CustomInput extends HTMLElement {
 
                         break;
                     default:
-                        console.log("unknown-category");
+                        // console.log("unknown-category");
                         break;
                 }
                 break;
@@ -129,7 +129,7 @@ class CustomInput extends HTMLElement {
             case "date":
                 break;
             default:
-                console.log("unknown-type");
+                // console.log("unknown-type");
                 break;
         }
 
@@ -192,18 +192,18 @@ class CustomInput extends HTMLElement {
         // $Button.addEventListener("click", () => {});
         let { value } = _params;
 
-        if (isNullChecking(value)) {
+        if (!isTruthy(value)) {
             value = false;
         };
 
         try {
             if (this.shadowRoot.querySelector("input")) {
                 this.shadowRoot.querySelector("input").addEventListener("input", function () {
-                    console.log(this.value);
+                    // console.log(this.value);
                 })
             };
         } catch (e) {
-            console.log(e);
+            // console.log(e);
         }
 
 

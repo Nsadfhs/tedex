@@ -25,7 +25,7 @@ function ajaxRequestSync(targetUrl, data, type = "POST") {
         })
         // HTTP 요청이 성공하거나 실패하는 것에 상관없이 언제나 always() 메소드가 실행됨.
         .always(function (xhr, status) {
-            // // console.log("요청이 완료되었습니다!");
+            // console.log("요청이 완료되었습니다!");
         });
 };
 
@@ -49,7 +49,7 @@ function ajaxRequestAsync(targetUrl, data, type = "POST") {
         })
         // HTTP 요청이 성공하거나 실패하는 것에 상관없이 언제나 always() 메소드가 실행됨.
         .always(function (xhr, status) {
-            // // console.log("요청이 완료되었습니다!");
+            // console.log("요청이 완료되었습니다!");
         });
 };
 
@@ -76,7 +76,7 @@ function ajaxMultipartAsync(targetUrl, type = "POST") {
         })
         // HTTP 요청이 성공하거나 실패하는 것에 상관없이 언제나 always() 메소드가 실행됨.
         .always(function (xhr, status) {
-            // // console.log("요청이 완료되었습니다!");
+            // console.log("요청이 완료되었습니다!");
         });
 };
 
@@ -103,6 +103,6 @@ function ajaxMultipartSync(targetUrl, type = "POST") {
         })
         // HTTP 요청이 성공하거나 실패하는 것에 상관없이 언제나 always() 메소드가 실행됨.
         .always(function (xhr, status) {
-            // // console.log("요청이 완료되었습니다!");
+            // console.log("요청이 완료되었습니다!");
         });
 };

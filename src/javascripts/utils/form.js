@@ -52,7 +52,7 @@ function inputObject(_target = "") {
     for (let i = 0; i < fileArray.length; i++) {
         // console.log("파일 입력 데이터");
         for (let j = 0; j < fileArray[i].files.length; j++) {
-            // // console.log(fileArray[i]);
+            // console.log(fileArray[i]);
             // console.log(`files_name : ${fileArray[i].getAttribute("name")}`);
             // console.log(`files : ${fileArray[i].files[j]}`);
             inputData.append("files", fileArray[i].files[j]);
@@ -62,12 +62,12 @@ function inputObject(_target = "") {
 
     for (let i = 0; i < radioArray.length; i++) {
         // console.log("라디오 선택 데이터");
-        // // console.log(radioArray[i]);
+        // console.log(radioArray[i]);
         // console.log(`${radioArray[i].getAttribute("name")} : ${radioArray[i].value}`);
 
         if (radioArray[i].checked) {
             if (radioArray[i].value == "on") {
-                console.log(radioArray[i].getAttribute("name"), "밸류가 없습니다.")
+                // console.log(radioArray[i].getAttribute("name"), "밸류가 없습니다.")
                 inputData.append(radioArray[i].getAttribute("name"), 0);
             } else {
                 inputData.append(radioArray[i].getAttribute("name"), radioArray[i].value);
@@ -79,11 +79,11 @@ function inputObject(_target = "") {
 
     for (let i = 0; i < checkboxArray.length; i++) {
         // console.log("체크박스 선택 데이터");
-        // // console.log(checkboxArray[i]);
+        // console.log(checkboxArray[i]);
         // console.log(`${checkboxArray[i].getAttribute("name")} : ${checkboxArray[i].value}`);
         if (checkboxArray[i].checked) {
             if (checkboxArray[i].value == "on") {
-                console.log(checkboxArray[i].getAttribute("name"), "밸류가 없습니다.")
+                // console.log(checkboxArray[i].getAttribute("name"), "밸류가 없습니다.")
                 inputData.append(checkboxArray[i].getAttribute("name"), 0);
             } else {
                 inputData.append(checkboxArray[i].getAttribute("name"), checkboxArray[i].value);
@@ -95,14 +95,14 @@ function inputObject(_target = "") {
 
     for (let i = 0; i < passwordArray.length; i++) {
         // console.log("패스워드 입력 데이터");
-        // // console.log(passwordArray[i]);
+        // console.log(passwordArray[i]);
         // console.log(`${passwordArray[i].getAttribute("name")} : ${passwordArray[i].value}`);
         inputData.append(passwordArray[i].getAttribute("name"), passwordArray[i].value);
     }
 
     for (let i = 0; i < textArray.length; i++) {
         // console.log("텍스트 입력 데이터");
-        // // console.log(textArray[i]);
+        // console.log(textArray[i]);
         if (textArray[i].getAttribute("name") !== null) {
             // console.log(`${textArray[i].getAttribute("name")} : ${textArray[i].value}`);
             inputData.append(textArray[i].getAttribute("name"), textArray[i].value);
@@ -111,36 +111,36 @@ function inputObject(_target = "") {
 
     for (let i = 0; i < telArray.length; i++) {
         // console.log("전화번호 입력 데이터");
-        // // console.log(telArray[i]);
+        // console.log(telArray[i]);
         // console.log(`${telArray[i].getAttribute("name")} : ${telArray[i].value}`);
         inputData.append(telArray[i].getAttribute("name"), telArray[i].value);
     }
 
     for (let i = 0; i < emailArray.length; i++) {
         // console.log("이메일 입력 데이터");
-        // // console.log(emailArray[i])
+        // console.log(emailArray[i])
         // console.log(`${emailArray[i].getAttribute("name")} : ${emailArray[i].value}`);
         inputData.append(emailArray[i].getAttribute("name"), emailArray[i].value);
     }
 
     for (let i = 0; i < textareaArray.length; i++) {
         // console.log("텍스트 에어리어 입력 데이터");
-        // // console.log(textareaArray[i]);
-        // // console.log(textareaArray[i].value);
+        // console.log(textareaArray[i]);
+        // console.log(textareaArray[i].value);
         // console.log(`${textareaArray[i].getAttribute("name")} : ${textareaArray[i].value}`);
         inputData.append(textareaArray[i].getAttribute("name"), textareaArray[i].value);
     }
 
     for (let i = 0; i < selectArray.length; i++) {
         // console.log("셀렉트 입력 데이터");
-        // // console.log(selectArray[i]);
+        // console.log(selectArray[i]);
         // console.log(`${selectArray[i].getAttribute("name")} : ${selectArray[i].value}`);
         inputData.append(selectArray[i].getAttribute("name"), selectArray[i].value);
     }
 
     for (let i = 0; i < numberArray.length; i++) {
         // console.log("넘버 입력 데이터");
-        // // console.log(numberArray[i]);
+        // console.log(numberArray[i]);
         // console.log(`${numberArray[i].getAttribute("name")} : ${numberArray[i].value}`);
         inputData.append(numberArray[i].getAttribute("name"), numberArray[i].value);
     }
@@ -158,7 +158,7 @@ function inputObject(_target = "") {
  * @returns 
  */
 function setTextValue(_target, _value) {
-    console.log("setTextValue", _target);
+    // console.log("setTextValue", _target);
     if (_value) {
         const $targetElem = document.getElementById(_target);
         if ($targetElem) {
@@ -167,15 +167,15 @@ function setTextValue(_target, _value) {
             } else if ($targetElem.tagName == "TEXTAREA") {
                 $targetElem.value = _value;
             } else {
-                console.log($targetElem.tagName, "적절한 타겟이 아닙니다.(input)");
+                // console.log($targetElem.tagName, "적절한 타겟이 아닙니다.(input)");
                 return;
             }
         } else {
-            console.log(_target, "타겟이 없어요");
+            // console.log(_target, "타겟이 없어요");
             return;
         }
     } else {
-        console.log(_target, `${_value}가 이상해요`);
+        // console.log(_target, `${_value}가 이상해요`);
         return;
     }
 };
@@ -186,13 +186,13 @@ function setTextValue(_target, _value) {
  * @returns 
  */
 function getTextValue(_target) {
-    console.log("getTextValue", _target);
+    // console.log("getTextValue", _target);
     if (_target) {
         const $targetElem = document.getElementById(_target);
         if ($targetElem) {
             return $targetElem.value;
         } else {
-            console.log(_target, "타겟이 없어요");
+            // console.log(_target, "타겟이 없어요");
             return null;
         }
     }
@@ -205,7 +205,7 @@ function getTextValue(_target) {
  * @returns 
  */
 function watchTextValue(_target, callback = null) {
-    console.log("getTextValue", _target);
+    // console.log("getTextValue", _target);
     if (_target) {
         const $targetElem = document.getElementById(_target);
         if ($targetElem) {
@@ -217,7 +217,7 @@ function watchTextValue(_target, callback = null) {
                 }
             });
         } else {
-            console.log(_target, "타겟이 없어요");
+            // console.log(_target, "타겟이 없어요");
             return "";
         }
     }
@@ -230,7 +230,7 @@ function watchTextValue(_target, callback = null) {
  * @returns 
  */
 function setRadioValue(_target, _value) {
-    console.log("setRadioValue", _target);
+    // console.log("setRadioValue", _target);
     if (_value) {
         const $targetElemArr = document.querySelectorAll(`input[name=${_target}]`);
         // console.log($targetElemArr);
@@ -242,11 +242,11 @@ function setRadioValue(_target, _value) {
                 }
             }
         } else {
-            console.log(_target, "타겟이 없어요");
+            // console.log(_target, "타겟이 없어요");
             return;
         }
     } else {
-        console.log(_target, `${_value}가 이상해요`);
+        // console.log(_target, `${_value}가 이상해요`);
         return;
     }
 };
@@ -257,15 +257,15 @@ function setRadioValue(_target, _value) {
  * @returns 
  */
 function getRadioValue(_target) {
-    console.log("getRadioValue", _target);
+    // console.log("getRadioValue", _target);
     const $targetElemArr = document.getElementsByName(_target);
-    // // console.log($targetElemArr);
+    // console.log($targetElemArr);
     if ($targetElemArr) {
         for (var i = 0; i < $targetElemArr.length; i++) {
             const $targetElem = $targetElemArr[i];
             if ($targetElem.checked) {
                 if ($targetElem.value == "on") {
-                    console.log($targetElem, "밸류가 없어요");
+                    // console.log($targetElem, "밸류가 없어요");
                     return false;
                 } else {
                     return $targetElem.value;
@@ -273,7 +273,7 @@ function getRadioValue(_target) {
             }
         }
     } else {
-        console.log(_target, "타겟이 없어요");
+        // console.log(_target, "타겟이 없어요");
         return "";
     }
 };
@@ -284,15 +284,15 @@ function getRadioValue(_target) {
  * @returns 
  */
 function getRadioText(_target) {
-    console.log("getRadioValue", _target);
+    // console.log("getRadioValue", _target);
     const $targetElemArr = document.getElementsByName(_target);
-    // // console.log($targetElemArr);
+    // console.log($targetElemArr);
     if ($targetElemArr) {
         for (var i = 0; i < $targetElemArr.length; i++) {
             const $targetElem = $targetElemArr[i];
             if ($targetElem.checked) {
                 if ($targetElem.value == "on") {
-                    console.log($targetElem, "밸류가 없어요");
+                    // console.log($targetElem, "밸류가 없어요");
                     return false;
                 } else {
                     return $targetElem.value;
@@ -300,7 +300,7 @@ function getRadioText(_target) {
             }
         }
     } else {
-        console.log(_target, "타겟이 없어요");
+        // console.log(_target, "타겟이 없어요");
         return "";
     }
 };
@@ -312,16 +312,16 @@ function getRadioText(_target) {
  * @returns 
  */
 function watchRadioValue(_target, callback = null) {
-    console.log("getRadioValue", _target);
+    // console.log("getRadioValue", _target);
     const $targetElemArr = document.getElementsByName(_target);
-    // // console.log($targetElemArr);
+    // console.log($targetElemArr);
     if ($targetElemArr) {
         for (var i = 0; i < $targetElemArr.length; i++) {
             const $targetElem = $targetElemArr[i];
             $targetElem.addEventListener("change", function (e) {
-                // // console.log($targetElem.value);
+                // console.log($targetElem.value);
                 if (e.target.value == "on") {
-                    console.log($targetElem, "밸류가 없어요");
+                    // console.log($targetElem, "밸류가 없어요");
                     return false;
                 } else {
                     if (callback) {
@@ -333,7 +333,7 @@ function watchRadioValue(_target, callback = null) {
             });
         }
     } else {
-        console.log(_target, "타겟이 없어요");
+        // console.log(_target, "타겟이 없어요");
         return "";
     }
 };
@@ -345,7 +345,7 @@ function watchRadioValue(_target, callback = null) {
  * @returns 
  */
 function setCheckboxValue(_target, _value) {
-    console.log("checkCheckboxValue", _target, _value);
+    // console.log("checkCheckboxValue", _target, _value);
     const $targetElemArr = document.querySelectorAll(`input[name='${_target}']`);
     // console.log($targetElemArr);
     if ($targetElemArr) {
@@ -368,12 +368,12 @@ function setCheckboxValue(_target, _value) {
             } else if (typeof _value === "boolean") {
                 $targetElem.checked = _value;
             } else {
-                console.log(_target, `${_value}가 이상해요`);
+                // console.log(_target, `${_value}가 이상해요`);
                 return;
             }
         }
     } else {
-        console.log(_target, "타겟이 없어요");
+        // console.log(_target, "타겟이 없어요");
         return;
     }
 };
@@ -384,7 +384,7 @@ function setCheckboxValue(_target, _value) {
  * @returns 
  */
 function getCheckboxValue(_target) {
-    // // console.log("getCheckboxValue", _target);
+    // console.log("getCheckboxValue", _target);
     const $targetElemArr = document.getElementsByName(_target);
     // console.log($targetElemArr);
     if ($targetElemArr) {
@@ -413,7 +413,7 @@ function getCheckboxValue(_target) {
 
         return valueArr;
     } else {
-        console.log(_target, "타겟이 없어요");
+        // console.log(_target, "타겟이 없어요");
         return;
     }
 };
@@ -449,7 +449,7 @@ function getCheckboxText(_target) {
 
         return valueArr;
     } else {
-        console.log(_target, "타겟이 없어요");
+        // console.log(_target, "타겟이 없어요");
         return;
     }
 };
@@ -461,7 +461,7 @@ function getCheckboxText(_target) {
  * @returns 
  */
 function watchCheckboxValue(_target, callback = null) {
-    console.log("getCheckboxValue", _target);
+    // console.log("getCheckboxValue", _target);
     const $targetElemArr = document.getElementsByName(_target);
     // console.log($targetElemArr);
     if ($targetElemArr) {
@@ -487,7 +487,7 @@ function watchCheckboxValue(_target, callback = null) {
             });
         };
     } else {
-        console.log(_target, "타겟이 없어요");
+        // console.log(_target, "타겟이 없어요");
         return;
     }
 };
@@ -498,19 +498,19 @@ function watchCheckboxValue(_target, callback = null) {
  * @returns 
  */
 function checkAll(_target) {
-    console.log("checkAll", _target);
+    // console.log("checkAll", _target);
     if (_target) {
         const $checkAllButton = document.getElementById("check_row_all");
-        // // console.log($checkAllButton);
+        // console.log($checkAllButton);
         // 체크 올!
         if ($checkAllButton) {
             $checkAllButton.addEventListener("click", function (e) {
                 const $checkboxes = document.getElementsByName(_target);
-                // // console.log($checkboxes);
+                // console.log($checkboxes);
                 if ($checkboxes) {
                     $checkboxes.forEach((checkbox) => {
-                        // // console.log(checkbox);
-                        // // console.log(checkbox.checked);
+                        // console.log(checkbox);
+                        // console.log(checkbox.checked);
                         //나중에 여기 수정해야함
                         if (checkbox.checked) {
                             checkbox.checked = true;
@@ -519,12 +519,12 @@ function checkAll(_target) {
                         }
                     })
                 } else {
-                    console.log(`${checkboxes}가 없습니다.`);
+                    // console.log(`${checkboxes}가 없습니다.`);
                 }
             })
         }
     } else {
-        console.log(`check_row_all, ${_target}이 없습니다.`);
+        // console.log(`check_row_all, ${_target}이 없습니다.`);
         return;
     }
 };
@@ -539,7 +539,7 @@ function checkAll(_target) {
  * @returns 
  */
 function setSelectOption(_target, _valueArr, _default) {
-    console.log("setSelectOption", _target);
+    // console.log("setSelectOption", _target);
     if (_valueArr) {
         if (_valueArr[0]) {
             if (_valueArr[0].value && _valueArr[0].text) {
@@ -572,25 +572,25 @@ function setSelectOption(_target, _valueArr, _default) {
                         $selectElem.value = 0;
                     }
                 } else {
-                    console.log(_target, "타겟이 없어요");
+                    // console.log(_target, "타겟이 없어요");
                     return;
                 };
             } else if (_valueArr[0].value == 0) {
-                console.log(_valueArr[0].value, "옵션의 주요 값은 0을 허용하지 않아요");
+                // console.log(_valueArr[0].value, "옵션의 주요 값은 0을 허용하지 않아요");
                 return;
             } else if (!_valueArr[0].value) {
-                console.log(_valueArr[0].text, "옵션의 주요 값이 없어요");
+                // console.log(_valueArr[0].text, "옵션의 주요 값이 없어요");
                 return;
             } else if (!_valueArr[0].text) {
-                console.log(_valueArr[0].text, "옵션의 텍스트가 없어요");
+                // console.log(_valueArr[0].text, "옵션의 텍스트가 없어요");
                 return;
             }
         } else {
-            console.log(_valueArr, "옵션 생성 객체가 없어요");
+            // console.log(_valueArr, "옵션 생성 객체가 없어요");
             return;
         }
     } else {
-        console.log(_valueArr, "옵션 생성 배열이 없어요");
+        // console.log(_valueArr, "옵션 생성 배열이 없어요");
         return;
     };
 };
@@ -602,17 +602,17 @@ function setSelectOption(_target, _valueArr, _default) {
  * @returns 
  */
 function setSelectValue(_target, _value) {
-    console.log("setSelectValue", _target);
+    // console.log("setSelectValue", _target);
     if (_value == "0" || _value) {
         const $selectElem = document.getElementById(_target);
         if ($selectElem) {
             $selectElem.value = _value;
         } else {
-            console.log(_target, "타겟이 없어요");
+            // console.log(_target, "타겟이 없어요");
             return;
         }
     } else {
-        console.log(_value, "가 없어요");
+        // console.log(_value, "가 없어요");
         return;
     }
 };
@@ -623,12 +623,12 @@ function setSelectValue(_target, _value) {
  * @returns 
  */
 function getSelectValue(_target) {
-    console.log("getSelectValue", _target);
+    // console.log("getSelectValue", _target);
     const $selectElem = document.getElementById(_target);
     if ($selectElem) {
         return $selectElem.value;
     } else {
-        console.log(_target, "타겟이 없어요");
+        // console.log(_target, "타겟이 없어요");
         return;
     }
 };
@@ -639,7 +639,7 @@ function getSelectValue(_target) {
  * @returns 
  */
 function getSelectText(_target) {
-    console.log("getSelectText", _target);
+    // console.log("getSelectText", _target);
     const $selectElem = document.getElementById(_target);
     const $optionElemArr = $selectElem.querySelectorAll("option");
     for (var i = 0; i < $optionElemArr.length; i++) {
@@ -651,7 +651,7 @@ function getSelectText(_target) {
                 continue;
             }
         } else {
-            console.log(_target, "타겟이 없어요");
+            // console.log(_target, "타겟이 없어요");
             return;
         }
     }
@@ -664,7 +664,7 @@ function getSelectText(_target) {
  * @returns 
  */
 function watchSelectValue(_target, callback = null) {
-    console.log("watchSelectValue", _target);
+    // console.log("watchSelectValue", _target);
     const $selectElem = document.getElementById(_target);
     if ($selectElem) {
         $selectElem.addEventListener("change", function (e) {
@@ -675,7 +675,7 @@ function watchSelectValue(_target, callback = null) {
             }
         });
     } else {
-        console.log(_target, "타겟이 없어요");
+        // console.log(_target, "타겟이 없어요");
         return;
     }
 };
@@ -687,7 +687,7 @@ function watchSelectValue(_target, callback = null) {
  * @returns 
  */
 function watchSelectText(_target, callback = null) {
-    console.log("watchSelectText", _target);
+    // console.log("watchSelectText", _target);
     const $selectElem = document.getElementById(_target);
     if ($selectElem) {
         let selectedResultObj = new Object;
@@ -699,10 +699,10 @@ function watchSelectText(_target, callback = null) {
             selectedResultObj["value"] = selectOptions[selectedIndex].value;
             if (selectOptions[selectedIndex].dataset) {
                 const selectedDataObj = JSON.parse(JSON.stringify(selectOptions[selectedIndex].dataset));
-                // // console.log("select", _target);
-                // // console.log("getSelectDataset", _target);
+                // console.log("select", _target);
+                // console.log("getSelectDataset", _target);
                 for (const key in selectedDataObj) {
-                    // // console.log(`${key}: ${selectedDataObj[key]}`);
+                    // console.log(`${key}: ${selectedDataObj[key]}`);
                     selectedResultObj[`data_${key}`] = selectedDataObj[key];
                 }
             }
@@ -713,7 +713,7 @@ function watchSelectText(_target, callback = null) {
             }
         });
     } else {
-        console.log(_target, "타겟이 없어요");
+        // console.log(_target, "타겟이 없어요");
         return;
     }
 };
@@ -726,12 +726,12 @@ function watchSelectText(_target, callback = null) {
  * typingSignCheck({ target: "input_phone", keyword: "phone_dash", error_message: "틀려먹음" });
  */
 function typingSignCheck(_params) {
-    // // // console.log("adsgsahgsa")
+    // console.log("adsgsahgsa")
     const { target, keyword, error_message } = _params;
     let allCheckValid = [];
 
     const $inputElem = document.getElementById(target);
-    // // console.log($inputElem);
+    // console.log($inputElem);
 
     let checkReg = setRegularExpression(keyword);
     if (target == "user_password_check") {
@@ -744,7 +744,7 @@ function typingSignCheck(_params) {
                 // console.log(e.target);
 
                 const errorMessageArr = this.parentElement.querySelectorAll(".field-message");
-                // // // console.log(errorMessageArr);
+                // console.log(errorMessageArr);
                 if (errorMessageArr) {
                     for (var i = 0; i < errorMessageArr.length; i++) {
                         const errorMessage = errorMessageArr[i];
@@ -770,7 +770,7 @@ function typingSignCheck(_params) {
                             return true;
                         } else {
                             // console.log("실패");
-                            // // // console.log(this.parentElement);
+                            // console.log(this.parentElement);
                             this.parentElement.classList.remove("success");
                             this.parentElement.classList.add("error");
                             this.parentElement.append(notifiedMessage);
@@ -800,7 +800,7 @@ function signCheck(_params) {
     let allCheckValid = [];
 
     const $inputElem = document.getElementById(target);
-    // // console.log($inputElem);
+    // console.log($inputElem);
 
     let checkReg = setRegularExpression(keyword);
     if (target == "user_password_check") {
@@ -809,10 +809,10 @@ function signCheck(_params) {
         // 평범한 체크
         if ($inputElem) {
             let value = $inputElem.value;
-            // // console.log(value);
+            // console.log(value);
 
             const errorMessageArr = $inputElem.parentElement.querySelectorAll(".field-message");
-            // // // console.log(errorMessageArr);
+            // console.log(errorMessageArr);
             if (errorMessageArr) {
                 for (var i = 0; i < errorMessageArr.length; i++) {
                     const errorMessage = errorMessageArr[i];
@@ -833,8 +833,8 @@ function signCheck(_params) {
                     $inputElem.parentElement.classList.add("success");
                     return true;
                 } else {
-                    // // // console.log("실패");
-                    // // // console.log(this.parentElement);
+                    // console.log("실패");
+                    // console.log(this.parentElement);
                     $inputElem.parentElement.classList.remove("success");
                     $inputElem.parentElement.classList.add("error");
                     $inputElem.parentElement.append(notifiedMessage);
@@ -858,7 +858,7 @@ function signCheck(_params) {
  * @returns 
  */
 function setRegularExpression(_params) {
-    // // console.log(_params);
+    // console.log(_params);
     let regExpValue = "";
     switch (_params) {
         case "_number":
@@ -1058,7 +1058,7 @@ function checkCorporateRegisterNumber(number) {
         });
 
         chk += parseInt((keyArr[8] * numberMap[8]) / 10, 10);
-        console.log(chk);
+        // console.log(chk);
         return Math.floor(numberMap[9]) === ((10 - (chk % 10)) % 10);
     }
 

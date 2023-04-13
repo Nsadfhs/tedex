@@ -1,5 +1,7 @@
 @import url("./pagination.css");
 
+/* table category A */
+
 .table__a {
     display: flex;
     flex-direction: column;
@@ -9,7 +11,6 @@
     width: 100%;
     margin-bottom: 3rem;
 }
-
 
 .table__a thead {
     display: flex;
@@ -117,6 +118,127 @@
 .table__a tbody tr td img {
     width: auto;
     max-height: var(--row-height__sm);
+}
+
+/* table category B */
+
+.table__b {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    row-gap: 0.5rem;
+}
+
+.table__b thead {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    row-gap: 0.5rem;
+    width: 100%;
+}
+
+.table__b tbody {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    row-gap: 0.25rem;
+    width: 100%;
+}
+
+.table__b thead tr {
+    display: grid;
+    grid-template-columns: auto;
+    column-gap: 1rem;
+    width: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: var(--color-gray__500);
+    font-size: var(--font-size__thead-md);
+    font-weight: var(--font-weight__medium);
+    line-height: var(--line-height__thead-md);
+}
+
+.table__b tbody tr {
+    display: grid;
+    grid-template-columns: auto;
+    column-gap: 1rem;
+    width: auto;
+    min-height: 2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: var(--color-black);
+    font-size: var(--font-size__tbody-md);
+    font-weight: var(--font-weight__medium);
+    line-height: var(--line-height__tbody-md);
+    border-bottom: var(--border-lightgray__1);
+}
+
+
+.table__b tbody tr:nth-child(1) {
+    border-top: var(--border-lightgray__1);
+}
+
+.table__b tr th,
+.table__b tr td {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+table tr th.h-left,
+table tr td.h-left {
+    justify-content: flex-start;
+}
+
+table tr th.h-center,
+table tr td.h-center {
+    justify-content: center;
+}
+
+table tr th.h-right,
+table tr td.h-right {
+    justify-content: flex-end;
+}
+
+table tr th.v-top,
+table tr td.v-top {
+    align-items: flex-start;
+}
+
+table tr th.v-center,
+table tr td.v-center {
+    align-items: center;
+}
+
+table tr th.v-bottom,
+table tr td.v-bottom {
+    align-items: flex-end;
+}
+
+table tr th.v-around,
+table tr td.v-around {
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+table tr th.v-between,
+table tr td.v-between {
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+table tr th.v-evenly,
+table tr td.v-evenly {
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 @media screen and (max-width: 1023px) {

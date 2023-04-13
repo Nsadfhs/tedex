@@ -104,17 +104,17 @@
     */
     --color-black: black;
     --color-white: white;
-    --color-black__off: rgba(13, 13, 13, 1);
-    --color-white__off: rgba(245, 245, 245, 1);
-    --color-beige__100: #F5F3F1;
-    --color-beige__200: #DFD8D3;
-    --color-beige__300: #C3B6AC;
-    --color-beige__400: #AE9C8E;
-    --color-beige__500: #998271;
-    --color-beige__600: #7D695A;
-    --color-beige__700: #5F5044;
-    --color-beige__800: #41372F;
-    --color-beige__900: #241E1A;
+    --color-black__off: #242627;
+    --color-white__off: #f5f5f5;
+    --color-beige__100: #FDFCFB;
+    --color-beige__200: #FAF9F7;
+    --color-beige__300: #F6F5F2;
+    --color-beige__400: #EDE9E6;
+    --color-beige__500: #E2DDDA;
+    --color-beige__600: #D7D2CE;
+    --color-beige__700: #CAC3BF;
+    --color-beige__800: #BCB5B0;
+    --color-beige__900: #AAA59F;
     --color-grey__100: #F5F6F8;
     --color-grey__200: #D8DCE4;
     --color-grey__300: #BAC1CF;
@@ -191,7 +191,7 @@
     --color-yellow__600: #E5DE00;
     --color-yellow__700: #B2AD00;
     --color-yellow__800: #807C00;
-    --color-yellow__900: #4D4A00;
+    --color-yellow__900: #4D410D;
     --color-purple__100: #FEF6FE;
     --color-purple__200: #F8C8F9;
     --color-purple__300: #F399F5;
@@ -216,6 +216,15 @@
         * skyblue
 
     */
+    --color-orange__100: #FFD700;
+    --color-orange__200: #FF8F00;
+    --color-orange__300: #FFB347;
+    --color-orange__400: #FFA07A;
+    --color-orange__500: #FFA500;
+    --color-orange__600: #FF7F50;
+    --color-orange__700: #FF8F00;
+    --color-orange__800: #FF6A00;
+    --color-orange__900: #FF6347;
     --color-skyblue__100: #e2f1fd;
     --color-skyblue__200: #b1dafb;
     --color-skyblue__300: #81c3f8;
@@ -225,6 +234,15 @@
     --color-skyblue__700: #095fa5;
     --color-skyblue__800: #064374;
     --color-skyblue__900: #042744;
+    --color-brown__100: #E5D7B1;
+    --color-brown__200: #DAC09A;
+    --color-brown__300: #CEB485;
+    --color-brown__400: #C2A172;
+    --color-brown__500: #B88E69;
+    --color-brown__600: #A87C5E;
+    --color-brown__700: #946E46;
+    --color-brown__800: #895C45;
+    --color-brown__900: #7B5B3B;
 
     /*
         The four basic web colors - 의미있는 컬러
@@ -297,70 +315,53 @@
 
     /* title components */
 
-    --font-size__head-1: 34px;
-    --font-weight__bolder: bolder;
-    --line-height__head-1: 1.4;
-    --letter-spacing__head-1: -0.25;
+    --font-size__title-1: 34px;
+    --line-height__title-1: 36px;
 
-    --font-size__head-2: 30px;
-    --font-weight__bolder: bolder;
-    --line-height__head-2: 1.4;
-    --letter-spacing__head-2: -0.25;
+    --font-size__title-2: 32px;
+    --line-height__title-2: 34px;
 
-    --font-size__title-1: 24px;
-    --font-weight__bolder: bolder;
-    --line-height__title-1: 1.4;
-    --letter-spacing__title-1: -0.25;
+    --font-size__title-3: 30px;
+    --line-height__title-3: 32px;
 
-    --font-size__title-2: 22px;
-    --font-weight__bolder: bolder;
-    --line-height__title-2: 1.5;
-    --letter-spacing__title-2: -0.25;
+    --font-size__title-4: 28px;
+    --line-height__title-4: 30px;
+
+    --font-size__heading-1: 26px;
+    --line-height__heading-1: 28px;
+
+    --font-size__heading-2: 24px;
+    --line-height__heading-2: 26px;
+
+    --font-size__heading-3: 22px;
+    --line-height__heading-3: 24px;
 
     --font-size__subtitle-1: 20px;
-    --font-weight__bolder: bolder;
-    --line-height__subtitle-1: 1.5;
-    --letter-spacing__subtitle-1: -0.25;
+    --line-height__subtitle-1: 24px;
 
     --font-size__subtitle-2: 18px;
-    --font-weight__bolder: bolder;
-    --line-height__subtitle-2: 1.5;
-    --letter-spacing__subtitle-2: -0.25;
+    --line-height__subtitle-2: 24px;
 
     --font-size__subtitle-3: 16px;
-    --font-weight__bolder: bolder;
-    --line-height__subtitle-3: 1.5;
-    --letter-spacing__subtitle-3: -0.25;
+    --line-height__subtitle-3: 24px;
 
     --font-size__subtitle-4: 14px;
-    --font-weight__bolder: bolder;
-    --line-height__subtitle-4: 1.5;
-    --letter-spacing__subtitle-4: -0.25;
+    --line-height__subtitle-4: 18px;
 
     --font-size__body-1: 16px;
-    --font-weight__bolder: medium;
     --line-height__body-1: 1.8;
-    --letter-spacing__body-1: -0.25;
 
     --font-size__body-2: 14px;
-    --font-weight__bolder: medium;
     --line-height__body-2: 1.5;
-    --letter-spacing__body-2: -0.25;
 
     --font-size__body-3: 13px;
-    --font-weight__bolder: medium;
     --line-height__body-3: 1.5;
-    --letter-spacing__body-3: -0.25;
 
     --font-size__detail: 12px;
-    --font-weight__bolder: bolder;
     --line-height__detail: 1.5;
-    --letter-spacing__detail: -0.25;
 
     --font-size__button: 16px;
-    --font-weight__bolder: bolder;
     --line-height__button: 1.5;
-    --letter-spacing__button: -0.25;
 
     /*  
         ================================================================
@@ -395,6 +396,7 @@
     --curved: 5px;
     --rounded: 25px;
     --circle: 50%;
+    --edge: 0;
 
     /*  
         ================================================================

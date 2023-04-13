@@ -11,10 +11,8 @@ class CMSLayout extends HTMLBodyElement {
     checkAttribute() {
         // Element 태그의 속성 값 JSON 만들기
         let attributeObject = new Object;
-        // // //console.log(this.getAttributeNames());
         for (var i = 0; i < this.getAttributeNames().length; i++) {
             let attribute = this.getAttributeNames()[i];
-            // // //console.log(attribute);
             attributeObject[attribute] = this.getAttribute(attribute);
         }
 
@@ -22,48 +20,43 @@ class CMSLayout extends HTMLBodyElement {
     };
     connectedCallback() {
         const attrObj = this.checkAttribute();
-        // // //console.log(attrObj);
         this.setModule(this.setElement(attrObj), this.setStyle(attrObj));
         this.setEvent(attrObj);
-        // updateStyle(this);
     };
     setModule(moduleElement, moduleStyle) {
-        // // //console.log(moduleElement);
-        // // //console.log(moduleStyle);
-        // this.attachShadow({ mode: 'open' });
         if (moduleElement) {
             for (var i = 0; i < moduleElement.length; i++) {
                 this.append(moduleElement[i]);
             }
         };
-        // const $styledElem = document.createElement("style");
-        // $styledElem.textContent = moduleStyle;
-        // this.shadowRoot.append($styledElem);
     };
     // ------- Finish Lock --------
 
     // Element 처리부
     setElement(_params) {
-        // console.log(_params);
-
-        let { home, logo } = _params;
+        let { home, logo, height } = _params;
         let elemArr = new Array;
 
         // home link가 없을경우 강제로 root의 경로를 작성
-        if (isNullChecking(home)) {
+        if (!isTruthy(home)) {
             home = "/";
         };
 
-        if (isNullChecking(logo)) {
+        if (!isTruthy(logo)) {
             logo = "logo.svg";
         };
 
-        this.classList.add("wrapper", "scroll-none");
+        if (!isTruthy(height)) {
+            height = "60px";
+        };
+
+        this.classList.add("wrapper", "cms");
 
         const $headerWrapper = document.createElement("custom-header");
         $headerWrapper.setAttribute("type", "cms");
         $headerWrapper.setAttribute("home", home);
         $headerWrapper.setAttribute("logo", logo);
+        $headerWrapper.setAttribute("height", height);
         $headerWrapper.classList.add("header-wrapper", "cms");
 
         const $contentsWrapper = document.createElement("section");
@@ -102,7 +95,7 @@ class CMSLayout extends HTMLBodyElement {
         let { color, bgcolor, size, align, padding, margin, radius, width, height } = _params;
 
         // 높이 설정 50px보다 작게는 안됨
-        if (!isNullChecking(height)) {
+        if (!!isTruthy(height)) {
             this.style.height = height;
         } else {
             this.style.height = "auto";
@@ -123,7 +116,6 @@ class CMSLayout extends HTMLBodyElement {
                 cursor: default;
                 -webkit-tap-highlight-color: transparent;
             }
-
         `;
 
         return styleString;
@@ -134,67 +126,6 @@ class CMSLayout extends HTMLBodyElement {
         // const $Button = this.shadowRoot.querySelector("button"); // 엘리먼트는 '$'를 붙인다.
         // const _form = this.getAttribute("form"); // 속성은 '_'로 시작한다.
         // $Button.addEventListener("click", () => {});
-        // let { login, gap, sideNavWidth } = _params;
-
-        // try {
-        //     if (isNullChecking(sideNavWidth)) {
-        //         sideNavWidth = 200;
-        //     };
-
-        //     if (isNullChecking(gap)) {
-        //         gap = 0;
-        //     };
-
-        //     const $toggleSidenav = this.querySelector("#toggle_sidenav");
-        //     console.log($toggleSidenav);
-        //     if ($toggleSidenav) {
-        //         $toggleSidenav.addEventListener("click", function (e) {
-        //             // console.log("토글");
-        //             const $sidenav = document.getElementById("snb_wrapper");
-        //             if ($sidenav) {
-        //                 const $mainWrapper = document.querySelector("main");
-        //                 console.log(this.classList.contains("on"));
-        //                 // console.log("열려있다");
-
-        //                 if (this.classList.contains("on")) {
-        //                     this.classList.remove("on");
-        //                     $sidenav.style.left = `calc(-${sideNavWidth}px - ${gap}px)`;
-        //                     $mainWrapper.style.marginLeft = "0px";
-        //                     // console.log("닫았다");
-        //                 } else {
-        //                     this.classList.add("on");
-        //                     $sidenav.style.left = "0";
-        //                     $mainWrapper.style.marginLeft = `calc(${sideNavWidth}px + ${gap}px)`;
-        //                     // console.log("열었다");
-        //                 };
-        //             } else {
-        //                 console.log("사이드 바 없음");
-        //             }
-        //         });
-        //     }
-        // } catch (e) {
-        //     console.log(e);
-        // }
-
-        // try {
-        //     const $logoutButton = this.querySelector("#do_logout");
-        //     if ($logoutButton) {
-        //         $logoutButton.addEventListener("click", function () {
-        //             // console.log("로그아웃");
-        //             deleteCookie("user_type");
-        //             setCookie('is_logined', false);
-        //             sessionStorage.setItem('is_logined', false);
-
-        //             if (!isNullChecking(login)) {
-        //                 location.href = login;
-        //             } else {
-        //                 location.href = "/";
-        //             };
-        //         });
-        //     }
-        // } catch (e) {
-        //     console.log(e);
-        // }
     }
 }
 customElements.define('cms-layout', CMSLayout, { extends: "body" });
@@ -214,10 +145,10 @@ class Header extends HTMLElement {
     checkAttribute() {
         // Element 태그의 속성 값 JSON 만들기
         let attributeObject = new Object;
-        // // //console.log(this.getAttributeNames());
+        // console.log(this.getAttributeNames());
         for (var i = 0; i < this.getAttributeNames().length; i++) {
             let attribute = this.getAttributeNames()[i];
-            // // //console.log(attribute);
+            // console.log(attribute);
             attributeObject[attribute] = this.getAttribute(attribute);
         }
 
@@ -225,14 +156,14 @@ class Header extends HTMLElement {
     };
     connectedCallback() {
         const attrObj = this.checkAttribute();
-        // // //console.log(attrObj);
+        // console.log(attrObj);
         this.setModule(this.setElement(attrObj), this.setStyle(attrObj));
         this.setEvent(attrObj);
         // updateStyle(this);
     };
     setModule(moduleElement, moduleStyle) {
-        // // //console.log(moduleElement);
-        // // //console.log(moduleStyle);
+        // console.log(moduleElement);
+        // console.log(moduleStyle);
         this.attachShadow({ mode: 'open' });
         if (moduleElement) {
             for (var i = 0; i < moduleElement.length; i++) {
@@ -247,18 +178,21 @@ class Header extends HTMLElement {
 
     // Element 처리부
     setElement(_params) {
-        // console.log(_params);
-
         this.classList.add("header-wrapper");
 
-        let { type, home, logo } = _params;
+        let { type, home, logo, height } = _params;
+        let elemArr = new Array;
 
         // home link가 없을경우 강제로 root의 경로를 작성
-        if (isNullChecking(home)) {
+        if (!isTruthy(home)) {
             home = "/";
         };
 
-        let elemArr = new Array;
+        if (!isTruthy(height)) {
+            height = "60px";
+        };
+
+        this.style.minHeight = height;
 
         const $leftWrapper = document.createElement("section");
         $leftWrapper.classList.add("header-contents__left");
@@ -306,32 +240,32 @@ class Header extends HTMLElement {
                 elemArr.push($rightWrapper);
                 $rightWrapper.append($logoutButton);
 
-                const $contentsWrapper = document.createElement("section");
-                $contentsWrapper.classList.add("contents-wrapper", "cms");
+                // const $contentsWrapper = document.createElement("section");
+                // $contentsWrapper.classList.add("contents-wrapper", "cms");
 
-                const $sideBarWrapper = document.getElementById("snb_wrapper");
-                if ($sideBarWrapper) {
-                    $contentsWrapper.append($sideBarWrapper);
-                    $sideBarWrapper.classList.add("sideNav-wrapper", "cms");
-                } else {
-                    const $createdSideBarWrapper = document.createElement("aside");
-                    $createdSideBarWrapper.id = "snb_wrapper";
-                    $contentsWrapper.append($createdSideBarWrapper);
-                    $createdSideBarWrapper.classList.add("sideNav-wrapper", "cms");
-                };
+                // const $sideBarWrapper = document.getElementById("snb_wrapper");
+                // if ($sideBarWrapper) {
+                //     $contentsWrapper.append($sideBarWrapper);
+                //     $sideBarWrapper.classList.add("sideNav-wrapper", "cms");
+                // } else {
+                //     const $createdSideBarWrapper = document.createElement("aside");
+                //     $createdSideBarWrapper.id = "snb_wrapper";
+                //     $contentsWrapper.append($createdSideBarWrapper);
+                //     $createdSideBarWrapper.classList.add("sideNav-wrapper", "cms");
+                // };
 
-                const $mainWrapper = document.querySelector("main");
-                if ($mainWrapper) {
-                    $contentsWrapper.append($mainWrapper);
-                    $mainWrapper.classList.add("main-wrapper", "cms");
+                // const $mainWrapper = document.querySelector("main");
+                // if ($mainWrapper) {
+                //     $contentsWrapper.append($mainWrapper);
+                //     $mainWrapper.classList.add("main-wrapper", "cms");
 
-                } else {
-                    const $createdMainWrapper = document.createElement("main");
-                    $contentsWrapper.append($createdMainWrapper);
-                    $createdMainWrapper.classList.add("main-wrapper", "cms");
-                };
+                // } else {
+                //     const $createdMainWrapper = document.createElement("main");
+                //     $contentsWrapper.append($createdMainWrapper);
+                //     $createdMainWrapper.classList.add("main-wrapper", "cms");
+                // };
 
-                this.after($contentsWrapper);
+                // this.after($contentsWrapper);
 
                 break;
             case "a":
@@ -343,7 +277,7 @@ class Header extends HTMLElement {
 
                 break;
             default:
-                console.log("unknown-type");
+                // console.log("unknown-type");
                 break;
         }
 
@@ -355,7 +289,7 @@ class Header extends HTMLElement {
         let { color, bgcolor, size, align, padding, margin, radius, width, height } = _params;
 
         // 높이 설정 50px보다 작게는 안됨
-        if (!isNullChecking(height)) {
+        if (!!isTruthy(height)) {
             this.style.height = height;
         } else {
             this.style.height = "auto";
@@ -512,11 +446,11 @@ class Header extends HTMLElement {
         // $Button.addEventListener("click", () => {});
         let { login, gap, sideNavWidth } = _params;
         try {
-            if (isNullChecking(sideNavWidth)) {
+            if (!isTruthy(sideNavWidth)) {
                 sideNavWidth = 200;
             };
 
-            if (isNullChecking(gap)) {
+            if (!isTruthy(gap)) {
                 gap = 0;
             };
 
@@ -527,7 +461,7 @@ class Header extends HTMLElement {
                     const $sidenav = document.getElementById("snb_wrapper");
                     if ($sidenav) {
                         const $mainWrapper = document.querySelector("main");
-                        console.log(this.classList.contains("on"));
+                        // console.log(this.classList.contains("on"));
                         // console.log("열려있다");
 
                         if (this.classList.contains("on")) {
@@ -542,12 +476,12 @@ class Header extends HTMLElement {
                             // console.log("열었다");
                         };
                     } else {
-                        console.log("사이드 바 없음");
+                        // console.log("사이드 바 없음");
                     }
                 });
             }
         } catch (e) {
-            console.log(e);
+            // console.log(e);
         }
 
         try {
@@ -559,7 +493,7 @@ class Header extends HTMLElement {
                     setCookie('is_logined', false);
                     sessionStorage.setItem('is_logined', false);
 
-                    if (!isNullChecking(login)) {
+                    if (!!isTruthy(login)) {
                         location.href = login;
                     } else {
                         location.href = "/";
@@ -567,7 +501,7 @@ class Header extends HTMLElement {
                 });
             }
         } catch (e) {
-            console.log(e);
+            // console.log(e);
         }
     }
 }
@@ -582,10 +516,10 @@ class CustomAnchor extends HTMLElement {
     checkAttribute() {
         // Element 태그의 속성 값 JSON 만들기
         let attributeObject = new Object;
-        // // //console.log(this.getAttributeNames());
+        // console.log(this.getAttributeNames());
         for (var i = 0; i < this.getAttributeNames().length; i++) {
             let attribute = this.getAttributeNames()[i];
-            // // //console.log(attribute);
+            // console.log(attribute);
             attributeObject[attribute] = this.getAttribute(attribute);
         }
 
@@ -593,14 +527,14 @@ class CustomAnchor extends HTMLElement {
     }
     connectedCallback() {
         const attrObj = this.checkAttribute();
-        // // //console.log(attrObj);
+        // console.log(attrObj);
         this.setModule(this.setElement(attrObj), this.setStyle(attrObj));
         this.setEvent(attrObj);
         // updateStyle(this);
     }
     setModule(moduleElement, moduleStyle) {
-        // // //console.log(moduleElement);
-        // // //console.log(moduleStyle);
+        // console.log(moduleElement);
+        // console.log(moduleStyle);
         this.attachShadow({ mode: 'open' });
         if (moduleElement) {
             for (var i = 0; i < moduleElement.length; i++) {
@@ -620,14 +554,14 @@ class CustomAnchor extends HTMLElement {
 
         let elemArr = new Array;
 
-        console.log(this);
+        // console.log(this);
 
-        if (isNullChecking(this.textContent)) {
-            if (isNullChecking(text)) {
+        if (!isTruthy(this.textContent)) {
+            if (!isTruthy(text)) {
                 text = "";
             }
         } else {
-            if (isNullChecking(text)) {
+            if (!isTruthy(text)) {
                 text = this.textContent;
             }
         };
@@ -646,7 +580,7 @@ class CustomAnchor extends HTMLElement {
                 elemArr.push($contentsWrapper);
                 break;
             default:
-                console.log("unknown-type");
+                // console.log("unknown-type");
                 break;
         }
 
@@ -705,7 +639,7 @@ class CustomAnchor extends HTMLElement {
         let { href } = _params;
 
         // home link가 없을경우 강제로 root의 경로를 작성
-        if (isNullChecking(href)) {
+        if (!isTruthy(href)) {
             href = "/";
         };
 
@@ -715,7 +649,7 @@ class CustomAnchor extends HTMLElement {
                 location.href = `${href}`;
             })
         } catch (e) {
-            console.log(e);
+            // console.log(e);
         }
 
 
