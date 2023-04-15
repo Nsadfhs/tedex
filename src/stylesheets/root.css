@@ -16,21 +16,19 @@
 
     /* 
         이거 가져다 쓰세요.
-        --color-primary: inherit;
-        --color-primary__dark: inherit;
-        --color-primary__light: inherit;
-        --color-primary__sub: inherit;
-        --color-action: inherit;
-        --color-complementary: inherit;
-        --color-text__title: inherit;
-        --color-text__paragraph: inherit;
-        --color-text__placeholder: inherit;
-        --color-text__disabled: inherit;
-        --color-background__gray: inherit;
-        --color-background__primary: inherit;
-        --color-background__action: inherit;
-        --color-background__disabled: inherit;
-        --color-border: inherit; 
+       --color-primary: #FF851B;
+            --color-primary__dark: #FF4136;
+            --color-primary__light: #FFDC00;
+            --color-primary__sub: #2ECC40;
+            --color-action: #0074D9;
+            --color-complementary: #FF4136;
+            --color-background: var(--color-white__off);
+            --color-neutral: var(--color-gray__400);
+            --color-text__title: var(--color-black);
+            --color-text__paragraph: var(--color-black__off);
+            --color-text__placeholder: var(--color-gray__300);
+            --color-text__disabled: var(--color-gray__400);
+            --color-background__disabled: var(--color-gray__200);
     */
 
 
@@ -370,24 +368,39 @@
     */
 
     /* border */
+    --border__1: 1px solid var(--color-neutral);
+    --border__2: 2px solid var(--color-neutral);
+    --border__3: 3px solid var(--color-neutral);
     --border-gray__1: 1px solid var(--color-gray__300);
     --border-gray__2: 2px solid var(--color-gray__300);
     --border-gray__3: 3px solid var(--color-gray__300);
-    --border-lightgray__1: 1px solid var(--color-gray__200);
-    --border-lightgray__2: 2px solid var(--color-gray__200);
-    --border-lightgray__3: 3px solid var(--color-gray__200);
+    --border-lightgray__1: 1px solid var(--color-lightgray__300);
+    --border-lightgray__2: 2px solid var(--color-lightgray__300);
+    --border-lightgray__3: 3px solid var(--color-lightgray__300);
     --border-black__1: 1px solid var(--color-black__off);
     --border-black__2: 2px solid var(--color-black__off);
     --border-black__3: 3px solid var(--color-black__off);
     --border-white__1: 1px solid var(--color-white__off);
     --border-white__2: 2px solid var(--color-white__off);
     --border-white__3: 3px solid var(--color-white__off);
+    --border-primary__1: 1px solid var(--color-primary);
+    --border-primary__2: 2px solid var(--color-primary);
+    --border-primary__3: 3px solid var(--color-primary);
+    --border-action__1: 1px solid var(--color-action);
+    --border-action__2: 2px solid var(--color-action);
+    --border-action__3: 3px solid var(--color-action);
+    --border-complementary__1: 1px solid var(--color-complementary);
+    --border-complementary__2: 2px solid var(--color-complementary);
+    --border-complementary__3: 3px solid var(--color-complementary);
     --border-danger__1: 1px solid var(--color-danger);
     --border-danger__2: 2px solid var(--color-danger);
     --border-danger__3: 3px solid var(--color-danger);
     --border-success__1: 1px solid var(--color-success);
     --border-success__2: 2px solid var(--color-success);
     --border-success__3: 3px solid var(--color-success);
+    --border-info__1: 1px solid var(--color-info);
+    --border-info__2: 2px solid var(--color-info);
+    --border-info__3: 3px solid var(--color-info);
     --border-warning__1: 1px solid var(--color-warning);
     --border-warning__2: 2px solid var(--color-warning);
     --border-warning__3: 3px solid var(--color-warning);

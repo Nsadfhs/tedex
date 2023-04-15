@@ -10,8 +10,11 @@
         url('https://cdn.jsdelivr.net/gh/Nsadfhs/tedex@1.0.0/public/fonts/PretendardVariable.woff2') format('truetype');
 }
 
-* {
-    font-family: 'Pretendard Variable', sans-serif !important;
+/* 기본 폰트 설정 */
+body {
+    font-family: 'Pretendard Variable', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
 /* 

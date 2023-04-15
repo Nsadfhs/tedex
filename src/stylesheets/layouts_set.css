@@ -2,7 +2,6 @@
 @import url("./layouts/side_navigation_bar.css");
 @import url("./layouts/contents.css");
 @import url("./layouts/footer.css");
-@import url("./containers/flex_container.css");
 
 :root {
     --header-height: 60px;

@@ -76,6 +76,18 @@
     align-items: stretch;
 }
 
+.title-container.margin-bottom__1 {
+    margin-bottom: 1rem;
+}
+
+.title-container.margin-bottom__2 {
+    margin-bottom: 2rem;
+}
+
+.title-container.margin-bottom__3 {
+    margin-bottom: 3rem;
+}
+
 /* 
 
 container etc...
