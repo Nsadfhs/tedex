@@ -253,7 +253,7 @@ class Header extends HTMLElement {
                 width: auto;
                 height: 1.75rem;
                 vertical-align: middle;
-                border: var(--border-lightgray__1);
+                border: var(--border-gray__1);
                 border-radius: 3.125rem;
                 padding: 0.5rem 1.125rem;
                 cursor: pointer;
@@ -283,7 +283,7 @@ class Header extends HTMLElement {
             @media screen and (min-width:768px) {
                 :root {}
                 .header-logout-button {
-                    border: var(--border-lightgray__1);
+                    border: var(--border-gray__1);
                 }
             }
             

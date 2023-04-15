@@ -12,7 +12,7 @@
 }
 
 .header-wrapper.cms {
-    border-bottom: var(--border-lightgray__1);
+    border-bottom: var(--border-gray__1);
 }
 
 .header-contents__left {
@@ -90,7 +90,7 @@
     width: auto;
     height: 1.75rem;
     vertical-align: middle;
-    border: var(--border-lightgray__1);
+    border: var(--border-gray__1);
     border-radius: 3.125rem;
     padding: 0.5rem 1.125rem;
     cursor: pointer;

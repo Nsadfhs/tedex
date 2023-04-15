@@ -14,7 +14,7 @@
 }
 
 .footer-wrapper.cms {
-    border-top: var(--border-lightgray__1);
+    border-top: var(--border-gray__1);
 }
 
 .footer-wrapper p {

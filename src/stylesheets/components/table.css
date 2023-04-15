@@ -176,12 +176,12 @@
     font-size: var(--font-size__tbody-md);
     font-weight: var(--font-weight__medium);
     line-height: var(--line-height__tbody-md);
-    border-bottom: var(--border-lightgray__1);
+    border-bottom: var(--border-gray__1);
 }
 
 
 .table__b tbody tr:nth-child(1) {
-    border-top: var(--border-lightgray__1);
+    border-top: var(--border-gray__1);
 }
 
 .table__b tr th,
