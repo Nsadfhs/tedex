@@ -59,11 +59,14 @@ if (!DebugMode) {
 const $bodyElem = document.querySelector("body");
 const $mainElem = document.querySelector("main");
 const $formElem = document.querySelector("form");
-const mediaQueryMobile = window.matchMedia('(min-width: 576px)');
-const mediaQueryTablet = window.matchMedia('(min-width: 768px)');
-const mediaQueryLaptop = window.matchMedia('(min-width: 992px)');
-const mediaQueryDesktop = window.matchMedia('(min-width: 1200px)');
-const mediaQueryLarge = window.matchMedia('(min-width: 1440px)');
+const isPortraitSize = window.matchMedia('(min-width: 320px) AND (max-width: 575px)').matches;
+const isLandscapeSize = window.matchMedia('(min-width: 576px) AND (max-width: 767px)').matches;
+const isMobileSize = window.matchMedia('(min-width: 320px) AND (max-width: 767px)').matches;
+const isTabletSize = window.matchMedia('(min-width: 768px) AND (max-width: 991px)').matches;
+const isLaptopSize = window.matchMedia('(min-width: 992px) AND (max-width: 1199px)').matches;
+const isDesktopSize = window.matchMedia('(min-width: 1200px) AND (max-width: 1919px)').matches;
+const isWideSize = window.matchMedia('(min-width: 1920px)').matches;
+const isLargeSize = window.matchMedia('(min-width: 992px) AND (max-width: 2559px)').matches;
 
 /** URL((Uniform Resource Locator)) 파싱
  * 

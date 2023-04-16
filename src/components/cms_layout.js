@@ -195,7 +195,8 @@ class Header extends HTMLElement {
         const $toggleButton = document.createElement("button");
         $toggleButton.id = "toggle_sidenav";
         $toggleButton.classList.add("toggle-button");
-        if (mediaQueryLaptop.matches) {
+        console.log(isPortraitSize);
+        if (!isPortraitSize) {
             $toggleButton.classList.add("on");
         };
 
@@ -203,8 +204,8 @@ class Header extends HTMLElement {
         $logoutButton.type = "button";
         $logoutButton.id = "do_logout";
         $logoutButton.classList.add("header-logout-button");
-        // console.log(mediaQueryMobile.matches);
-        if (!mediaQueryMobile.matches) {
+        console.log(isMobileSize);
+        if (isMobileSize) {
             $logoutButton.classList.add("icon");
         } else {
             $logoutButton.textContent = "로그아웃";
@@ -349,6 +350,7 @@ class Header extends HTMLElement {
                 width: auto;
                 height: 1.75rem;
                 vertical-align: middle;
+                border: none;
                 border-radius: 3.125rem;
                 padding: 0.5rem 1.125rem;
                 cursor: pointer;
@@ -414,6 +416,10 @@ class Header extends HTMLElement {
                 sideNavWidth = `${sideNavWidth}px`;
             }
 
+            if (isPortraitSize) {
+                sideNavWidth = "100%";
+            };
+
             if (!isTruthy(gap)) {
                 gap = `0px`;
             };
@@ -430,11 +436,7 @@ class Header extends HTMLElement {
 
                         if (this.classList.contains("on")) {
                             this.classList.remove("on");
-                            console.log(mediaQueryTablet);
-                            console.log(mediaQueryTablet.matches);
-                            if (mediaQueryTablet.matches) {
-                                sideNavWidth = "100%";
-                            };
+
                             $sidenav.style.left = `calc(-${sideNavWidth} - ${gap})`;
                             $mainWrapper.style.marginLeft = "0px";
                             console.log("닫았다");
