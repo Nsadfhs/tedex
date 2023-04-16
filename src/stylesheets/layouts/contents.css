@@ -51,6 +51,68 @@
     flex-wrap: nowrap;
 }
 
+/* contents align */
+
+.contents-wrapper.v-top,
+.contents-wrapper.horizontal.h-left {
+    justify-content: flex-start;
+}
+
+.contents-wrapper.v-center,
+.contents-wrapper.horizontal.h-center {
+    justify-content: center;
+}
+
+.contents-wrapper.v-bottom,
+.contents-wrapper.horizontal.h-right {
+    justify-content: flex-end;
+}
+
+.contents-wrapper.v-around,
+.contents-wrapper.horizontal.h-around {
+    justify-content: space-around;
+}
+
+.contents-wrapper.v-between,
+.contents-wrapper.horizontal.h-between {
+    justify-content: space-between;
+}
+
+.contents-wrapper.v-evenly,
+.contents-wrapper.horizontal.h-evenly {
+    justify-content: space-evenly;
+}
+
+.contents-wrapper.h-left,
+.contents-wrapper.horizontal.v-top {
+    align-items: flex-start;
+}
+
+.contents-wrapper.h-center,
+.contents-wrapper.horizontal.v-center {
+    align-items: center;
+}
+
+.contents-wrapper.h-right,
+.contents-wrapper.horizontal.v-bottom {
+    align-items: flex-end;
+}
+
+.contents-horizontal__left {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.contents-horizontal__right {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.contents-horizontal__center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* old mobile and wearable  */
 @media all and (min-width: 280px) and (max-width: 359px) {
     :root {}

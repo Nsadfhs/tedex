@@ -16,19 +16,16 @@
 
     /* 
         이거 가져다 쓰세요.
-       --color-primary: #FF851B;
+            --color-primary: #FF851B;
             --color-primary__dark: #FF4136;
             --color-primary__light: #FFDC00;
             --color-primary__sub: #2ECC40;
             --color-action: #0074D9;
             --color-complementary: #FF4136;
             --color-background: var(--color-white__off);
-            --color-neutral: var(--color-gray__400);
-            --color-text__title: var(--color-black);
-            --color-text__paragraph: var(--color-black__off);
-            --color-text__placeholder: var(--color-gray__300);
-            --color-text__disabled: var(--color-gray__400);
-            --color-background__disabled: var(--color-gray__200);
+            --color-neutral: #5E6472;
+            --color-title: var(--color-black);
+            --color-paragraph: var(--color-black__off);
     */
 
 
@@ -80,10 +77,10 @@
 
     /* device width */
     --max-width__mobile: 320px;
-    --max-width__tablet: 768px;
-    --max-width__laptop: 1024px;
-    --max-width__desktop: 1200px;
-    --max-width__wide: 1440px;
+    --max-width__tablet: 600px;
+    --max-width__laptop: 960px;
+    --max-width__desktop: 1024px;
+    --max-width__wide: 1920px;
 
     /* fluid contents */
     --max-width__contents: var(--max-width__mobile);
@@ -253,7 +250,9 @@
     --color-success: var(--color-green__600);
     --color-warning: var(--color-yellow__600);
     --color-info: var(--color-skyblue__600);
-    --color-disabled: var(--color-grey__600);
+    --color-placeholder: var(--color-lightgray__300);
+    --color-disabled__text: var(--color-gray__400);
+    --color-disabled__background: var(--color-gray__200);
 
     /*  
         ================================================================

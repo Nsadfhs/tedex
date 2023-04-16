@@ -770,6 +770,23 @@
     margin-bottom: 220px;
 }
 
+/* contents align */
+
+.contents-horizontal__left {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.contents-horizontal__right {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.contents-horizontal__center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* border */
 
 /* all(top, right, bottom, left) border */

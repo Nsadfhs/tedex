@@ -1,0 +1,120 @@
+/* text field horizontal label + input */
+.textfield__a,
+.textfield__horizontal {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 1rem;
+    width: auto;
+    height: auto;
+}
+
+.textfield__a label,
+.textfield__horizontal label {
+    display: inline-block;
+    min-width: 7.5rem;
+    width: auto;
+    height: auto;
+    color: var(--color-neutral);
+    font-size: var(--font-size__md);
+    font-weight: var(--font-weight__bold);
+    line-height: var(--line-height__md);
+    letter-spacing: -0.25px;
+}
+
+.textfield__a.wrap,
+.textfield__horizontal.wrap {
+    flex-wrap: wrap;
+    row-gap: 0.25rem;
+}
+
+.textfield__a.v-top,
+.textfield__horizontal.v-top {
+    align-items: flex-start;
+}
+
+.textfield__a.v-center,
+.textfield__horizontal.v-center {
+    align-items: flex-start;
+}
+
+.textfield__a.v-bottom,
+.textfield__horizontal.v-bottom {
+    align-items: flex-end;
+}
+
+/* textfield vertical label + input */
+
+.textfield__b,
+.textfield__vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    row-gap: 0.25rem;
+}
+
+.textfield__b.large,
+.textfield__vertical.large {
+    row-gap: 0.5rem;
+}
+
+.textfield__b.fixed,
+.textfield__vertical.fixed {
+    max-width: fit-content;
+}
+
+.textfield__b.expanded,
+.textfield__vertical.expanded {
+    width: 100%;
+}
+
+.textfield__b label {
+    display: inline-block;
+    min-width: 7.5rem;
+    width: 100%;
+    height: auto;
+    color: var(--color-neutral);
+    font-size: var(--font-size__md);
+    font-weight: var(--font-weight__bold);
+    line-height: 20px;
+    letter-spacing: -0.25px;
+}
+
+.textfield__b input,
+.textfield__b select {
+    width: 100%;
+    height: auto;
+    padding: 0.5rem 1rem;
+    color: var(--color-black);
+    font-size: var(--font-size__md);
+    font-weight: var(--font-weight__medium);
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    border: var(--border-gray__1);
+    border-radius: var(--curved);
+}
+
+
+/* old mobile and wearable  */
+@media all and (min-width: 280px) and (max-width: 359px) {}
+
+/* mobile devices */
+@media all and (min-width: 320px) {}
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width:576px) {}
+
+/* Medium devices (tablets, 768px and up) */
+@media all and (min-width: 768px) {}
+
+/* Large devices (small desktops and laptop, 992px and up) */
+@media all and (min-width: 992px) {}
+
+/* Extra large devices (desktops and large laptop, 1200px and up) */
+@media screen and (min-width:1200px) {}
+
+/* Extra Extra large devices (large desktops, 1440px and up) */
+@media all and (min-width: 1440px) {}

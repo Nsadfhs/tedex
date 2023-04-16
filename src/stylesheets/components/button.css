@@ -6,16 +6,6 @@
     --button-height__xs: 32px;
     --button-height__sm: 40px;
     --button-height__md: 50px;
-
-    --button-font-size__xs: 13px;
-    --button-font-size__sm: 14px;
-    --button-font-size__md: 16px;
-
-    --button-line-height__md: 1.5;
-
-    --button-font-weight__lighter: var(--font-weight__300);
-    --button-font-weight__medium: var(--font-weight__500);
-    --button-font-weight__bolder: var(--font-weight__700);
 }
 
 /* 버튼 아이템 */
@@ -132,8 +122,8 @@ a.pressed {
 
 button.disabled,
 a.disabled {
-    background-color: var(--color-background__disabled) !important;
-    color: var(--color-text__disabled) !important;
+    background-color: var(--color-disabled__background) !important;
+    color: var(--color-disabled__text) !important;
 }
 
 /* black button */
@@ -205,7 +195,7 @@ a.disabled {
 .button__b.disabled,
 .text-button.disabled {
     background-color: transparent !important;
-    color: var(--color-text__disabled) !important;
+    color: var(--color-disabled__text) !important;
 }
 
 .button__b.primary,
@@ -280,8 +270,8 @@ a.disabled {
 
 .button__c.disabled,
 .bordered-button.disabled {
-    background-color: var(--color-background__disabled) !important;
-    color: var(--color-text__disabled) !important;
+    background-color: var(--color-disabled__background) !important;
+    color: var(--color-disabled__text) !important;
     border: var(--border__1) !important;
 }
 

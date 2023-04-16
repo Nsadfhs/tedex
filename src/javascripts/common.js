@@ -125,7 +125,7 @@ function parseURL(_type) {
  * @param {*} _value
  * @returns 
  */
-function isNullCheck(_value) {
+function isNullChecking(_value) {
     if (typeof _value === "string") {
         return !!!_value?.trim();
     } else if (typeof _value === "object") {
@@ -154,7 +154,16 @@ function isTruthy(value) {
         return Object.keys(value).length !== 0;
     }
     return value !== undefined && value.trim() !== '';
-}
+};
+
+/** 인자로 들어온 값이 Falsy 값이면 true, 아니면 false를 반환
+ * 
+ * @param {*} value 
+ * @returns 
+ */
+function isFalsy(value) {
+    return !value;
+};
 
 /**
  * 
