@@ -1,3 +1,5 @@
+@import url("./input.css");
+
 /* text field horizontal label + input */
 .textfield__a,
 .textfield__horizontal {
@@ -45,20 +47,30 @@
     align-items: flex-end;
 }
 
+.textfield__a.large label,
+.textfield__horizontal.large label {
+    line-height: 24px;
+}
+
+.textfield__a.large input,
+.textfield__a.large select,
+.textfield__horizontal.large input,
+.textfield__horizontal.large select {
+    padding: 0.75rem 1rem;
+    line-height: 24px;
+}
+
+
 /* textfield vertical label + input */
 
 .textfield__b,
 .textfield__vertical {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     row-gap: 0.25rem;
-}
-
-.textfield__b.large,
-.textfield__vertical.large {
-    row-gap: 0.5rem;
 }
 
 .textfield__b.fixed,
@@ -97,6 +109,50 @@
     border-radius: var(--curved);
 }
 
+/* text field B large */
+
+.textfield__b.large label,
+.textfield__vertical.large label {
+    line-height: 24px;
+}
+
+.textfield__b.large input,
+.textfield__b.large select,
+.textfield__vertical.large input,
+.textfield__vertical.large select {
+    padding: 0.75rem 1rem;
+    line-height: 24px;
+}
+
+/* text field B error message */
+
+.textfield__b.error input {
+    border-color: var(--color-danger);
+}
+
+.textfield__b.error .field-message {
+    position: absolute;
+    top: 4px;
+    right: 0.5rem;
+    color: var(--color-danger);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.textfield__b.success input {
+    border-color: var(--color-success);
+}
+
+.textfield__b.success .field-message {
+    position: absolute;
+    top: 0;
+    right: 0.5rem;
+    color: var(--color-success);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+}
 
 /* old mobile and wearable  */
 @media all and (min-width: 280px) and (max-width: 359px) {}
