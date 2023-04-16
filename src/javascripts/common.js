@@ -160,12 +160,19 @@ function isTruthy(value) {
 };
 
 /** 인자로 들어온 값이 Falsy 값이면 true, 아니면 false를 반환
+ * Falsy값이란 ? false, 0, -0, 0n, '', "", null, undefined, NaN
+ * 거기에 추가로 -> "false", "null", "undefined", "NaN"
  * 
- * @param {*} value 
+ * @param {*} _value 
  * @returns 
  */
-function isFalsy(value) {
-    return !value;
+function isFalsy(_value) {
+    if (_value) {
+        if (_value.toLowerCase() === "false" || _value.toLowerCase() === "null" || _value.toLowerCase() === "undefined" || _value.toLowerCase() === "nan") {
+            _value = false;
+        };
+    };
+    return !_value;
 };
 
 /**
@@ -285,7 +292,7 @@ function hideSpinner() {
  * @param {String} _route 
  */
 function goPage(_route) {
-    if (!!isTruthy(_route)) {
+    if (!isFalsy(_route)) {
         location.href = _route;
     } else {
         // console.log(_route, "없음");

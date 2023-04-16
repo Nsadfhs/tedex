@@ -38,15 +38,15 @@ class CMSLayout extends HTMLBodyElement {
         let elemArr = new Array;
 
         // home link가 없을경우 강제로 root의 경로를 작성
-        if (!isTruthy(home)) {
+        if (isFalsy(home)) {
             home = "/";
         };
 
-        if (!isTruthy(logo)) {
+        if (isFalsy(logo)) {
             logo = "logo.svg";
         };
 
-        if (!isTruthy(height)) {
+        if (isFalsy(height)) {
             height = "60px";
         };
 
@@ -94,7 +94,7 @@ class CMSLayout extends HTMLBodyElement {
         let { color, bgcolor, size, align, padding, margin, radius, width, height } = _params;
 
         // 높이 설정 50px보다 작게는 안됨
-        if (!isTruthy(height)) {
+        if (isFalsy(height)) {
             this.style.height = "auto";
         };
 
@@ -176,11 +176,11 @@ class Header extends HTMLElement {
         let elemArr = new Array;
 
         // home link가 없을경우 강제로 root의 경로를 작성
-        if (!isTruthy(home)) {
+        if (isFalsy(home)) {
             home = "/";
         };
 
-        if (!isTruthy(height)) {
+        if (isFalsy(height)) {
             height = "60px";
         };
 
@@ -255,7 +255,7 @@ class Header extends HTMLElement {
         let { color, bgcolor, size, align, padding, margin, radius, width, height } = _params;
 
         // 높이 설정 50px보다 작게는 안됨
-        if (!isTruthy(height)) {
+        if (isFalsy(height)) {
             this.style.height = "auto";
         };
 
@@ -410,7 +410,7 @@ class Header extends HTMLElement {
         // $Button.addEventListener("click", () => {});
         let { loginPath, gap, sideNavWidth } = _params;
         try {
-            if (!isTruthy(sideNavWidth)) {
+            if (isFalsy(sideNavWidth)) {
                 sideNavWidth = "200px";
             } else {
                 sideNavWidth = `${sideNavWidth}px`;
@@ -420,7 +420,7 @@ class Header extends HTMLElement {
                 sideNavWidth = "100%";
             };
 
-            if (!isTruthy(gap)) {
+            if (isFalsy(gap)) {
                 gap = `0px`;
             };
 
@@ -461,8 +461,8 @@ class Header extends HTMLElement {
                 $logoutButton.addEventListener("click", function () {
                     // console.log("로그아웃");
                     deleteCookie("user_type");
-                    setCookie('is_logined', false);
-                    sessionStorage.setItem('is_logined', false);
+                    setCookie('is_logged_in', false);
+                    sessionStorage.setItem('is_logged_in', false);
 
                     if (isTruthy(loginPath)) {
                         location.href = loginPath;
@@ -527,12 +527,12 @@ class CustomAnchor extends HTMLElement {
 
         // console.log(this);
 
-        if (!isTruthy(this.textContent)) {
-            if (!isTruthy(text)) {
+        if (isFalsy(this.textContent)) {
+            if (isFalsy(text)) {
                 text = "";
             }
         } else {
-            if (!isTruthy(text)) {
+            if (isFalsy(text)) {
                 text = this.textContent;
             }
         };
@@ -614,7 +614,7 @@ class CustomAnchor extends HTMLElement {
         let { href } = _params;
 
         // home link가 없을경우 강제로 root의 경로를 작성
-        if (!isTruthy(href)) {
+        if (isFalsy(href)) {
             href = "/";
         };
 

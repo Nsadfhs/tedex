@@ -49,12 +49,12 @@ class CustomAnchor extends HTMLElement {
 
         // console.log(this);
 
-        if (!isTruthy(this.textContent)) {
-            if (!isTruthy(text)) {
+        if (isFalsy(this.textContent)) {
+            if (isFalsy(text)) {
                 text = "";
             }
         } else {
-            if (!isTruthy(text)) {
+            if (isFalsy(text)) {
                 text = this.textContent;
             }
         };
@@ -132,7 +132,7 @@ class CustomAnchor extends HTMLElement {
         let { href } = _params;
 
         // home link가 없을경우 강제로 root의 경로를 작성
-        if (!isTruthy(href)) {
+        if (isFalsy(href)) {
             href = "/";
         };
 

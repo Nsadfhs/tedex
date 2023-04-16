@@ -46,33 +46,33 @@ class CustomInput extends HTMLElement {
 
         let elemArr = new Array;
 
-        if (!isTruthy(this.textContent)) {
-            if (!isTruthy(label)) {
+        if (isFalsy(this.textContent)) {
+            if (isFalsy(label)) {
                 label = "Label";
             }
         } else {
-            if (!isTruthy(label)) {
+            if (isFalsy(label)) {
                 label = this.textContent;
             }
         };
 
-        if (!isTruthy(type)) {
+        if (isFalsy(type)) {
             type = "text";
         };
 
-        if (!isTruthy(category)) {
+        if (isFalsy(category)) {
             category = "a";
         };
 
-        if (!isTruthy(value)) {
+        if (isFalsy(value)) {
             value = false;
         };
 
-        if (!isTruthy(id)) {
+        if (isFalsy(id)) {
             id = `${type}_${category}_${inputCount}`;
         };
 
-        if (!isTruthy(name)) {
+        if (isFalsy(name)) {
             name = `${type}_${category}`;
         } else {
 
@@ -192,7 +192,7 @@ class CustomInput extends HTMLElement {
         // $Button.addEventListener("click", () => {});
         let { value } = _params;
 
-        if (!isTruthy(value)) {
+        if (isFalsy(value)) {
             value = false;
         };
 

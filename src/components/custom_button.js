@@ -56,31 +56,31 @@ class CustomButton extends HTMLButtonElement {
         // console.log(category);
         let elemArr = new Array;
 
-        if (!isTruthy(this.textContent)) {
-            if (!isTruthy(text)) {
+        if (isFalsy(this.textContent)) {
+            if (isFalsy(text)) {
                 text = "Button";
             };
         } else {
-            if (!isTruthy(text)) {
+            if (isFalsy(text)) {
                 text = this.textContent;
             };
 
             this.textContent = "";
         };
 
-        if (!isTruthy(type)) {
+        if (isFalsy(type)) {
             type = "button";
         };
 
-        if (!isTruthy(category)) {
+        if (isFalsy(category)) {
             category = "a";
         };
 
-        if (!isTruthy(id)) {
+        if (isFalsy(id)) {
             id = `${type}_${category}_${inputCount}`;
         };
 
-        if (!isTruthy(name)) {
+        if (isFalsy(name)) {
             name = `${type}_${category}`;
         };
 
@@ -161,7 +161,7 @@ class CustomButton extends HTMLButtonElement {
 
         let { type, onclick } = _params;
 
-        if (!isTruthy(type)) {
+        if (isFalsy(type)) {
             type = "button";
         };
 
