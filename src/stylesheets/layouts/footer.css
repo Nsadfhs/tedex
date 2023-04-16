@@ -7,8 +7,7 @@
     align-items: center;
     width: 100%;
     min-height: 50px;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 1rem;
     background-color: inherit;
     z-index: 1;
 }
@@ -21,6 +20,18 @@
     color: inherit;
     font-size: var(--font-size__detail);
     line-height: 1.5;
+}
+
+.footer-contents__left {
+    align-self: flex-start;
+}
+
+.footer-contents__center {
+    align-self: center;
+}
+
+.footer-contents__right {
+    align-self: flex-end;
 }
 
 .fnb-wrapper {}
