@@ -1,4 +1,4 @@
-@import url("./input.css");
+@import url("../containers/input_container.css");
 
 /* text field horizontal label + input */
 .textfield__a,
