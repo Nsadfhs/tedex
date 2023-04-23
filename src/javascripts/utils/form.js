@@ -3,7 +3,7 @@
 // input 데이터를 FormData로 전환
 const inputData = new FormData();
 
-// form쓸때, submit안하고 우리는 formdata에 넣어서 보낼거임
+// form쓸때, submit안하고 우리는 formData에 넣어서 보낼거임
 document.addEventListener("submit", function (e) {
     e.preventDefault();
 });
@@ -149,6 +149,32 @@ function inputObject(_target = "") {
     inputData.delete("");
 
     // console.log("**************************************************");
+};
+
+/** formData의 형식인 inputData라는 객체 안의 value를 삭제(지정한 키값이 있는 경우)하거나 텅비게 만듦
+ * 
+ * @param {*} _key 
+ * @returns 
+ */
+function deleteInputObject(_key) {
+    if (isFalsy(inputData)) {
+        return;
+    };
+
+    if (isFalsy(_key)) {
+        inputData.delete(_key);
+    } else {
+        const keysToDelete = [];
+        for (const [key, value] of inputData.entries()) {
+            if (true) {
+                keysToDelete.push(key);
+            }
+        }
+
+        keysToDelete.forEach(key => {
+            inputData.delete(key);
+        });
+    };
 };
 
 /** // 텍스트필드 값 넣기
@@ -726,7 +752,6 @@ function watchSelectText(_target, callback = null) {
  * typingSignCheck({ target: "input_phone", keyword: "phone_dash", error_message: "틀려먹음" });
  */
 function typingSignCheck(_params) {
-    // console.log("adsgsahgsa")
     const { target, keyword, error_message } = _params;
     let allCheckValid = [];
 

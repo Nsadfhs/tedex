@@ -41,3 +41,42 @@
         opacity: 0;
     }
 }
+
+@keyframes fade_toast {
+    0% {
+        top: 0;
+        opacity: 0;
+    }
+
+    4% {
+        top: 2rem;
+        opacity: 100%;
+    }
+
+    6% {
+        top: calc(2rem + 10px);
+    }
+
+    8% {
+        top: calc(2rem - 5px);
+    }
+
+    10% {
+        top: 2rem;
+    }
+
+    90% {
+        top: 2rem;
+        opacity: 100%;
+    }
+
+    91% {
+        top: calc(2rem + 10px);
+        opacity: 100%;
+    }
+
+    100% {
+        top: 0;
+        opacity: 0;
+    }
+}
