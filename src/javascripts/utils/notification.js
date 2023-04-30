@@ -24,16 +24,16 @@ function toastAlert(_message, _timeout = 5000, callback = false) {
     $toastWrapper.style.height = 'auto';
     $toastWrapper.style.paddingTop = '0.5rem';
     $toastWrapper.style.paddingBottom = '0.5rem';
-    $toastWrapper.style.backgroundColor = 'var(--color_black)';
+    $toastWrapper.style.backgroundColor = 'var(--color-black)';
     $toastWrapper.style.borderRadius = 'var(--curved)';
     $toastWrapper.style.zIndex = '9991';
     $toastWrapper.style.animation = 'fade_toast 3s ease-out forwards';
 
     $alertMessage.classList.add("toast-message");
-    $alertMessage.style.color = 'var(--color_white)';
-    $alertMessage.style.fontSize = 'var(--font-size_body_2)';
-    $alertMessage.style.fontWeight = 'var(--font-weight_medium)';
-    $alertMessage.style.lineHeight = 'var(--line-height_lg)';
+    $alertMessage.style.color = 'var(--color-white)';
+    $alertMessage.style.fontSize = 'var(--font-size__body-2)';
+    $alertMessage.style.fontWeight = 'var(--font-weight__medium)';
+    $alertMessage.style.lineHeight = 'var(--line-height__lg)';
     $alertMessage.style.wordBreak = 'keep-all';
     $alertMessage.textContent = _message;
 

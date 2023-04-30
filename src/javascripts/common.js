@@ -270,6 +270,7 @@ function offDimLayer() {
 function showSpinner() {
     const $spinner = document.createElement('div');
     $spinner.classList.add("loading-spinner");
+    $spinner.style.position = "absolute";
     $spinner.style.border = '16px solid #f3f3f3';
     $spinner.style.borderTop = '16px solid #3498db';
     $spinner.style.borderRadius = '50%';
