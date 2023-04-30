@@ -275,6 +275,10 @@
 
 /* all(top, right, bottom, left) padding */
 
+.padding__none {
+    padding: 0 !important;
+}
+
 .padding__1 {
     padding: 1rem;
 }
@@ -316,6 +320,10 @@
 }
 
 /* bottom padding */
+
+.padding-bottom__none {
+    padding-bottom: 0 !important;
+}
 
 .padding-bottom__1 {
     padding-bottom: 1rem;
@@ -572,6 +580,10 @@
 
 /* all(top, right, bottom, left) margin */
 
+.margin__none {
+    margin: 0 !important;
+}
+
 .margin__1 {
     margin: 1rem;
 }
@@ -593,6 +605,10 @@
 }
 
 /* bottom margin */
+
+.margin-bottom__none {
+    margin-bottom: 0 !important;
+}
 
 .margin-bottom__1 {
     margin-bottom: 1rem;
