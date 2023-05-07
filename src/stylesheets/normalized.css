@@ -82,6 +82,17 @@ li {
     list-style: none;
 }
 
+input,
+select {
+    background-color: white;
+    color: black;
+}
+
+/* 인풋 플레이스홀더 글자색 옅게 */
+input::placeholder {
+    color: lightgray;
+}
+
 input[type=datetime],
 input[type=email],
 input[type=number],

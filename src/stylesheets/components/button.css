@@ -84,6 +84,12 @@ a.primary {
     color: var(--color-white__off);
 }
 
+button.action,
+a.action {
+    background-color: var(--color-action);
+    color: var(--color-white__off);
+}
+
 button.complementary,
 a.complementary {
     background-color: var(--color-complementary);
