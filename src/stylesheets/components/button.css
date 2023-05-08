@@ -31,7 +31,6 @@ a {
     justify-content: center;
     align-items: center;
     width: auto;
-    height: var(--button-height__md);
     padding-left: 1rem;
     padding-right: 1rem;
     font-size: var(--font-size__button);
@@ -134,6 +133,7 @@ a.disabled {
 
 /* black button */
 .button__a {
+    height: var(--button-height__md);
     background-color: var(--color-black__off);
     color: var(--color-white);
 }
@@ -248,6 +248,7 @@ a.disabled {
 
 /* bordering */
 .button__c {
+    height: var(--button-height__md);
     background-color: transparent;
     color: inherit;
     border: var(--border__1);
@@ -374,13 +375,16 @@ a.disabled {
 
 /* icon curved */
 .button__e,
-.icon-button {}
+.icon-button {
+    height: var(--button-height__md);
+}
 
 
 
 /* left icon + light anchor curved */
 .button__f,
 .multiple-button {
+    height: var(--button-height__md);
     justify-content: space-between;
 }
 

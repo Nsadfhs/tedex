@@ -1,5 +1,30 @@
 @import url("../containers/input_container.css");
 
+.fake-label {
+    display: inline-block;
+    min-width: 7.5rem;
+    width: auto;
+    height: auto;
+    color: var(--color-neutral);
+    font-size: var(--font-size__md);
+    font-weight: var(--font-weight__bold);
+    line-height: var(--line-height__md);
+    letter-spacing: -0.25px;
+}
+
+.fake-input {
+    width: 100%;
+    height: auto;
+    padding: 0.5rem 1rem;
+    color: var(--color-black);
+    font-size: var(--font-size__md);
+    font-weight: var(--font-weight__medium);
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    border: var(--border-gray__1);
+    border-radius: var(--curved);
+}
+
 /* text field horizontal label + input */
 .textfield__a,
 .textfield__horizontal {
