@@ -1,4 +1,5 @@
-.main-wrapper {
+.main-wrapper,
+.main-container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -10,13 +11,47 @@
     margin-bottom: 7.5rem;
 }
 
-.main-wrapper.horizontal {
+.main-wrapper.horizontal,
+.main-container.horizontal {
     flex-direction: row;
     flex-wrap: nowrap;
     margin-bottom: 0;
 }
 
-.main-wrapper.cms {
+/* main container alignment  */
+
+.main-container.v-top,
+.main-container.horizontal.h-left {
+    justify-content: flex-start;
+}
+
+.main-container.v-center,
+.main-container.horizontal.h-center {
+    justify-content: center;
+}
+
+.main-container.v-bottom,
+.main-container.horizontal.h-right {
+    justify-content: flex-end;
+}
+
+.main-container.h-left,
+.main-container.horizontal.v-top {
+    align-items: flex-start;
+}
+
+.main-container.h-center,
+.main-container.horizontal.v-center {
+    align-items: center;
+}
+
+.main-container.h-right,
+.main-container.horizontal.v-bottom {
+    align-items: flex-end;
+}
+
+.main-wrapper.cms,
+.main-container.cms {
     display: block;
     height: calc(100vh - 3.75rem);
     padding-top: 2.25rem;
@@ -29,7 +64,8 @@
     transition: all 0.2s ease-out;
 }
 
-.main-wrapper.horizontal.column__2 {
+.main-wrapper.horizontal.column__2,
+.main-container.horizontal.column__2 {
     flex-direction: row;
     flex-wrap: wrap;
     column-gap: 1rem;
@@ -98,17 +134,17 @@
     align-items: flex-end;
 }
 
-.contents-horizontal__left {
+.contents-align__left {
     margin-left: 0;
     margin-right: auto;
 }
 
-.contents-horizontal__right {
+.contents-align__right {
     margin-left: auto;
     margin-right: 0;
 }
 
-.contents-horizontal__center {
+.contents-align__center {
     margin-left: auto;
     margin-right: auto;
 }
@@ -122,7 +158,8 @@
 @media screen and (min-width:576px) {
     :root {}
 
-    .main-wrapper.cms {
+    .main-wrapper.cms,
+    .main-container.cms {
         margin-left: 12.5rem;
     }
 }

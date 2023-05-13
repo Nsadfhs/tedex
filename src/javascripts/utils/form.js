@@ -67,7 +67,7 @@ function inputObject(_target = "") {
 
         if (radioArray[i].checked) {
             if (radioArray[i].value == "on") {
-                // console.log(radioArray[i].getAttribute("name"), "밸류가 없습니다.")
+                console.log(radioArray[i].getAttribute("name"), "밸류가 없습니다.");
                 inputData.append(radioArray[i].getAttribute("name"), 0);
             } else {
                 inputData.append(radioArray[i].getAttribute("name"), radioArray[i].value);
@@ -83,7 +83,7 @@ function inputObject(_target = "") {
         // console.log(`${checkboxArray[i].getAttribute("name")} : ${checkboxArray[i].value}`);
         if (checkboxArray[i].checked) {
             if (checkboxArray[i].value == "on") {
-                // console.log(checkboxArray[i].getAttribute("name"), "밸류가 없습니다.")
+                console.log(checkboxArray[i].getAttribute("name"), "밸류가 없습니다.");
                 inputData.append(checkboxArray[i].getAttribute("name"), 0);
             } else {
                 inputData.append(checkboxArray[i].getAttribute("name"), checkboxArray[i].value);
@@ -218,7 +218,7 @@ function getTextValue(_target) {
         if ($targetElem) {
             return $targetElem.value;
         } else {
-            // console.log(_target, "타겟이 없어요");
+            console.log(_target, "타겟이 없어요");
             return null;
         }
     }
@@ -243,7 +243,7 @@ function watchTextValue(_target, callback = null) {
                 }
             });
         } else {
-            // console.log(_target, "타겟이 없어요");
+            console.log(_target, "타겟이 없어요");
             return "";
         }
     }
@@ -268,11 +268,11 @@ function setRadioValue(_target, _value) {
                 }
             }
         } else {
-            // console.log(_target, "타겟이 없어요");
+            console.log(_target, "타겟이 없어요");
             return;
         }
     } else {
-        // console.log(_target, `${_value}가 이상해요`);
+        console.log(_target, `${_value}가 이상해요`);
         return;
     }
 };
@@ -291,7 +291,7 @@ function getRadioValue(_target) {
             const $targetElem = $targetElemArr[i];
             if ($targetElem.checked) {
                 if ($targetElem.value == "on") {
-                    // console.log($targetElem, "밸류가 없어요");
+                    console.log($targetElem, "밸류가 없어요");
                     return false;
                 } else {
                     return $targetElem.value;
@@ -299,7 +299,7 @@ function getRadioValue(_target) {
             }
         }
     } else {
-        // console.log(_target, "타겟이 없어요");
+        console.log(_target, "타겟이 없어요");
         return "";
     }
 };
@@ -318,7 +318,7 @@ function getRadioText(_target) {
             const $targetElem = $targetElemArr[i];
             if ($targetElem.checked) {
                 if ($targetElem.value == "on") {
-                    // console.log($targetElem, "밸류가 없어요");
+                    console.log($targetElem, "밸류가 없어요");
                     return false;
                 } else {
                     return $targetElem.value;
@@ -326,7 +326,7 @@ function getRadioText(_target) {
             }
         }
     } else {
-        // console.log(_target, "타겟이 없어요");
+        console.log(_target, "타겟이 없어요");
         return "";
     }
 };
@@ -347,7 +347,7 @@ function watchRadioValue(_target, callback = null) {
             $targetElem.addEventListener("change", function (e) {
                 // console.log($targetElem.value);
                 if (e.target.value == "on") {
-                    // console.log($targetElem, "밸류가 없어요");
+                    console.log($targetElem, "밸류가 없어요");
                     return false;
                 } else {
                     if (callback) {
@@ -359,7 +359,7 @@ function watchRadioValue(_target, callback = null) {
             });
         }
     } else {
-        // console.log(_target, "타겟이 없어요");
+        console.log(_target, "타겟이 없어요");
         return "";
     }
 };
@@ -394,12 +394,12 @@ function setCheckboxValue(_target, _value) {
             } else if (typeof _value === "boolean") {
                 $targetElem.checked = _value;
             } else {
-                // console.log(_target, `${_value}가 이상해요`);
+                console.log(_target, `${_value}가 이상해요`);
                 return;
             }
         }
     } else {
-        // console.log(_target, "타겟이 없어요");
+        console.log(_target, "타겟이 없어요");
         return;
     }
 };
@@ -439,7 +439,7 @@ function getCheckboxValue(_target) {
 
         return valueArr;
     } else {
-        // console.log(_target, "타겟이 없어요");
+        console.log(_target, "타겟이 없어요");
         return;
     }
 };
@@ -475,7 +475,7 @@ function getCheckboxText(_target) {
 
         return valueArr;
     } else {
-        // console.log(_target, "타겟이 없어요");
+        console.log(_target, "타겟이 없어요");
         return;
     }
 };
@@ -513,7 +513,7 @@ function watchCheckboxValue(_target, callback = null) {
             });
         };
     } else {
-        // console.log(_target, "타겟이 없어요");
+        console.log(_target, "타겟이 없어요");
         return;
     }
 };
@@ -545,12 +545,12 @@ function checkAll(_target) {
                         }
                     })
                 } else {
-                    // console.log(`${checkboxes}가 없습니다.`);
+                    console.log(`${checkboxes}가 없습니다.`);
                 }
             })
         }
     } else {
-        // console.log(`check_row_all, ${_target}이 없습니다.`);
+        console.log(`check_row_all, ${_target}이 없습니다.`);
         return;
     }
 };
@@ -598,25 +598,25 @@ function setSelectOption(_target, _valueArr, _default) {
                         $selectElem.value = 0;
                     }
                 } else {
-                    // console.log(_target, "타겟이 없어요");
+                    console.log(_target, "타겟이 없어요");
                     return;
                 };
             } else if (_valueArr[0].value == 0) {
-                // console.log(_valueArr[0].value, "옵션의 주요 값은 0을 허용하지 않아요");
+                console.log(_valueArr[0].value, "옵션의 주요 값은 0을 허용하지 않아요");
                 return;
             } else if (!_valueArr[0].value) {
-                // console.log(_valueArr[0].text, "옵션의 주요 값이 없어요");
+                console.log(_valueArr[0].text, "옵션의 주요 값이 없어요");
                 return;
             } else if (!_valueArr[0].text) {
-                // console.log(_valueArr[0].text, "옵션의 텍스트가 없어요");
+                console.log(_valueArr[0].text, "옵션의 텍스트가 없어요");
                 return;
             }
         } else {
-            // console.log(_valueArr, "옵션 생성 객체가 없어요");
+            console.log(_valueArr, "옵션 생성 객체가 없어요");
             return;
         }
     } else {
-        // console.log(_valueArr, "옵션 생성 배열이 없어요");
+        console.log(_valueArr, "옵션 생성 배열이 없어요");
         return;
     };
 };

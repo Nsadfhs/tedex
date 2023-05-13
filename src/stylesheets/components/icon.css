@@ -10,12 +10,72 @@ i {
 
 .ic-search {
     display: block;
-    width: 100%;
-    height: 100%;
+    width: 1.5rem;
+    height: 1.5rem;
     background-image: url("/public/images/icon/ic_search.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
+}
+
+.ic-arrow__left {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_arrow_left.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.ic-arrow__left-double {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_arrow_left_double.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.ic-arrow__right {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_arrow_right.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.ic-arrow__right-double {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_arrow_right_double.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.ic-draggable {
+    display: inline-block;
+    width: 3rem;
+    height: auto;
+    aspect-ratio: 8/1;
+    background-image: url("/public/images/icon/ic_draggable.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+.ic-draggable:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
 }
 
 /* old mobile and wearable  */

@@ -9,7 +9,7 @@
     row-gap: 0.5rem;
     width: 100%;
     padding: 1rem;
-    border: var(--border_1);
+    border: var(--border__1);
     border-radius: var(--curved);
     transition: all 0.5s ease-out;
 }

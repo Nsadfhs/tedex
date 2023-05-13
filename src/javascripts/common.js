@@ -56,10 +56,11 @@ if (!DebugMode) {
 };
 
 // 주로쓰는 Element
-const $bodyElem = document.querySelector("body");
-const $mainElem = document.querySelector("main");
-const $formElem = document.querySelector("form");
-const isPortraitSize = window.matchMedia('(min-width: 320px) AND (max-width: 575px)').matches;
+const $BODY = document.querySelector("body");
+const $MAIN = document.querySelector("main");
+const $FORM = document.querySelector("form");
+// 반응형 사이즈 검증
+const IS_PORTRAIT_SIZE = window.matchMedia('(min-width: 320px) AND (max-width: 575px)').matches;
 const isLandscapeSize = window.matchMedia('(min-width: 576px) AND (max-width: 767px)').matches;
 const isMobileSize = window.matchMedia('(min-width: 320px) AND (max-width: 767px)').matches;
 const isTabletSize = window.matchMedia('(min-width: 768px) AND (max-width: 991px)').matches;
@@ -121,42 +122,6 @@ function parseURL(_type) {
             return url;
             break;
     }
-};
-
-/** null undefined checking에 도움을 주기 위해 태어남. Null이면 true, Null 아니면 false를 반환
- * 
- * @param {*} _value
- * @returns 
- */
-function isNullChecking(_value) {
-    if (typeof _value === "string") {
-        return !!!_value?.trim();
-    } else if (typeof _value === "object") {
-        return _value.length == 0 ? true : false;
-    } else {
-        return _value === null || _value === undefined || _value.trim() === "";
-    }
-};
-
-/** 인자로 들어온 값이 어떤 값이든 실질적인 값이면 true, 아니면 false를 반환
- * 
- * @param {*} value 
- * @returns 
- */
-function isTruthy(value) {
-    if (typeof value === 'function') {
-        return false;
-    }
-    if (typeof value === 'number') {
-        return Boolean(value);
-    }
-    if (Array.isArray(value)) {
-        return value.length !== 0;
-    }
-    if (typeof value === 'object' && value !== null) {
-        return Object.keys(value).length !== 0;
-    }
-    return value !== undefined && value.trim() !== '';
 };
 
 /** 인자로 들어온 값이 Falsy 값이면 true, 아니면 false를 반환
@@ -221,19 +186,19 @@ const stopPropagation = function (e) {
 // 스크롤 이벤트 막기
 function scrollDisable() {
     // console.log("스크롤막기");
-    $bodyElem.classList.add("scroll-none");
-    $bodyElem.addEventListener("scroll", preventDefault, { passive: false });
-    $bodyElem.addEventListener("touchmove", preventDefault, { passive: false });
-    $bodyElem.addEventListener("mousewheel", preventDefault, { passive: false });
+    $BODY.classList.add("scroll-none");
+    $BODY.addEventListener("scroll", preventDefault, { passive: false });
+    $BODY.addEventListener("touchmove", preventDefault, { passive: false });
+    $BODY.addEventListener("mousewheel", preventDefault, { passive: false });
 };
 
 // 스크롤 이벤트 풀기
 function scrollEnable() {
     // console.log("스크롤막기해제")
-    $bodyElem.classList.remove("scroll-none");
-    $bodyElem.removeEventListener("scroll", preventDefault, { passive: false });
-    $bodyElem.removeEventListener("touchmove", preventDefault, { passive: false });
-    $bodyElem.removeEventListener("mousewheel", preventDefault, { passive: false });
+    $BODY.classList.remove("scroll-none");
+    $BODY.removeEventListener("scroll", preventDefault, { passive: false });
+    $BODY.removeEventListener("touchmove", preventDefault, { passive: false });
+    $BODY.removeEventListener("mousewheel", preventDefault, { passive: false });
 };
 
 /** 딤(어둡게) 처리
@@ -241,6 +206,7 @@ function scrollEnable() {
  * @param {Number} zIndex 
  */
 function setDimLayer(zIndex) {
+    scrollDisable();
     if (!zIndex) {
         zIndex = 9998;
     }
@@ -256,36 +222,44 @@ function setDimLayer(zIndex) {
     $dimLayer.style.opacity = "0.7";
     $dimLayer.style.zIndex = zIndex;
 
-    $bodyElem.append($dimLayer);
+    $BODY.append($dimLayer);
 };
 
 // 딤(어둡게) 해제
 function offDimLayer() {
-    const $dimLayer = document.querySelector(".dim-layer");
+    scrollEnable();
+    const DIM_LAYER = document.querySelector(".dim-layer");
     // console.log(dimLayer);
-    $dimLayer.remove();
+    if (DIM_LAYER instanceof Element) {
+        DIM_LAYER.remove();
+    };
 };
 
 // 로딩 스피너 생성
 function showSpinner() {
-    const $spinner = document.createElement('div');
-    $spinner.classList.add("loading-spinner");
-    $spinner.style.position = "absolute";
-    $spinner.style.border = '16px solid #f3f3f3';
-    $spinner.style.borderTop = '16px solid #3498db';
-    $spinner.style.borderRadius = '50%';
-    $spinner.style.width = '120px';
-    $spinner.style.height = '120px';
-    $spinner.style.animation = 'spin 2s linear infinite';
+    setDimLayer();
+    const SPINNER_ELEM = document.createElement("div");
+    SPINNER_ELEM.classList.add("loading-spinner");
+    SPINNER_ELEM.style.position = "absolute";
+    SPINNER_ELEM.style.top = "calc(50% - 30px)";
+    SPINNER_ELEM.style.left = "calc(50% - 30px)";
+    SPINNER_ELEM.style.border = "8px solid #f3f3f3";
+    SPINNER_ELEM.style.borderTop = "8px solid #3498db";
+    SPINNER_ELEM.style.borderRadius = "50%";
+    SPINNER_ELEM.style.width = "60px";
+    SPINNER_ELEM.style.height = "60px";
+    SPINNER_ELEM.style.animation = "spin 2s linear infinite";
+    SPINNER_ELEM.style.zIndex = "9999";
 
-    $bodyElem.append($spinner);
+    $bodyElem.append(SPINNER_ELEM);
 };
 
 // 로딩 스피너 해제
 function hideSpinner() {
-    const $spinner = document.querySelector(".loading-spinner");
+    offDimLayer();
+    const SPINNER_ELEM = document.querySelector(".loading-spinner");
     // console.log(dimLayer);
-    $spinner.remove();
+    SPINNER_ELEM.remove();
 };
 
 /** 해당 페이지 이동 _route 예시 "/sign/in"
@@ -296,7 +270,7 @@ function goPage(_route) {
     if (!isFalsy(_route)) {
         location.href = _route;
     } else {
-        // console.log(_route, "없음");
+        console.log(_route, "가 없어요");
     }
 };
 
@@ -402,19 +376,19 @@ function renderText(_target, _text) {
     if ($targetElem) {
         // console.log($targetElem.tagName);
         if ($targetElem.tagName == "INPUT") {
-            // console.log($targetElem.tagName, "적절한 타겟이 아닙니다.(setTextValue를 권장합니다.)");
+            console.log($targetElem.tagName, "적절한 타겟이 아닙니다.(setTextValue를 권장합니다.)");
             return;
         } else {
             if (!isNullCheck(_text)) {
                 $targetElem.innerText = _text;
             } else {
-                // console.log(_target, `${_text}가 이상해요`);
+                console.log(_target, `${_text}가 이상해요`);
                 $targetElem.innerText = "-";
                 return;
             };
         }
     } else {
-        // console.log(_target, "타겟이 없어요");
+        console.log(_target, "타겟이 없어요");
         return;
     };
 };
@@ -431,7 +405,7 @@ function renderHTML(_target, _template) {
     if ($targetElem) {
         $targetElem.innerHTML = _template;
     } else {
-        // console.log(_target, "타겟이 없어요");
+        console.log(_target, "타겟이 없어요");
         return;
     }
 };
@@ -450,11 +424,11 @@ function appendHTML(_target, _template) {
         if (_template) {
             $targetElem.append(_template);
         } else {
-            // console.log(_template, "append 할 수 있는 템플릿이 없어요");
+            console.log(_template, "append 할 수 있는 템플릿이 없어요");
             return;
         }
     } else {
-        // console.log(_target, "타겟이 없어요");
+        console.log(_target, "타겟이 없어요");
         return;
     }
 };
@@ -475,15 +449,15 @@ function renderImage(_target, _url) {
             if ($targetElem.tagName == "IMG") {
                 $targetElem.src = _url;
             } else {
-                // console.log($targetElem.tagName, "적절한 타겟이 아닙니다.(Img)");
+                console.log($targetElem.tagName, "적절한 타겟이 아닙니다.(Img)");
                 return;
             };
         } else {
-            // console.log(_target, "타겟이 없어요");
+            console.log(_target, "타겟이 없어요");
             return;
         }
     } else {
-        // console.log(_target, `${_url}가 이상해요`);
+        console.log(_target, `${_url}가 이상해요`);
         return;
     }
 };

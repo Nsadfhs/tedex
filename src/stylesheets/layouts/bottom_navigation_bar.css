@@ -1,3 +1,9 @@
+.fnb-wrapper {}
+
+.fnb-wrapper nav {}
+
+.fnb-wrapper nav a {}
+
 /* old mobile and wearable  */
 @media all and (min-width: 280px) and (max-width: 359px) {
     :root {}

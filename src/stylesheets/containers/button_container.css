@@ -82,11 +82,11 @@ container etc...
 */
 
 .button-container.light {
-    background-color: var(--color_white);
+    background-color: var(--color-white);
 }
 
 .button-container.dark {
-    background-color: var(--color_black);
+    background-color: var(--color-black);
 }
 
 

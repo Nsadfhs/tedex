@@ -1,0 +1,60 @@
+.folding-filter-button {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.5rem;
+    background-image: url("/public/images/icon/ic_folding_on.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: var(--border__1);
+    border-radius: var(--circle);
+    transition: all 0.2s ease-out;
+    cursor: pointer;
+}
+
+.folding-filter-button.folded {
+    background-image: url("/public/images/icon/ic_folding_off.svg");
+}
+
+.folding-button {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 0.5rem;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+}
+
+.folding-button::after {
+    content: '';
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-image: url("/public/images/icon/ic_arrow_left.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: rotate(90deg);
+    transition: all 0.2s ease-out;
+}
+
+.folding-button.folded::after {
+    transform: rotate(-90deg);
+}
+
+.folding-button.none {
+    background-color: var(--color-danger);
+    border-radius: var(--circle);
+    cursor: not-allowed;
+}
+
+.folding-button.none::after {
+    background-image: none;
+}

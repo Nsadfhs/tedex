@@ -1,5 +1,25 @@
 @import url("./pagination.css");
 
+table.scrollable {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table.full thead,
+table.full tbody {
+    width: 100%;
+}
+
+table tbody input,
+table tbody label,
+table tbody img.fixed {
+    height: var(--row-height__sm);
+}
+
+table tbody img {
+    width: auto;
+}
+
 /* table category A */
 
 .table__a {
@@ -7,8 +27,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    row-gap: 0.75rem;
-    width: 100%;
+    row-gap: 0.25rem;
+    width: max-content;
     margin-bottom: 3rem;
 }
 
@@ -17,7 +37,8 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    width: 100%;
+    width: max-content;
+    margin-left: 0;
 }
 
 .table__a tbody {
@@ -26,25 +47,32 @@
     justify-content: flex-start;
     align-items: flex-start;
     row-gap: 0.75rem;
-    width: 100%;
-    /* min-height: 548px; */
+    width: max-content;
+    margin-left: 0;
 }
 
 .table__a thead tr,
 .table__a tbody tr {
     display: grid;
     grid-template-columns: auto;
-    column-gap: 1rem;
+    column-gap: 0.25rem;
     width: 100%;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: var(--font-size__tbody-md);
+    font-weight: var(--font-weight__medium);
+    line-height: var(--line-height__tbody-md);
 }
 
 .table__a thead tr {
     color: var(--color-gray__500);
-    font-size: var(--font-size__thead-md);
-    font-weight: var(--font-weight__medium);
-    line-height: var(--line-height__thead-md);
+}
+
+.table__a tbody tr {
+    min-height: 3.25rem;
+    color: var(--color-black);
+    border: var(--border-gray__1);
+    border-radius: var(--curved);
 }
 
 .table__a tbody tr.empty {
@@ -76,6 +104,15 @@
     align-items: center;
 }
 
+.table__a tr td.vertical {
+    flex-direction: column;
+    justify-content: center;
+}
+
+.table__a tr td.evenly {
+    justify-content: space-evenly;
+}
+
 .table__a tr th.center,
 .table__a tr td.center {
     justify-content: center;
@@ -105,19 +142,10 @@
 
 .table__a tbody tr td select {
     height: var(--row-height__sm);
-    color: var(--color_black);
+    color: var(--color-black);
     font-size: var(--font-size__tbody-sm);
     font-weight: var(--font-weight__medium);
     line-height: var(--row-height__sm);
-}
-
-.table__a tbody tr td .cms-checkbox-a label {
-    height: var(--row-height__sm);
-}
-
-.table__a tbody tr td img {
-    width: auto;
-    max-height: var(--row-height__sm);
 }
 
 /* table category B */

@@ -1,0 +1,180 @@
+.overlay-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+}
+
+.overlay-wrapper.show {
+    opacity: 1;
+    z-index: 9999;
+}
+
+.sheet-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.2;
+}
+
+.dim-lay,
+.dim-lay__modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-disabled__background);
+    overflow-x: hidden;
+    overflow-y: hidden;
+    cursor: not-allowed;
+    opacity: 0.8;
+    z-index: 9998;
+    transition: all 0.06s ease-out;
+    pointer-events: none;
+}
+
+.overlay-handler {
+    display: inline-block;
+    width: 3rem;
+    height: auto;
+    aspect-ratio: 8/1;
+    background-image: url("/public/images/icon/ic_draggable.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+    z-index: 9999;
+}
+
+/* .overlay__a {
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    background-color: var(--color-primary__light);
+    border-top-left-radius: var(--rounded);
+    border-top-right-radius: var(--rounded);
+    transform: translateY(100%);
+    transition: all 0.1s ease-out;
+} */
+
+.overlay__a {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.1s linear;
+}
+
+.overlay__a.show {
+    /* transform: translateY(50%); */
+    pointer-events: all;
+}
+
+.overlay__a .sheet-contents-container {
+    position: relative;
+    transform: translateY(100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    row-gap: 0.5rem;
+    max-width: 64rem;
+    width: 100%;
+    height: 50vh;
+    max-height: 100vh;
+    padding: 1.5rem 0.5rem;
+    background-color: var(--color-white);
+    border-top-left-radius: var(--rounded);
+    border-top-right-radius: var(--rounded);
+    transition: all 0.1s ease-out;
+}
+
+.overlay__a.show .sheet-contents-container {
+    transform: translateY(0%);
+}
+
+.overlay__a.dragging .sheet-contents-container {
+    transition: none;
+}
+
+.overlay-wrapper.full-screen .sheet-contents-container {
+    border-radius: 0;
+    overflow-y: hidden;
+}
+
+.overlay__a .sheet-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.overlay__a .sheet-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    row-gap: 1rem;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.overlay__a .sheet-body::-webkit-scrollbar {
+    display: none;
+}
+
+.sheet-body-title {
+    word-spacing: 0.5rem;
+}
+
+.contents-title__4 {
+    color: var(--color-black);
+    font-size: var(--font-size__title-4);
+    font-weight: var(--font-weight__medium);
+    line-height: var(--line-height__sm);
+}
+
+/* old mobile and wearable  */
+@media all and (min-width: 280px) and (max-width: 359px) {}
+
+/* mobile devices */
+@media all and (min-width: 320px) {}
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width:576px) {}
+
+/* Medium devices (tablets, 768px and up) */
+@media all and (min-width: 768px) {
+    .overlay__a .sheet-contents-container {
+        padding: 1.5rem 2rem;
+    }
+}
+
+/* Large devices (small desktops and laptop, 992px and up) */
+@media all and (min-width: 992px) {}
+
+/* Extra large devices (desktops and large laptop, 1200px and up) */
+@media screen and (min-width:1200px) {}
+
+/* Extra Extra large devices (large desktops, 1440px and up) */
+@media all and (min-width: 1440px) {}

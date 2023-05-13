@@ -34,11 +34,63 @@
     align-self: flex-end;
 }
 
-.fnb-wrapper {}
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    row-gap: 1.25rem;
+    width: 100%;
+    height: auto;
+    padding-top: 1.125rem;
+    padding-right: 1rem;
+    padding-bottom: 1.125rem;
+    padding-left: 1rem;
+    background-color: var(--color-primary__dark);
+}
 
-.fnb-wrapper nav {}
+.footer-logo {
+    display: none;
+}
 
-.fnb-wrapper nav a {}
+.company-info-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    row-gap: 0.25rem;
+    width: 100%;
+}
+
+.company-info-item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 0.25rem;
+}
+
+.company-info-label,
+.company-info-value {
+    color: var(--color-white);
+    height: auto;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding-left: 0.125rem;
+    padding-right: 0.125rem;
+}
+
+.footer-copyright {
+    display: block;
+    width: 100%;
+    color: var(--color-white);
+    font-size: 0.75rem;
+    font-weight: 200;
+    line-height: 1.125rem;
+    text-align: center;
+}
 
 /* old mobile and wearable  */
 @media all and (min-width: 280px) and (max-width: 359px) {

@@ -25,7 +25,7 @@ pagination.js와 함께 쓰세요.
     background-repeat: no-repeat;
     background-size: 22px;
     background-position: center;
-    border: var(--border__lightgray-2);
+    border: var(--border-lightgray__2);
     border-radius: var(--curved);
     visibility: hidden;
 }
@@ -42,7 +42,7 @@ pagination.js와 함께 쓰세요.
     background-repeat: no-repeat;
     background-size: 22px;
     background-position: center;
-    border: var(--border__lightgray-2);
+    border: var(--border-lightgray__2);
     border-radius: var(--curved);
     visibility: hidden;
 }
@@ -59,7 +59,7 @@ pagination.js와 함께 쓰세요.
     background-repeat: no-repeat;
     background-size: 22px;
     background-position: center;
-    border: var(--border__lightgray-2);
+    border: var(--border-lightgray__2);
     border-radius: var(--curved);
     visibility: hidden;
 }
@@ -76,7 +76,7 @@ pagination.js와 함께 쓰세요.
     background-repeat: no-repeat;
     background-size: 22px;
     background-position: center;
-    border: var(--border__lightgray-2);
+    border: var(--border-lightgray__2);
     border-radius: var(--curved);
     visibility: hidden;
 }
@@ -105,17 +105,17 @@ pagination.js와 함께 쓰세요.
     min-width: 30px;
     width: auto;
     height: 30px;
-    color: var(--gray_400);
-    font-weight: var(--font_weight_600);
+    color: var(--color-gray__400);
+    font-weight: var(--font-weight__600);
     line-height: 29px;
-    border: var(--border__lightgray-2);
+    border: var(--border-lightgray__2);
     border-radius: var(--curved);
     cursor: pointer;
 }
 
 .paging-index-item.active {
-    color: var(--primary_600);
-    border-color: var(--primary_600);
+    color: var(--color-primary__600);
+    border-color: var(--color-primary__600);
 }
 
 /* old mobile and wearable  */

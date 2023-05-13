@@ -31,8 +31,6 @@ a {
     justify-content: center;
     align-items: center;
     width: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
     font-size: var(--font-size__button);
     font-weight: var(--font-weight__bold);
     line-height: var(--line-height__md);
@@ -73,7 +71,6 @@ a.rounded {
 
 button.circle,
 a.circle {
-    aspect-ratio: 1/1;
     border-radius: var(--circle);
 }
 
@@ -131,9 +128,17 @@ a.disabled {
     color: var(--color-disabled__text) !important;
 }
 
+.button.square,
+a.square {
+    aspect-ratio: 1/1 !important;
+    height: auto !important;
+}
+
 /* black button */
 .button__a {
     height: var(--button-height__md);
+    padding-left: 1rem;
+    padding-right: 1rem;
     background-color: var(--color-black__off);
     color: var(--color-white);
 }
@@ -249,6 +254,8 @@ a.disabled {
 /* bordering */
 .button__c {
     height: var(--button-height__md);
+    padding-left: 1rem;
+    padding-right: 1rem;
     background-color: transparent;
     color: inherit;
     border: var(--border__1);
@@ -366,26 +373,32 @@ a.disabled {
     border: var(--border-warning__1);
 }
 
-/* icon default */
+/*  */
 .button__d,
 .symbol-button {
-    aspect-ratio: 1/1 !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
     border: var(--border__1);
 }
+
+.button__d {}
+
 
 /* icon curved */
 .button__e,
 .icon-button {
     height: var(--button-height__md);
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
-
-
 
 /* left icon + light anchor curved */
 .button__f,
 .multiple-button {
-    height: var(--button-height__md);
     justify-content: space-between;
+    height: var(--button-height__md);
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .button__g {
@@ -424,7 +437,6 @@ a.disabled {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    aspect-ratio: 1/1;
     margin-left: auto;
 }
 
@@ -463,7 +475,6 @@ a.disabled {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    aspect-ratio: 1/1;
 }
 
 .button__h.pressed {
@@ -474,6 +485,23 @@ a.disabled {
 .button__h.disabled {
     background-color: var(--gray_100);
     color: var(--gray_100);
+}
+
+/* icon default */
+.button__i {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.button__i.bordered {
+    border: var(--border__1);
+}
+
+.button__i.circle {
+    border-radius: var(--circle);
 }
 
 /* old mobile and wearable  */

@@ -1,7 +1,7 @@
 "use strict";
 
 /** <body is="cms-layout" home="/" logo="logo.svg">
- * 
+*
  */
 class CMSLayout extends HTMLBodyElement {
     constructor() {
@@ -34,7 +34,7 @@ class CMSLayout extends HTMLBodyElement {
 
     // Element 처리부
     setElement(_params) {
-        let { home, logo, height } = _params;
+        let { home, logo, height, sidenavwidthrem } = _params;
         let elemArr = new Array;
 
         // home link가 없을경우 강제로 root의 경로를 작성
@@ -56,6 +56,7 @@ class CMSLayout extends HTMLBodyElement {
         $headerWrapper.setAttribute("type", "cms");
         $headerWrapper.setAttribute("home", home);
         $headerWrapper.setAttribute("logo", logo);
+        $headerWrapper.setAttribute("sidenavwidthrem", sidenavwidthrem);
         $headerWrapper.setAttribute("height", height);
 
         const $contentsWrapper = document.createElement("section");
@@ -128,12 +129,12 @@ class CMSLayout extends HTMLBodyElement {
 customElements.define('cms-layout', CMSLayout, { extends: "body" });
 
 /**    <custom-header type="cms" home="/" logo="logo.svg"></custom-header>
- * 
+*
  * type: str타입으로 header layout 변경
- * home: str타입으로 anchor, home 경로 지정
- * logo: str타입으로 img 파일이름&확장자, /public/images/logo 경로 default
- * loginPath: 로그인 페이지 경로를 알려주면 알아서 튕겨줌, 없으면 Root 페이지로 감
- * 
+* home: str타입으로 anchor, home 경로 지정
+* logo: str타입으로 img 파일이름&확장자, /public/images/logo 경로 default
+* loginPath: 로그인 페이지 경로를 알려주면 알아서 튕겨줌, 없으면 Root 페이지로 감
+*
  * */
 class Header extends HTMLElement {
     constructor() {
@@ -185,6 +186,7 @@ class Header extends HTMLElement {
         };
 
         this.style.minHeight = height;
+        const isPortraitSize = window.matchMedia('(min-width: 320px) AND (max-width: 575px)').matches;
 
         const $leftWrapper = document.createElement("section");
         $leftWrapper.classList.add("header-contents__left");
@@ -274,7 +276,7 @@ class Header extends HTMLElement {
                 cursor: default;
                 -webkit-tap-highlight-color: transparent;
             }
-
+ 
             .header-contents__left {
                 flex: 1;
                 display: flex;
@@ -283,7 +285,7 @@ class Header extends HTMLElement {
                 justify-content: flex-start;
                 align-items: center;
             }
-
+ 
             .header-contents__center {
                 flex: 1;
                 display: flex;
@@ -292,7 +294,7 @@ class Header extends HTMLElement {
                 justify-content: center;
                 align-items: center;
             }
-
+ 
             .header-contents__right {
                 flex: 1;
                 display: flex;
@@ -301,7 +303,7 @@ class Header extends HTMLElement {
                 justify-content: flex-end;
                 align-items: center;
             }
-
+ 
             .toggle-button {
                 position: relative;
                 display: inline-block;
@@ -311,7 +313,7 @@ class Header extends HTMLElement {
                 font-size: 0;
                 cursor: pointer;
             }
-
+ 
             .toggle-button:after {
                 content: '';
                 position: absolute;
@@ -324,7 +326,7 @@ class Header extends HTMLElement {
                 background-size: cover;
                 background-position: center;
             }
-
+ 
             .header-brand-logo {
                 display: inline-block;
                 width: auto;
@@ -334,14 +336,14 @@ class Header extends HTMLElement {
                 font-size: 0;
                 cursor: pointer;
             }
-
+ 
             .header-logo-image {
                 display: block;
                 width: auto;
                 height: 100%;
                 cursor: pointer;
             }
-
+ 
             .header-logout-button {
                 display: inline-block;
                 font-size: 0.75rem;
@@ -355,7 +357,7 @@ class Header extends HTMLElement {
                 padding: 0.5rem 1.125rem;
                 cursor: pointer;
             }
-
+ 
             .header-logout-button.icon {
                 width: 1.75rem;
                 height: 1.75rem;
@@ -365,17 +367,17 @@ class Header extends HTMLElement {
                 background-size: cover;
                 background-position: center;
             }
-
+ 
             /* old mobile and wearable  */
             @media all and (min-width: 280px) and (max-width: 359px) {
                 :root {}
             }
-            
+           
             /* Small devices (landscape phones, 576px and up) */
             @media screen and (min-width:576px) {
                 :root {}
             }
-            
+           
             /* Medium devices (tablets, 768px and up) */
             @media screen and (min-width:768px) {
                 :root {}
@@ -383,17 +385,17 @@ class Header extends HTMLElement {
                     border: var(--border-gray__1);
                 }
             }
-            
+           
             /* Large devices (small desktops and laptop, 992px and up) */
             @media screen and (min-width:992px) {
                 :root {}
             }
-            
+           
             /* Large devices (desktops and large laptop, 1200px and up) */
             @media screen and (min-width:1200px) {
                 :root {}
             }
-            
+           
             /* Extra Extra large devices (large desktops, 1440px and up) */
             @media screen and (min-width:1440px) {
                 :root {}
@@ -408,16 +410,15 @@ class Header extends HTMLElement {
         // const $Button = this.shadowRoot.querySelector("button"); // 엘리먼트는 '$'를 붙인다.
         // const _form = this.getAttribute("form"); // 속성은 '_'로 시작한다.
         // $Button.addEventListener("click", () => {});
-        let { loginPath, gap, sideNavWidth } = _params;
+        let { loginPath, gap, sidenavwidthrem } = _params;
+        console.log(sidenavwidthrem)
         try {
-            if (isFalsy(sideNavWidth)) {
-                sideNavWidth = "200px";
-            } else {
-                sideNavWidth = `${sideNavWidth}px`;
-            }
+            if (isFalsy(sidenavwidthrem)) {
+                sidenavwidthrem = "12.5rem";
+            };
 
             if (isPortraitSize) {
-                sideNavWidth = "100%";
+                sidenavwidthrem = "100%";
             };
 
             if (isFalsy(gap)) {
@@ -437,13 +438,13 @@ class Header extends HTMLElement {
                         if (this.classList.contains("on")) {
                             this.classList.remove("on");
 
-                            $sidenav.style.left = `calc(-${sideNavWidth} - ${gap})`;
+                            $sidenav.style.left = `calc(-${sidenavwidthrem} - ${gap})`;
                             $mainWrapper.style.marginLeft = "0px";
                             console.log("닫았다");
                         } else {
                             this.classList.add("on");
                             $sidenav.style.left = "0";
-                            $mainWrapper.style.marginLeft = `calc(${sideNavWidth} + ${gap})`;
+                            $mainWrapper.style.marginLeft = `calc(${sidenavwidthrem} + ${gap})`;
                             console.log("열었다");
                         };
                     } else {
@@ -576,7 +577,7 @@ class CustomAnchor extends HTMLElement {
                 cursor: default;
                 -webkit-tap-highlight-color: transparent;
             }
-
+ 
             .anchor-icon {
                 content: '';
                 display: inline-block;
@@ -589,7 +590,7 @@ class CustomAnchor extends HTMLElement {
                 background-size: 100%;
                 cursor: pointer;
             }
-
+ 
             .anchor-text {
                 color: var(--color-black__off);
                 font-size: 0.875rem;
@@ -597,7 +598,7 @@ class CustomAnchor extends HTMLElement {
                 line-height: 1.25rem;
                 cursor: pointer;
             }
-
+ 
             .anchor-text:hover {
                 color: var(--color-primary);
             }
