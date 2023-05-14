@@ -22,52 +22,63 @@ document.addEventListener("keydown", function (e) {
     }
 });
 
-// 디버그모드 제어
-// const DebugMode = false;
-let DebugMode = true;
-
 let baseURL = ""; // 테스트 모드
 
-if (!DebugMode) {
-    // 실배포 모드
-    baseURL = ""; // 실제 api 주소
+function localModeController(_debugMode) {
+    if (!_debugMode) {
+        // 실배포 모드
+        baseURL = ""; // 실제 api 주소
 
-    document.addEventListener("keydown", function (e) {
-        // 복사 막기
-        if (e.ctrlKey && e.key == "c" || e.metaKey && e.key == "c") {
-            // console.log("Hey! Ctrl+C event captured!");
-            e.preventDefault();
-        }
+        document.addEventListener("keydown", function (e) {
+            // 복사 막기
+            if (e.ctrlKey && e.key == "c" || e.metaKey && e.key == "c") {
+                // console.log("Hey! Ctrl+C event captured!");
+                e.preventDefault();
+            }
 
-        // f12막기
-        if (e.key == "F12") {
-            // console.log("Hey! F12 event captured!");
-            e.preventDefault();
-        }
-    })
+            // f12막기
+            if (e.key == "F12") {
+                // console.log("Hey! F12 event captured!");
+                e.preventDefault();
+            }
+        })
 
-    // 우클릭등 위협요소 차단
-    window.document.oncontextmenu = new Function("return false");
-    window.document.onselectstart = new Function("return false");
-    window.document.ondragstart = new Function("return false");
+        // 우클릭등 위협요소 차단
+        window.document.oncontextmenu = new Function("return false");
+        window.document.onselectstart = new Function("return false");
+        window.document.ondragstart = new Function("return false");
 
-    // 콘솔로그 다 비활성화
-    console.log = function () { };
-};
+        // 콘솔로그 다 비활성화
+        console.log = function () { };
+    };
+}
 
 // 주로쓰는 Element
 const $BODY = document.querySelector("body");
 const $MAIN = document.querySelector("main");
 const $FORM = document.querySelector("form");
 // 반응형 사이즈 검증
-const IS_PORTRAIT_SIZE = window.matchMedia('(min-width: 320px) AND (max-width: 575px)').matches;
-const isLandscapeSize = window.matchMedia('(min-width: 576px) AND (max-width: 767px)').matches;
-const isMobileSize = window.matchMedia('(min-width: 320px) AND (max-width: 767px)').matches;
-const isTabletSize = window.matchMedia('(min-width: 768px) AND (max-width: 991px)').matches;
-const isLaptopSize = window.matchMedia('(min-width: 992px) AND (max-width: 1199px)').matches;
-const isDesktopSize = window.matchMedia('(min-width: 1200px) AND (max-width: 1919px)').matches;
-const isWideSize = window.matchMedia('(min-width: 1920px)').matches;
-const isLargeSize = window.matchMedia('(min-width: 992px) AND (max-width: 2559px)').matches;
+let isPortraitSize = window.matchMedia('(min-width: 320px) AND (max-width: 575px)').matches;
+let isLandscapeSize = window.matchMedia('(min-width: 576px) AND (max-width: 767px)').matches;
+let isMobileSize = window.matchMedia('(min-width: 320px) AND (max-width: 767px)').matches;
+let isTabletSize = window.matchMedia('(min-width: 768px) AND (max-width: 991px)').matches;
+let isLaptopSize = window.matchMedia('(min-width: 992px) AND (max-width: 1199px)').matches;
+let isDesktopSize = window.matchMedia('(min-width: 1200px) AND (max-width: 1919px)').matches;
+let isWideSize = window.matchMedia('(min-width: 1920px)').matches;
+let isSmallSize = window.matchMedia('(min-width: 320px) AND (max-width: 991px)').matches;
+let isLargeSize = window.matchMedia('(min-width: 992px)').matches;
+
+window.addEventListener("resize", () => {
+    isPortraitSize = window.matchMedia('(min-width: 320px) AND (max-width: 575px)').matches;
+    isLandscapeSize = window.matchMedia('(min-width: 576px) AND (max-width: 767px)').matches;
+    isMobileSize = window.matchMedia('(min-width: 320px) AND (max-width: 767px)').matches;
+    isTabletSize = window.matchMedia('(min-width: 768px) AND (max-width: 991px)').matches;
+    isLaptopSize = window.matchMedia('(min-width: 992px) AND (max-width: 1199px)').matches;
+    isDesktopSize = window.matchMedia('(min-width: 1200px) AND (max-width: 1919px)').matches;
+    isWideSize = window.matchMedia('(min-width: 1920px)').matches;
+    isSmallSize = window.matchMedia('(min-width: 320px) AND (max-width: 991px)').matches;
+    isLargeSize = window.matchMedia('(min-width: 992px)').matches;
+});
 
 /** URL((Uniform Resource Locator)) 파싱
  * 
@@ -88,21 +99,21 @@ function parseURL(_type) {
             return url.port;
             break;
         case "host":
-            const hostName = url.hostname;
-            const hostNameArr = hostName.toString().split('.');
-            return hostNameArr;
+            const HOST_NAME = url.hostname;
+            const HOST_NAME_ARRAY = HOST_NAME.toString().split('.');
+            return HOST_NAME_ARRAY;
             break;
         case "path":
-            const pathName = url.pathname;
-            const pathNameArr = pathName.substring(pathName.indexOf('/') + 1).split('/');
-            return pathNameArr;
+            const PATH_NAME = url.pathname;
+            const PATH_NAME_ARRAY = PATH_NAME.substring(PATH_NAME.indexOf('/') + 1).split('/');
+            return PATH_NAME_ARRAY;
             break;
         case "parameter":
-            const search = url.search;
+            const SEARCH = url.search;
             let params = new Object;
-            if (search) {
-                const href = url.href;
-                let qs = href.substring(href.indexOf('?') + 1).split('&');
+            if (SEARCH) {
+                const URL_HREF = url.href;
+                let qs = URL_HREF.substring(URL_HREF.indexOf('?') + 1).split('&');
 
                 for (let i = 0; i < qs.length; i++) {
                     qs[i] = qs[i].split('=');
@@ -113,16 +124,24 @@ function parseURL(_type) {
             };
             return params;
             break;
-        case "prePath":
-            const referrer = document.referrer.replace(/^[^:]+:\/\/[^/]+/, '').replace(/#.*/, '').split("?")[0];
-            const referrerArr = referrer.substring(referrer.indexOf('/') + 1).split("/");
-            return referrerArr;
+        case "referrer":
+            const PRE_PATH = document.referrer.replace(/^[^:]+:\/\/[^/]+/, '').replace(/#.*/, '').split("?")[0];
+            const PRE_PATH_ARRAY = PRE_PATH.substring(PRE_PATH.indexOf('/') + 1).split("/");
+            return PRE_PATH_ARRAY;
             break;
         default:
             return url;
             break;
     }
 };
+
+let url = parseURL("href");
+let urlProtocol = parseURL("protocol");
+let urlPort = parseURL("port");
+let urlHost = parseURL("host");
+let urlPathArray = parseURL("path");
+let urlParameterArray = parseURL("parameter");
+let urlReferrerArray = parseURL("referrer");
 
 /** 인자로 들어온 값이 Falsy 값이면 true, 아니면 false를 반환
  * Falsy값이란 ? false, 0, -0, 0n, '', "", null, undefined, NaN
@@ -132,12 +151,35 @@ function parseURL(_type) {
  * @returns 
  */
 function isFalsy(_value) {
-    if (_value) {
-        if (_value.toLowerCase() === "false" || _value.toLowerCase() === "null" || _value.toLowerCase() === "undefined" || _value.toLowerCase() === "nan") {
-            _value = false;
-        };
+    console.log(`${_value}는 ${typeof _value} 타입 입니다.`);
+    if (typeof _value === "object" && _value == null) {
+        console.log(`${_value}는 'Null' 값 임.`);
+        return true;
+    } else if (_value === 0 || _value === false) {
+        console.log(`${_value}는 false 값 임.`);
+        return true;
+    } else if (typeof _value === "number" && isNaN(_value)) {
+        console.log(`${_value}는 'NaN' 값 임.`);
+        return true;
+    } else if (Math.abs(_value) === Infinity) {
+        console.log(`${_value}는 'Infinity' 값 임.`);
+        return true;
+    } else if (_value === "" || _value === " " || _value === "\n") {
+        // console.log(`${_value} 가 없어요`);
+        return true;
+    } else {
+        if (_value) {
+            if (typeof _value !== "string") {
+                _value = _value.toString();
+            };
+            // console.log(_value);
+            if (_value.toLowerCase() === "false" || _value.toLowerCase() === "null" || _value.toLowerCase() === "undefined" || _value.toLowerCase() === "NaN") {
+                return true;
+            };
+        }
     };
-    return !_value;
+
+    return false;
 };
 
 /**
@@ -211,55 +253,55 @@ function setDimLayer(zIndex) {
         zIndex = 9998;
     }
     // console.log("켜기")
-    const $dimLayer = document.createElement("div");
-    $dimLayer.classList.add("dim-layer");
-    $dimLayer.style.position = "fixed";
-    $dimLayer.style.top = 0;
-    $dimLayer.style.left = 0;
-    $dimLayer.style.width = "100%";
-    $dimLayer.style.height = "100%";
-    $dimLayer.style.backgroundColor = "var(--color-gray__900)";
-    $dimLayer.style.opacity = "0.7";
-    $dimLayer.style.zIndex = zIndex;
+    const $DIM = document.createElement("div");
+    $DIM.classList.add("dim-layer");
+    $DIM.style.position = "fixed";
+    $DIM.style.top = 0;
+    $DIM.style.left = 0;
+    $DIM.style.width = "100%";
+    $DIM.style.height = "100%";
+    $DIM.style.backgroundColor = "var(--color-gray__900)";
+    $DIM.style.opacity = "0.7";
+    $DIM.style.zIndex = zIndex;
 
-    $BODY.append($dimLayer);
+    $BODY.append($DIM);
 };
 
 // 딤(어둡게) 해제
 function offDimLayer() {
     scrollEnable();
-    const DIM_LAYER = document.querySelector(".dim-layer");
+    const $DIM = document.querySelector(".dim-layer");
     // console.log(dimLayer);
-    if (DIM_LAYER instanceof Element) {
-        DIM_LAYER.remove();
+    if ($DIM instanceof Element) {
+        $DIM.remove();
     };
 };
 
 // 로딩 스피너 생성
 function showSpinner() {
     setDimLayer();
-    const SPINNER_ELEM = document.createElement("div");
-    SPINNER_ELEM.classList.add("loading-spinner");
-    SPINNER_ELEM.style.position = "absolute";
-    SPINNER_ELEM.style.top = "calc(50% - 30px)";
-    SPINNER_ELEM.style.left = "calc(50% - 30px)";
-    SPINNER_ELEM.style.border = "8px solid #f3f3f3";
-    SPINNER_ELEM.style.borderTop = "8px solid #3498db";
-    SPINNER_ELEM.style.borderRadius = "50%";
-    SPINNER_ELEM.style.width = "60px";
-    SPINNER_ELEM.style.height = "60px";
-    SPINNER_ELEM.style.animation = "spin 2s linear infinite";
-    SPINNER_ELEM.style.zIndex = "9999";
+    const $LOADING_SPINNER = document.createElement("div");
+    $LOADING_SPINNER.classList.add("loading-spinner");
+    $LOADING_SPINNER.style.position = "absolute";
+    $LOADING_SPINNER.style.top = "calc(50% - 30px)";
+    $LOADING_SPINNER.style.left = "calc(50% - 30px)";
+    $LOADING_SPINNER.style.border = "8px solid #f3f3f3";
+    $LOADING_SPINNER.style.borderTop = "8px solid #3498db";
+    $LOADING_SPINNER.style.borderRadius = "50%";
+    $LOADING_SPINNER.style.width = "60px";
+    $LOADING_SPINNER.style.height = "60px";
+    $LOADING_SPINNER.style.animation = "spin 2s linear infinite";
+    $LOADING_SPINNER.style.zIndex = "9999";
 
-    $bodyElem.append(SPINNER_ELEM);
+    $BODY.append($LOADING_SPINNER);
 };
 
 // 로딩 스피너 해제
 function hideSpinner() {
     offDimLayer();
-    const SPINNER_ELEM = document.querySelector(".loading-spinner");
+    const $LOADING_SPINNER = document.querySelector(".loading-spinner");
     // console.log(dimLayer);
-    SPINNER_ELEM.remove();
+    $LOADING_SPINNER.remove();
 };
 
 /** 해당 페이지 이동 _route 예시 "/sign/in"
@@ -279,7 +321,7 @@ function goPage(_route) {
  * @param {String} _route 
  */
 function goBack(_route) {
-    if (!isNullCheck(_route)) {
+    if (!isFalsy(_route)) {
         location.href = `${baseURL}${_route}`;
     } else {
         history.back();
@@ -372,18 +414,18 @@ function deleteCookie(_name) {
 function renderText(_target, _text) {
     // console.log("renderText", _target);
     // console.log(template);
-    const $targetElem = document.getElementById(_target);
-    if ($targetElem) {
-        // console.log($targetElem.tagName);
-        if ($targetElem.tagName == "INPUT") {
-            console.log($targetElem.tagName, "적절한 타겟이 아닙니다.(setTextValue를 권장합니다.)");
+    const $TARGET = document.getElementById(_target);
+    if ($TARGET) {
+        // console.log($TARGET.tagName);
+        if ($TARGET.tagName == "INPUT") {
+            console.log($TARGET.tagName, "적절한 타겟이 아닙니다.(setTextValue를 권장합니다.)");
             return;
         } else {
-            if (!isNullCheck(_text)) {
-                $targetElem.innerText = _text;
+            if (!isFalsy(_text)) {
+                $TARGET.innerText = _text;
             } else {
                 console.log(_target, `${_text}가 이상해요`);
-                $targetElem.innerText = "-";
+                $TARGET.innerText = "-";
                 return;
             };
         }
@@ -401,9 +443,9 @@ function renderText(_target, _text) {
 function renderHTML(_target, _template) {
     // console.log("renderHTML", _target);
     // console.log(template);
-    const $targetElem = document.getElementById(_target);
-    if ($targetElem) {
-        $targetElem.innerHTML = _template;
+    const $TARGET = document.getElementById(_target);
+    if ($TARGET) {
+        $TARGET.innerHTML = _template;
     } else {
         console.log(_target, "타겟이 없어요");
         return;
@@ -419,10 +461,10 @@ function renderHTML(_target, _template) {
 function appendHTML(_target, _template) {
     // console.log("HTML_tag", _target);
     // console.log(template);
-    const $targetElem = document.getElementById(_target);
-    if ($targetElem) {
+    const $TARGET = document.getElementById(_target);
+    if ($TARGET) {
         if (_template) {
-            $targetElem.append(_template);
+            $TARGET.append(_template);
         } else {
             console.log(_template, "append 할 수 있는 템플릿이 없어요");
             return;
@@ -443,13 +485,13 @@ function renderImage(_target, _url) {
     // console.log("renderImage", _target);
     // console.log(template);
     if (_url) {
-        const $targetElem = document.getElementById(_target);
-        if ($targetElem) {
-            // console.log($targetElem.tagName);
-            if ($targetElem.tagName == "IMG") {
-                $targetElem.src = _url;
+        const $TARGET = document.getElementById(_target);
+        if ($TARGET) {
+            // console.log($TARGET.tagName);
+            if ($TARGET.tagName == "IMG") {
+                $TARGET.src = _url;
             } else {
-                console.log($targetElem.tagName, "적절한 타겟이 아닙니다.(Img)");
+                console.log($TARGET.tagName, "적절한 타겟이 아닙니다.(Img)");
                 return;
             };
         } else {
@@ -461,9 +503,3 @@ function renderImage(_target, _url) {
         return;
     }
 };
-
-// console.log("URL", parseURL("href"));
-
-// setDimLayer();
-// scrollDisable();
-// scrollEnable();

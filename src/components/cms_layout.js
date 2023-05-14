@@ -19,9 +19,9 @@ class CMSLayout extends HTMLBodyElement {
         return attributeObject;
     };
     connectedCallback() {
-        const attrObj = this.checkAttribute();
-        this.setModule(this.setElement(attrObj), this.setStyle(attrObj));
-        this.setEvent(attrObj);
+        const ATTRIBUTE_OBJECT = this.checkAttribute();
+        this.setModule(this.setElement(ATTRIBUTE_OBJECT), this.setStyle(ATTRIBUTE_OBJECT));
+        this.setEvent(ATTRIBUTE_OBJECT);
     };
     setModule(moduleElement, moduleStyle) {
         if (moduleElement) {
@@ -52,40 +52,40 @@ class CMSLayout extends HTMLBodyElement {
 
         this.classList.add("body-wrapper", "cms");
 
-        const $headerWrapper = document.createElement("custom-header");
-        $headerWrapper.setAttribute("type", "cms");
-        $headerWrapper.setAttribute("home", home);
-        $headerWrapper.setAttribute("logo", logo);
-        $headerWrapper.setAttribute("sidenavwidthrem", sidenavwidthrem);
-        $headerWrapper.setAttribute("height", height);
+        const $HEADER = document.createElement("custom-header");
+        $HEADER.setAttribute("type", "cms");
+        $HEADER.setAttribute("home", home);
+        $HEADER.setAttribute("logo", logo);
+        $HEADER.setAttribute("sidenavwidthrem", sidenavwidthrem);
+        $HEADER.setAttribute("height", height);
 
-        const $contentsWrapper = document.createElement("section");
-        $contentsWrapper.classList.add("contents-wrapper", "cms");
+        const $CONTENTS_WRAPPER = document.createElement("section");
+        $CONTENTS_WRAPPER.classList.add("contents-wrapper", "cms");
 
-        const $sideBarWrapper = document.getElementById("snb_wrapper");
-        if ($sideBarWrapper) {
-            $contentsWrapper.append($sideBarWrapper);
-            $sideBarWrapper.classList.add("sideNav-wrapper", "cms");
+        const $SNB_WRAPPER = document.getElementById("snb_wrapper");
+        if ($SNB_WRAPPER) {
+            $CONTENTS_WRAPPER.append($SNB_WRAPPER);
+            $SNB_WRAPPER.classList.add("sideNav-wrapper", "cms");
         } else {
-            const $createdSideBarWrapper = document.createElement("aside");
-            $createdSideBarWrapper.id = "snb_wrapper";
-            $contentsWrapper.append($createdSideBarWrapper);
-            $createdSideBarWrapper.classList.add("sideNav-wrapper", "cms");
+            const $NEW_SNB_WRAPPER = document.createElement("aside");
+            $NEW_SNB_WRAPPER.id = "snb_wrapper";
+            $CONTENTS_WRAPPER.append($NEW_SNB_WRAPPER);
+            $NEW_SNB_WRAPPER.classList.add("sideNav-wrapper", "cms");
         };
 
-        const $mainWrapper = document.querySelector("main");
-        if ($mainWrapper) {
-            $contentsWrapper.append($mainWrapper);
-            $mainWrapper.classList.add("main-wrapper", "cms");
+        const $MAIN = document.querySelector("main");
+        if ($MAIN) {
+            $CONTENTS_WRAPPER.append($MAIN);
+            $MAIN.classList.add("main-wrapper", "cms");
 
         } else {
-            const $createdMainWrapper = document.createElement("main");
-            $contentsWrapper.append($createdMainWrapper);
-            $createdMainWrapper.classList.add("main-wrapper", "cms");
+            const $NEW_MAIN = document.createElement("main");
+            $CONTENTS_WRAPPER.append($NEW_MAIN);
+            $NEW_MAIN.classList.add("main-wrapper", "cms");
         };
 
-        this.prepend($contentsWrapper);
-        this.prepend($headerWrapper);
+        this.prepend($CONTENTS_WRAPPER);
+        this.prepend($HEADER);
 
         return elemArr;
     }
@@ -152,9 +152,9 @@ class Header extends HTMLElement {
         return attributeObject;
     };
     connectedCallback() {
-        const attrObj = this.checkAttribute();
-        this.setModule(this.setElement(attrObj), this.setStyle(attrObj));
-        this.setEvent(attrObj);
+        const ATTRIBUTE_OBJECT = this.checkAttribute();
+        this.setModule(this.setElement(ATTRIBUTE_OBJECT), this.setStyle(ATTRIBUTE_OBJECT));
+        this.setEvent(ATTRIBUTE_OBJECT);
     };
     setModule(moduleElement, moduleStyle) {
         this.attachShadow({ mode: 'open' });
@@ -163,9 +163,9 @@ class Header extends HTMLElement {
                 this.shadowRoot.append(moduleElement[i]);
             }
         };
-        const $styledElem = document.createElement("style");
-        $styledElem.textContent = moduleStyle;
-        this.shadowRoot.append($styledElem);
+        const $STYLED = document.createElement("style");
+        $STYLED.textContent = moduleStyle;
+        this.shadowRoot.append($STYLED);
     };
     // ------- Finish Lock --------
 
@@ -186,62 +186,83 @@ class Header extends HTMLElement {
         };
 
         this.style.minHeight = height;
-        const isPortraitSize = window.matchMedia('(min-width: 320px) AND (max-width: 575px)').matches;
 
-        const $leftWrapper = document.createElement("section");
-        $leftWrapper.classList.add("header-contents__left");
-        const $centerWrapper = document.createElement("section");
-        $centerWrapper.classList.add("header-contents__center");
-        const $rightWrapper = document.createElement("section");
-        $rightWrapper.classList.add("header-contents__right");
-        const $toggleButton = document.createElement("button");
-        $toggleButton.id = "toggle_sidenav";
-        $toggleButton.classList.add("toggle-button");
-        console.log(isPortraitSize);
+        const $HEADER_LEFT_WRAPPER = document.createElement("section");
+        $HEADER_LEFT_WRAPPER.classList.add("header-contents__left");
+        const $HEADER_CENTER_WRAPPER = document.createElement("section");
+        $HEADER_CENTER_WRAPPER.classList.add("header-contents__center");
+        const $HEADER_RIGHT_WRAPPER = document.createElement("section");
+        $HEADER_RIGHT_WRAPPER.classList.add("header-contents__right");
+        const $TOGGLE_BUTTON = document.createElement("button");
+        $TOGGLE_BUTTON.id = "toggle_sidenav";
+        $TOGGLE_BUTTON.classList.add("toggle-button");
+
         if (!isPortraitSize) {
-            $toggleButton.classList.add("on");
-        };
-
-        const $logoutButton = document.createElement("button");
-        $logoutButton.type = "button";
-        $logoutButton.id = "do_logout";
-        $logoutButton.classList.add("header-logout-button");
-        console.log(isMobileSize);
-        if (isMobileSize) {
-            $logoutButton.classList.add("icon");
+            $TOGGLE_BUTTON.classList.add("on");
         } else {
-            $logoutButton.textContent = "로그아웃";
+            $TOGGLE_BUTTON.classList.remove("on");
         };
 
-        const $homeAnchor = document.createElement("a");
-        $homeAnchor.href = home;
-        $homeAnchor.classList.add("header-brand-logo");
-        const $brandLogo = document.createElement("img");
-        $brandLogo.src = `/public/images/logo/${logo}`;
-        $brandLogo.alt = `logo image`;
-        $brandLogo.classList.add("header-logo-image");
-        $homeAnchor.append($brandLogo);
+        window.addEventListener("resize", () => {
+            if (!isPortraitSize) {
+                $TOGGLE_BUTTON.classList.add("on");
+            } else {
+                $TOGGLE_BUTTON.classList.remove("on");
+            };
+        });
+
+        const $LOGOUT_BUTTON = document.createElement("button");
+        $LOGOUT_BUTTON.type = "button";
+        $LOGOUT_BUTTON.id = "do_logout";
+        $LOGOUT_BUTTON.classList.add("header-logout-button");
+
+        if (isMobileSize) {
+            $LOGOUT_BUTTON.classList.add("icon");
+            $LOGOUT_BUTTON.textContent = "";
+        } else {
+            $LOGOUT_BUTTON.classList.remove("icon");
+            $LOGOUT_BUTTON.textContent = "로그아웃";
+        };
+
+        window.addEventListener("resize", () => {
+            if (isMobileSize) {
+                $LOGOUT_BUTTON.classList.add("icon");
+                $LOGOUT_BUTTON.textContent = "";
+            } else {
+                $LOGOUT_BUTTON.classList.remove("icon");
+                $LOGOUT_BUTTON.textContent = "로그아웃";
+            };
+        });
+
+        const $HOME_ANCHOR_BUTTON = document.createElement("a");
+        $HOME_ANCHOR_BUTTON.href = home;
+        $HOME_ANCHOR_BUTTON.classList.add("header-brand-logo");
+        const BRAND_LOGO = document.createElement("img");
+        BRAND_LOGO.src = `/public/images/logo/${logo}`;
+        BRAND_LOGO.alt = `logo image`;
+        BRAND_LOGO.classList.add("header-logo-image");
+        $HOME_ANCHOR_BUTTON.append(BRAND_LOGO);
 
         switch (type) {
             case "cms":
                 this.classList.add("cms");
 
-                elemArr.push($leftWrapper);
-                $leftWrapper.append($toggleButton);
+                elemArr.push($HEADER_LEFT_WRAPPER);
+                $HEADER_LEFT_WRAPPER.append($TOGGLE_BUTTON);
 
-                elemArr.push($centerWrapper);
-                $centerWrapper.append($homeAnchor);
+                elemArr.push($HEADER_CENTER_WRAPPER);
+                $HEADER_CENTER_WRAPPER.append($HOME_ANCHOR_BUTTON);
 
-                elemArr.push($rightWrapper);
-                $rightWrapper.append($logoutButton);
+                elemArr.push($HEADER_RIGHT_WRAPPER);
+                $HEADER_RIGHT_WRAPPER.append($LOGOUT_BUTTON);
 
                 break;
             case "a":
-                elemArr.push($leftWrapper);
-                $leftWrapper.append($homeAnchor);
+                elemArr.push($HEADER_LEFT_WRAPPER);
+                $HEADER_LEFT_WRAPPER.append($HOME_ANCHOR_BUTTON);
 
-                elemArr.push($rightWrapper);
-                $rightWrapper.append($toggleButton);
+                elemArr.push($HEADER_RIGHT_WRAPPER);
+                $HEADER_RIGHT_WRAPPER.append($TOGGLE_BUTTON);
 
                 break;
             default:
@@ -411,7 +432,7 @@ class Header extends HTMLElement {
         // const _form = this.getAttribute("form"); // 속성은 '_'로 시작한다.
         // $Button.addEventListener("click", () => {});
         let { loginPath, gap, sidenavwidthrem } = _params;
-        console.log(sidenavwidthrem)
+        // console.log(sidenavwidthrem)
         try {
             if (isFalsy(sidenavwidthrem)) {
                 sidenavwidthrem = "12.5rem";
@@ -431,7 +452,7 @@ class Header extends HTMLElement {
                     // console.log("토글");
                     const $sidenav = document.getElementById("snb_wrapper");
                     if ($sidenav) {
-                        const $mainWrapper = document.querySelector("main");
+                        const $MAIN = document.querySelector("main");
                         // console.log(this.classList.contains("on"));
                         // console.log("열려있다");
 
@@ -439,13 +460,13 @@ class Header extends HTMLElement {
                             this.classList.remove("on");
 
                             $sidenav.style.left = `calc(-${sidenavwidthrem} - ${gap})`;
-                            $mainWrapper.style.marginLeft = "0px";
-                            console.log("닫았다");
+                            $MAIN.style.marginLeft = "0px";
+                            // console.log("닫았다");
                         } else {
                             this.classList.add("on");
                             $sidenav.style.left = "0";
-                            $mainWrapper.style.marginLeft = `calc(${sidenavwidthrem} + ${gap})`;
-                            console.log("열었다");
+                            $MAIN.style.marginLeft = `calc(${sidenavwidthrem} + ${gap})`;
+                            // console.log("열었다");
                         };
                     } else {
                         // console.log("사이드 바 없음");
@@ -457,9 +478,9 @@ class Header extends HTMLElement {
         }
 
         try {
-            const $logoutButton = this.shadowRoot.querySelector("#do_logout");
-            if ($logoutButton) {
-                $logoutButton.addEventListener("click", function () {
+            const $LOGOUT_BUTTON = this.shadowRoot.querySelector("#do_logout");
+            if ($LOGOUT_BUTTON) {
+                $LOGOUT_BUTTON.addEventListener("click", function () {
                     // console.log("로그아웃");
                     deleteCookie("user_type");
                     setCookie('is_logged_in', false);
@@ -498,10 +519,10 @@ class CustomAnchor extends HTMLElement {
         return attributeObject;
     }
     connectedCallback() {
-        const attrObj = this.checkAttribute();
-        // console.log(attrObj);
-        this.setModule(this.setElement(attrObj), this.setStyle(attrObj));
-        this.setEvent(attrObj);
+        const ATTRIBUTE_OBJECT = this.checkAttribute();
+        // console.log(ATTRIBUTE_OBJECT);
+        this.setModule(this.setElement(ATTRIBUTE_OBJECT), this.setStyle(ATTRIBUTE_OBJECT));
+        this.setEvent(ATTRIBUTE_OBJECT);
         // updateStyle(this);
     }
     setModule(moduleElement, moduleStyle) {
@@ -513,9 +534,9 @@ class CustomAnchor extends HTMLElement {
                 this.shadowRoot.append(moduleElement[i]);
             }
         };
-        const $styledElem = document.createElement("style");
-        $styledElem.textContent = moduleStyle;
-        this.shadowRoot.append($styledElem);
+        const $STYLED = document.createElement("style");
+        $STYLED.textContent = moduleStyle;
+        this.shadowRoot.append($STYLED);
     }
     // ------- Finish Lock --------
 
@@ -541,15 +562,15 @@ class CustomAnchor extends HTMLElement {
         switch (type) {
             case "cms_snb":
                 this.classList.add("sideNav-link");
-                const $iconWrapper = document.createElement("i");
-                $iconWrapper.classList.add("anchor-icon");
+                const $ICON_WRAPPER = document.createElement("i");
+                $ICON_WRAPPER.classList.add("anchor-icon");
 
 
-                const $contentsWrapper = document.createElement("span");
-                $contentsWrapper.classList.add("anchor-text");
-                $contentsWrapper.textContent = text;
-                elemArr.push($iconWrapper);
-                elemArr.push($contentsWrapper);
+                const $CONTENTS_WRAPPER = document.createElement("span");
+                $CONTENTS_WRAPPER.classList.add("anchor-text");
+                $CONTENTS_WRAPPER.textContent = text;
+                elemArr.push($ICON_WRAPPER);
+                elemArr.push($CONTENTS_WRAPPER);
                 break;
             default:
                 // console.log("unknown-type");
