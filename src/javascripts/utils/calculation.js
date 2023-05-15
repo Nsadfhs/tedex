@@ -45,7 +45,7 @@ function numberToComma(x) {
 }
 
 // 회계처럼 된 문자열 숫자를 int형으로 다시 반환
-function CommaToNumber(stringNumber) {
+function commaToNumber(stringNumber) {
     if (!stringNumber) {
         stringNumber = 0;
     }
