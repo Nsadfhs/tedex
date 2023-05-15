@@ -152,9 +152,17 @@ let urlReferrerArray = parseURL("referrer");
  */
 function isFalsy(_value) {
     console.log(`${_value}는 ${typeof _value} 타입 입니다.`);
-    if (typeof _value === "object" && _value == null) {
-        console.log(`${_value}는 'Null' 값 임.`);
-        return true;
+    if (typeof _value == "object") {
+        if (_value == null) {
+            console.log(`${_value}는 'Null' 값 임.`);
+            return true;
+        } else if (_value.length == 0) {
+            console.log(`${_value}는 'null array' 임.`);
+            return true;
+        } else if (Object.keys(_value).length === 0) {
+            console.log(`${_value}는 'null object' 임.`);
+            return true;
+        };
     } else if (_value === 0 || _value === false) {
         console.log(`${_value}는 false 값 임.`);
         return true;

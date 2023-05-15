@@ -5,10 +5,14 @@
     justify-content: flex-start;
     align-items: flex-start;
     max-width: var(--max-width__wide);
-    width: 100%;
     height: auto;
     margin-left: 0;
     margin-bottom: 7.5rem;
+}
+
+.main-container.full {
+    max-width: 100% !important;
+    width: 100% !important;
 }
 
 .main-wrapper.horizontal,

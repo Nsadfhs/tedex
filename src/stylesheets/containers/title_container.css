@@ -8,11 +8,6 @@
     align-items: flex-end;
     row-gap: 0.25rem;
     column-gap: 1rem;
-    width: 100%;
-}
-
-.title-container.vertical {
-    flex-direction: column;
 }
 
 .title-container.wrap {
@@ -23,9 +18,18 @@
     padding: 0.25rem 1rem;
 }
 
+.title-container.full {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
 .title-container.underline {
     padding-bottom: 0.75rem;
     border-bottom: var(--border-gray__1);
+}
+
+.title-container.vertical {
+    flex-direction: column;
 }
 
 /* 타이틀 컨테이너 Position */

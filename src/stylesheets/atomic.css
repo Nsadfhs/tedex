@@ -10,6 +10,53 @@
     display: none !important;
 }
 
+/* flex layout */
+
+.vertical.v-top,
+.h-left {
+    justify-content: flex-start;
+}
+
+.vertical.v-center,
+.h-center {
+    justify-content: center;
+}
+
+.vertical.v-bottom,
+.h-right {
+    justify-content: flex-end;
+}
+
+.vertical.v-around,
+.h-around {
+    justify-content: space-around;
+}
+
+.vertical.v-between,
+.h-between {
+    justify-content: space-between;
+}
+
+.vertical.v-evenly,
+.h-evenly {
+    justify-content: space-evenly;
+}
+
+.vertical.h-left,
+.v-top {
+    align-items: flex-start;
+}
+
+.vertical.h-center,
+.v-center {
+    align-items: center;
+}
+
+.vertical.h-right,
+.v-bottom {
+    align-items: flex-end;
+}
+
 /* Box Size */
 
 /* Width */
@@ -2746,6 +2793,36 @@
     white-space: nowrap !important;
 }
 
+/* white-space */
+
+.white-space__initial {
+    white-space: initial;
+}
+
+.white-space__normal {
+    white-space: normal;
+}
+
+.white-space__nowrap {
+    white-space: nowrap;
+}
+
+.white-space__pre {
+    white-space: pre;
+}
+
+.white-space__pre-line {
+    white-space: pre-line;
+}
+
+.white-space__pre-wrap {
+    white-space: pre-wrap;
+}
+
+.white-space__unset {
+    white-space: unset;
+}
+
 /* ellipsis */
 
 .text-overflow__ellipsis,
@@ -2764,6 +2841,17 @@
 
 .scrolling::-webkit-scrollbar {
     display: none;
+}
+
+/* shape */
+
+.square {
+    aspect-ratio: 1/1 !important;
+}
+
+.circle {
+    aspect-ratio: 1/1 !important;
+    border-radius: var(--circle);
 }
 
 /* horizontal rule custom */

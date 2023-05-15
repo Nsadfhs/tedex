@@ -20,13 +20,13 @@ function calcPercentage(totalValue, PartialValue) {
 
 // 할인율 계산기
 function calcDiscountRate(productPrice, discountPrice) {
-    let dicountRate = 0;
+    let discountRate = 0;
     if (productPrice >= discountPrice) {
-        dicountRate = ((productPrice - discountPrice) / productPrice) * 100;
+        discountRate = ((productPrice - discountPrice) / productPrice) * 100;
     } else {
-        dicountRate = ((discountPrice - productPrice) / discountPrice) * 100;
+        discountRate = ((discountPrice - productPrice) / discountPrice) * 100;
     }
-    return dicountRate;
+    return discountRate;
 };
 
 // 적립금 계산
@@ -36,21 +36,28 @@ function calcMileage(price, savingRate) {
     return roundFloat(savingPoint, 0);
 };
 
-// 회계처럼 3자리마다 , 추가
-function numberToComma(x) {
-    if (x == null) {
-        x = 0;
+// 회계처럼 숫자에 ','를 3자리수마다 삽입해줌 
+function numberToComma(_number) {
+    if (_number == null || isNaN(_number) || !isFinite(_number)) {
+        return "";
     }
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+    const number = Number(_number);
+    if (number < 0) {
+        return "-" + numberToComma(-number);
+    }
+    const [integer, decimal] = number.toString().split(".");
+    const formattedInteger = integer.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return decimal ? formattedInteger + "." + decimal.slice(0, 2) : formattedInteger;
+};
 
-// 회계처럼 된 문자열 숫자를 int형으로 다시 반환
-function commaToNumber(stringNumber) {
-    if (!stringNumber) {
-        stringNumber = 0;
+// 회계로 된 숫자 스트링을 다시 number형으로 만들어줌
+function commaToNumber(_stringNumber) {
+    if (typeof _stringNumber !== "string") {
+        return null;
     }
-    return parseInt(stringNumber.replace(/,/g, ''));
-}
+    const number = Number(_stringNumber.replace(/,/g, ""));
+    return isNaN(number) ? null : number;
+};
 
 // 글자색을 배경색에 맞춰줌 -> 보색계산
 function calcRGBColorComplement(color) {
