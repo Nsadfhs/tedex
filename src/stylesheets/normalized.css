@@ -82,60 +82,6 @@ li {
     list-style: none;
 }
 
-input,
-select {
-    background-color: white;
-    color: black;
-}
-
-/* 인풋 플레이스홀더 글자색 옅게 */
-input::placeholder {
-    color: lightgray;
-}
-
-input[type=datetime],
-input[type=email],
-input[type=number],
-input[type=search],
-input[type=password],
-input[type=tel],
-input[type=text],
-input[type=url] {
-    -webkit-appearance: none;
-    cursor: text;
-}
-
-input[type=button],
-input[type=checkbox],
-input[type=color],
-input[type=date],
-input[type=datetime-local],
-input[type=file],
-input[type=month],
-input[type=radio],
-input[type=range],
-input[type=reset],
-input[type=submit],
-input[type=time],
-input[type=week] {
-    -webkit-appearance: button;
-    cursor: pointer;
-}
-
-/* 넘버 화살표 없애기 */
-input[type=number]::-webkit-outer-spin-button,
-input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
-
-/* 검색어 초기화기능 - 요고 언젠간 쓸모 있을듯 */
-input[type=search]::-webkit-search-decoration,
-input[type=search]::-webkit-search-cancel-button,
-input[type=search]::-webkit-search-results-button,
-input[type=search]::-webkit-search-results-decoration {
-    display: none;
-}
-
 /* 이미지 스타일 초기화 */
 img {
     max-width: 100%;

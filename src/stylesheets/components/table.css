@@ -7,17 +7,77 @@ table.scrollable {
 
 table.full thead,
 table.full tbody {
-    width: 100%;
+    max-width: 100% !important;
+    width: 100% !important;
 }
 
-table tbody input,
-table tbody label,
-table tbody img.fixed {
-    height: var(--row-height__sm);
+table tbody tr td input,
+table tbody tr td label,
+table tbody tr td img.fixed,
+table tbody tr td button,
+table tbody tr td a {
+    height: var(--row-height__xs);
 }
 
 table tbody img {
     width: auto;
+}
+
+th,
+td {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: var(--row-height__md);
+}
+
+th {
+    justify-content: center;
+}
+
+td.vertical {
+    flex-direction: column;
+}
+
+td.h-evenly,
+td.vertical.v-evenly {
+    justify-content: space-evenly;
+}
+
+th.h-center,
+td.h-center,
+td.vertical.v-center {
+    justify-content: center;
+}
+
+th.h-left,
+td.h-left,
+td.vertical.v-top {
+    justify-content: flex-start;
+}
+
+th.h-right,
+td.h-right,
+td.vertical.v-bottom {
+    justify-content: flex-end;
+}
+
+td.ellipsis {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: inherit;
+}
+
+td select {
+    height: var(--row-height__xs);
+    color: var(--color-black);
+    font-size: var(--font-size__tbody-sm);
+    font-weight: var(--font-weight__medium);
+    line-height: var(--row-height__sm);
 }
 
 /* table category A */
@@ -59,18 +119,22 @@ table tbody img {
     width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
-    font-size: var(--font-size__tbody-md);
-    font-weight: var(--font-weight__medium);
-    line-height: var(--line-height__tbody-md);
+
 }
 
 .table__a thead tr {
     color: var(--color-gray__500);
+    font-size: var(--font-size__thead-md);
+    font-weight: var(--font-weight__medium);
+    line-height: var(--line-height__thead-md);
 }
 
 .table__a tbody tr {
-    min-height: 3.25rem;
+    min-height: var(--row-height__md);
     color: var(--color-black);
+    font-size: var(--font-size__tbody-md);
+    font-weight: var(--font-weight__medium);
+    line-height: var(--line-height__tbody-md);
     border: var(--border-gray__1);
     border-radius: var(--curved);
 }
@@ -86,66 +150,13 @@ table tbody img {
     background-color: var(--color-gray__200);
 }
 
-.table__a tbody tr.empty::after {
+.table__a tbody.full tr.empty::after {
     content: '자료가 없습니다.';
     color: var(--color-gray__500);
     font-size: var(--font-size__tbody-lg);
     font-weight: var(--font-weight__bold);
     line-height: var(--line-height__md);
     text-align: center;
-}
-
-.table__a tr th,
-.table__a tr td {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.table__a tr td.vertical {
-    flex-direction: column;
-    justify-content: center;
-}
-
-.table__a tr td.evenly {
-    justify-content: space-evenly;
-}
-
-.table__a tr th.center,
-.table__a tr td.center {
-    justify-content: center;
-}
-
-.table__a tr th.left,
-.table__a tr td.left {
-    justify-content: left;
-}
-
-.table__a tr th.right,
-.table__a tr td.right {
-    justify-content: right;
-}
-
-.table__a tbody tr td.ellipsis {
-    display: block;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    line-height: inherit;
-}
-
-.table__a tbody tr td.font-weight__bold {
-    font-weight: bolder;
-}
-
-.table__a tbody tr td select {
-    height: var(--row-height__sm);
-    color: var(--color-black);
-    font-size: var(--font-size__tbody-sm);
-    font-weight: var(--font-weight__medium);
-    line-height: var(--row-height__sm);
 }
 
 /* table category B */
@@ -195,7 +206,7 @@ table tbody img {
     grid-template-columns: auto;
     column-gap: 1rem;
     width: auto;
-    min-height: 2rem;
+    min-height: var(--);
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     padding-left: 1rem;

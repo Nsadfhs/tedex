@@ -1,88 +1,79 @@
-@import url("../containers/input_container.css");
-
-.fake-label {
-    display: inline-block;
-    min-width: 7.5rem;
-    width: auto;
-    height: auto;
-    color: var(--color-neutral);
-    font-size: var(--font-size__md);
-    font-weight: var(--font-weight__bold);
-    line-height: var(--line-height__md);
-    letter-spacing: -0.25px;
-}
-
-.fake-input {
-    width: 100%;
-    height: auto;
-    padding: 0.5rem 1rem;
-    color: var(--color-black);
-    font-size: var(--font-size__md);
-    font-weight: var(--font-weight__medium);
-    line-height: 22px;
-    letter-spacing: 0.5px;
-    border: var(--border-gray__1);
-    border-radius: var(--curved);
-}
-
 /* text field horizontal label + input */
-.textfield__a,
-.textfield__horizontal {
+.textfield__a {
+    position: relative;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: center;
-    column-gap: 1rem;
+    column-gap: 0.5rem;
     width: auto;
-    height: auto;
 }
 
-.textfield__a label,
-.textfield__horizontal label {
-    display: inline-block;
-    min-width: 7.5rem;
-    width: auto;
-    height: auto;
-    color: var(--color-neutral);
-    font-size: var(--font-size__md);
-    font-weight: var(--font-weight__bold);
-    line-height: var(--line-height__md);
-    letter-spacing: -0.25px;
-}
-
-.textfield__a.wrap,
-.textfield__horizontal.wrap {
+.textfield__a.wrap {
     flex-wrap: wrap;
     row-gap: 0.25rem;
 }
 
-.textfield__a.v-top,
-.textfield__horizontal.v-top {
-    align-items: flex-start;
+.textfield__a label {
+    display: block;
+    width: auto;
+    min-width: fit-content;
 }
 
-.textfield__a.v-center,
-.textfield__horizontal.v-center {
-    align-items: flex-start;
+.textfield__a input {
+    flex: 1;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    color: var(--color-black__off);
+    font-size: var(--font-size__input);
+    font-weight: var(--font-weight__medium);
+    line-height: var(--line-height__input);
+    border: var(--border-gray__1);
 }
 
-.textfield__a.v-bottom,
-.textfield__horizontal.v-bottom {
-    align-items: flex-end;
+.textfield__a.curved input {
+    border-radius: var(--curved);
 }
 
-.textfield__a.large label,
-.textfield__horizontal.large label {
-    line-height: 1.5rem;
+.textfield__a.rounded input {
+    border-radius: var(--rounded);
 }
 
-.textfield__a.large input,
-.textfield__a.large select,
-.textfield__horizontal.large input,
-.textfield__horizontal.large select {
-    padding: 0.75rem 1rem;
-    line-height: 1.5rem;
+.textfield__a .field-message {
+    display: none;
+}
+
+.textfield__a.error input,
+.textfield__a.error textarea {
+    border: 1px solid var(--color-danger);
+}
+
+.textfield__a.error .field-message {
+    display: inline-block;
+    width: auto;
+    color: var(--color-danger);
+    font-size: var(--font-size__detail);
+    font-weight: var(--font-weight__medium);
+    line-height: var(--line-height__detail);
+    margin-left: auto;
+}
+
+.textfield__a.success input,
+.textfield__a.success textarea {
+    border: 1px solid var(--color-success);
+}
+
+.cms-textfield-a.success .filed-message,
+.textfield__horizontal.success .filed-message {
+    display: inline-block;
+    width: auto;
+    color: var(--color_danger);
+    font-size: var(--font-size__message);
+    font-weight: var(--font-weight__medium);
+    line-height: var(--line-height__message);
+    margin-left: auto;
 }
 
 
@@ -98,13 +89,11 @@
     row-gap: 0.25rem;
 }
 
-.textfield__b.fixed,
-.textfield__vertical.fixed {
+.textfield__b.fixed {
     max-width: fit-content;
 }
 
-.textfield__b.expanded,
-.textfield__vertical.expanded {
+.textfield__b.expanded {
     width: 100%;
 }
 

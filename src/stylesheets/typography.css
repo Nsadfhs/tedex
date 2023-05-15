@@ -11,7 +11,7 @@
 }
 
 /* 기본 폰트 설정 */
-html body * {
+* {
     font-family: 'Pretendard Variable', sans-serif;
     font-size: 1rem;
     line-height: 1.5;
@@ -35,46 +35,55 @@ p.primary {
     color: var(--color-primary);
 }
 
-.page-title__main {
-    color: var(--color-gray__900);
-    font-size: var(--font-size__title-1);
-    font-weight: var(--font-weight__bold);
-    line-height: var(--line-height__title-1);
-    letter-spacing: var(--letter-spacing__xs);
-    text-transform: capitalize;
-    word-break: keep-all;
+.heading__1 {
+    color: var(--color-black);
+    font-size: var(--font-size__heading-1);
+    font-weight: var(--font-weight__bolder);
+    line-height: var(--line-height__heading-1);
+    /* letter-spacing: ; */
 }
 
-.page-title__sub {
-    color: var(--color-gray__700);
-    font-size: var(--font-size__subtitle-1);
-    font-weight: var(--font-weight__medium);
-    line-height: var(--line-height__subtitle-1);
-    letter-spacing: var(--letter-spacing__md);
-    text-transform: capitalize;
-    word-break: keep-all;
+.heading__2 {
+    color: var(--color-black);
+    font-size: var(--font-size__heading-2);
+    font-weight: var(--font-weight__bolder);
+    line-height: var(--line-height__heading-2);
+    /* letter-spacing: ; */
 }
 
-.page-title__1 {
-    font-size: var(--font-size__title-1);
-    line-height: var(--line-height__md);
+.heading__3 {
+    color: var(--color-black);
+    font-size: var(--font-size__heading-3);
+    font-weight: var(--font-weight__bolder);
+    line-height: var(--line-height__heading-3);
+    /* letter-spacing: ; */
 }
 
-.page-title__2 {
-    font-size: var(--font-size__title-2);
-    line-height: var(--line-height__md);
+.heading__4 {
+    color: var(--color-black);
+    font-size: var(--font-size__heading-4);
+    font-weight: var(--font-weight__bolder);
+    line-height: var(--line-height__heading-4);
+    /* letter-spacing: ; */
 }
 
-.page-title__3 {
-    font-size: var(--font-size__title-3);
-    line-height: var(--line-height__md);
+.heading__5 {
+    color: var(--color-black);
+    font-size: var(--font-size__heading-5);
+    font-weight: var(--font-weight__bolder);
+    line-height: var(--line-height__heading-5);
+    /* letter-spacing: ; */
 }
 
-.page-title__4 {
-    font-size: var(--font-size__title-4);
-    line-height: var(--line-height__md);
+.heading__6 {
+    color: var(--color-black);
+    font-size: var(--font-size__heading-6);
+    font-weight: var(--font-weight__bolder);
+    line-height: var(--line-height__heading-6);
+    /* letter-spacing: ; */
 }
 
+.heading__main,
 .section-heading__main {
     color: var(--color-gray__900);
     font-size: var(--font-size__heading-1);
@@ -83,11 +92,78 @@ p.primary {
     word-break: keep-all;
 }
 
+.heading__sub,
 .section-heading__sub {
+    color: var(--color-gray__700);
+    font-size: var(--font-size__subtitle-1);
+    font-weight: var(--font-weight__medium);
+    line-height: var(--line-height__subtitle-1);
+    word-break: keep-all;
+}
+
+.page-title__main {
+    color: var(--color-gray__900);
+    font-size: var(--font-size__title-2);
+    font-weight: var(--font-weight__bolder);
+    line-height: var(--line-height__title-2);
+    letter-spacing: var(--letter-spacing__xs);
+    text-transform: capitalize;
+    word-break: keep-all;
+}
+
+.page-title__sub {
     color: var(--color-gray__700);
     font-size: var(--font-size__subtitle-2);
     font-weight: var(--font-weight__medium);
     line-height: var(--line-height__subtitle-2);
+    letter-spacing: var(--letter-spacing__md);
+    text-transform: capitalize;
+    word-break: keep-all;
+}
+
+.page-title__1 {
+    font-size: var(--font-size__title-1);
+    line-height: var(--line-height__title-1);
+}
+
+.page-title__2 {
+    font-size: var(--font-size__title-2);
+    line-height: var(--line-height__title-2);
+}
+
+.page-title__3 {
+    font-size: var(--font-size__title-3);
+    line-height: var(--line-height__title-3);
+}
+
+.page-title__4 {
+    font-size: var(--font-size__title-4);
+    line-height: var(--line-height__title-4);
+}
+
+.page-title__5 {
+    font-size: var(--font-size__title-5);
+    line-height: var(--line-height__title-5);
+}
+
+.page-title__6 {
+    font-size: var(--font-size__title-6);
+    line-height: var(--line-height__title-6);
+}
+
+.section-title__main {
+    color: var(--color-gray__900);
+    font-size: var(--font-size__title-1);
+    font-weight: var(--font-weight__bolder);
+    line-height: var(--line-height__title-1);
+    word-break: keep-all;
+}
+
+.section-title__sub {
+    color: var(--color-gray__700);
+    font-size: var(--font-size__subtitle-1);
+    font-weight: var(--font-weight__medium);
+    line-height: var(--line-height__subtitle-1);
     word-break: keep-all;
 }
 
@@ -95,36 +171,102 @@ p.primary {
     color: var(--color-black);
     font-size: var(--font-size__title-1);
     font-weight: var(--font-weight__bold);
-    line-height: var(--line-height_md);
+    line-height: var(--line-height__title-1);
 }
 
 .contents-title__2 {
     color: var(--color-black);
     font-size: var(--font-size__title-2);
     font-weight: var(--font-weight__medium);
-    line-height: var(--line-height__sm);
+    line-height: var(--line-height__title-2);
+}
+
+.contents-title__3 {
+    color: var(--color-black);
+    font-size: var(--font-size__title-3);
+    font-weight: var(--font-weight__bolder);
+    line-height: var(--line-height__title-3);
+}
+
+.contents-title__4 {
+    color: var(--color-black);
+    font-size: var(--font-size__title-4);
+    font-weight: var(--font-weight__bolder);
+    line-height: var(--line-height__title-4);
+}
+
+.contents-title__5 {
+    color: var(--color-black);
+    font-size: var(--font-size__title-5);
+    font-weight: var(--font-weight__bolder);
+    line-height: var(--line-height__title-5);
+}
+
+.contents-title__6 {
+    color: var(--color-black);
+    font-size: var(--font-size__title-6);
+    font-weight: var(--font-weight__bolder);
+    line-height: var(--line-height__title-6);
+}
+
+.contents-title__main {
+    color: var(--color-gray__900);
+    font-size: var(--font-size__title-3);
+    font-weight: var(--font-weight__bolder);
+    line-height: var(--line-height__title-3);
+    word-break: keep-all;
 }
 
 .contents-subtitle__1 {
     color: var(--color-black);
-    font-size: var(--font-size__sub-1);
-    font-weight: var(--font-weight__bold);
-    line-height: var(--line-height__md);
+    font-size: var(--font-size__subtitle-1);
+    font-weight: var(--font-weight__bolder);
+    line-height: var(--line-height__subtitle-1);
 }
 
 .contents-subtitle__2 {
     color: var(--color-black);
-    font-size: var(--font-size__sub-2);
-    font-weight: var(--font-weight__medium);
-    line-height: var(--line-height__sm);
+    font-size: var(--font-size__subtitle-2);
+    font-weight: var(--font-weight__bolder);
+    line-height: var(--line-height__subtitle-2);
 }
 
 .contents-subtitle__3 {
     color: var(--color-black);
-    font-size: var(--font-size__sub-3);
-    font-weight: var(--font-weight_bold);
-    line-height: var(--line-height_md);
+    font-size: var(--font-size__subtitle-3);
+    font-weight: var(--font-weight__bolder);
+    line-height: var(--line-height__subtitle-3);
 }
+
+.contents-subtitle__4 {
+    color: var(--color-black);
+    font-size: var(--font-size__subtitle-4);
+    font-weight: var(--font-weight__bolder);
+    line-height: var(--line-height__subtitle-4);
+}
+
+.contents-subtitle__5 {
+    color: var(--color-black);
+    font-size: var(--font-size__subtitle-5);
+    font-weight: var(--font-weight__bolder);
+    line-height: var(--line-height__subtitle-6);
+}
+
+.contents-subtitle__6 {
+    color: var(--color-black);
+    font-size: var(--font-size__subtitle-6);
+    font-weight: var(--font-weight__bolder);
+    line-height: var(--line-height__subtitle-6);
+}
+
+.contents-title__sub {
+    color: var(--color-gray__700);
+    font-size: var(--font-size__subtitle-3);
+    font-weight: var(--font-weight__medium);
+    line-height: var(--line-height__subtitle-3);
+    word-break: keep-all;
+}
+
 
 .contents-body__1 {
     color: var(--color-black);
@@ -156,14 +298,14 @@ p.primary {
 
 .contents-detail__1 {
     color: var(--color-black);
-    font-size: var(--font-size__detail-1);
+    font-size: var(--font-size__body-5);
     font-weight: var(--font-weight__medium);
     line-height: var(--line-height__sm);
 }
 
 .contents-detail__2 {
     color: var(--color-black);
-    font-size: var(--font-size__detail-2);
+    font-size: var(--font-size__body-6);
     font-weight: var(--font-weight__medium);
     line-height: var(--line-height__sm);
 }
