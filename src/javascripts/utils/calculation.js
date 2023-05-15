@@ -37,7 +37,7 @@ function calcMileage(price, savingRate) {
 };
 
 // 회계처럼 3자리마다 , 추가
-function numberComma(x) {
+function numberToComma(x) {
     if (x == null) {
         x = 0;
     }
