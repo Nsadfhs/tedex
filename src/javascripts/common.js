@@ -152,39 +152,43 @@ let urlReferrerArray = parseURL("referrer");
  */
 function isFalsy(_value) {
     console.log(`${_value}는 ${typeof _value} 타입 입니다.`);
-    if (typeof _value == "object") {
-        if (_value == null) {
-            console.log(`${_value}는 'Null' 값 임.`);
-            return true;
-        } else if (_value.length == 0) {
-            console.log(`${_value}는 'null array' 임.`);
-            return true;
-        } else if (Object.keys(_value).length === 0) {
-            console.log(`${_value}는 'null object' 임.`);
-            return true;
-        };
-    } else if (_value === 0 || _value === false) {
-        console.log(`${_value}는 false 값 임.`);
-        return true;
-    } else if (typeof _value === "number" && isNaN(_value)) {
-        console.log(`${_value}는 'NaN' 값 임.`);
-        return true;
-    } else if (Math.abs(_value) === Infinity) {
-        console.log(`${_value}는 'Infinity' 값 임.`);
-        return true;
-    } else if (_value === "" || _value === " " || _value === "\n") {
-        // console.log(`${_value} 가 없어요`);
-        return true;
-    } else {
-        if (_value) {
-            if (typeof _value !== "string") {
-                _value = _value.toString();
-            };
-            // console.log(_value);
-            if (_value.toLowerCase() === "false" || _value.toLowerCase() === "null" || _value.toLowerCase() === "undefined" || _value.toLowerCase() === "NaN") {
+    if (_value) {
+        if (typeof _value == "object") {
+            if (_value == null) {
+                console.log(`${_value}는 'Null' 값 임.`);
+                return true;
+            } else if (_value.length == 0) {
+                console.log(`${_value}는 'null array' 임.`);
+                return true;
+            } else if (Object.keys(_value).length === 0) {
+                console.log(`${_value}는 'null object' 임.`);
                 return true;
             };
-        }
+        } else if (_value === 0 || _value === false) {
+            console.log(`${_value}는 false 값 임.`);
+            return true;
+        } else if (typeof _value === "number" && isNaN(_value)) {
+            console.log(`${_value}는 'NaN' 값 임.`);
+            return true;
+        } else if (Math.abs(_value) === Infinity) {
+            console.log(`${_value}는 'Infinity' 값 임.`);
+            return true;
+        } else if (_value === "" || _value === " " || _value === "\n") {
+            // console.log(`${_value} 가 없어요`);
+            return true;
+        } else {
+            if (_value) {
+                if (typeof _value !== "string") {
+                    _value = _value.toString();
+                };
+                // console.log(_value);
+                if (_value.toLowerCase() === "false" || _value.toLowerCase() === "null" || _value.toLowerCase() === "undefined" || _value.toLowerCase() === "NaN") {
+                    return true;
+                };
+            }
+        };
+    } else {
+        return true;
     };
 
     return false;

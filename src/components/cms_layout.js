@@ -203,20 +203,20 @@ class Header extends HTMLElement {
             $TOGGLE_BUTTON.classList.remove("on");
         };
 
-        window.addEventListener("resize", () => {
-            if (!isPortraitSize) {
-                $TOGGLE_BUTTON.classList.add("on");
-            } else {
-                $TOGGLE_BUTTON.classList.remove("on");
-            };
-        });
+        // window.addEventListener("resize", () => {
+        //     if (!isPortraitSize) {
+        //         $TOGGLE_BUTTON.classList.add("on");
+        //     } else {
+        //         $TOGGLE_BUTTON.classList.remove("on");
+        //     };
+        // });
 
         const $LOGOUT_BUTTON = document.createElement("button");
         $LOGOUT_BUTTON.type = "button";
         $LOGOUT_BUTTON.id = "do_logout";
         $LOGOUT_BUTTON.classList.add("header-logout-button");
 
-        if (isMobileSize) {
+        if (isPortraitSize) {
             $LOGOUT_BUTTON.classList.add("icon");
             $LOGOUT_BUTTON.textContent = "";
         } else {
@@ -225,7 +225,7 @@ class Header extends HTMLElement {
         };
 
         window.addEventListener("resize", () => {
-            if (isMobileSize) {
+            if (isPortraitSize) {
                 $LOGOUT_BUTTON.classList.add("icon");
                 $LOGOUT_BUTTON.textContent = "";
             } else {
@@ -432,19 +432,31 @@ class Header extends HTMLElement {
         // const _form = this.getAttribute("form"); // 속성은 '_'로 시작한다.
         // $Button.addEventListener("click", () => {});
         let { loginPath, gap, sidenavwidthrem } = _params;
-        // console.log(sidenavwidthrem)
         try {
+            // console.log(sidenavwidthrem)
             if (isFalsy(sidenavwidthrem)) {
                 sidenavwidthrem = "12.5rem";
             };
+            // console.log(gap);
+            // console.log(isFalsy(gap));
+            if (isFalsy(gap)) {
+                gap = `0px`;
+            };
 
+            console.log(isPortraitSize);
             if (isPortraitSize) {
                 sidenavwidthrem = "100%";
             };
 
-            if (isFalsy(gap)) {
-                gap = `0px`;
-            };
+            window.addEventListener("resize", () => {
+                if (isPortraitSize) {
+                    sidenavwidthrem = "100%";
+                    gap = `0px`;
+                } else {
+                    sidenavwidthrem = "12.5rem";
+                    gap = `0px`;
+                };
+            });
 
             const $toggleSidenav = this.shadowRoot.querySelector("#toggle_sidenav");
             if ($toggleSidenav) {
@@ -458,16 +470,33 @@ class Header extends HTMLElement {
 
                         if (this.classList.contains("on")) {
                             this.classList.remove("on");
-
+                            console.log(`calc(-${sidenavwidthrem} - ${gap})`);
                             $sidenav.style.left = `calc(-${sidenavwidthrem} - ${gap})`;
                             $MAIN.style.marginLeft = "0px";
-                            // console.log("닫았다");
+                            console.log("닫았다");
                         } else {
                             this.classList.add("on");
                             $sidenav.style.left = "0";
                             $MAIN.style.marginLeft = `calc(${sidenavwidthrem} + ${gap})`;
-                            // console.log("열었다");
+                            // $MAIN.style.marginLeft = `0px`;
+                            console.log("열었다");
                         };
+
+                        window.addEventListener("resize", () => {
+                            if (this.classList.contains("on")) {
+                                this.classList.remove("on");
+                                console.log(`calc(-${sidenavwidthrem} - ${gap})`);
+                                $sidenav.style.left = `calc(-${sidenavwidthrem} - ${gap})`;
+                                $MAIN.style.marginLeft = "0px";
+                                console.log("닫았다");
+                            } else {
+                                this.classList.add("on");
+                                $sidenav.style.left = "0";
+                                $MAIN.style.marginLeft = `calc(${sidenavwidthrem} + ${gap})`;
+                                // $MAIN.style.marginLeft = `0px`;
+                                console.log("열었다");
+                            };
+                        });
                     } else {
                         // console.log("사이드 바 없음");
                     }
