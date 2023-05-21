@@ -3,14 +3,11 @@
 .button-container {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
-    gap: 1rem;
-}
-
-.button-container.wrap {
-    flex-wrap: wrap !important;
+    column-gap: 1rem;
+    row-gap: 0.5rem;
 }
 
 .button-container.padding {
@@ -22,11 +19,16 @@
     width: 100% !important;
 }
 
-.button-container.vertical {
-    flex-direction: column;
+/* 버튼 컨테이너 alignment */
+.button-container.nowrap {
+    flex-wrap: nowrap;
 }
 
-/* 버튼 컨테이너 Position */
+.button-container.vertical {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
 
 .button-container.h-left,
 .button-container.vertical.v-top {
@@ -80,14 +82,30 @@ container etc...
 
 */
 
-.button-container.light {
-    background-color: var(--color-white);
+/* mobile responsible */
+.button-container.mobile {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
+/* dark */
 .button-container.dark {
-    background-color: var(--color-black);
+    filter: brightness(0.5);
 }
 
+/* margin bottom */
+.button-container.margin-bottom__1 {
+    margin-bottom: 1rem;
+}
+
+.button-container.margin-bottom__2 {
+    margin-bottom: 2rem;
+}
+
+.button-container.margin-bottom__3 {
+    margin-bottom: 3rem;
+}
 
 /* old mobile and wearable  */
 @media all and (min-width: 280px) and (max-width: 359px) {}
@@ -96,7 +114,12 @@ container etc...
 @media all and (min-width: 320px) {}
 
 /* Small devices (landscape phones, 576px and up) */
-@media screen and (min-width:576px) {}
+@media screen and (min-width:576px) {
+    .button-container.mobile {
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+}
 
 /* Medium devices (tablets, 768px and up) */
 @media all and (min-width: 768px) {}

@@ -12,7 +12,11 @@ function setOverlay(_trigger, _target) {
         scrollDisable();
         setDimLayer();
         _target.classList.add("show");
-        updateSheetHeight(50);
+        if (isMobileSize) {
+            updateSheetHeight(50);
+        } else {
+            updateSheetHeight(90);
+        };
     };
 
     const hideOverlay = () => {
@@ -38,6 +42,7 @@ function setOverlay(_trigger, _target) {
     };
 
     function updateSheetHeight(_height) {
+        console.log(_height);
         SHEET_CONTENTS.style.height = `${_height}vh`;
         _target.classList.toggle("full-screen", _height === 100);
     }

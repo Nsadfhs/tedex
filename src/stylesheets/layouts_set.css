@@ -12,7 +12,11 @@
     scroll-behavior: smooth;
 }
 
-.scrollable::-webkit-scrollbar {
+/* .scrollable::-webkit-scrollbar {
+    display: initial;
+} */
+
+.scroll-show::-webkit-scrollbar {
     display: initial;
 }
 

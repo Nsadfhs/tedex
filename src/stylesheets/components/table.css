@@ -40,6 +40,7 @@ th {
 
 td.vertical {
     flex-direction: column;
+    justify-content: space-evenly;
 }
 
 td.h-evenly,

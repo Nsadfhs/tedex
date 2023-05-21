@@ -128,15 +128,6 @@
     --color-gray__700: #616161;
     --color-gray__800: #474747;
     --color-gray__900: #2E2E2E;
-    --color-lightgray__100: #FEFEFE;
-    --color-lightgray__200: #FCFCFC;
-    --color-lightgray__300: #FAFAFA;
-    --color-lightgray__400: #F7F7F7;
-    --color-lightgray__500: #F2F2F2;
-    --color-lightgray__600: #E5E5E5;
-    --color-lightgray__700: #D9D9D9;
-    --color-lightgray__800: #CCCCCC;
-    --color-lightgray__900: #BFBFBF;
 
     /* 
         three primary colors - 색의 3원색
@@ -211,15 +202,15 @@
         * skyblue
 
     */
-    --color-orange__100: #FFD700;
-    --color-orange__200: #FF8F00;
-    --color-orange__300: #FFB347;
-    --color-orange__400: #FFA07A;
-    --color-orange__500: #FFA500;
-    --color-orange__600: #FF7F50;
-    --color-orange__700: #FF8F00;
-    --color-orange__800: #FF6A00;
-    --color-orange__900: #FF6347;
+    --color-orange__100: #FFF5E6;
+    --color-orange__200: #FFE8CC;
+    --color-orange__300: #FFDBB3;
+    --color-orange__400: #FFCE99;
+    --color-orange__500: #FFC280;
+    --color-orange__600: #FFB666;
+    --color-orange__700: #FFA94D;
+    --color-orange__800: #FF9C33;
+    --color-orange__900: #FF8F1A;
     --color-skyblue__100: #e2f1fd;
     --color-skyblue__200: #b1dafb;
     --color-skyblue__300: #81c3f8;
@@ -229,15 +220,42 @@
     --color-skyblue__700: #095fa5;
     --color-skyblue__800: #064374;
     --color-skyblue__900: #042744;
-    --color-brown__100: #E5D7B1;
-    --color-brown__200: #DAC09A;
-    --color-brown__300: #CEB485;
-    --color-brown__400: #C2A172;
-    --color-brown__500: #B88E69;
-    --color-brown__600: #A87C5E;
-    --color-brown__700: #946E46;
-    --color-brown__800: #895C45;
-    --color-brown__900: #7B5B3B;
+    --color-brown__100: #F5DEB3;
+    --color-brown__200: #EDD2A4;
+    --color-brown__300: #E5C697;
+    --color-brown__400: #DDBA89;
+    --color-brown__500: #D5AE7B;
+    --color-brown__600: #CD9F6D;
+    --color-brown__700: #CD9F6D;
+    --color-brown__800: #BD8551;
+    --color-brown__900: #B67843;
+    --color-pink__100: #FFF1F2;
+    --color-pink__200: #FFE4E6;
+    --color-pink__300: #FFD7D9;
+    --color-pink__400: #FFD7D9;
+    --color-pink__500: #FFD7D9;
+    --color-pink__600: #FFD7D9;
+    --color-pink__700: #FFA2A6;
+    --color-pink__800: #FFA2A6;
+    --color-pink__900: #FF888C;
+    --color-lightgreen__100: #C7EA46;
+    --color-lightgreen__200: #A9E34B;
+    --color-lightgreen__300: #82C91E;
+    --color-lightgreen__400: #74B816;
+    --color-lightgreen__500: #66A80F;
+    --color-lightgreen__600: #5C940D;
+    --color-lightgreen__700: #4E7D0E;
+    --color-lightgreen__800: #3F6B0A;
+    --color-lightgreen__900: #34590B;
+    --color-leather__100: #F5DEB3;
+    --color-leather__200: #E5C697;
+    --color-leather__300: #DDBA89;
+    --color-leather__400: #C19A6B;
+    --color-leather__500: #A67B5B;
+    --color-leather__600: #BD8551;
+    --color-leather__700: #A0522D;
+    --color-leather__800: #8B4513;
+    --color-leather__900: #8B5A2B;
 
     /*
         The four basic web colors - 의미있는 컬러
@@ -250,7 +268,7 @@
     --color-success: var(--color-green__600);
     --color-warning: var(--color-yellow__600);
     --color-info: var(--color-skyblue__600);
-    --color-placeholder: var(--color-lightgray__300);
+    --color-placeholder: var(--color-gray__200);
     --color-disabled__text: var(--color-gray__400);
     --color-disabled__background: var(--color-gray__200);
 
@@ -395,9 +413,9 @@
     --border-gray__1: 1px solid var(--color-gray__300);
     --border-gray__2: 2px solid var(--color-gray__300);
     --border-gray__3: 3px solid var(--color-gray__300);
-    --border-lightgray__1: 1px solid var(--color-lightgray__300);
-    --border-lightgray__2: 2px solid var(--color-lightgray__300);
-    --border-lightgray__3: 3px solid var(--color-lightgray__300);
+    --border-lightgray__1: 1px solid var(--color-gray__200);
+    --border-lightgray__2: 2px solid var(--color-gray__200);
+    --border-lightgray__3: 3px solid var(--color-gray__200);
     --border-black__1: 1px solid var(--color-black__off);
     --border-black__2: 2px solid var(--color-black__off);
     --border-black__3: 3px solid var(--color-black__off);

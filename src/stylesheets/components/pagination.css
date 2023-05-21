@@ -21,7 +21,7 @@ pagination.js와 함께 쓰세요.
     width: 30px;
     height: 30px;
     padding: 0.25rem;
-    background-image: url("/public/images/icon/ic_arrow_left_double.svg");
+    background-image: url("/public/images/icon/ic_cramps_double.svg");
     background-repeat: no-repeat;
     background-size: 22px;
     background-position: center;
@@ -38,7 +38,7 @@ pagination.js와 함께 쓰세요.
     width: 30px;
     height: 30px;
     padding: 0.25rem;
-    background-image: url("/public/images/icon/ic_arrow_left.svg");
+    background-image: url("/public/images/icon/ic_cramps.svg");
     background-repeat: no-repeat;
     background-size: 22px;
     background-position: center;
@@ -55,13 +55,14 @@ pagination.js와 함께 쓰세요.
     width: 30px;
     height: 30px;
     padding: 0.25rem;
-    background-image: url("/public/images/icon/ic_arrow_right.svg");
+    background-image: url("/public/images/icon/ic_cramps.svg");
     background-repeat: no-repeat;
     background-size: 22px;
     background-position: center;
     border: var(--border-lightgray__2);
     border-radius: var(--curved);
     visibility: hidden;
+    transform: rotate(180deg);
 }
 
 .paging-jump__last {
@@ -72,13 +73,14 @@ pagination.js와 함께 쓰세요.
     width: 30px;
     height: 30px;
     padding: 0.25rem;
-    background-image: url("/public/images/icon/ic_arrow_right_double.svg");
+    background-image: url("/public/images/icon/ic_cramps_double.svg");
     background-repeat: no-repeat;
     background-size: 22px;
     background-position: center;
     border: var(--border-lightgray__2);
     border-radius: var(--curved);
     visibility: hidden;
+    transform: rotate(180deg);
 }
 
 .paging-jump__first.visible,
@@ -107,7 +109,7 @@ pagination.js와 함께 쓰세요.
     height: 30px;
     color: var(--color-gray__400);
     font-weight: var(--font-weight__600);
-    line-height: 29px;
+    line-height: 30px;
     border: var(--border-lightgray__2);
     border-radius: var(--curved);
     cursor: pointer;

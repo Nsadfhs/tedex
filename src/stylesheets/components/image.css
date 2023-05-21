@@ -3,6 +3,10 @@ img {
     height: auto;
 }
 
+.image-parent {
+    font-size: 0;
+}
+
 /* old mobile and wearable  */
 @media all and (min-width: 280px) and (max-width: 359px) {}
 

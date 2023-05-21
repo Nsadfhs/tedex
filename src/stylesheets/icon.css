@@ -1,0 +1,284 @@
+i {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
+
+.icon-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    aspect-ratio: 1/1;
+    margin-bottom: 0.5rem;
+    border: var(--border-lightgray__1);
+    border-radius: var(--curved);
+}
+
+.ic-hamburger {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_hamburger.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.ic-close {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_close.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.ic-back {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_arrow.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    transform: rotate(180deg);
+}
+
+.ic-cramps__left,
+.ic-indicator__left {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_cramps.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.ic-cramps__left-double,
+.ic-indicator__left-double {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_cramps_double.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.ic-cramps__right,
+.ic-indicator__right {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_cramps.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: rotate(180deg);
+}
+
+.ic-cramps__right-double,
+.ic-indicator__right-double {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_cramps_double.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: rotate(180deg);
+}
+
+.ic-arrow__left {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_arrow.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    transform: rotate(180deg);
+}
+
+.ic-arrow__right {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_arrow.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.ic-user {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_user.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.ic-search {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_search.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.ic-upload {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_arrow.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    transform: rotate(-90deg);
+}
+
+.ic-upload__file {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_file_upload.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.ic-download {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_arrow.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    transform: rotate(90deg);
+}
+
+.ic-empty {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_empty.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.ic-dropdown {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_cramps.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    transform: rotate(-90deg);
+}
+
+.ic-cramps {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_cramps.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.ic-plus {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_plus.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.ic-minus {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_minus.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.ic-checked {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_checked.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.ic-unchecked {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("/public/images/icon/ic_unchecked.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.ic-draggable {
+    display: inline-block;
+    width: 3rem;
+    height: auto;
+    aspect-ratio: 8/1;
+    background-image: url("/public/images/icon/ic_draggable.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+.ic-draggable:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+
+/* old mobile and wearable  */
+@media all and (min-width: 280px) and (max-width: 359px) {}
+
+/* mobile devices */
+@media all and (min-width: 320px) {}
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width:576px) {}
+
+/* Medium devices (tablets, 768px and up) */
+@media all and (min-width: 768px) {}
+
+/* Large devices (small desktops and laptop, 992px and up) */
+@media all and (min-width: 992px) {}
+
+/* Extra large devices (desktops and large laptop, 1200px and up) */
+@media screen and (min-width:1200px) {}
+
+/* Extra Extra large devices (large desktops, 1440px and up) */
+@media all and (min-width: 1440px) {}

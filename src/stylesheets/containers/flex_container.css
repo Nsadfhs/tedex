@@ -175,225 +175,225 @@
 
 /* column(main-axis) gap */
 
-.gap-horizontal__quarter {
+.gap-column__quarter {
     column-gap: 0.25rem;
 }
 
-.gap-horizontal__half {
+.gap-column__half {
     column-gap: 0.5rem;
 }
 
-.gap-horizontal__1 {
+.gap-column__1 {
     column-gap: 1rem;
 }
 
-.gap-horizontal__2 {
+.gap-column__2 {
     column-gap: 2rem;
 }
 
-.gap-horizontal__3 {
+.gap-column__3 {
     column-gap: 3rem;
 }
 
-.gap-horizontal__2-pixel {
+.gap-column__2-pixel {
     column-gap: 2px;
 }
 
-.gap-horizontal__4-pixel {
+.gap-column__4-pixel {
     column-gap: 4px;
 }
 
-.gap-horizontal__6-pixel {
+.gap-column__6-pixel {
     column-gap: 6px;
 }
 
-.gap-horizontal__8-pixel {
+.gap-column__8-pixel {
     column-gap: 8px;
 }
 
-.gap-horizontal__10-pixel {
+.gap-column__10-pixel {
     column-gap: 10px;
 }
 
-.gap-horizontal__12-pixel {
+.gap-column__12-pixel {
     column-gap: 12px;
 }
 
-.gap-horizontal__14-pixel {
+.gap-column__14-pixel {
     column-gap: 14px;
 }
 
-.gap-horizontal__16-pixel {
+.gap-column__16-pixel {
     column-gap: 16px;
 }
 
-.gap-horizontal__18-pixel {
+.gap-column__18-pixel {
     column-gap: 18px;
 }
 
-.gap-horizontal__20-pixel {
+.gap-column__20-pixel {
     column-gap: 20px;
 }
 
-.gap-horizontal__22-pixel {
+.gap-column__22-pixel {
     column-gap: 22px;
 }
 
-.gap-horizontal__24-pixel {
+.gap-column__24-pixel {
     column-gap: 24px;
 }
 
 /* row(cross-axis) gap */
 
-.gap-vertical__quarter {
+.gap-row__quarter {
     row-gap: 0.25rem;
 }
 
-.gap-vertical__half {
+.gap-row__half {
     row-gap: 0.5rem;
 }
 
-.gap-vertical__1 {
+.gap-row__1 {
     row-gap: 1rem;
 }
 
-.gap-vertical__2 {
+.gap-row__2 {
     row-gap: 2rem;
 }
 
-.gap-vertical__3 {
+.gap-row__3 {
     row-gap: 3rem;
 }
 
-.gap-vertical__4 {
+.gap-row__4 {
     row-gap: 4rem;
 }
 
-.gap-vertical__5 {
+.gap-row__5 {
     row-gap: 5rem;
 }
 
-.gap-vertical__6 {
+.gap-row__6 {
     row-gap: 6rem;
 }
 
-.gap-vertical__7 {
+.gap-row__7 {
     row-gap: 7rem;
 }
 
-.gap-vertical__8 {
+.gap-row__8 {
     row-gap: 8rem;
 }
 
-.gap-vertical__9 {
+.gap-row__9 {
     row-gap: 9rem;
 }
 
-.gap-vertical__2-pixel {
+.gap-row__2-pixel {
     row-gap: 2px;
 }
 
-.gap-vertical__4-pixel {
+.gap-row__4-pixel {
     row-gap: 4px;
 }
 
-.gap-vertical__6-pixel {
+.gap-row__6-pixel {
     row-gap: 6px;
 }
 
-.gap-vertical__8-pixel {
+.gap-row__8-pixel {
     row-gap: 8px;
 }
 
-.gap-vertical__10-pixel {
+.gap-row__10-pixel {
     row-gap: 10px;
 }
 
-.gap-vertical__12-pixel {
+.gap-row__12-pixel {
     row-gap: 12px;
 }
 
-.gap-vertical__14-pixel {
+.gap-row__14-pixel {
     row-gap: 14px;
 }
 
-.gap-vertical__16-pixel {
+.gap-row__16-pixel {
     row-gap: 16px;
 }
 
-.gap-vertical__18-pixel {
+.gap-row__18-pixel {
     row-gap: 18px;
 }
 
-.gap-vertical__20-pixel {
+.gap-row__20-pixel {
     row-gap: 20px;
 }
 
-.gap-vertical__22-pixel {
+.gap-row__22-pixel {
     row-gap: 22px;
 }
 
-.gap-vertical__24-pixel {
+.gap-row__24-pixel {
     row-gap: 24px;
 }
 
-.gap-vertical__30-pixel {
+.gap-row__30-pixel {
     row-gap: 30px;
 }
 
-.gap-vertical__32-pixel {
+.gap-row__32-pixel {
     row-gap: 32px;
 }
 
-.gap-vertical__34-pixel {
+.gap-row__34-pixel {
     row-gap: 34px;
 }
 
-.gap-vertical__40-pixel {
+.gap-row__40-pixel {
     row-gap: 40px;
 }
 
-.gap-vertical__48-pixel {
+.gap-row__48-pixel {
     row-gap: 48px;
 }
 
-.gap-vertical__60-pixel {
+.gap-row__60-pixel {
     row-gap: 60px;
 }
 
-.gap-vertical__88-pixel {
+.gap-row__88-pixel {
     row-gap: 88px;
 }
 
-.gap-vertical__100-pixel {
+.gap-row__100-pixel {
     row-gap: 100px;
 }
 
-.gap-vertical__120-pixel {
+.gap-row__120-pixel {
     row-gap: 120px;
 }
 
-.gap-vertical__150-pixel {
+.gap-row__150-pixel {
     row-gap: 150px;
 }
 
-.gap-vertical__164-pixel {
+.gap-row__164-pixel {
     row-gap: 164px;
 }
 
-.gap-vertical__180-pixel {
+.gap-row__180-pixel {
     row-gap: 180px;
 }
 
-.gap-vertical__200-pixel {
+.gap-row__200-pixel {
     row-gap: 200px;
 }
 
-.gap-vertical__220-pixel {
+.gap-row__220-pixel {
     row-gap: 220px;
 }
 
-.gap-vertical__240-pixel {
+.gap-row__240-pixel {
     row-gap: 240px;
 }
 

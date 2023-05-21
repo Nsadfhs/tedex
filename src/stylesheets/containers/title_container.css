@@ -30,6 +30,8 @@
 
 .title-container.vertical {
     flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 /* 타이틀 컨테이너 Position */

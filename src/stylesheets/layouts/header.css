@@ -17,6 +17,13 @@
     border-bottom: var(--border-gray__1);
 }
 
+.header-container.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
 .header-contents__left {
     flex: 1;
     display: flex;
