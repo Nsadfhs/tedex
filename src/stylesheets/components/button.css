@@ -31,7 +31,7 @@ a {
     justify-content: center;
     align-items: center;
     width: auto;
-    height: var(--button-height__md);
+    /* height: var(--button-height__md); */
     font-size: var(--font-size__button);
     font-weight: var(--font-weight__bold);
     line-height: var(--line-height__md);
@@ -200,6 +200,7 @@ a.disabled {
 
 /* bordered button */
 .button__b {
+    height: var(--button-height__md);
     padding: 0.25rem 1rem;
     background-color: var(--color-black);
     color: var(--color-white__off);

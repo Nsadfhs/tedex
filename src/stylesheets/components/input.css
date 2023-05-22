@@ -20,7 +20,8 @@ select {
 
 /* 인풋 플레이스홀더 글자색 옅게 */
 input::placeholder {
-    color: var(--color-lightgray__500);
+    color: var(--color-gray__300);
+    font-weight: 400;
 }
 
 input[type=datetime],

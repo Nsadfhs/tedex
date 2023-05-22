@@ -935,19 +935,19 @@
 }
 
 .border__1.lightgray {
-    border-color: var(--color-lightgray__300);
+    border-color: var(--color-gray__200);
 }
 
 .border__2.lightgray {
-    border-color: var(--color-lightgray__300);
+    border-color: var(--color-gray__200);
 }
 
 .border__3.lightgray {
-    border-color: var(--color-lightgray__300);
+    border-color: var(--color-gray__200);
 }
 
 .border__4.lightgray {
-    border-color: var(--color-lightgray__300);
+    border-color: var(--color-gray__200);
 }
 
 /* top border */
