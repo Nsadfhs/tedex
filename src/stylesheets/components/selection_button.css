@@ -1,4 +1,5 @@
 :root {
+    --button-height__xs: 24px;
     --button-height__sm: 32px;
     --button-height__md: 40px;
     --button-height__lg: 50px;
@@ -6,6 +7,7 @@
 
 input[type=checkbox]+label,
 input[type=radio]+label {
+    min-width: auto;
     height: var(--button-height__md);
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
@@ -15,6 +17,7 @@ input[type=radio]+label {
     font-size: var(--font-size__label);
     font-weight: var(--font-weight__bold);
     line-height: var(--line-height__label);
+    cursor: pointer;
 }
 
 /* check box bordered */
@@ -41,7 +44,6 @@ input[type=radio]+label {
     column-gap: 0.5rem;
     width: auto;
     border: var(--border__1);
-    cursor: pointer;
 }
 
 .checkbox__a.full label {
@@ -113,7 +115,6 @@ input[type=radio]+label {
     column-gap: 0.5rem;
     width: auto;
     border: var(--border__1);
-    cursor: pointer;
 }
 
 .checkbox__b.full label {
@@ -185,7 +186,6 @@ input[type=radio]+label {
     column-gap: 1rem;
     width: auto;
     height: auto;
-    cursor: pointer;
 }
 
 .checkbox__c.full label {
@@ -244,7 +244,6 @@ input[type=radio]+label {
     column-gap: 0.5rem;
     width: auto;
     border: var(--border__1);
-    cursor: pointer;
 }
 
 .radio__a.full label {
@@ -316,7 +315,6 @@ input[type=radio]+label {
     column-gap: 0.5rem;
     width: auto;
     border: var(--border__1);
-    cursor: pointer;
 }
 
 .radio__b.full label {
@@ -388,7 +386,6 @@ input[type=radio]+label {
     column-gap: 1rem;
     width: auto;
     height: auto;
-    cursor: pointer;
 }
 
 .checkbox__a.full label {
@@ -423,7 +420,136 @@ input[type=radio]+label {
     cursor: not-allowed;
 }
 
+/* switch button */
+.switch__a {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+    height: auto;
+}
 
-.switch__a {}
+.switch__a input {
+    display: none;
+}
 
-.select-box__a {}
+.switch__a input+label {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: var(--button-height__sm);
+    padding: 0.125rem 2rem;
+    border: var(--border__1);
+    border-radius: var(--rounded);
+}
+
+.switch__a.small input+label {
+    height: var(--button-height__xs);
+}
+
+.switch__a label::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    width: auto;
+    height: 65%;
+    aspect-ratio: 1/1;
+    background-color: var(--color-gray__300);
+    border-radius: var(--circle);
+    transition: all 0.2s ease-out;
+}
+
+.switch__a input:checked+label {
+    background-color: var(--color-green__200);
+    color: var(--color-green__600);
+    border: var(--border-success__1);
+}
+
+.switch__a input:checked+label::after {
+    left: calc(100% - 1rem);
+    background-color: var(--color-green__600);
+}
+
+/* switch button square */
+.switch__b {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+    height: auto;
+}
+
+.switch__b input {
+    display: none;
+}
+
+.switch__b input+label {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: var(--button-height__sm);
+    padding: 0.125rem 2rem;
+    border: var(--border__1);
+    border-radius: var(--edge);
+}
+
+.switch__b.small input+label {
+    height: var(--button-height__xs);
+}
+
+.switch__b label::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    width: auto;
+    height: 50%;
+    aspect-ratio: 1/1;
+    background-color: var(--color-gray__300);
+    border-radius: var(--edge);
+    transition: all 0.2s ease-out;
+}
+
+.switch__b input:checked+label {
+    background-color: var(--color-green__200);
+    color: var(--color-green__600);
+    border: var(--border-success__1);
+}
+
+.switch__b input:checked+label::after {
+    left: calc(100% - 1rem);
+    background-color: var(--color-green__600);
+}
+
+/* select box */
+.select__a {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+    height: auto;
+    border: var(--border__1);
+    height: var(--button-height__sm);
+    padding: 0.125rem 0.5rem;
+}
+
+.select__a.rounded {}

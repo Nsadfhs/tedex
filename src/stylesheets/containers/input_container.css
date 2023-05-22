@@ -1,5 +1,5 @@
-.input-wrapper,
-.input-wrapper.horizontal {
+.input-container,
+.input-container.horizontal {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -9,73 +9,73 @@
     width: 100%;
 }
 
-.input-wrapper.wrap,
-.input-wrapper.horizontal.wrap {
+.input-container.wrap,
+.input-container.horizontal.wrap {
     flex-wrap: wrap;
 }
 
-.input-wrapper.wrap-reverse {
+.input-container.wrap-reverse {
     flex-wrap: wrap-reverse;
 }
 
-.input-wrapper.horizontal.reverse {
+.input-container.horizontal.reverse {
     flex-direction: row-reverse;
 }
 
 /* column */
-.input-wrapper.vertical {
+.input-container.vertical {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
 }
 
-.input-wrapper.vertical.reverse {
+.input-container.vertical.reverse {
     flex-direction: column-reverse;
 }
 
 /* align */
-.input-wrapper.horizontal.h-left,
-.input-wrapper.vertical.v-top {
+.input-container.horizontal.h-left,
+.input-container.vertical.v-top {
     justify-content: flex-start;
 }
 
-.input-wrapper.horizontal.h-center,
-.input-wrapper.vertical.v-center {
+.input-container.horizontal.h-center,
+.input-container.vertical.v-center {
     justify-content: center;
 }
 
-.input-wrapper.horizontal.h-right,
-.input-wrapper.vertical.v-bottom {
+.input-container.horizontal.h-right,
+.input-container.vertical.v-bottom {
     justify-content: flex-end;
 }
 
-.input-wrapper.horizontal.h-around,
-.input-wrapper.vertical.v-around {
+.input-container.horizontal.h-around,
+.input-container.vertical.v-around {
     justify-content: space-around;
 }
 
-.input-wrapper.horizontal.h-between,
-.input-wrapper.vertical.v-between {
+.input-container.horizontal.h-between,
+.input-container.vertical.v-between {
     justify-content: space-between;
 }
 
-.input-wrapper.horizontal.h-evenly,
-.input-wrapper.vertical.v-evenly {
+.input-container.horizontal.h-evenly,
+.input-container.vertical.v-evenly {
     justify-content: space-evenly;
 }
 
-.input-wrapper.horizontal.v-top,
-.input-wrapper.vertical.h-left {
+.input-container.horizontal.v-top,
+.input-container.vertical.h-left {
     align-items: flex-start;
 }
 
-.input-wrapper.horizontal.v-center,
-.input-wrapper.vertical.h-center {
+.input-container.horizontal.v-center,
+.input-container.vertical.h-center {
     align-items: center;
 }
 
-.input-wrapper.horizontal.v-bottom,
-.input-wrapper.vertical.h-right {
+.input-container.horizontal.v-bottom,
+.input-container.vertical.h-right {
     align-items: flex-end;
 }
 

@@ -106,8 +106,8 @@ input[type=password],
     min-width: 7.5rem;
     width: 100%;
     height: auto;
-    color: var(--color-neutral);
-    font-size: var(--font-size__md);
+    color: var(--color-gray__600);
+    font-size: var(--font-size__label);
     font-weight: var(--font-weight__bold);
     line-height: 20px;
     letter-spacing: -0.25px;
@@ -119,7 +119,7 @@ input[type=password],
     height: auto;
     padding: 0.5rem 1rem;
     color: var(--color-black);
-    font-size: var(--font-size__md);
+    font-size: var(--font-size__input);
     font-weight: var(--font-weight__medium);
     line-height: 22px;
     letter-spacing: 0.5px;
