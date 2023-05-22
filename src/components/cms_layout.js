@@ -443,7 +443,7 @@ class Header extends HTMLElement {
                 gap = `0px`;
             };
 
-            console.log(isPortraitSize);
+            // console.log(isPortraitSize);
             if (isPortraitSize) {
                 sidenavwidthrem = "100%";
             };
@@ -470,31 +470,31 @@ class Header extends HTMLElement {
 
                         if (this.classList.contains("on")) {
                             this.classList.remove("on");
-                            console.log(`calc(-${sidenavwidthrem} - ${gap})`);
+                            // console.log(`calc(-${sidenavwidthrem} - ${gap})`);
                             $sidenav.style.left = `calc(-${sidenavwidthrem} - ${gap})`;
                             $MAIN.style.marginLeft = "0px";
-                            console.log("닫았다");
+                            // console.log("닫았다");
                         } else {
                             this.classList.add("on");
                             $sidenav.style.left = "0";
                             $MAIN.style.marginLeft = `calc(${sidenavwidthrem} + ${gap})`;
                             // $MAIN.style.marginLeft = `0px`;
-                            console.log("열었다");
+                            // console.log("열었다");
                         };
 
                         window.addEventListener("resize", () => {
                             if (this.classList.contains("on")) {
                                 this.classList.remove("on");
-                                console.log(`calc(-${sidenavwidthrem} - ${gap})`);
+                                // console.log(`calc(-${sidenavwidthrem} - ${gap})`);
                                 $sidenav.style.left = `calc(-${sidenavwidthrem} - ${gap})`;
                                 $MAIN.style.marginLeft = "0px";
-                                console.log("닫았다");
+                                // console.log("닫았다");
                             } else {
                                 this.classList.add("on");
                                 $sidenav.style.left = "0";
                                 $MAIN.style.marginLeft = `calc(${sidenavwidthrem} + ${gap})`;
                                 // $MAIN.style.marginLeft = `0px`;
-                                console.log("열었다");
+                                // console.log("열었다");
                             };
                         });
                     } else {

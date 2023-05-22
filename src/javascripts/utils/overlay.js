@@ -42,7 +42,7 @@ function setOverlay(_trigger, _target) {
     };
 
     function updateSheetHeight(_height) {
-        console.log(_height);
+        // console.log(_height);
         SHEET_CONTENTS.style.height = `${_height}vh`;
         _target.classList.toggle("full-screen", _height === 100);
     }

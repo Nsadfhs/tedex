@@ -67,7 +67,7 @@ function inputObject(_target = "") {
 
         if (radioArray[i].checked) {
             if (radioArray[i].value == "on") {
-                console.log(radioArray[i].getAttribute("name"), "밸류가 없습니다.");
+                // console.log(radioArray[i].getAttribute("name"), "밸류가 없습니다.");
                 inputData.append(radioArray[i].getAttribute("name"), 0);
             } else {
                 inputData.append(radioArray[i].getAttribute("name"), radioArray[i].value);
@@ -83,7 +83,7 @@ function inputObject(_target = "") {
         // console.log(`${checkboxArray[i].getAttribute("name")} : ${checkboxArray[i].value}`);
         if (checkboxArray[i].checked) {
             if (checkboxArray[i].value == "on") {
-                console.log(checkboxArray[i].getAttribute("name"), "밸류가 없습니다.");
+                // console.log(checkboxArray[i].getAttribute("name"), "밸류가 없습니다.");
                 inputData.append(checkboxArray[i].getAttribute("name"), 0);
             } else {
                 inputData.append(checkboxArray[i].getAttribute("name"), checkboxArray[i].value);
