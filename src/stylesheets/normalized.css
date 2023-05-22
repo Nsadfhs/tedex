@@ -134,6 +134,71 @@ hr {
     border: 0;
 }
 
+input,
+select {
+    background-color: white;
+    color: var(--color-black__off);
+}
+
+/* 인풋 플레이스홀더 글자색 옅게 */
+input::placeholder {
+    color: var(--color-gray__300);
+    font-weight: 400;
+}
+
+input[type=month],
+input[type=date],
+input[type=datetime],
+input[type=datetime-local],
+input[type=time],
+input[type=week],
+input[type=email],
+input[type=number],
+input[type=search],
+input[type=password],
+input[type=tel],
+input[type=text],
+input[type=url] {
+    -webkit-appearance: none;
+    cursor: text;
+}
+
+input[type=button],
+input[type=checkbox],
+input[type=color],
+input[type=file],
+input[type=radio],
+input[type=range],
+input[type=reset],
+input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+/* 달력 아이콘 커서 바꾸기 */
+input[type=time]::-webkit-calendar-picker-indicator,
+input[type=week]::-webkit-calendar-picker-indicator,
+input[type=month]::-webkit-calendar-picker-indicator,
+input[type=date]::-webkit-calendar-picker-indicator,
+input[type=datetime]::-webkit-calendar-picker-indicator,
+input[type=datetime-local]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+
+/* 넘버 화살표 없애기 */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+/* 검색어 초기화기능 - 요고 언젠간 쓸모 있을듯 */
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
+    display: none;
+}
+
 /* old mobile and wearable  */
 @media all and (min-width: 280px) and (max-width: 359px) {}
 

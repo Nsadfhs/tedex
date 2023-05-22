@@ -7,7 +7,7 @@
     width: 100%;
     height: auto;
     /* min-height: 50px; */
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     background-color: inherit;
     z-index: 8;
 }
@@ -51,17 +51,17 @@
     align-items: center;
 }
 
-.toggle-button {
+.header-toggle-button {
     position: relative;
     display: inline-block;
-    width: 1.75rem;
-    height: 1.75rem;
-    line-height: 1.75rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
     font-size: 0;
     cursor: pointer;
 }
 
-.toggle-button:after {
+.header-toggle-button:after {
     content: '';
     position: absolute;
     top: 0;
@@ -84,6 +84,7 @@
     cursor: pointer;
 }
 
+.header-brand-logo img,
 .header-logo-image {
     display: block;
     width: auto;
@@ -92,7 +93,14 @@
 }
 
 .header-logout-button {
-    display: inline-block;
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0.5rem 0.5rem;
+    background-image: url("../../../public/images/icon/ic_logout.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* display: inline-block;
     font-size: 0.75rem;
     font-weight: bolder;
     line-height: 1;
@@ -102,10 +110,10 @@
     border: var(--border-gray__1);
     border-radius: 3.125rem;
     padding: 0.5rem 1.125rem;
-    cursor: pointer;
+    cursor: pointer; */
 }
 
-.header-logout-button.icon {
+/* .header-logout-button.icon {
     width: 1.75rem;
     height: 1.75rem;
     padding: 0.5rem 0.5rem;
@@ -113,7 +121,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-}
+} */
 
 .header-logo {
     width: auto;

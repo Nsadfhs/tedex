@@ -1,10 +1,20 @@
-.selection-wrapper {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    row-gap: 0.25rem;
+:root {
+    --button-height__sm: 32px;
+    --button-height__md: 40px;
+    --button-height__lg: 50px;
+}
+
+input[type=checkbox]+label,
+input[type=radio]+label {
+    height: var(--button-height__md);
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    color: var(--color-gray__500);
+    font-size: var(--font-size__label);
+    font-weight: var(--font-weight__bold);
+    line-height: var(--line-height__label);
 }
 
 /* check box bordered */
@@ -30,19 +40,16 @@
     align-items: center;
     column-gap: 0.5rem;
     width: auto;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    color: var(--color-gray__500);
-    font-size: var(--font-size__input);
-    font-weight: var(--font-weight__bold);
-    line-height: var(--line-height__input);
     border: var(--border__1);
     cursor: pointer;
 }
 
+.checkbox__a.full label {
+    width: 100%;
+}
+
 .checkbox__a.small label {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    height: var(--button-height__sm);
 }
 
 .checkbox__a.curved label {
@@ -56,25 +63,24 @@
 .checkbox__a label::before {
     content: '';
     display: inline-block;
-    min-width: 24px;
-    width: auto;
-    height: 24px;
-    line-height: 24px;
-    background-image: url("../../../images/icon/ic_checked_false.svg");
+    width: 1rem;
+    height: 1rem;
+    line-height: 1rem;
+    background-image: url("../../../public/images/icon/ic_checkbox_unchecked.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
 .checkbox__a input:checked+label {
-    background-color: var(--color-primary__light);
-    border-color: var(--color-primary__dark);
-    color: var(--color-primary__dark);
+    background-color: var(--color-green__200);
+    border-color: var(--color-green__600);
+    color: var(--color-black__off);
 }
 
 .checkbox__a input:checked+label::before {
     content: '';
-    background-image: url("../../../public/images/icon/ic_checked_true.svg");
+    background-image: url("../../../public/images/icon/ic_checkbox_checked.svg");
 }
 
 .checkbox__a input:disabled+label {
@@ -102,15 +108,20 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     column-gap: 0.5rem;
     width: auto;
-    color: var(--color-gray__500);
-    font-size: var(--font-size__input);
-    font-weight: var(--font-weight__bold);
-    line-height: var(--line-height__input);
+    border: var(--border__1);
     cursor: pointer;
+}
+
+.checkbox__b.full label {
+    width: 100%;
+}
+
+.checkbox__b.small label {
+    height: var(--button-height__sm);
 }
 
 .checkbox__b.curved label {
@@ -121,36 +132,95 @@
     border-radius: var(--rounded);
 }
 
-.checkbox__b label::before {
+.checkbox__b label::after {
     content: '';
     display: inline-block;
-    min-width: 24px;
-    width: auto;
-    height: 24px;
-    line-height: 24px;
-    background-image: url("../../../public/images/icon/ic_checked_false.svg");
+    width: 1rem;
+    height: 1rem;
+    line-height: 1rem;
+    background-image: url("../../../public/images/icon/ic_checkbox_unchecked.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
 .checkbox__b input:checked+label {
-    color: var(--color-black);
-    font-weight: bold;
+    background-color: var(--color-green__200);
+    border-color: var(--color-green__600);
+    color: var(--color-black__off);
 }
 
-.checkbox__b input:checked+label::before {
+.checkbox__b input:checked+label::after {
     content: '';
-    background-image: url("../../../public/images/icon/ic_checked_true.svg");
+    background-image: url("../../../public/images/icon/ic_checkbox_checked.svg");
 }
 
 .checkbox__b input:disabled+label {
+    background-color: var(--color-disabled__background);
     color: var(--color-disabled__text);
     cursor: not-allowed;
 }
 
-.checkbox__c {}
+/* text checkbox */
+.checkbox__c {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+    height: auto;
+}
 
+.checkbox__c input {
+    display: none;
+}
+
+.checkbox__c label {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 1rem;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+}
+
+.checkbox__c.full label {
+    width: 100%;
+}
+
+.checkbox__c.underline label {
+    text-decoration: underline;
+}
+
+.checkbox__c label::before {
+    content: '';
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    line-height: 1rem;
+    background-image: url("../../../public/images/icon/ic_checkbox_unchecked.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.checkbox__c input:checked+label::before {
+    content: '';
+    background-image: url("../../../public/images/icon/ic_checkbox_checked.svg");
+}
+
+.checkbox__c input:disabled+label {
+    background-color: transparent;
+    color: var(--color-disabled__text);
+    text-decoration: line-through;
+    cursor: not-allowed;
+}
+
+/* radio bordered */
 .radio__a {
     display: flex;
     flex-direction: row;
@@ -173,19 +243,16 @@
     align-items: center;
     column-gap: 0.5rem;
     width: auto;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    color: var(--color-gray__500);
-    font-size: var(--font-size__input);
-    font-weight: var(--font-weight__bold);
-    line-height: var(--line-height__input);
     border: var(--border__1);
     cursor: pointer;
 }
 
+.radio__a.full label {
+    width: 100%;
+}
+
 .radio__a.small label {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    height: var(--button-height__sm);
 }
 
 .radio__a.curved label {
@@ -199,25 +266,24 @@
 .radio__a label::before {
     content: '';
     display: inline-block;
-    min-width: 24px;
-    width: auto;
-    height: 24px;
-    line-height: 24px;
-    background-image: url("../../../public/images/icon/ic_checked_false.svg");
+    width: 1rem;
+    height: 1rem;
+    line-height: 1rem;
+    background-image: url("../../../public/images/icon/ic_checkbox_unchecked.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
 .radio__a input:checked+label {
-    background-color: var(--color-primary__light);
-    border-color: var(--color-primary__dark);
-    color: var(--color-primary__dark);
+    background-color: var(--color-green__200);
+    border-color: var(--color-green__600);
+    color: var(--color-black__off);
 }
 
 .radio__a input:checked+label::before {
     content: '';
-    background-image: url("../../../public/images/icon/ic_checked_true.svg");
+    background-image: url("../../../public/images/icon/ic_checkbox_checked.svg");
 }
 
 .radio__a input:disabled+label {
@@ -226,6 +292,7 @@
     cursor: not-allowed;
 }
 
+/* radio reverse */
 .radio__b {
     display: flex;
     flex-direction: row;
@@ -244,15 +311,20 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     column-gap: 0.5rem;
     width: auto;
-    color: var(--color-gray__500);
-    font-size: var(--font-size__input);
-    font-weight: var(--font-weight__bold);
-    line-height: var(--line-height__input);
+    border: var(--border__1);
     cursor: pointer;
+}
+
+.radio__b.full label {
+    width: 100%;
+}
+
+.radio__b.small label {
+    height: var(--button-height__sm);
 }
 
 .radio__b.curved label {
@@ -263,31 +335,91 @@
     border-radius: var(--rounded);
 }
 
-.radio__b label::before {
+.radio__b label::after {
     content: '';
     display: inline-block;
-    min-width: 24px;
-    width: auto;
-    height: 24px;
-    line-height: 24px;
-    background-image: url("../../../public/images/icon/ic_checked_false.svg");
+    width: 1rem;
+    height: 1rem;
+    line-height: 1rem;
+    background-image: url("../../../public/images/icon/ic_checkbox_unchecked.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
 .radio__b input:checked+label {
-    color: var(--color-black);
-    font-weight: bold;
+    background-color: var(--color-green__200);
+    border-color: var(--color-green__600);
+    color: var(--color-black__off);
 }
 
-.radio__b input:checked+label::before {
+.radio__b input:checked+label::after {
     content: '';
-    background-image: url("../../../public/images/icon/ic_checked_true.svg");
+    background-image: url("../../../public/images/icon/ic_checkbox_checked.svg");
 }
 
 .radio__b input:disabled+label {
+    background-color: var(--color-disabled__background);
     color: var(--color-disabled__text);
+    cursor: not-allowed;
+}
+
+/* text radio */
+.radio__c {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+    height: auto;
+}
+
+.radio__c input {
+    display: none;
+}
+
+.radio__c label {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 1rem;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+}
+
+.checkbox__a.full label {
+    width: 100%;
+}
+
+.radio__c.underline label {
+    text-decoration: underline;
+}
+
+.radio__c label::before {
+    content: '';
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    line-height: 1rem;
+    background-image: url("../../../public/images/icon/ic_checkbox_unchecked.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.radio__c input:checked+label::before {
+    content: '';
+    background-image: url("../../../public/images/icon/ic_checkbox_checked.svg");
+}
+
+.radio__c input:disabled+label {
+    background-color: transparent;
+    color: var(--color-disabled__text);
+    text-decoration: line-through;
     cursor: not-allowed;
 }
 

@@ -1,3 +1,7 @@
+input[type=text],
+input[type=number],
+input[type=password],
+
 /* text field horizontal label + input */
 .textfield__a {
     position: relative;
