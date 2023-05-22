@@ -25,7 +25,7 @@ i {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background-image: url("/public/images/icon/ic_hamburger.svg");
+    background-image: url("../../public/images/icon/ic_hamburger.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -35,7 +35,7 @@ i {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background-image: url("/public/images/icon/ic_close.svg");
+    background-image: url("../../public/images/icon/ic_close.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -45,7 +45,7 @@ i {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background-image: url("/public/images/icon/ic_arrow.svg");
+    background-image: url("../../public/images/icon/ic_arrow.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -57,7 +57,7 @@ i {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background-image: url("/public/images/icon/ic_cramps.svg");
+    background-image: url("../../public/images/icon/ic_cramps.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -68,7 +68,7 @@ i {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background-image: url("/public/images/icon/ic_cramps_double.svg");
+    background-image: url("../../public/images/icon/ic_cramps_double.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -79,7 +79,7 @@ i {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background-image: url("/public/images/icon/ic_cramps.svg");
+    background-image: url("../../public/images/icon/ic_cramps.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -91,7 +91,7 @@ i {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background-image: url("/public/images/icon/ic_cramps_double.svg");
+    background-image: url("../../public/images/icon/ic_cramps_double.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -102,7 +102,7 @@ i {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background-image: url("/public/images/icon/ic_arrow.svg");
+    background-image: url("../../public/images/icon/ic_arrow.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -113,7 +113,7 @@ i {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background-image: url("/public/images/icon/ic_arrow.svg");
+    background-image: url("../../public/images/icon/ic_arrow.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -123,7 +123,7 @@ i {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background-image: url("/public/images/icon/ic_user.svg");
+    background-image: url("../../public/images/icon/ic_user.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -133,7 +133,7 @@ i {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background-image: url("/public/images/icon/ic_search.svg");
+    background-image: url("../../public/images/icon/ic_search.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -143,7 +143,7 @@ i {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background-image: url("/public/images/icon/ic_arrow.svg");
+    background-image: url("../../public/images/icon/ic_arrow.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -154,7 +154,7 @@ i {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background-image: url("/public/images/icon/ic_file_upload.svg");
+    background-image: url("../../public/images/icon/ic_file_upload.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -164,7 +164,7 @@ i {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background-image: url("/public/images/icon/ic_arrow.svg");
+    background-image: url("../../public/images/icon/ic_arrow.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -175,7 +175,7 @@ i {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background-image: url("/public/images/icon/ic_empty.svg");
+    background-image: url("../../public/images/icon/ic_empty.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -185,7 +185,7 @@ i {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background-image: url("/public/images/icon/ic_cramps.svg");
+    background-image: url("../../public/images/icon/ic_cramps.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -196,7 +196,7 @@ i {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background-image: url("/public/images/icon/ic_cramps.svg");
+    background-image: url("../../public/images/icon/ic_cramps.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -206,7 +206,7 @@ i {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background-image: url("/public/images/icon/ic_plus.svg");
+    background-image: url("../../public/images/icon/ic_plus.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -216,7 +216,7 @@ i {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background-image: url("/public/images/icon/ic_minus.svg");
+    background-image: url("../../public/images/icon/ic_minus.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -226,7 +226,7 @@ i {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background-image: url("/public/images/icon/ic_checked.svg");
+    background-image: url("../../public/images/icon/ic_checked.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -236,7 +236,7 @@ i {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background-image: url("/public/images/icon/ic_unchecked.svg");
+    background-image: url("../../public/images/icon/ic_unchecked.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -247,7 +247,7 @@ i {
     width: 3rem;
     height: auto;
     aspect-ratio: 8/1;
-    background-image: url("/public/images/icon/ic_draggable.svg");
+    background-image: url("../../public/images/icon/ic_draggable.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

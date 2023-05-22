@@ -60,7 +60,7 @@
     width: auto;
     height: 24px;
     line-height: 24px;
-    background-image: url("/public/images/icon/ic_checked_false.svg");
+    background-image: url("../../../images/icon/ic_checked_false.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -74,7 +74,7 @@
 
 .checkbox__a input:checked+label::before {
     content: '';
-    background-image: url("/public/images/icon/ic_checked_true.svg");
+    background-image: url("../../../public/images/icon/ic_checked_true.svg");
 }
 
 .checkbox__a input:disabled+label {
@@ -128,7 +128,7 @@
     width: auto;
     height: 24px;
     line-height: 24px;
-    background-image: url("/public/images/icon/ic_checked_false.svg");
+    background-image: url("../../../public/images/icon/ic_checked_false.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -141,7 +141,7 @@
 
 .checkbox__b input:checked+label::before {
     content: '';
-    background-image: url("/public/images/icon/ic_checked_true.svg");
+    background-image: url("../../../public/images/icon/ic_checked_true.svg");
 }
 
 .checkbox__b input:disabled+label {
@@ -203,7 +203,7 @@
     width: auto;
     height: 24px;
     line-height: 24px;
-    background-image: url("/public/images/icon/ic_checked_false.svg");
+    background-image: url("../../../public/images/icon/ic_checked_false.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -217,7 +217,7 @@
 
 .radio__a input:checked+label::before {
     content: '';
-    background-image: url("/public/images/icon/ic_checked_true.svg");
+    background-image: url("../../../public/images/icon/ic_checked_true.svg");
 }
 
 .radio__a input:disabled+label {
@@ -270,7 +270,7 @@
     width: auto;
     height: 24px;
     line-height: 24px;
-    background-image: url("/public/images/icon/ic_checked_false.svg");
+    background-image: url("../../../public/images/icon/ic_checked_false.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -283,7 +283,7 @@
 
 .radio__b input:checked+label::before {
     content: '';
-    background-image: url("/public/images/icon/ic_checked_true.svg");
+    background-image: url("../../../public/images/icon/ic_checked_true.svg");
 }
 
 .radio__b input:disabled+label {
