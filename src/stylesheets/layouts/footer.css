@@ -13,10 +13,11 @@
     padding-bottom: 1.25rem;
     padding-left: 1rem;
     background-color: transparent;
+    border-top: var(--color-primary__dark);
 }
 
 .footer-container.dark {
-    background-color: var(--color-grey__600);
+    background-color: var(--color-primary__dark);
 }
 
 .footer-container.dark * {
