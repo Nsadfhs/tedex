@@ -1,4 +1,3 @@
-.main-wrapper,
 .main-container {
     display: flex;
     flex-direction: column;
@@ -7,6 +6,9 @@
     max-width: var(--max-width__wide);
     height: auto;
     margin-left: 0;
+}
+
+.main-container.margin-bottom {
     margin-bottom: 7.5rem;
 }
 
@@ -15,7 +17,6 @@
     width: 100% !important;
 }
 
-.main-wrapper.horizontal,
 .main-container.horizontal {
     flex-direction: row;
     flex-wrap: nowrap;
@@ -54,7 +55,6 @@
     align-items: flex-end;
 }
 
-.main-wrapper.cms,
 .main-container.cms {
     display: block;
     height: calc(100vh - 3.75rem);
@@ -72,7 +72,6 @@
     max-width: unset;
 }
 
-.main-wrapper.horizontal.column__2,
 .main-container.horizontal.column__2 {
     flex-direction: row;
     flex-wrap: wrap;
