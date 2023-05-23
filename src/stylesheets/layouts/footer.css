@@ -105,7 +105,6 @@
 @media screen and (min-width:768px) {
     :root {}
 
-    .footer-wrapper,
     .footer-container {
         display: flex;
         flex-direction: row;

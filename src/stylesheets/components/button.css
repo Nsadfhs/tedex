@@ -145,14 +145,14 @@ a.warning {
 
 button.pressed,
 a.pressed {
-    background-color: var(--color-neutral) !important;
-    color: var(--color-white__off) !important;
+    background-color: var(--color-neutral);
+    color: var(--color-white__off);
 }
 
 button.disabled,
 a.disabled {
-    background-color: var(--color-disabled__background) !important;
-    color: var(--color-disabled__text) !important;
+    background-color: var(--color-disabled__background);
+    color: var(--color-disabled__text);
 }
 
 /* anchor button */
@@ -207,7 +207,7 @@ a.disabled {
     border: var(--border-black__1);
 }
 
-.button__b:hover {
+.button__b.hovering:hover {
     background-color: transparent;
     color: var(--color-black);
 }
@@ -444,11 +444,11 @@ a.disabled {
 }
 
 .button__b.disabled {
-    border: var(--border-neutral__1);
+    border: var(--border-gray__200);
 }
 
 .button__b.pressed {
-    border: var(--border-neutral__1);
+    border: var(--border-gray__200);
 }
 
 /* column button */
@@ -594,6 +594,10 @@ a.disabled {
     line-height: var(--line-height__lg);
 }
 
+.button__t.underline {
+    text-decoration: underline;
+}
+
 .button__t.pressed,
 .text-button.pressed {
     color: var(--color-neutral);
@@ -601,7 +605,9 @@ a.disabled {
 
 .button__t.disabled,
 .text-button.disabled {
+    background-color: transparent;
     color: var(--color-disabled__text);
+    text-decoration: line-through;
 }
 
 .button__t.primary,

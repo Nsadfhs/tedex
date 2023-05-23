@@ -76,12 +76,12 @@ class CMSLayout extends HTMLBodyElement {
         const $MAIN = document.querySelector("main");
         if ($MAIN) {
             $CONTENTS_WRAPPER.append($MAIN);
-            $MAIN.classList.add("main-wrapper", "cms");
+            $MAIN.classList.add("main-container", "cms");
 
         } else {
             const $NEW_MAIN = document.createElement("main");
             $CONTENTS_WRAPPER.append($NEW_MAIN);
-            $NEW_MAIN.classList.add("main-wrapper", "cms");
+            $NEW_MAIN.classList.add("main-container", "cms");
         };
 
         this.prepend($CONTENTS_WRAPPER);
@@ -171,7 +171,7 @@ class Header extends HTMLElement {
 
     // Element 처리부
     setElement(_params) {
-        this.classList.add("header-wrapper");
+        this.classList.add("header-container");
 
         let { type, home, logo, height } = _params;
         let elemArr = new Array;
