@@ -34,11 +34,66 @@ class Calendar {
         const DEFAULT_YEAR = this.defaultDate.getFullYear();
         const DEFAULT_MONTH = this.defaultDate.getMonth() + 1;
         const DEFAULT_DATE = this.defaultDate.getDate();
+        this.element.classList.add("calendar-container");
+        this.setIndicator();
+        this.setHeader();
         this.setDate(DEFAULT_YEAR, DEFAULT_MONTH, DEFAULT_DATE);
+    };
+
+    setHeader = () => {
+        const $CALENDAR_HEADER = document.createElement("section");
+        $CALENDAR_HEADER.id = "calendar_week_wrap";
+        $CALENDAR_HEADER.classList.add("calendar-header-wrapper");
+
+        const WEEK_ARRAY = ["일", "월", "화", "수", "목", "금", "토",];
+
+        for (var i = 0; i < WEEK_ARRAY.length; i++) {
+            const $WEEK_SECTION = document.createElement("section");
+            $WEEK_SECTION.classList.add("calendar-column", "days");
+            $WEEK_SECTION.textContent = WEEK_ARRAY[i];
+            $CALENDAR_HEADER.append($WEEK_SECTION);
+        }
+
+        this.element.append($CALENDAR_HEADER);
+    };
+
+    setIndicator = () => {
+        const $CALENDAR_INDICATOR_WRAPPER = document.createElement("section");
+        $CALENDAR_INDICATOR_WRAPPER.id = "calendar_indicator_wrap";
+        $CALENDAR_INDICATOR_WRAPPER.classList.add("calendar-indicator-container");
+
+        const $CALENDAR_INDICATOR_PREVIOUS = document.createElement("button");
+        $CALENDAR_INDICATOR_PREVIOUS.type = "button";
+        $CALENDAR_INDICATOR_PREVIOUS.id = "jump_previous_month";
+        $CALENDAR_INDICATOR_PREVIOUS.classList.add("ic-indicator__left", "calendar-indicator");
+
+        const $CALENDAR_INDICATOR_CURRENT = document.createElement("p");
+        $CALENDAR_INDICATOR_CURRENT.id = "current_date";
+        $CALENDAR_INDICATOR_CURRENT.classList.add("current-date");
+        $CALENDAR_INDICATOR_CURRENT.textContent = `0000-00-00`;
+
+        const $CALENDAR_INDICATOR_NEXT = document.createElement("button");
+        $CALENDAR_INDICATOR_NEXT.type = "button";
+        $CALENDAR_INDICATOR_NEXT.id = "jump_next_month";
+        $CALENDAR_INDICATOR_NEXT.classList.add("ic-indicator__right", "calendar-indicator");
+
+        $CALENDAR_INDICATOR_WRAPPER.append($CALENDAR_INDICATOR_PREVIOUS, $CALENDAR_INDICATOR_CURRENT, $CALENDAR_INDICATOR_NEXT)
+
+        this.element.append($CALENDAR_INDICATOR_WRAPPER);
+
+        $CALENDAR_INDICATOR_PREVIOUS.addEventListener("click", (e) => {
+            this.jumpMonth(e.target.id);
+        });
+
+        $CALENDAR_INDICATOR_NEXT.addEventListener("click", (e) => {
+            this.jumpMonth(e.target.id);
+        });
+
     };
 
     // 월 이동 버튼 클릭 시, 해당 이벤트 발동
     jumpMonth = (_direction, callback) => {
+        console.log(_direction);
         if (_direction == "jump_previous_month") {
             if (this.month === 1) {
                 this.month = 12;
@@ -67,9 +122,9 @@ class Calendar {
     // 달력을 만듦
     setDate = (_year, _month, _date) => {
         this.dateArray.length = 0;
-        this.year = this.formatDateString(_year);
-        this.month = this.formatDateString(_month);
-        this.date = this.formatDateString(_date);
+        this.year = _year;
+        this.month = _month;
+        this.date = _date;
         this.renderCurrentDate();
         this.renderDates();
     };
@@ -77,8 +132,10 @@ class Calendar {
     // 인디케이터 중앙에 오늘 날짜 띄우기
     renderCurrentDate = () => {
         const $CURRENT_DATE = this.element.querySelector("#current_date");
-        this.dateString = this.getDateString(this.year, this.month);
-        $CURRENT_DATE.textContent = this.dateString;
+        if ($CURRENT_DATE instanceof Element) {
+            this.dateString = this.getDateString(this.year, this.month);
+            $CURRENT_DATE.textContent = this.dateString;
+        }
     };
 
     // 넘버 포맷
@@ -90,22 +147,33 @@ class Calendar {
     getDateString = (_year, _month, _date) => {
         if (isFalsy(_year)) {
             if (isFalsy(_date)) {
-                return `${_month}`;
+                return `${this.formatDateString(_month)}`;
             } else {
-                return `${_month}-${_date}`;
+                return `${this.formatDateString(_month)}-${this.formatDateString(_date)}`;
             };
         } else {
             if (isFalsy(_date)) {
-                return `${_year}-${_month}`;
+                return `${this.formatDateString(_year)}-${this.formatDateString(_month)}`;
             } else {
-                return `${_year}-${_month}-${_date}`;
+                return `${this.formatDateString(_year)}-${this.formatDateString(_month)}-${this.formatDateString(_date)}`;
             };
         };
     };
 
     // 날짜 렌더링
     renderDates = () => {
-        const $DATES = this.element.querySelector("#calendar_dates_wrap");
+        const CALENDAR_BODY_ARRAY = document.querySelectorAll(".calendar-body-wrapper");
+        if (CALENDAR_BODY_ARRAY.length !== 0) {
+            CALENDAR_BODY_ARRAY.forEach((_element) => {
+                _element.remove();
+            })
+        }
+
+        const $CALENDAR_BODY = document.createElement("section");
+        $CALENDAR_BODY.classList.add("calendar-body-wrapper");
+        const $DATES = document.createElement("section");
+        $DATES.id = "calendar_dates_wrap";
+        $DATES.classList.add("calendar-body-wrapper");
         $DATES.innerHTML = ``;
 
         const DAY_COUNT_IN_CURRENT_MONTH = this.getDayCount(this.year, this.month);
@@ -172,6 +240,7 @@ class Calendar {
             $DATE.dataset.date = this.dateString;
             $DATES.append($DATE);
 
+            this.element.append($DATES);
             this.calendarCell[this.dateString] = $DATE;
             this.dateArray.push(this.dateString);
         };
@@ -218,7 +287,6 @@ class Calendar {
         let yearOfCurrentMonth = this.year;
 
         const DAY_COUNT_OF_CURRENT_MONTH = this.getDayCount(yearOfCurrentMonth, currentMonth);
-        // console.log(DAY_COUNT_OF_CURRENT_MONTH)
         return {
             currentMonth,
             yearOfCurrentMonth,

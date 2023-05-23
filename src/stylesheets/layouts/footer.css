@@ -28,6 +28,10 @@
     display: none;
 }
 
+.footer-logo.show {
+    display: inline-block;
+}
+
 .footer-info-list {
     display: flex;
     flex-direction: column;
@@ -106,20 +110,20 @@
     :root {}
 
     .footer-container {
-        display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        min-height: 50px;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        column-gap: 2rem;
         padding: 1rem;
-        background-color: inherit;
-        z-index: 1;
     }
 
     .footer-logo {
         display: inline-block;
+    }
+
+    .footer-info-list {
+        flex: 1;
     }
 }
 
