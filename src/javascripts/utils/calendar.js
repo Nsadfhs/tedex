@@ -67,9 +67,9 @@ class Calendar {
     // 달력을 만듦
     setDate = (_year, _month, _date) => {
         this.dateArray.length = 0;
-        this.year = _year;
-        this.month = _month;
-        this.date = _date;
+        this.year = this.formatDateString(_year);
+        this.month = this.formatDateString(_month);
+        this.date = this.formatDateString(_date);
         this.renderCurrentDate();
         this.renderDates();
     };
@@ -90,15 +90,15 @@ class Calendar {
     getDateString = (_year, _month, _date) => {
         if (isFalsy(_year)) {
             if (isFalsy(_date)) {
-                return `${this.formatDateString(_month)}`;
+                return `${_month}`;
             } else {
-                return `${this.formatDateString(_month)}-${this.formatDateString(_date)}`;
+                return `${_month}-${_date}`;
             };
         } else {
             if (isFalsy(_date)) {
-                return `${this.formatDateString(_year)}-${this.formatDateString(_month)}`;
+                return `${_year}-${_month}`;
             } else {
-                return `${this.formatDateString(_year)}-${this.formatDateString(_month)}-${this.formatDateString(_date)}`;
+                return `${_year}-${_month}-${_date}`;
             };
         };
     };
