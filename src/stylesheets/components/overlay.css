@@ -17,8 +17,14 @@
     left: 0;
     width: 100%;
     height: 100%;
+    background-color: var(--color-disabled__background);
+    overflow-x: hidden;
+    overflow-y: hidden;
+    /* cursor: not-allowed; */
+    opacity: 0.6;
     z-index: -1;
-    opacity: 0.2;
+    transition: all 0.06s ease-out;
+    /* pointer-events: none; */
 }
 
 .dim-lay,
@@ -52,23 +58,6 @@
     cursor: -webkit-grab;
     z-index: 9999;
 }
-
-/* .overlay__a {
-    position: fixed;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 100%;
-    height: 100%;
-    padding: 2rem;
-    background-color: var(--color-primary__light);
-    border-top-left-radius: var(--rounded);
-    border-top-right-radius: var(--rounded);
-    transform: translateY(100%);
-    transition: all 0.1s ease-out;
-} */
 
 .overlay__a {
     display: flex;

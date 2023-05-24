@@ -1,17 +1,31 @@
 "use strict";
 
 function setOverlay(_trigger, _target) {
-    const $SHEET_OVERLAY = _target.querySelector(".sheet-overlay");
-    const $DRAG_HANDLE = _target.querySelector(".overlay-handler");
-    const $SHEET_CONTENTS = _target.querySelector(".sheet-contents-container");
+    console.log(_trigger);
+    let $trigger;
+    let $target;
+    if (_trigger instanceof HTMLElement) {
+        $trigger = _trigger;
+    } else {
+        $trigger = document.querySelector(_trigger);
+    };
+    if (_target instanceof HTMLElement) {
+        $target = _target;
+    } else {
+        $target = document.querySelector(_target);
+    };
+
+    const $SHEET_OVERLAY = $target.querySelector(".sheet-overlay");
+    const $DRAG_HANDLE = $target.querySelector(".overlay-handler");
+    const $SHEET_CONTENTS = $target.querySelector(".sheet-contents-container");
     let isGrabbing = false;
     let grabStartY;
     let grabStartHeight;
 
     const showOverlay = () => {
         scrollDisable();
-        setDimLayer();
-        _target.classList.add("show");
+        // setDimLayer();
+        $target.classList.add("show");
         if (isMobileSize) {
             updateSheetHeight(50);
         } else {
@@ -21,11 +35,11 @@ function setOverlay(_trigger, _target) {
 
     const hideOverlay = () => {
         scrollEnable();
-        offDimLayer();
-        _target.classList.remove("show");
+        // offDimLayer();
+        $target.classList.remove("show");
     };
 
-    _trigger.addEventListener("click", showOverlay);
+    $trigger.addEventListener("click", showOverlay);
     if ($SHEET_OVERLAY instanceof Element) {
         $SHEET_OVERLAY.addEventListener("click", hideOverlay);
     };
@@ -38,13 +52,13 @@ function setOverlay(_trigger, _target) {
             grabStartY = e.pageY;
         };
         grabStartHeight = parseInt($SHEET_CONTENTS.style.height);
-        _target.classList.add("dragging");
+        $target.classList.add("dragging");
     };
 
     function updateSheetHeight(_height) {
         // console.log(_height);
         $SHEET_CONTENTS.style.height = `${_height}vh`;
-        _target.classList.toggle("full-screen", _height === 100);
+        $target.classList.toggle("full-screen", _height === 100);
     }
 
     const sheetDragging = (e) => {
@@ -63,7 +77,7 @@ function setOverlay(_trigger, _target) {
 
     const sheetRelease = () => {
         isGrabbing = false;
-        _target.classList.remove("dragging");
+        $target.classList.remove("dragging");
         const SHEET_HEIGHT = parseInt($SHEET_CONTENTS.style.height);
         // 높이에 따른 자동 사이즈 조절
         // console.log(SHEET_HEIGHT);

@@ -251,12 +251,11 @@ function scrollDisable(_element) {
         };
     };
 
-    $BODY.style.overflow = "hidden";
-    $target.classList.add("scroll-none");
     $target.addEventListener("scroll", preventDefault, { passive: false });
     $target.addEventListener("mousedown", preventDefault, { passive: false });
     $target.addEventListener("touchmove", preventDefault, { passive: false });
     $target.addEventListener("mousewheel", preventDefault, { passive: false });
+    $target.classList.add("scroll-none");
 };
 
 // 스크롤 이벤트 풀기
@@ -273,12 +272,11 @@ function scrollEnable(_element) {
         };
     };
 
-    $BODY.style.overflow = "auto";
-    $target.classList.remove("scroll-none");
     $target.removeEventListener("scroll", preventDefault, { passive: false });
     $target.removeEventListener("mousedown", preventDefault, { passive: false });
     $target.removeEventListener("touchmove", preventDefault, { passive: false });
     $target.removeEventListener("mousewheel", preventDefault, { passive: false });
+    $target.classList.remove("scroll-none");
 };
 
 /** 딤(어둡게) 처리
