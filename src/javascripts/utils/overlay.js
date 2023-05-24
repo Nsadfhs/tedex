@@ -1,9 +1,9 @@
 "use strict";
 
 function setOverlay(_trigger, _target) {
-    const SHEET_OVERLAY = _target.querySelector(".sheet-overlay");
-    const DRAG_HANDLE = _target.querySelector(".overlay-handler");
-    const SHEET_CONTENTS = _target.querySelector(".sheet-contents-container");
+    const $SHEET_OVERLAY = _target.querySelector(".sheet-overlay");
+    const $DRAG_HANDLE = _target.querySelector(".overlay-handler");
+    const $SHEET_CONTENTS = _target.querySelector(".sheet-contents-container");
     let isGrabbing = false;
     let grabStartY;
     let grabStartHeight;
@@ -26,8 +26,8 @@ function setOverlay(_trigger, _target) {
     };
 
     _trigger.addEventListener("click", showOverlay);
-    if (SHEET_OVERLAY instanceof Element) {
-        SHEET_OVERLAY.addEventListener("click", hideOverlay);
+    if ($SHEET_OVERLAY instanceof Element) {
+        $SHEET_OVERLAY.addEventListener("click", hideOverlay);
     };
 
     const sheetGrab = (e) => {
@@ -37,13 +37,13 @@ function setOverlay(_trigger, _target) {
         } else {
             grabStartY = e.pageY;
         };
-        grabStartHeight = parseInt(SHEET_CONTENTS.style.height);
+        grabStartHeight = parseInt($SHEET_CONTENTS.style.height);
         _target.classList.add("dragging");
     };
 
     function updateSheetHeight(_height) {
         // console.log(_height);
-        SHEET_CONTENTS.style.height = `${_height}vh`;
+        $SHEET_CONTENTS.style.height = `${_height}vh`;
         _target.classList.toggle("full-screen", _height === 100);
     }
 
@@ -64,7 +64,7 @@ function setOverlay(_trigger, _target) {
     const sheetRelease = () => {
         isGrabbing = false;
         _target.classList.remove("dragging");
-        const SHEET_HEIGHT = parseInt(SHEET_CONTENTS.style.height);
+        const SHEET_HEIGHT = parseInt($SHEET_CONTENTS.style.height);
         // 높이에 따른 자동 사이즈 조절
         // console.log(SHEET_HEIGHT);
         SHEET_HEIGHT < 30 ? hideOverlay() : SHEET_HEIGHT > 60 ? updateSheetHeight(100) : updateSheetHeight(50);
@@ -72,9 +72,9 @@ function setOverlay(_trigger, _target) {
 
     document.addEventListener("mouseup", sheetRelease);
     document.addEventListener("touchend", sheetRelease);
-    if (DRAG_HANDLE instanceof HTMLElement) {
-        DRAG_HANDLE.addEventListener("mousedown", sheetGrab);
-        document.addEventListener("touchstart", sheetGrab);
+    if ($DRAG_HANDLE instanceof HTMLElement) {
+        $DRAG_HANDLE.addEventListener("mousedown", sheetGrab);
+        $SHEET_CONTENTS.addEventListener("touchstart", sheetGrab);
     };
     document.addEventListener("mousemove", sheetDragging);
     document.addEventListener("touchmove", sheetDragging);

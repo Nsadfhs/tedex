@@ -238,21 +238,47 @@ const stopPropagation = function (e) {
  */
 
 // 스크롤 이벤트 막기
-function scrollDisable() {
+function scrollDisable(_element) {
     // console.log("스크롤막기");
-    $BODY.classList.add("scroll-none");
-    $BODY.addEventListener("scroll", preventDefault, { passive: false });
-    $BODY.addEventListener("touchmove", preventDefault, { passive: false });
-    $BODY.addEventListener("mousewheel", preventDefault, { passive: false });
+    let $target;
+    if (isFalsy(_element)) {
+        $target = $BODY;
+    } else {
+        if (_element instanceof Element) {
+            $target = _element;
+        } else {
+            $target = document.querySelector(_element);
+        };
+    };
+
+    $BODY.style.overflow = "hidden";
+    $target.classList.add("scroll-none");
+    $target.addEventListener("scroll", preventDefault, { passive: false });
+    $target.addEventListener("mousedown", preventDefault, { passive: false });
+    $target.addEventListener("touchmove", preventDefault, { passive: false });
+    $target.addEventListener("mousewheel", preventDefault, { passive: false });
 };
 
 // 스크롤 이벤트 풀기
-function scrollEnable() {
-    // console.log("스크롤막기해제")
-    $BODY.classList.remove("scroll-none");
-    $BODY.removeEventListener("scroll", preventDefault, { passive: false });
-    $BODY.removeEventListener("touchmove", preventDefault, { passive: false });
-    $BODY.removeEventListener("mousewheel", preventDefault, { passive: false });
+function scrollEnable(_element) {
+    // console.log("스크롤 풀기");
+    let $target;
+    if (isFalsy(_element)) {
+        $target = $BODY;
+    } else {
+        if (_element instanceof Element) {
+            $target = _element;
+        } else {
+            $target = document.querySelector(_element);
+        };
+    };
+
+    $BODY.style.overflow = "auto";
+    $target.classList.remove("scroll-none");
+    $target.removeEventListener("scroll", preventDefault, { passive: false });
+    $target.removeEventListener("mousedown", preventDefault, { passive: false });
+    $target.removeEventListener("touchmove", preventDefault, { passive: false });
+    $target.removeEventListener("mousewheel", preventDefault, { passive: false });
 };
 
 /** 딤(어둡게) 처리
