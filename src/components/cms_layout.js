@@ -47,7 +47,7 @@ class CMSLayout extends HTMLBodyElement {
         };
 
         if (isFalsy(height)) {
-            height = "60px";
+            height = "50px";
         };
 
         this.classList.add("body-wrapper", "cms");
@@ -180,9 +180,8 @@ class Header extends HTMLElement {
         if (isFalsy(home)) {
             home = "/";
         };
-
         if (isFalsy(height)) {
-            height = "60px";
+            height = "50px";
         };
 
         this.style.minHeight = height;
@@ -342,7 +341,7 @@ class Header extends HTMLElement {
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-image: url("../../public/images/icon/ic_hamburger.svg");
+                background-image: url("../public/images/icon/ic_hamburger.svg");
                 background-repeat: no-repeat;
                 background-size: cover;
                 background-position: center;

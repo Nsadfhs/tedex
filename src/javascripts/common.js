@@ -153,7 +153,13 @@ let urlReferrerArray = parseURL("referrer");
 function isFalsy(_value) {
     // console.log(`${_value}는 ${typeof _value} 타입 입니다.`);
     if (_value) {
-        if (typeof _value == "object") {
+        if (_value instanceof Date) {
+            // console.log(`Date 값임`);
+            return false;
+        } else if (_value instanceof Element) {
+            // console.log(`element 값임`);
+            return false;
+        } else if (typeof _value == "object") {
             if (_value == null) {
                 // console.log(`${_value}는 'Null' 값 임.`);
                 return true;
@@ -420,7 +426,7 @@ function addCookie(_target, _value) {
         let itemArray = items.split(',');
         if (itemArray.indexOf(id) != -1) {
             // 이미 존재하는 경우 종료
-            // console.log('Already exists.');
+            console.log('Already exists.');
         } else {
             // 새로운 값 저장 및 최대 개수 유지하기
             itemArray.unshift(id);
