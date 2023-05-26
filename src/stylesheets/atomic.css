@@ -197,6 +197,36 @@
     width: 100% !important;
 }
 
+.max-width__mobile {
+    max-width: var(--max-width__mobile) !important;
+    width: 100% !important;
+}
+
+.max-width__tablet {
+    max-width: var(--max-width__tablet) !important;
+    width: 100% !important;
+}
+
+.max-width__laptop {
+    max-width: var(--max-width__laptop) !important;
+    width: 100% !important;
+}
+
+.max-width__desktop {
+    max-width: var(--max-width__desktop) !important;
+    width: 100% !important;
+}
+
+.max-width__wide {
+    max-width: var(--max-width__wide) !important;
+    width: 100% !important;
+}
+
+.max-width__contents {
+    max-width: var(--max-width__contents) !important;
+    width: 100% !important;
+}
+
 /* height */
 
 .height-auto {
@@ -289,32 +319,26 @@
 
 .height__full {
     height: 100% !important;
-    height: 100% !important;
 }
 
 .height__half {
     height: 50% !important;
-    height: 100% !important;
 }
 
 .height__thirds {
     height: 33.3333% !important;
-    height: 100% !important;
 }
 
 .height__quarter {
     height: 25% !important;
-    height: 100% !important;
 }
 
 .height__fifth {
     height: 20% !important;
-    height: 100% !important;
 }
 
 .height__tenth {
     height: 10% !important;
-    height: 100% !important;
 }
 
 

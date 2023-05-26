@@ -72,8 +72,10 @@
     --max-width__lg: calc(var(--breakpoint__lg) - 4rem);
     /* 1440 => 1328 */
     --max-width__xl: calc(var(--breakpoint__xl) - 7rem);
+    /* 1600 => 1440 */
     --max-width__xxl: calc(var(--breakpoint__xxl) - 10rem);
-    --max-width__xxxl: var(--breakpoint__xxl);
+    /* 1920 => 1800 */
+    --max-width__xxxl: var(--breakpoint__xxxl - 7.5rem);
 
     /* device width */
     --max-width__mobile: 320px;
@@ -531,22 +533,34 @@
 
 /* Small devices (landscape phones, 576px and up) */
 @media screen and (min-width:576px) {
-    :root {}
+    :root {
+        /* fluid contents */
+        --max-width__contents: var(--max-width__mobile);
+    }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width:768px) {
-    :root {}
+    :root {
+        /* fluid contents */
+        --max-width__contents: var(--max-width__tablet);
+    }
 }
 
 /* Large devices (small desktops and laptop, 992px and up) */
 @media screen and (min-width:992px) {
-    :root {}
+    :root {
+        /* fluid contents */
+        --max-width__contents: var(--max-width__laptop);
+    }
 }
 
 /* Large devices (desktops and large laptop, 1200px and up) */
 @media screen and (min-width:1200px) {
-    :root {}
+    :root {
+        /* fluid contents */
+        --max-width__contents: var(--max-width__desktop);
+    }
 }
 
 /* Extra Extra large devices (large desktops, 1440px and up) */
