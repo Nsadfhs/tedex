@@ -4,7 +4,7 @@
 @import url("./layouts/footer.css");
 
 :root {
-    --header-height: 60px;
+    --header-height: 3.75rem;
 }
 
 .scrollable {

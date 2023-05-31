@@ -341,7 +341,7 @@ class Header extends HTMLElement {
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-image: url("../public/images/icon/ic_hamburger.svg");
+                background-image: url("public/images/icon/ic_hamburger.svg");
                 background-repeat: no-repeat;
                 background-size: cover;
                 background-position: center;
@@ -382,7 +382,7 @@ class Header extends HTMLElement {
                 width: 1.75rem;
                 height: 1.75rem;
                 padding: 0.5rem 0.5rem;
-                background-image: url("../../public/images/icon/ic_logout.svg");
+                background-image: url("/public/images/icon/ic_logout.svg");
                 background-repeat: no-repeat;
                 background-size: cover;
                 background-position: center;

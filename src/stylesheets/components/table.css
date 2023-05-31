@@ -1,5 +1,21 @@
 @import url("./pagination.css");
 
+th,
+td {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: var(--font-size__body-2);
+    line-height: var(--row-height__xxs);
+}
+
+th {
+    justify-content: center;
+    height: var(--row-height__xxs);
+}
+
 table.scrollable {
     width: 100%;
     overflow-x: auto;
@@ -12,30 +28,16 @@ table.full tbody {
     width: 100% !important;
 }
 
-table tbody tr td input,
-table tbody tr td label,
-table tbody tr td img.fixed,
-table tbody tr td button,
-table tbody tr td a {
+tbody tr td input,
+tbody tr td label,
+tbody tr td img.fixed,
+tbody tr td button,
+tbody tr td a {
     height: var(--row-height__xs);
 }
 
-table tbody img {
+tbody img {
     width: auto;
-}
-
-th,
-td {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    min-height: var(--row-height__md);
-}
-
-th {
-    justify-content: center;
 }
 
 td.vertical {
@@ -79,7 +81,7 @@ td select {
     color: var(--color-black);
     font-size: var(--font-size__tbody-sm);
     font-weight: var(--font-weight__medium);
-    line-height: var(--row-height__sm);
+    line-height: var(--row-height__xs);
 }
 
 /* table category A */
@@ -125,6 +127,7 @@ td select {
 }
 
 .table__a thead tr {
+    height: var(--row-height__xs);
     color: var(--color-gray__500);
     font-size: var(--font-size__thead-md);
     font-weight: var(--font-weight__medium);

@@ -303,11 +303,22 @@
     --font-weight__900: 900;
     --font-weight__bolder: bolder;
     --font-weight__lighter: lighter;
-
+    /* 
+        weight      bolder      lighter
+          100        400          100
+          200        400          100
+          300        400          100
+          400        700          100
+          500        700          100
+          600        900          400
+          700        900          400
+          800        900          700
+          900        900          700
+*/
     --font-weight__light: var(--font-weight__200);
     --font-weight__regular: var(--font-weight__400);
     --font-weight__medium: var(--font-weight__500);
-    --font-weight__bold: var(--font-weight__600);
+    --font-weight__bold: var(--font-weight__700);
     --font-weight__black: var(--font-weight__900);
 
     /* line height */
@@ -390,11 +401,14 @@
     --font-size__button: 16px;
     --line-height__button: 16px;
 
+    --font-size__label: 14px;
+    --line-height__label: 20px;
+
     --font-size__input: 16px;
     --line-height__input: 24px;
 
-    --font-size__label: 14px;
-    --line-height__label: 20px;
+    --font-size__placeholder: 14px;
+    --line-height__placeholder: 24px;
 
     --font-size__message: 14px;
     --line-height__message: 20px;
@@ -458,10 +472,14 @@
         ================================================================  
     */
 
+    --row-height__xxs: 24px;
     --row-height__xs: 32px;
     --row-height__sm: 40px;
     --row-height__md: 50px;
     --row-height__lg: 58px;
+
+    --font-size__table: 16px;
+    --line-height__table: 16px;
 
     --font-size__thead-md: 13px;
     --line-height__thead-md: 14px;

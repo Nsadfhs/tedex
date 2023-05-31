@@ -14,6 +14,7 @@
 
 html {
     height: 100%;
+    font-size: 16px;
 }
 
 body {
@@ -63,14 +64,15 @@ a {
     display: inline-block;
     background-color: transparent;
     cursor: pointer;
+    color: inherit;
 }
 
-a,
+/* a,
 a:hover,
 a:active,
 a:focus {
-    color: inherit;
-}
+
+} */
 
 
 button[type=disabled],
@@ -125,7 +127,8 @@ table {
 
 th,
 td {
-    padding: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     text-align: left;
     vertical-align: middle;
 }
@@ -143,7 +146,9 @@ select {
 /* 인풋 플레이스홀더 글자색 옅게 */
 input::placeholder {
     color: var(--color-gray__300);
+    font-size: var(--font-size__placeholder);
     font-weight: 400;
+    line-height: var(--line-height__placeholder);
 }
 
 input[type=month],

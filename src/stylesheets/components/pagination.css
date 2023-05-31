@@ -21,7 +21,7 @@ pagination.js와 함께 쓰세요.
     width: 30px;
     height: 30px;
     padding: 0.25rem;
-    background-image: url("../../../public/images/icon/ic_cramps_double.svg");
+    background-image: url("/public/images/icon/ic_cramps_double.svg");
     background-repeat: no-repeat;
     background-size: 22px;
     background-position: center;
@@ -38,7 +38,7 @@ pagination.js와 함께 쓰세요.
     width: 30px;
     height: 30px;
     padding: 0.25rem;
-    background-image: url("../../../public/images/icon/ic_cramps.svg");
+    background-image: url("/public/images/icon/ic_cramps.svg");
     background-repeat: no-repeat;
     background-size: 22px;
     background-position: center;
@@ -55,7 +55,7 @@ pagination.js와 함께 쓰세요.
     width: 30px;
     height: 30px;
     padding: 0.25rem;
-    background-image: url("../../../public/images/icon/ic_cramps.svg");
+    background-image: url("/public/images/icon/ic_cramps.svg");
     background-repeat: no-repeat;
     background-size: 22px;
     background-position: center;
@@ -73,7 +73,7 @@ pagination.js와 함께 쓰세요.
     width: 30px;
     height: 30px;
     padding: 0.25rem;
-    background-image: url("../../../public/images/icon/ic_cramps_double.svg");
+    background-image: url("/public/images/icon/ic_cramps_double.svg");
     background-repeat: no-repeat;
     background-size: 22px;
     background-position: center;
