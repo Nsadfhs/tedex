@@ -25,11 +25,12 @@
 
 button,
 a {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    display: inline-block;
     width: auto;
     /* height: var(--button-height__md); */
     font-size: var(--font-size__button);
@@ -577,7 +578,6 @@ a.disabled {
 
 .button__t,
 .text-button {
-    display: block;
     height: auto;
     padding: 0;
     background-color: transparent !important;

@@ -315,7 +315,7 @@
           800        900          700
           900        900          700
 */
-    --font-weight__light: var(--font-weight__200);
+    --font-weight__light: var(--font-weight__300);
     --font-weight__regular: var(--font-weight__400);
     --font-weight__medium: var(--font-weight__500);
     --font-weight__bold: var(--font-weight__700);
