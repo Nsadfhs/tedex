@@ -1,11 +1,20 @@
 img {
+    max-width: 100%;
     width: 100%;
     height: auto;
+    vertical-align: top;
+}
+
+img.covered,
+video.covered {
+    object-fit: cover !important;
 }
 
 .image-parent {
     font-size: 0;
 }
+
+
 
 /* old mobile and wearable  */
 @media all and (min-width: 280px) and (max-width: 359px) {}

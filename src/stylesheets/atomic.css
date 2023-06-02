@@ -1358,6 +1358,10 @@
     border-radius: var(--round) !important;
 }
 
+.rounded {
+    border-radius: var(--rounded) !important;
+}
+
 .circle {
     border-radius: var(--circle) !important;
 }

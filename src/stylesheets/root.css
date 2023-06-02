@@ -401,18 +401,6 @@
     --font-size__button: 16px;
     --line-height__button: 16px;
 
-    --font-size__label: 14px;
-    --line-height__label: 20px;
-
-    --font-size__input: 16px;
-    --line-height__input: 24px;
-
-    --font-size__placeholder: 14px;
-    --line-height__placeholder: 24px;
-
-    --font-size__message: 14px;
-    --line-height__message: 20px;
-
     --font-size__detail: 12px;
     --line-height__detail: 18px;
 
@@ -462,13 +450,39 @@
 
     /* border radius */
     --curved: 5px;
+    --round: 20px;
     --rounded: 25px;
     --circle: 50%;
     --edge: 0;
 
     /*  
         ================================================================
-            5. 테이블
+            5. 인풋, 텍스트필드
+        ================================================================  
+    */
+
+    --input-height__xxs: 24px;
+    --input-height__xs: 32px;
+    --input-height__sm: 40px;
+    --input-height__md: 50px;
+    --input-height__lg: 58px;
+
+    --font-size__label: 14px;
+    --line-height__label: 20px;
+
+    --font-size__input: 16px;
+    --line-height__input: calc(var(--font-size__input) + 1px);
+
+    --font-size__placeholder: 14px;
+    --line-height__placeholder: 1;
+
+    --font-size__message: 14px;
+    --line-height__message: 20px;
+
+
+    /*  
+        ================================================================
+            6. 테이블
         ================================================================  
     */
 

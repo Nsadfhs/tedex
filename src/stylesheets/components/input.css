@@ -34,8 +34,8 @@ form {
 
 label,
 .fake-label {
+    flex-shrink: 0;
     display: inline-block;
-    min-width: 7.5rem;
     width: auto;
     height: auto;
     color: var(--color-gray__600);
@@ -43,6 +43,10 @@ label,
     font-weight: var(--font-weight__bold);
     line-height: var(--line-height__label);
     letter-spacing: -0.25px;
+}
+
+.fake-label {
+    min-width: 7.5rem;
 }
 
 .input[type=text],

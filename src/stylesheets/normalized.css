@@ -12,6 +12,11 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+section,
+article {
+    box-sizing: border-box;
+}
+
 html {
     height: 100%;
     font-size: 16px;
@@ -91,9 +96,10 @@ img {
     height: auto;
 }
 
-img.covered,
-video.covered {
-    object-fit: cover !important;
+img,
+fieldset,
+iframe {
+    border: 0;
 }
 
 h1,
@@ -115,6 +121,11 @@ h1 {
 
 p {
     line-height: 1.35;
+}
+
+i,
+em {
+    font-style: normal;
 }
 
 /* 테이블 스타일 초기화 */
@@ -139,8 +150,13 @@ hr {
 
 input,
 select {
+    width: auto;
+    min-width: unset;
     background-color: white;
     color: var(--color-black__off);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 /* 인풋 플레이스홀더 글자색 옅게 */
@@ -202,6 +218,11 @@ input[type=search]::-webkit-search-cancel-button,
 input[type=search]::-webkit-search-results-button,
 input[type=search]::-webkit-search-results-decoration {
     display: none;
+}
+
+textarea {
+    width: 100%;
+    resize: vertical;
 }
 
 /* old mobile and wearable  */

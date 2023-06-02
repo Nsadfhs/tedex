@@ -268,11 +268,25 @@ p.weak {
     line-height: var(--line-height__subtitle-1);
 }
 
+.contents-subtitle__1.weak {
+    color: var(--color-gray__600);
+    font-size: var(--font-size__subtitle-2);
+    font-weight: var(--font-weight__medium);
+    line-height: var(--line-height__subtitle-2);
+}
+
 .contents-subtitle__2 {
     color: var(--color-gray__600);
     font-size: var(--font-size__subtitle-2);
     font-weight: var(--font-weight__medium);
     line-height: var(--line-height__subtitle-2);
+}
+
+.contents-subtitle__2.weak {
+    color: var(--color-gray__600);
+    font-size: var(--font-size__subtitle-3);
+    font-weight: var(--font-weight__medium);
+    line-height: var(--line-height__subtitle-3);
 }
 
 .contents-subtitle__3 {
@@ -282,6 +296,13 @@ p.weak {
     line-height: var(--line-height__subtitle-3);
 }
 
+.contents-subtitle__3.weak {
+    color: var(--color-gray__600);
+    font-size: var(--font-size__subtitle-4);
+    font-weight: var(--font-weight__medium);
+    line-height: var(--line-height__subtitle-4);
+}
+
 .contents-subtitle__4 {
     color: var(--color-gray__600);
     font-size: var(--font-size__subtitle-4);
@@ -289,14 +310,35 @@ p.weak {
     line-height: var(--line-height__subtitle-4);
 }
 
+.contents-subtitle__4.weak {
+    color: var(--color-gray__600);
+    font-size: var(--font-size__subtitle-5);
+    font-weight: var(--font-weight__medium);
+    line-height: var(--line-height__subtitle-5);
+}
+
 .contents-subtitle__5 {
     color: var(--color-gray__600);
     font-size: var(--font-size__subtitle-5);
+    font-weight: var(--font-weight__medium);
+    line-height: var(--line-height__subtitle-5);
+}
+
+.contents-subtitle__5.weak {
+    color: var(--color-gray__600);
+    font-size: var(--font-size__subtitle-6);
     font-weight: var(--font-weight__medium);
     line-height: var(--line-height__subtitle-6);
 }
 
 .contents-subtitle__6 {
+    color: var(--color-gray__600);
+    font-size: var(--font-size__subtitle-6);
+    font-weight: var(--font-weight__medium);
+    line-height: var(--line-height__subtitle-6);
+}
+
+.contents-subtitle__6.weak {
     color: var(--color-gray__600);
     font-size: var(--font-size__subtitle-6);
     font-weight: var(--font-weight__medium);
