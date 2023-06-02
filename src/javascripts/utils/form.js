@@ -157,11 +157,7 @@ function inputObject(_target = "") {
  * @returns 
  */
 function deleteInputObject(_key) {
-    if (isFalsy(inputData)) {
-        return;
-    };
-
-    if (isFalsy(_key)) {
+    if (!isFalsy(_key)) {
         inputData.delete(_key);
     } else {
         const keysToDelete = [];
@@ -169,7 +165,7 @@ function deleteInputObject(_key) {
             if (true) {
                 keysToDelete.push(key);
             }
-        }
+        };
 
         keysToDelete.forEach(key => {
             inputData.delete(key);
