@@ -26,7 +26,7 @@ function toastAlert(_message, _timeout = 5000, callback = false) {
     $toastWrapper.style.paddingBottom = '0.5rem';
     $toastWrapper.style.backgroundColor = 'var(--color-black)';
     $toastWrapper.style.borderRadius = 'var(--curved)';
-    $toastWrapper.style.zIndex = '9991';
+    $toastWrapper.style.zIndex = '9999';
     $toastWrapper.style.animation = 'fade_toast 3s ease-out forwards';
 
     $alertMessage.classList.add("toast-message");
