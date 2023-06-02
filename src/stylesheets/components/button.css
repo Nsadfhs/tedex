@@ -25,16 +25,10 @@
 
 button,
 a {
-    /* display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center; */
     display: inline-block;
     width: auto;
-    /* height: var(--button-height__md); */
     font-size: var(--font-size__button);
-    font-weight: var(--font-weight__bold);
+    font-weight: var(--font-weight__medium);
     line-height: var(--line-height__md);
     border-radius: var(--curved);
     transition: all 0.2s ease-out;
@@ -157,6 +151,7 @@ a.disabled {
 
 /* anchor button */
 .button__a {
+    display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -199,8 +194,22 @@ a.disabled {
     border: var(--border__1);
 }
 
+.button__a.disabled,
+.button__a.pressed {
+    background-color: transparent;
+}
+
+.button__a.pressed {
+    color: var(--color-gray__400);
+}
+
 /* bordered button */
 .button__b {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
     height: var(--button-height__md);
     padding: 0.25rem 1rem;
     background-color: var(--color-black);
@@ -480,11 +489,28 @@ a.disabled {
 
 /* icon default */
 .button__i {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
     width: 1.5rem;
     height: 1.5rem;
+    aspect-ratio: 1/1;
     border: 0;
-    padding: 0;
+    padding: 0.25rem;
     margin: 0;
+    box-sizing: content-box;
+}
+
+.button__i.large {
+    width: 2rem;
+    height: 2rem;
+}
+
+.button__i.small {
+    width: 1rem;
+    height: 1rem;
 }
 
 .button__i.bordered {
