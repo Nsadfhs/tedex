@@ -15,13 +15,15 @@
     row-gap: 0.25rem;
 }
 
-.textfield__a label {
+.textfield__a label,
+.textfield__a .fake-label {
     display: block;
     width: auto;
     min-width: fit-content;
 }
 
-.textfield__a input {
+.textfield__a input,
+.textfield__a .fake-input {
     flex: 1;
     width: auto;
     height: auto;
@@ -65,8 +67,7 @@
     border: 1px solid var(--color-success);
 }
 
-.cms-textfield-a.success .filed-message,
-.textfield__horizontal.success .filed-message {
+.cms-textfield-a.success .filed-message {
     display: inline-block;
     width: auto;
     color: var(--color_danger);
@@ -97,10 +98,11 @@
     width: 100%;
 }
 
-.textfield__b label {
+.textfield__b label,
+.textfield__b .fake-label {
     display: inline-block;
-    min-width: 7.5rem;
-    width: 100%;
+    min-width: fit-content;
+    width: auto;
     height: auto;
     color: var(--color-gray__600);
     font-size: var(--font-size__label);
@@ -110,7 +112,8 @@
 }
 
 .textfield__b input,
-.textfield__b select {
+.textfield__b select,
+.textfield__b .fake-input {
     width: 100%;
     height: auto;
     padding: 0.5rem 1rem;
@@ -125,15 +128,12 @@
 
 /* text field B large */
 
-.textfield__b.large label,
-.textfield__vertical.large label {
+.textfield__b.large label {
     line-height: 24px;
 }
 
 .textfield__b.large input,
-.textfield__b.large select,
-.textfield__vertical.large input,
-.textfield__vertical.large select {
+.textfield__b.large select {
     padding: 0.75rem 1rem;
     line-height: 24px;
 }
@@ -226,10 +226,6 @@
     width: 100%;
     height: var(--button-height__sm);
 }
-
-
-
-
 
 /* old mobile and wearable  */
 @media all and (min-width: 280px) and (max-width: 359px) {}
