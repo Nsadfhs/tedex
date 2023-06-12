@@ -514,7 +514,7 @@ class Header extends HTMLElement {
                     setCookie('is_logged_in', false);
                     sessionStorage.setItem('is_logged_in', false);
 
-                    if (isTruthy(loginPath)) {
+                    if (!isFalsy(loginPath)) {
                         location.href = loginPath;
                     } else {
                         location.href = "/";

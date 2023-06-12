@@ -611,6 +611,13 @@ a.disabled {
     text-align: left;
 }
 
+.button__t.weak,
+.text-button.weak {
+    color: var(--color-gray__300);
+    font-size: 0.875em;
+    font-weight: var(--font-weight__lighter);
+}
+
 .button__t.small,
 .text-button.small {
     line-height: var(--line-height__sm);
@@ -621,19 +628,23 @@ a.disabled {
     line-height: var(--line-height__lg);
 }
 
-.button__t.underline {
+.button__t.underline,
+.text-button.underline {
     text-decoration: underline;
 }
 
-.button__t.h-left {
+.button__t.h-left,
+.text-button.h-left {
     text-align: left;
 }
 
-.button__t.h-center {
+.button__t.h-center,
+.text-button.h-center {
     text-align: center;
 }
 
-.button__t.h-right {
+.button__t.h-right,
+.text-button.h-right {
     text-align: right;
 }
 
