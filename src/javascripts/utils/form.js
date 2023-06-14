@@ -967,7 +967,7 @@ function setRegularExpression(_params) {
     placeholder=""-"빼고 10~11자리 입력"> 
  *   
 */
-const $inputPN = document.querySelectorAll("input[data-format="PN"]");
+const $inputPN = document.querySelectorAll("input[data-format='PN']");
 if ($inputPN) {
     for (var i = 0; i < $inputPN.length; i++) {
         $inputPN[i].addEventListener("keyup", formatPhoneNumber);
@@ -1005,7 +1005,7 @@ if ($inputPN) {
  * 
  * <input type="text" name="RRN" maxlength="14" placeholder="주민등록번호" />
  */
-const $inputRRN = document.querySelectorAll("input[data-format="RRN"]");
+const $inputRRN = document.querySelectorAll("input[data-format='RRN']");
 if ($inputRRN) {
     for (var i = 0; i < $inputRRN.length; i++) {
         $inputRRN[i].addEventListener("keyup", formatResidentNumber);
@@ -1030,9 +1030,9 @@ if ($inputRRN) {
 /** // // 대한민국 사업자 번호(개인/법인) 양식 만들기
  * 
  * 
- * <input type="text" name="RRN" maxlength="14" placeholder="주민등록번호" />
+ * <input type="text" name="RRN" maxlength="14" placeholder="사업자번호" />
  */
-const $inputBN = document.querySelectorAll("input[data-format="BN"]");
+const $inputBN = document.querySelectorAll("input[data-format='BN']");
 if ($inputBN) {
     for (var i = 0; i < $inputBN.length; i++) {
         $inputBN[i].addEventListener("keyup", formatBusinessNumber);
@@ -1084,4 +1084,52 @@ function checkCorporateRegisterNumber(number) {
     }
 
     return false;
-}
+};
+
+function formatPhoneNumber(_target) {
+    console.log("있음?");
+    _target.value = _target.value.replace(/[^0-9]/g, ""); // 숫자외 입력한 내용 지우기
+    let inputNumber = _target.value.replace(/[^0-9]/g, ""); // 길이를 알기위해 임시 저장
+    let phoneNumber = ""; // 실제 폰 넘버
+    if (inputNumber.length < 4) {
+        return inputNumber;
+    } else if (inputNumber.length < 7) {
+        phoneNumber += inputNumber.substr(0, 3);
+        phoneNumber += "-";
+        phoneNumber += inputNumber.substr(3);
+    } else if (inputNumber.length < 11) {
+        phoneNumber += inputNumber.substr(0, 3);
+        phoneNumber += "-";
+        phoneNumber += inputNumber.substr(3, 3);
+        phoneNumber += "-";
+        phoneNumber += inputNumber.substr(6);
+    } else if (inputNumber.length < 12) {
+        phoneNumber += inputNumber.substr(0, 3);
+        phoneNumber += "-";
+        phoneNumber += inputNumber.substr(3, 4);
+        phoneNumber += "-";
+        phoneNumber += inputNumber.substr(7);
+    };
+    _target.value = phoneNumber;
+};
+
+function formatBusinessNumber(_target) {
+    _target.value = _target.value.replace(/[^0-9]/g, "");
+    let inputNumber = _target.value.replace(/[^0-9]/g, "");
+    let businessNumber = "";
+    if (inputNumber.length < 4) {
+        return inputNumber;
+    } else if (inputNumber.length < 7) {
+        businessNumber += inputNumber.substr(0, 3);
+        businessNumber += '-';
+        businessNumber += inputNumber.substr(3);
+    } else {
+        businessNumber += inputNumber.substr(0, 3);
+        businessNumber += '-';
+        businessNumber += inputNumber.substr(1, 2);
+        businessNumber += '-';
+        businessNumber += inputNumber.substr(5);
+    }
+
+    _target.value = businessNumber;
+};

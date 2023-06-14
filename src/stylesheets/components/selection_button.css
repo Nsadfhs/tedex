@@ -20,6 +20,15 @@ input[type=radio]+label {
     cursor: pointer;
 }
 
+
+
+select:disabled {
+    background-color: var(--color-disabled__background);
+    color: var(--color-disabled__text);
+    border: var(--border__lightgray-1);
+    cursor: not-allowed;
+}
+
 /* check box bordered */
 .checkbox__a {
     display: flex;
@@ -539,6 +548,7 @@ input[type=radio]+label {
 }
 
 /* select box */
+
 .select__a {
     display: flex;
     flex-direction: row;
@@ -553,3 +563,41 @@ input[type=radio]+label {
 }
 
 .select__a.rounded {}
+
+
+
+/* select vertical label */
+
+.select__b {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    row-gap: 0.25rem;
+    width: 100%;
+    height: auto;
+}
+
+.select__b label {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: var(--color-gray__600);
+    font-size: var(--font-size__label);
+    font-weight: var(--font-weight__bold);
+    line-height: 20px;
+    letter-spacing: -0.25px;
+}
+
+.select__b select {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 0.5rem 1rem;
+    border: var(--border-gray__1);
+    border-radius: var(--curved);
+}

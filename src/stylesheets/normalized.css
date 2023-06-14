@@ -159,6 +159,15 @@ select {
     appearance: none;
 }
 
+select {
+    appearance: none;
+    background-image: url("../../public/images/icon/ic_dropdown.svg");
+    background-repeat: no-repeat;
+    background-size: 1rem;
+    background-position: right 8px center;
+    cursor: pointer;
+}
+
 /* 인풋 플레이스홀더 글자색 옅게 */
 input::placeholder {
     color: var(--color-gray__300);

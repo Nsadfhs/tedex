@@ -220,6 +220,7 @@ a.disabled {
 .button__b.hovering:hover {
     background-color: transparent;
     color: var(--color-black);
+    border: var(--border-black__1);
 }
 
 .button__b.primary {
