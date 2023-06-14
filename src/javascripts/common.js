@@ -58,26 +58,26 @@ const $BODY = document.querySelector("body");
 const $MAIN = document.querySelector("main");
 const $FORM = document.querySelector("form");
 // 반응형 사이즈 검증
-let isPortraitSize = window.matchMedia('(min-width: 320px) AND (max-width: 575px)').matches;
-let isLandscapeSize = window.matchMedia('(min-width: 576px) AND (max-width: 767px)').matches;
-let isMobileSize = window.matchMedia('(min-width: 320px) AND (max-width: 767px)').matches;
-let isTabletSize = window.matchMedia('(min-width: 768px) AND (max-width: 991px)').matches;
-let isLaptopSize = window.matchMedia('(min-width: 992px) AND (max-width: 1199px)').matches;
-let isDesktopSize = window.matchMedia('(min-width: 1200px) AND (max-width: 1919px)').matches;
-let isWideSize = window.matchMedia('(min-width: 1920px)').matches;
-let isSmallSize = window.matchMedia('(min-width: 320px) AND (max-width: 991px)').matches;
-let isLargeSize = window.matchMedia('(min-width: 992px)').matches;
+let isPortraitSize = window.matchMedia("(min-width: 320px) AND (max-width: 575px)").matches;
+let isLandscapeSize = window.matchMedia("(min-width: 576px) AND (max-width: 767px)").matches;
+let isMobileSize = window.matchMedia("(min-width: 320px) AND (max-width: 767px)").matches;
+let isTabletSize = window.matchMedia("(min-width: 768px) AND (max-width: 991px)").matches;
+let isLaptopSize = window.matchMedia("(min-width: 992px) AND (max-width: 1199px)").matches;
+let isDesktopSize = window.matchMedia("(min-width: 1200px) AND (max-width: 1919px)").matches;
+let isWideSize = window.matchMedia("(min-width: 1920px)").matches;
+let isSmallSize = window.matchMedia("(min-width: 320px) AND (max-width: 991px)").matches;
+let isLargeSize = window.matchMedia("(min-width: 992px)").matches;
 
 window.addEventListener("resize", () => {
-    isPortraitSize = window.matchMedia('(min-width: 320px) AND (max-width: 575px)').matches;
-    isLandscapeSize = window.matchMedia('(min-width: 576px) AND (max-width: 767px)').matches;
-    isMobileSize = window.matchMedia('(min-width: 320px) AND (max-width: 767px)').matches;
-    isTabletSize = window.matchMedia('(min-width: 768px) AND (max-width: 991px)').matches;
-    isLaptopSize = window.matchMedia('(min-width: 992px) AND (max-width: 1199px)').matches;
-    isDesktopSize = window.matchMedia('(min-width: 1200px) AND (max-width: 1919px)').matches;
-    isWideSize = window.matchMedia('(min-width: 1920px)').matches;
-    isSmallSize = window.matchMedia('(min-width: 320px) AND (max-width: 991px)').matches;
-    isLargeSize = window.matchMedia('(min-width: 992px)').matches;
+    isPortraitSize = window.matchMedia("(min-width: 320px) AND (max-width: 575px)").matches;
+    isLandscapeSize = window.matchMedia("(min-width: 576px) AND (max-width: 767px)").matches;
+    isMobileSize = window.matchMedia("(min-width: 320px) AND (max-width: 767px)").matches;
+    isTabletSize = window.matchMedia("(min-width: 768px) AND (max-width: 991px)").matches;
+    isLaptopSize = window.matchMedia("(min-width: 992px) AND (max-width: 1199px)").matches;
+    isDesktopSize = window.matchMedia("(min-width: 1200px) AND (max-width: 1919px)").matches;
+    isWideSize = window.matchMedia("(min-width: 1920px)").matches;
+    isSmallSize = window.matchMedia("(min-width: 320px) AND (max-width: 991px)").matches;
+    isLargeSize = window.matchMedia("(min-width: 992px)").matches;
 });
 
 /** URL((Uniform Resource Locator)) 파싱
@@ -100,12 +100,12 @@ function parseURL(_type) {
             break;
         case "host":
             const HOST_NAME = url.hostname;
-            const HOST_NAME_ARRAY = HOST_NAME.toString().split('.');
+            const HOST_NAME_ARRAY = HOST_NAME.toString().split(".");
             return HOST_NAME_ARRAY;
             break;
         case "path":
             const PATH_NAME = url.pathname;
-            const PATH_NAME_ARRAY = PATH_NAME.substring(PATH_NAME.indexOf('/') + 1).split('/');
+            const PATH_NAME_ARRAY = PATH_NAME.substring(PATH_NAME.indexOf("/") + 1).split("/");
             return PATH_NAME_ARRAY;
             break;
         case "parameter":
@@ -113,10 +113,10 @@ function parseURL(_type) {
             let params = new Object;
             if (SEARCH) {
                 const URL_HREF = url.href;
-                let qs = URL_HREF.substring(URL_HREF.indexOf('?') + 1).split('&');
+                let qs = URL_HREF.substring(URL_HREF.indexOf("?") + 1).split("&");
 
                 for (let i = 0; i < qs.length; i++) {
-                    qs[i] = qs[i].split('=');
+                    qs[i] = qs[i].split("=");
                     params[qs[i][0]] = decodeURIComponent(qs[i][1]);
                 };
             } else {
@@ -125,8 +125,8 @@ function parseURL(_type) {
             return params;
             break;
         case "referrer":
-            const PRE_PATH = document.referrer.replace(/^[^:]+:\/\/[^/]+/, '').replace(/#.*/, '').split("?")[0];
-            const PRE_PATH_ARRAY = PRE_PATH.substring(PRE_PATH.indexOf('/') + 1).split("/");
+            const PRE_PATH = document.referrer.replace(/^[^:]+:\/\/[^/]+/, "").replace(/#.*/, "").split("?")[0];
+            const PRE_PATH_ARRAY = PRE_PATH.substring(PRE_PATH.indexOf("/") + 1).split("/");
             return PRE_PATH_ARRAY;
             break;
         default:
@@ -144,7 +144,7 @@ let urlParameterArray = parseURL("parameter");
 let urlReferrerArray = parseURL("referrer");
 
 /** 인자로 들어온 값이 Falsy 값이면 true, 아니면 false를 반환
- * Falsy값이란 ? false, 0, -0, 0n, '', "", null, undefined, NaN
+ * Falsy값이란 ? false, 0, -0, 0n, "", "", null, undefined, NaN
  * 거기에 추가로 -> "false", "null", "undefined", "NaN"
  * 
  * @param {*} _value 
@@ -161,23 +161,23 @@ function isFalsy(_value) {
             return false;
         } else if (typeof _value == "object") {
             if (_value == null) {
-                // console.log(`${_value}는 'Null' 값 임.`);
+                // console.log(`${_value}는 "Null" 값 임.`);
                 return true;
             } else if (_value.length == 0) {
-                // console.log(`${_value}는 'null array' 임.`);
+                // console.log(`${_value}는 "null array" 임.`);
                 return true;
             } else if (Object.keys(_value).length === 0) {
-                // console.log(`${_value}는 'null object' 임.`);
+                // console.log(`${_value}는 "null object" 임.`);
                 return true;
             };
         } else if (_value === 0 || _value === false) {
             // console.log(`${_value}는 false 값 임.`);
             return true;
         } else if (typeof _value === "number" && isNaN(_value)) {
-            // console.log(`${_value}는 'NaN' 값 임.`);
+            // console.log(`${_value}는 "NaN" 값 임.`);
             return true;
         } else if (Math.abs(_value) === Infinity) {
-            // console.log(`${_value}는 'Infinity' 값 임.`);
+            // console.log(`${_value}는 "Infinity" 값 임.`);
             return true;
         } else if (_value === "" || _value === " " || _value === "\n") {
             // console.log(`${_value} 가 없어요`);
@@ -397,11 +397,11 @@ function setCookie(_name, _value, _days) {
  */
 function getCookie(_name) {
     let x, y;
-    let val = document.cookie.split(';');
+    let val = document.cookie.split(";");
     for (let i = 0; i < val.length; i++) {
-        x = val[i].substr(0, val[i].indexOf('='));
-        y = val[i].substr(val[i].indexOf('=') + 1);
-        x = x.replace(/^\s+|\s+$/g, '');
+        x = val[i].substr(0, val[i].indexOf("="));
+        y = val[i].substr(val[i].indexOf("=") + 1);
+        x = x.replace(/^\s+|\s+$/g, "");
         // 앞과 뒤의 공백 제거하기
         if (x == _name) {
             return unescape(y);
@@ -423,15 +423,15 @@ function addCookie(_target, _value) {
     let expire = 7;
     // 쿠키값을 저장할 기간
     if (items) {
-        let itemArray = items.split(',');
+        let itemArray = items.split(",");
         if (itemArray.indexOf(id) != -1) {
             // 이미 존재하는 경우 종료
-            console.log('Already exists.');
+            console.log("Already exists.");
         } else {
             // 새로운 값 저장 및 최대 개수 유지하기
             itemArray.unshift(id);
             if (itemArray.length > maxItemNum) itemArray.length = 5;
-            items = itemArray.join(',');
+            items = itemArray.join(",");
             setCookie(`${_target}`, items, expire);
         }
     } else {
@@ -445,7 +445,7 @@ function addCookie(_target, _value) {
  * @param {String} _name 
  */
 function deleteCookie(_name) {
-    document.cookie = _name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie = _name + "=; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 };
 
 /** element textContent에 값 넣기

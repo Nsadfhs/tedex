@@ -20,6 +20,8 @@ table.scrollable {
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 table.full thead,

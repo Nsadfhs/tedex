@@ -8,7 +8,7 @@
 
 .overlay-wrapper.show {
     opacity: 1;
-    z-index: 9999;
+    z-index: 9997;
 }
 
 .sheet-overlay {
@@ -27,7 +27,6 @@
     /* pointer-events: none; */
 }
 
-.dim-lay,
 .dim-lay__modal {
     position: fixed;
     top: 0;
@@ -39,7 +38,7 @@
     overflow-y: hidden;
     cursor: not-allowed;
     opacity: 0.8;
-    z-index: 9998;
+    z-index: 9996;
     transition: all 0.06s ease-out;
     pointer-events: none;
 }
@@ -49,14 +48,14 @@
     width: 3rem;
     height: auto;
     aspect-ratio: 8/1;
-    background-image: url("/public/images/icon/ic_draggable.svg");
+    background-image: url("../../../public/images/icon/ic_draggable.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     cursor: grab;
     cursor: -moz-grab;
     cursor: -webkit-grab;
-    z-index: 9999;
+    z-index: 9997;
 }
 
 .overlay__a {

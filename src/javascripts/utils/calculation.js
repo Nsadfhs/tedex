@@ -36,7 +36,7 @@ function calcMileage(price, savingRate) {
     return roundFloat(savingPoint, 0);
 };
 
-// 회계처럼 숫자에 ','를 3자리수마다 삽입해줌 
+// 회계처럼 숫자에 ","를 3자리수마다 삽입해줌 
 function numberToComma(_number) {
     if (_number == null || isNaN(_number) || !isFinite(_number)) {
         return "";

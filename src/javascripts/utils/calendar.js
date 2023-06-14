@@ -182,7 +182,7 @@ class Calendar {
         const { nextMonth, yearOfNextMonth, DAY_COUNT_IN_NEXT_MONTH } = this.getNextMonthInfo();
 
         if (isFalsy(this.startAt)) {
-            this.startAt = this.getDateString(this.year, this.month, '1');
+            this.startAt = this.getDateString(this.year, this.month, "1");
         };
         if (isFalsy(this.endAt)) {
             const { currentMonth, yearOfCurrentMonth, DAY_COUNT_OF_CURRENT_MONTH } = this.getCurrentMonthInfo();
@@ -332,8 +332,8 @@ class Calendar {
     getToday = () => {
         let today = new Date();
         let year = today.getFullYear();
-        let month = String(today.getMonth() + 1).padStart(2, '0');
-        let day = String(today.getDate()).padStart(2, '0');
+        let month = String(today.getMonth() + 1).padStart(2, "0");
+        let day = String(today.getDate()).padStart(2, "0");
         let formattedDate = `${year}-${month}-${day}`;
         return formattedDate;
     };

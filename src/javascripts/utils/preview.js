@@ -30,7 +30,7 @@ function handleFiles(e) {
         };
     } else {
         // console.log("취소?");
-        $albumElem.innerHTML = '';
+        $albumElem.innerHTML = "";
     };
 
 

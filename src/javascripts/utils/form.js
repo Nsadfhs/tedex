@@ -368,7 +368,7 @@ function watchRadioValue(_target, callback = null) {
  */
 function setCheckboxValue(_target, _value) {
     // console.log("checkCheckboxValue", _target, _value);
-    const $targetElemArr = document.querySelectorAll(`input[name='${_target}']`);
+    const $targetElemArr = document.querySelectorAll(`input[name="${_target}"]`);
     // console.log($targetElemArr);
     if ($targetElemArr) {
         for (var i = 0; i < $targetElemArr.length; i++) {
@@ -907,19 +907,19 @@ function setRegularExpression(_params) {
             regExpValue = RegExp(/^[가-힣A-Za-z\s]*$/);
             break;
         case "special_character":
-            regExpValue = RegExp(/^(?=.*[~!@#$%^*()\-_=+\\\|\[\]{};:\'",.<>\/?])/);
+            regExpValue = RegExp(/^(?=.*[~!@#$%^*()\-_=+\\\|\[\]{};:\"",.<>\/?])/);
             break;
         case "contents_30":
-            regExpValue = RegExp(/^[?=.*[~!@#$%^*()\-_=+\\\|\[\]{};:\'",.<>\/?가-힣a-zA-Z0-9\s]{2,30}$/);
+            regExpValue = RegExp(/^[?=.*[~!@#$%^*()\-_=+\\\|\[\]{};:\"",.<>\/?가-힣a-zA-Z0-9\s]{2,30}$/);
             break;
         case "contents_50":
-            regExpValue = RegExp(/^[?=.*[~!@#$%^*()\-_=+\\\|\[\]{};:\'",.<>\/?가-힣a-zA-Z0-9\s]{2,50}$/);
+            regExpValue = RegExp(/^[?=.*[~!@#$%^*()\-_=+\\\|\[\]{};:\"",.<>\/?가-힣a-zA-Z0-9\s]{2,50}$/);
             break;
         case "contents_100":
-            regExpValue = RegExp(/^[?=.*[~!@#$%^*()\-_=+\\\|\[\]{};:\'",.<>\/?가-힣a-zA-Z0-9\s]{2,100}$/);
+            regExpValue = RegExp(/^[?=.*[~!@#$%^*()\-_=+\\\|\[\]{};:\"",.<>\/?가-힣a-zA-Z0-9\s]{2,100}$/);
             break;
         case "contents_200":
-            regExpValue = RegExp(/^[?=.*[~!@#$%^*()\-_=+\\\|\[\]{};:\'",.<>\/?가-힣a-zA-Z0-9\s]{2,200}$/);
+            regExpValue = RegExp(/^[?=.*[~!@#$%^*()\-_=+\\\|\[\]{};:\"",.<>\/?가-힣a-zA-Z0-9\s]{2,200}$/);
             break;
         case "email":
             regExpValue = RegExp(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/);
@@ -964,10 +964,10 @@ function setRegularExpression(_params) {
 /** // // 폰번호 양식 만들기
  * //maxlength="13" 가 중요함
  * <input type="tel" name="phone" id="input_phone" maxlength="13" class="form-value check-reg"
-    placeholder="'-'빼고 10~11자리 입력"> 
+    placeholder=""-"빼고 10~11자리 입력"> 
  *   
 */
-const $inputPN = document.querySelectorAll("input[data-format='PN']");
+const $inputPN = document.querySelectorAll("input[data-format="PN"]");
 if ($inputPN) {
     for (var i = 0; i < $inputPN.length; i++) {
         $inputPN[i].addEventListener("keyup", formatPhoneNumber);
@@ -1005,7 +1005,7 @@ if ($inputPN) {
  * 
  * <input type="text" name="RRN" maxlength="14" placeholder="주민등록번호" />
  */
-const $inputRRN = document.querySelectorAll("input[data-format='RRN']");
+const $inputRRN = document.querySelectorAll("input[data-format="RRN"]");
 if ($inputRRN) {
     for (var i = 0; i < $inputRRN.length; i++) {
         $inputRRN[i].addEventListener("keyup", formatResidentNumber);
@@ -1032,7 +1032,7 @@ if ($inputRRN) {
  * 
  * <input type="text" name="RRN" maxlength="14" placeholder="주민등록번호" />
  */
-const $inputBN = document.querySelectorAll("input[data-format='BN']");
+const $inputBN = document.querySelectorAll("input[data-format="BN"]");
 if ($inputBN) {
     for (var i = 0; i < $inputBN.length; i++) {
         $inputBN[i].addEventListener("keyup", formatBusinessNumber);
@@ -1046,13 +1046,13 @@ if ($inputBN) {
             return inputNumber;
         } else if (inputNumber.length < 7) {
             businessNumber += inputNumber.substr(0, 3);
-            businessNumber += '-';
+            businessNumber += "-";
             businessNumber += inputNumber.substr(3);
         } else {
             businessNumber += inputNumber.substr(0, 3);
-            businessNumber += '-';
+            businessNumber += "-";
             businessNumber += inputNumber.substr(1, 2);
-            businessNumber += '-';
+            businessNumber += "-";
             businessNumber += inputNumber.substr(5);
         }
 
@@ -1066,7 +1066,7 @@ if ($inputBN) {
  * @returns 
  */
 function checkCorporateRegisterNumber(number) {
-    var numberMap = number.replace(/-/gi, '').split('').map(function (d) {
+    var numberMap = number.replace(/-/gi, "").split("").map(function (d) {
         return parseInt(d, 10);
     });
 
