@@ -180,7 +180,6 @@ function deleteInputObject(_key) {
  * @returns 
  */
 function setTextValue(_target, _value) {
-    // console.log("setTextValue", _target);
     if (_value) {
         const $targetElem = document.getElementById(_target);
         if ($targetElem) {
@@ -189,15 +188,15 @@ function setTextValue(_target, _value) {
             } else if ($targetElem.tagName == "TEXTAREA") {
                 $targetElem.value = _value;
             } else {
-                // console.log($targetElem.tagName, "적절한 타겟이 아닙니다.(input)");
+                console.log($targetElem.tagName, "적절한 타겟이 아닙니다.(input)");
                 return;
             }
         } else {
-            // console.log(_target, "타겟이 없어요");
+            console.log(_target, "타겟이 없어요");
             return;
         }
     } else {
-        // console.log(_target, `${_value}가 이상해요`);
+        console.log(_target, `${_value}가 이상해요`);
         return;
     }
 };
@@ -208,7 +207,6 @@ function setTextValue(_target, _value) {
  * @returns 
  */
 function getTextValue(_target) {
-    // console.log("getTextValue", _target);
     if (_target) {
         const $targetElem = document.getElementById(_target);
         if ($targetElem) {
@@ -227,7 +225,6 @@ function getTextValue(_target) {
  * @returns 
  */
 function watchTextValue(_target, callback = null) {
-    // console.log("getTextValue", _target);
     if (_target) {
         const $targetElem = document.getElementById(_target);
         if ($targetElem) {
@@ -252,10 +249,8 @@ function watchTextValue(_target, callback = null) {
  * @returns 
  */
 function setRadioValue(_target, _value) {
-    // console.log("setRadioValue", _target);
     if (_value) {
         const $targetElemArr = document.querySelectorAll(`input[name=${_target}]`);
-        // console.log($targetElemArr);
         if ($targetElemArr.length !== 0) {
             for (var i = 0; i < $targetElemArr.length; i++) {
                 const $targetElem = $targetElemArr[i];
@@ -279,9 +274,7 @@ function setRadioValue(_target, _value) {
  * @returns 
  */
 function getRadioValue(_target) {
-    // console.log("getRadioValue", _target);
     const $targetElemArr = document.getElementsByName(_target);
-    // console.log($targetElemArr);
     if ($targetElemArr) {
         for (var i = 0; i < $targetElemArr.length; i++) {
             const $targetElem = $targetElemArr[i];
@@ -306,9 +299,7 @@ function getRadioValue(_target) {
  * @returns 
  */
 function getRadioText(_target) {
-    // console.log("getRadioValue", _target);
     const $targetElemArr = document.getElementsByName(_target);
-    // console.log($targetElemArr);
     if ($targetElemArr) {
         for (var i = 0; i < $targetElemArr.length; i++) {
             const $targetElem = $targetElemArr[i];
@@ -334,14 +325,11 @@ function getRadioText(_target) {
  * @returns 
  */
 function watchRadioValue(_target, callback = null) {
-    // console.log("getRadioValue", _target);
     const $targetElemArr = document.getElementsByName(_target);
-    // console.log($targetElemArr);
     if ($targetElemArr) {
         for (var i = 0; i < $targetElemArr.length; i++) {
             const $targetElem = $targetElemArr[i];
             $targetElem.addEventListener("change", function (e) {
-                // console.log($targetElem.value);
                 if (e.target.value == "on") {
                     console.log($targetElem, "밸류가 없어요");
                     return false;
@@ -367,14 +355,10 @@ function watchRadioValue(_target, callback = null) {
  * @returns 
  */
 function setCheckboxValue(_target, _value) {
-    // console.log("checkCheckboxValue", _target, _value);
     const $targetElemArr = document.querySelectorAll(`input[name="${_target}"]`);
-    // console.log($targetElemArr);
     if ($targetElemArr) {
         for (var i = 0; i < $targetElemArr.length; i++) {
             const $targetElem = $targetElemArr[i];
-            // console.log(typeof _value);
-            // console.log($targetElem.value);
             if (typeof _value === "object") {
                 for (var j = 0; j < _value.length; j++) {
                     if ($targetElem.value == _value[j]) {
@@ -406,9 +390,7 @@ function setCheckboxValue(_target, _value) {
  * @returns 
  */
 function getCheckboxValue(_target) {
-    // console.log("getCheckboxValue", _target);
     const $targetElemArr = document.getElementsByName(_target);
-    // console.log($targetElemArr);
     if ($targetElemArr) {
 
         let valueArr = new Array;
@@ -446,9 +428,7 @@ function getCheckboxValue(_target) {
  * @returns 
  */
 function getCheckboxText(_target) {
-    // console.log("getCheckboxText", _target);
     const $targetElemArr = document.getElementsByName(_target);
-    // console.log($targetElemArr);
     if ($targetElemArr) {
         let valueArr = new Array;
         for (var i = 0; i < $targetElemArr.length; i++) {
@@ -483,9 +463,7 @@ function getCheckboxText(_target) {
  * @returns 
  */
 function watchCheckboxValue(_target, callback = null) {
-    // console.log("getCheckboxValue", _target);
     const $targetElemArr = document.getElementsByName(_target);
-    // console.log($targetElemArr);
     if ($targetElemArr) {
         let valueArr = new Array;
         for (var i = 0; i < $targetElemArr.length; i++) {
@@ -503,7 +481,6 @@ function watchCheckboxValue(_target, callback = null) {
                 if (callback) {
                     callback(valueArr);
                 } else {
-                    // console.log(valueArr);
                     return valueArr;
                 };
             });
@@ -520,19 +497,14 @@ function watchCheckboxValue(_target, callback = null) {
  * @returns 
  */
 function checkAll(_target) {
-    // console.log("checkAll", _target);
     if (_target) {
         const $checkAllButton = document.getElementById("check_row_all");
-        // console.log($checkAllButton);
         // 체크 올!
         if ($checkAllButton) {
             $checkAllButton.addEventListener("click", function (e) {
                 const $checkboxes = document.getElementsByName(_target);
-                // console.log($checkboxes);
                 if ($checkboxes) {
                     $checkboxes.forEach((checkbox) => {
-                        // console.log(checkbox);
-                        // console.log(checkbox.checked);
                         //나중에 여기 수정해야함
                         if (checkbox.checked) {
                             checkbox.checked = true;
@@ -561,7 +533,6 @@ function checkAll(_target) {
  * @returns 
  */
 function setSelectOption(_target, _valueArr, _default) {
-    // console.log("setSelectOption", _target);
     if (_valueArr) {
         if (_valueArr[0]) {
             if (_valueArr[0].value && _valueArr[0].text) {
@@ -624,17 +595,16 @@ function setSelectOption(_target, _valueArr, _default) {
  * @returns 
  */
 function setSelectValue(_target, _value) {
-    // console.log("setSelectValue", _target);
     if (_value == "0" || _value) {
         const $selectElem = document.getElementById(_target);
         if ($selectElem) {
             $selectElem.value = _value;
         } else {
-            // console.log(_target, "타겟이 없어요");
+            console.log(_target, "타겟이 없어요");
             return;
         }
     } else {
-        // console.log(_value, "가 없어요");
+        console.log(_value, "가 없어요");
         return;
     }
 };
@@ -645,12 +615,11 @@ function setSelectValue(_target, _value) {
  * @returns 
  */
 function getSelectValue(_target) {
-    // console.log("getSelectValue", _target);
     const $selectElem = document.getElementById(_target);
     if ($selectElem) {
         return $selectElem.value;
     } else {
-        // console.log(_target, "타겟이 없어요");
+        console.log(_target, "타겟이 없어요");
         return;
     }
 };
@@ -661,7 +630,6 @@ function getSelectValue(_target) {
  * @returns 
  */
 function getSelectText(_target) {
-    // console.log("getSelectText", _target);
     const $selectElem = document.getElementById(_target);
     const $optionElemArr = $selectElem.querySelectorAll("option");
     for (var i = 0; i < $optionElemArr.length; i++) {
@@ -673,7 +641,7 @@ function getSelectText(_target) {
                 continue;
             }
         } else {
-            // console.log(_target, "타겟이 없어요");
+            console.log(_target, "타겟이 없어요");
             return;
         }
     }
@@ -686,7 +654,6 @@ function getSelectText(_target) {
  * @returns 
  */
 function watchSelectValue(_target, callback = null) {
-    // console.log("watchSelectValue", _target);
     const $selectElem = document.getElementById(_target);
     if ($selectElem) {
         $selectElem.addEventListener("change", function (e) {
@@ -697,7 +664,7 @@ function watchSelectValue(_target, callback = null) {
             }
         });
     } else {
-        // console.log(_target, "타겟이 없어요");
+        console.log(_target, "타겟이 없어요");
         return;
     }
 };
@@ -709,7 +676,6 @@ function watchSelectValue(_target, callback = null) {
  * @returns 
  */
 function watchSelectText(_target, callback = null) {
-    // console.log("watchSelectText", _target);
     const $selectElem = document.getElementById(_target);
     if ($selectElem) {
         let selectedResultObj = new Object;
@@ -721,10 +687,7 @@ function watchSelectText(_target, callback = null) {
             selectedResultObj["value"] = selectOptions[selectedIndex].value;
             if (selectOptions[selectedIndex].dataset) {
                 const selectedDataObj = JSON.parse(JSON.stringify(selectOptions[selectedIndex].dataset));
-                // console.log("select", _target);
-                // console.log("getSelectDataset", _target);
                 for (const key in selectedDataObj) {
-                    // console.log(`${key}: ${selectedDataObj[key]}`);
                     selectedResultObj[`data_${key}`] = selectedDataObj[key];
                 }
             }
@@ -735,7 +698,7 @@ function watchSelectText(_target, callback = null) {
             }
         });
     } else {
-        // console.log(_target, "타겟이 없어요");
+        console.log(_target, "타겟이 없어요");
         return;
     }
 };
@@ -752,8 +715,6 @@ function typingSignCheck(_params) {
     let allCheckValid = [];
 
     const $inputElem = document.getElementById(target);
-    // console.log($inputElem);
-
     let checkReg = setRegularExpression(keyword);
     if (target == "user_password_check") {
         // 비밀번호 && 비밀번호 재입력 체크
@@ -762,10 +723,9 @@ function typingSignCheck(_params) {
         if ($inputElem) {
             $inputElem.addEventListener("keyup", function (e) {
                 let value = e.target.value;
-                // console.log(e.target);
 
                 const errorMessageArr = this.parentElement.querySelectorAll(".field-message");
-                // console.log(errorMessageArr);
+
                 if (errorMessageArr) {
                     for (var i = 0; i < errorMessageArr.length; i++) {
                         const errorMessage = errorMessageArr[i];
@@ -776,29 +736,21 @@ function typingSignCheck(_params) {
                 const notifiedMessage = document.createElement("span");
                 notifiedMessage.classList.add("field-message");
                 notifiedMessage.textContent = error_message;
-                // console.log("입력중");
-                // console.log(value);
+
                 if (value) {
                     if (value !== "") {
-                        // console.log(checkReg);
-                        // console.log(true);
-                        // console.log(checkReg.test(value));
-
                         if (checkReg.test(value)) {
-                            // console.log("성공");
                             this.parentElement.classList.remove("error");
                             this.parentElement.classList.add("success");
                             return true;
                         } else {
-                            // console.log("실패");
-                            // console.log(this.parentElement);
                             this.parentElement.classList.remove("success");
                             this.parentElement.classList.add("error");
                             this.parentElement.append(notifiedMessage);
                             return false;
                         };
                     } else {
-                        // console.log("아무것도 입력안함");
+                        console.log("아무것도 입력안함");
                         this.parentElement.classList.remove("success");
                         this.parentElement.classList.add("error");
                         notifiedMessage.textContent = "필수 입력란입니다.";
@@ -821,7 +773,6 @@ function signCheck(_params) {
     let allCheckValid = [];
 
     const $inputElem = document.getElementById(target);
-    // console.log($inputElem);
 
     let checkReg = setRegularExpression(keyword);
     if (target == "user_password_check") {
@@ -830,10 +781,8 @@ function signCheck(_params) {
         // 평범한 체크
         if ($inputElem) {
             let value = $inputElem.value;
-            // console.log(value);
-
             const errorMessageArr = $inputElem.parentElement.querySelectorAll(".field-message");
-            // console.log(errorMessageArr);
+
             if (errorMessageArr) {
                 for (var i = 0; i < errorMessageArr.length; i++) {
                     const errorMessage = errorMessageArr[i];
@@ -846,23 +795,18 @@ function signCheck(_params) {
             notifiedMessage.textContent = error_message;
 
             if (value !== "") {
-                // console.log("입력중");
-
                 if (checkReg.test(value)) {
-                    // console.log("성공");
                     $inputElem.parentElement.classList.remove("error");
                     $inputElem.parentElement.classList.add("success");
                     return true;
                 } else {
-                    // console.log("실패");
-                    // console.log(this.parentElement);
                     $inputElem.parentElement.classList.remove("success");
                     $inputElem.parentElement.classList.add("error");
                     $inputElem.parentElement.append(notifiedMessage);
                     return false;
                 }
             } else {
-                // console.log("아무것도 입력안함");
+                console.log("아무것도 입력안함");
                 $inputElem.parentElement.classList.remove("success");
                 $inputElem.parentElement.classList.add("error");
                 notifiedMessage.textContent = "필수 입력란입니다.";
@@ -879,7 +823,6 @@ function signCheck(_params) {
  * @returns 
  */
 function setRegularExpression(_params) {
-    // console.log(_params);
     let regExpValue = "";
     switch (_params) {
         case "_number":
@@ -961,104 +904,102 @@ function setRegularExpression(_params) {
     return regExpValue;
 };
 
-/** // // 폰번호 양식 만들기
+/** 폰번호 양식 만들기
  * //maxlength="13" 가 중요함
  * <input type="tel" name="phone" id="input_phone" maxlength="13" class="form-value check-reg"
     placeholder=""-"빼고 10~11자리 입력"> 
  *   
 */
-const $inputPN = document.querySelectorAll("input[data-format='PN']");
-if ($inputPN) {
-    for (var i = 0; i < $inputPN.length; i++) {
-        $inputPN[i].addEventListener("keyup", formatPhoneNumber);
-    };
+// const $inputPN = document.querySelectorAll("input[data-format='PN']");
+// if ($inputPN) {
+//     for (var i = 0; i < $inputPN.length; i++) {
+//         $inputPN[i].addEventListener("keyup", formatPhoneNumber);
+//     };
 
-    function formatPhoneNumber() {
-        this.value = this.value.replace(/[^0-9]/g, ""); // 숫자외 입력한 내용 지우기
-        let inputNumber = this.value.replace(/[^0-9]/g, ""); // 길이를 알기위해 임시 저장
-        let phoneNumber = ""; // 실제 폰 넘버
-        if (inputNumber.length < 4) {
-            return inputNumber;
-        } else if (inputNumber.length < 7) {
-            phoneNumber += inputNumber.substr(0, 3);
-            phoneNumber += "-";
-            phoneNumber += inputNumber.substr(3);
-        } else if (inputNumber.length < 11) {
-            phoneNumber += inputNumber.substr(0, 3);
-            phoneNumber += "-";
-            phoneNumber += inputNumber.substr(3, 3);
-            phoneNumber += "-";
-            phoneNumber += inputNumber.substr(6);
-        } else if (inputNumber.length < 12) {
-            phoneNumber += inputNumber.substr(0, 3);
-            phoneNumber += "-";
-            phoneNumber += inputNumber.substr(3, 4);
-            phoneNumber += "-";
-            phoneNumber += inputNumber.substr(7);
-        };
-        this.value = phoneNumber;
-    };
-};
+//     function formatPhoneNumber() {
+//         this.value = this.value.replace(/[^0-9]/g, ""); // 숫자외 입력한 내용 지우기
+//         let inputNumber = this.value.replace(/[^0-9]/g, ""); // 길이를 알기위해 임시 저장
+//         let phoneNumber = ""; // 실제 폰 넘버
+//         if (inputNumber.length < 4) {
+//             return inputNumber;
+//         } else if (inputNumber.length < 7) {
+//             phoneNumber += inputNumber.substr(0, 3);
+//             phoneNumber += "-";
+//             phoneNumber += inputNumber.substr(3);
+//         } else if (inputNumber.length < 11) {
+//             phoneNumber += inputNumber.substr(0, 3);
+//             phoneNumber += "-";
+//             phoneNumber += inputNumber.substr(3, 3);
+//             phoneNumber += "-";
+//             phoneNumber += inputNumber.substr(6);
+//         } else if (inputNumber.length < 12) {
+//             phoneNumber += inputNumber.substr(0, 3);
+//             phoneNumber += "-";
+//             phoneNumber += inputNumber.substr(3, 4);
+//             phoneNumber += "-";
+//             phoneNumber += inputNumber.substr(7);
+//         };
+//         this.value = phoneNumber;
+//     };
+// };
 
-/** // // 대한민국 주민등록번호 양식 만들기
- * 
+/** 대한민국 주민등록번호 양식 만들기
  * 
  * <input type="text" name="RRN" maxlength="14" placeholder="주민등록번호" />
  */
-const $inputRRN = document.querySelectorAll("input[data-format='RRN']");
-if ($inputRRN) {
-    for (var i = 0; i < $inputRRN.length; i++) {
-        $inputRRN[i].addEventListener("keyup", formatResidentNumber);
-    };
+// const $inputRRN = document.querySelectorAll("input[data-format='RRN']");
+// if ($inputRRN) {
+//     for (var i = 0; i < $inputRRN.length; i++) {
+//         $inputRRN[i].addEventListener("keyup", formatResidentNumber);
+//     };
 
-    function formatResidentNumber() {
-        this.value = this.value.replace(/[^0-9]/g, "");
-        let inputNumber = this.value.replace(/[^0-9]/g, "");
-        let residentNumber = "";
-        if (inputNumber.length < 6) {
-            return inputNumber;
-        } else if (inputNumber.length < 14) {
-            residentNumber += inputNumber.substr(0, 6);
-            residentNumber += "-";
-            residentNumber += inputNumber.substr(6);
-        }
+//     function formatResidentNumber() {
+//         this.value = this.value.replace(/[^0-9]/g, "");
+//         let inputNumber = this.value.replace(/[^0-9]/g, "");
+//         let residentNumber = "";
+//         if (inputNumber.length < 6) {
+//             return inputNumber;
+//         } else if (inputNumber.length < 14) {
+//             residentNumber += inputNumber.substr(0, 6);
+//             residentNumber += "-";
+//             residentNumber += inputNumber.substr(6);
+//         }
 
-        this.value = residentNumber;
-    }
-};
+//         this.value = residentNumber;
+//     }
+// };
 
-/** // // 대한민국 사업자 번호(개인/법인) 양식 만들기
- * 
+/** 대한민국 사업자 번호(개인/법인) 양식 만들기
  * 
  * <input type="text" name="RRN" maxlength="14" placeholder="사업자번호" />
  */
-const $inputBN = document.querySelectorAll("input[data-format='BN']");
-if ($inputBN) {
-    for (var i = 0; i < $inputBN.length; i++) {
-        $inputBN[i].addEventListener("keyup", formatBusinessNumber);
-    };
+// const $inputBN = document.querySelectorAll("input[data-format='BN']");
+// if ($inputBN) {
+//     for (var i = 0; i < $inputBN.length; i++) {
+//         $inputBN[i].addEventListener("keyup", formatBusinessNumber);
+//     };
 
-    function formatBusinessNumber() {
-        this.value = this.value.replace(/[^0-9]/g, "");
-        let inputNumber = this.value.replace(/[^0-9]/g, "");
-        let businessNumber = "";
-        if (inputNumber.length < 4) {
-            return inputNumber;
-        } else if (inputNumber.length < 7) {
-            businessNumber += inputNumber.substr(0, 3);
-            businessNumber += "-";
-            businessNumber += inputNumber.substr(3);
-        } else {
-            businessNumber += inputNumber.substr(0, 3);
-            businessNumber += "-";
-            businessNumber += inputNumber.substr(1, 2);
-            businessNumber += "-";
-            businessNumber += inputNumber.substr(5);
-        }
+//     function formatBusinessNumber() {
+//         this.value = this.value.replace(/[^0-9]/g, "");
+//         let inputNumber = this.value.replace(/[^0-9]/g, "");
+//         let businessNumber = "";
+//         if (inputNumber.length < 4) {
+//             return inputNumber;
+//         } else if (inputNumber.length < 7) {
+//             businessNumber += inputNumber.substr(0, 3);
+//             businessNumber += "-";
+//             businessNumber += inputNumber.substr(3);
+//         } else {
+//             businessNumber += inputNumber.substr(0, 3);
+//             businessNumber += "-";
+//             businessNumber += inputNumber.substr(1, 2);
+//             businessNumber += "-";
+//             businessNumber += inputNumber.substr(5);
+//         }
 
-        this.value = businessNumber;
-    }
-};
+//         this.value = businessNumber;
+//     }
+// };
 
 /** 사업자 번호 검증 10자리의 {3}-{2}-{5}
  * 
@@ -1087,7 +1028,7 @@ function checkCorporateRegisterNumber(number) {
 };
 
 function formatPhoneNumber(_target) {
-    console.log("있음?");
+    // console.log("있음?");
     _target.value = _target.value.replace(/[^0-9]/g, ""); // 숫자외 입력한 내용 지우기
     let inputNumber = _target.value.replace(/[^0-9]/g, ""); // 길이를 알기위해 임시 저장
     let phoneNumber = ""; // 실제 폰 넘버
@@ -1133,3 +1074,31 @@ function formatBusinessNumber(_target) {
 
     _target.value = businessNumber;
 };
+
+function formatResidentNumber(_target) {
+    _target.value = _target.value.replace(/[^0-9]/g, "");
+    let inputNumber = _target.value.replace(/[^0-9]/g, "");
+    let residentNumber = "";
+    if (inputNumber.length < 6) {
+        return inputNumber;
+    } else if (inputNumber.length < 14) {
+        residentNumber += inputNumber.substr(0, 6);
+        residentNumber += "-";
+        residentNumber += inputNumber.substr(6);
+    }
+
+    _target.value = residentNumber;
+}
+
+
+document.addEventListener("keyup", (e) => {
+    if (e.target.dataset.format == "PN") {
+        formatPhoneNumber(e.target);
+    };
+    if (e.target.dataset.format == "BN") {
+        formatBusinessNumber(e.target);
+    };
+    if (e.target.dataset.format == "RRN") {
+        formatResidentNumber(e.target);
+    };
+});

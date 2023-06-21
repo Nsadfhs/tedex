@@ -57,6 +57,7 @@
 
 .footer-info-label,
 .footer-info-value {
+    flex: 1;
     color: var(--color-gray__600);
     height: auto;
     font-size: 0.875rem;
@@ -67,7 +68,6 @@
 }
 
 .footer-info-label {
-    min-width: 25vw;
     white-space: nowrap;
     text-align: left;
 }

@@ -266,7 +266,6 @@ function scrollDisable(_element) {
 
 // 스크롤 이벤트 풀기
 function scrollEnable(_element) {
-    // console.log("스크롤 풀기");
     let $target;
     if (isFalsy(_element)) {
         $target = $BODY;
@@ -294,7 +293,7 @@ function setDimLayer(zIndex) {
     if (!zIndex) {
         zIndex = 9998;
     }
-    // console.log("켜기")
+
     const $DIM = document.createElement("div");
     $DIM.classList.add("dim-layer");
     $DIM.style.position = "fixed";
@@ -313,7 +312,6 @@ function setDimLayer(zIndex) {
 function offDimLayer() {
     scrollEnable();
     const $DIM = document.querySelector(".dim-layer");
-    // console.log(dimLayer);
     if ($DIM instanceof Element) {
         $DIM.remove();
     };
@@ -342,7 +340,7 @@ function showSpinner() {
 function hideSpinner() {
     offDimLayer();
     const $LOADING_SPINNER = document.querySelector(".loading-spinner");
-    // console.log(dimLayer);
+
     $LOADING_SPINNER.remove();
 };
 
@@ -454,11 +452,8 @@ function deleteCookie(_name) {
  * @param {*} _text
  */
 function renderText(_target, _text) {
-    // console.log("renderText", _target);
-    // console.log(template);
     const $TARGET = document.getElementById(_target);
     if ($TARGET) {
-        // console.log($TARGET.tagName);
         if ($TARGET.tagName == "INPUT") {
             console.log($TARGET.tagName, "적절한 타겟이 아닙니다.(setTextValue를 권장합니다.)");
             return;
@@ -483,8 +478,6 @@ function renderText(_target, _text) {
  * @param {String} _template 
  */
 function renderHTML(_target, _template) {
-    // console.log("renderHTML", _target);
-    // console.log(template);
     const $TARGET = document.getElementById(_target);
     if ($TARGET) {
         $TARGET.innerHTML = _template;
@@ -501,8 +494,6 @@ function renderHTML(_target, _template) {
  * @returns 
  */
 function appendHTML(_target, _template) {
-    // console.log("HTML_tag", _target);
-    // console.log(template);
     const $TARGET = document.getElementById(_target);
     if ($TARGET) {
         if (_template) {
@@ -524,8 +515,6 @@ function appendHTML(_target, _template) {
  * @returns 
  */
 function renderImage(_target, _url) {
-    // console.log("renderImage", _target);
-    // console.log(template);
     if (_url) {
         const $TARGET = document.getElementById(_target);
         if ($TARGET) {

@@ -27,7 +27,7 @@ class CMSLayout extends HTMLBodyElement {
         if (moduleElement) {
             for (var i = 0; i < moduleElement.length; i++) {
                 this.append(moduleElement[i]);
-            }
+            };
         };
     };
     // ------- Finish Lock --------
