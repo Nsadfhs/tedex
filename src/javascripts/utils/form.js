@@ -714,7 +714,17 @@ function typingSignCheck(_params) {
     const { target, keyword, error_message } = _params;
     let allCheckValid = [];
 
-    const $inputElem = document.getElementById(target);
+    let $inputElem = "";
+    if (isFalsy(target)) {
+        return false;
+    } else {
+        if (target instanceof Element) {
+            $inputElem = target;
+        } else {
+            $inputElem = document.getElementById(target);
+        };
+    };
+
     let checkReg = setRegularExpression(keyword);
     if (target == "user_password_check") {
         // 비밀번호 && 비밀번호 재입력 체크
@@ -771,8 +781,16 @@ function typingSignCheck(_params) {
 function signCheck(_params) {
     const { target, keyword, error_message } = _params;
     let allCheckValid = [];
-
-    const $inputElem = document.getElementById(target);
+    let $inputElem = "";
+    if (isFalsy(target)) {
+        return false;
+    } else {
+        if (target instanceof Element) {
+            $inputElem = target;
+        } else {
+            $inputElem = document.getElementById(target);
+        };
+    };
 
     let checkReg = setRegularExpression(keyword);
     if (target == "user_password_check") {
@@ -1088,8 +1106,7 @@ function formatResidentNumber(_target) {
     }
 
     _target.value = residentNumber;
-}
-
+};
 
 document.addEventListener("keyup", (e) => {
     if (e.target.dataset.format == "PN") {
