@@ -67,7 +67,7 @@
     border: 1px solid var(--color-success);
 }
 
-.cms-textfield-a.success .filed-message {
+.textfield__a.success .filed-message {
     display: inline-block;
     width: auto;
     color: var(--color_danger);
@@ -75,6 +75,13 @@
     font-weight: var(--font-weight__medium);
     line-height: var(--line-height__message);
     margin-left: auto;
+}
+
+.textfield__a.disabled input {
+    background-color: var(--color-disabled__background);
+    color: var(--color-disabled__text);
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 
@@ -167,6 +174,14 @@
     font-weight: 400;
     line-height: 18px;
 }
+
+.textfield__b.disabled input {
+    background-color: var(--color-disabled__background);
+    color: var(--color-disabled__text);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 
 /* text + button both */
 .textfield__c {
