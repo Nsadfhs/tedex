@@ -127,6 +127,7 @@ function setPagination(info, callback) {
         if (nextPage) {
             nextPage.addEventListener("click", function (e) {
                 let index = stepLast;
+                sessionStorage.setItem("paging_index", index);
                 callback(index);
             });
         }
@@ -139,6 +140,7 @@ function setPagination(info, callback) {
         if (prevPage) {
             prevPage.addEventListener("click", function () {
                 let index = stepFirst - (AMOUNT_INDEX - 1);
+                sessionStorage.setItem("paging_index", index);
                 callback(index);
             })
         }
@@ -152,6 +154,7 @@ function setPagination(info, callback) {
         if (prevFirst) {
             prevFirst.addEventListener("click", function (e) {
                 let index = 0;
+                sessionStorage.setItem("paging_index", index);
                 callback(index);
             });
         };
@@ -165,6 +168,7 @@ function setPagination(info, callback) {
         if (nextLast) {
             nextLast.addEventListener("click", function (e) {
                 let index = totalPages - 1;
+                sessionStorage.setItem("paging_index", index);
                 callback(index);
             });
         };
@@ -176,10 +180,8 @@ function setPagination(info, callback) {
         paginationIndicator[i].addEventListener("click", function (e) {
             // // //console.log(e.target.dataset.index);
             let index = e.target.dataset.index;
+            sessionStorage.setItem("paging_index", index);
             callback(index);
         });
     };
 };
-
-
-// function setPaginationTemplate(info, callback)

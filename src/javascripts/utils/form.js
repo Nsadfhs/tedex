@@ -392,11 +392,11 @@ function setCheckboxValue(_target, _value) {
 function getCheckboxValue(_target) {
     const $targetElemArr = document.getElementsByName(_target);
     if ($targetElemArr) {
-
         let valueArr = new Array;
         for (var i = 0; i < $targetElemArr.length; i++) {
             const $targetElem = $targetElemArr[i];
             if ($targetElemArr.length == 1) {
+                // console.log("한개");
                 if ($targetElem.checked == "on") {
                     return true;
                 } else if ($targetElem.checked) {
@@ -405,14 +405,15 @@ function getCheckboxValue(_target) {
                     return false;
                 };
             } else {
+                // console.log("여러개");
                 if ($targetElem.checked == "on" || $targetElem.value == "on") {
-                    return valueArr.push($targetElem.id);
+                    valueArr.push($targetElem.id);
                 } else if ($targetElem.checked) {
-                    return valueArr.push($targetElem.value);
+                    valueArr.push($targetElem.value);
                 } else {
-                    return false;
+                    valueArr.push(false);
                 };
-            }
+            };
         };
 
         return valueArr;
