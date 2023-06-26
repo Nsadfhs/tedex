@@ -1,3 +1,43 @@
+label,
+.fake-label {
+    flex-shrink: 0;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    color: var(--color-gray__600);
+    font-size: var(--font-size__label);
+    font-weight: var(--font-weight__bold);
+    line-height: var(--line-height__label);
+    letter-spacing: -0.25px;
+}
+
+.fake-label {
+    min-width: 7.5rem;
+}
+
+input[type=text],
+.fake-textfield,
+.fake-input {
+    flex: 1;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    color: var(--color-black__off);
+    font-size: var(--font-size__input);
+    font-weight: var(--font-weight__medium);
+    line-height: var(--line-height__input);
+    border: var(--border-gray__1);
+}
+
+input[type=text]:disabled,
+.fake-textfield:disabled,
+.fake-input:disabled {
+    background-color: var(--color-disabled__background);
+    color: var(--color-disabled__text);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 /* text field horizontal label + input */
 .textfield__a {
     position: relative;
