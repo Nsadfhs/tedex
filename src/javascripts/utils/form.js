@@ -405,7 +405,7 @@ function getCheckboxValue(_target) {
                     return false;
                 };
             } else {
-                if ($targetElem.checked == "on") {
+                if ($targetElem.checked == "on" || $targetElem.value == "on") {
                     return valueArr.push($targetElem.id);
                 } else if ($targetElem.checked) {
                     return valueArr.push($targetElem.value);
@@ -464,20 +464,32 @@ function getCheckboxText(_target) {
  */
 function watchCheckboxValue(_target, callback = null) {
     const $targetElemArr = document.getElementsByName(_target);
+    console.log($targetElemArr);
     if ($targetElemArr) {
         let valueArr = new Array;
+
         for (var i = 0; i < $targetElemArr.length; i++) {
             const $targetElem = $targetElemArr[i];
-            if ($targetElem.checked) {
+            console.log($targetElem.checked);
+            if ($targetElem.checked === "on") {
+                valueArr.push($targetElem.id);
+            } else if ($targetElem.checked) {
                 valueArr.push($targetElem.value);
+            } else {
+                valueArr = valueArr.filter((element) => element !== e.target.value);
             };
             $targetElem.addEventListener("change", function (e) {
-                if (e.target.checked) {
+                console.log(e.target.checked);
+                if (e.target.checked === "on" || e.target.value === "on") {
+                    valueArr.push(e.target.id);
+                } else if (e.target.checked) {
+                    console.log(e.target.checked);
                     valueArr.push(e.target.value);
                 } else {
+                    console.log(e.target.checked);
                     valueArr = valueArr.filter((element) => element !== e.target.value);
                 };
-
+                console.log(valueArr);
                 if (callback) {
                     callback(valueArr);
                 } else {
